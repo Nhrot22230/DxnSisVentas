@@ -5,16 +5,18 @@
 <html>
 <head runat="server">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <script type="text/javascript" src="Scripts/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript" src="/Scripts/jquery-3.7.1.min.js"></script>
 
   <title id="PageTitle" runat="server"></title>
 
   <asp:ContentPlaceHolder ID="head" runat="server">
   </asp:ContentPlaceHolder>
-  <link rel="stylesheet" href="Content/all.min.css" />
-  <link rel="stylesheet" href="Content/fontawesome.min.css">
-  <link rel="stylesheet" href="Content/bootstrap.min.css" />
-  <link rel="stylesheet" href="CustomStyles/Master.css" />
+
+  <link rel="stylesheet" href="/Content/all.min.css" />
+  <link rel="stylesheet" href="/Content/fontawesome.min.css">
+  <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+  <link rel="stylesheet" href="/CustomStyles/Master.css" />
+  
 </head>
 <body>
   <div class="main-view">
@@ -38,12 +40,12 @@
             </a>
             <ul class="treeview-menu">
               <li>
-                <asp:LinkButton ID="LbUsuariosClientes" runat="server" >
+                <asp:LinkButton ID="LbUsuariosClientes" runat="server">
                   <i class="fa fa-user"></i> <span>Clientes</span>
                 </asp:LinkButton>
               </li>
               <li>
-                <asp:LinkButton ID="LbUsuariosEmpleados" runat="server" >
+                <asp:LinkButton ID="LbUsuariosEmpleados" runat="server">
                   <i class="fa fa-briefcase"></i> <span>Empleados</span>
                 </asp:LinkButton>
               </li>
@@ -93,6 +95,6 @@
       </asp:ContentPlaceHolder>
     </div>
   </div>
+  <script type="text/javascript" src="/CustomScripts/Master.js"></script>
 </body>
-<script type="text/javascript" src="CustomScripts/Master.js"></script>
 </html>
