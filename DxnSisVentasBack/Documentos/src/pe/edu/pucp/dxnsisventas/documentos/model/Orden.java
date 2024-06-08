@@ -18,7 +18,11 @@ public class Orden {
   private EstadoOrden estado;
   private Date fechaCreacion;
   private double total;
-
+  
+  public Orden(){
+    lineasOrden = new ArrayList<>();
+  }
+  
   public int getIdOrden() {
     return idOrden;
   }

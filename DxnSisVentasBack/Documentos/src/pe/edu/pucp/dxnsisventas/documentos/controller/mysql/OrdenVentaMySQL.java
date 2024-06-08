@@ -93,7 +93,7 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
         try {
           Timestamp fechaEntrega = rs.getTimestamp("fecha_entrega");
           orden.setFechaEntrega(fechaEntrega != null ? new Date(fechaEntrega.getTime()) : null);
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
           orden.setFechaEntrega(null);
         }
         orden.setTipoVenta(TipoVenta.valueOf(rs.getString("tipo_venta")));

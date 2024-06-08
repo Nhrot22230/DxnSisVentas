@@ -73,7 +73,7 @@ public class OrdenCompraMySQL implements OrdenCompraDAO {
         try {
           Timestamp fechaRecepcion = rs.getTimestamp("fecha_recepcion");
           ordenCompra.setFechaRecepcion(fechaRecepcion != null ? fechaRecepcion : null);
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
           ordenCompra.setFechaRecepcion(null);
         }
         Producto producto = new Producto();
@@ -104,7 +104,7 @@ public class OrdenCompraMySQL implements OrdenCompraDAO {
       if (prevORC != null) {
         ordenCompras.add(prevORC);
       }
-    } catch (SQLException ex) {
+    } catch (Exception ex) {
       System.out.println(ex.getMessage());
     } finally {
       try {

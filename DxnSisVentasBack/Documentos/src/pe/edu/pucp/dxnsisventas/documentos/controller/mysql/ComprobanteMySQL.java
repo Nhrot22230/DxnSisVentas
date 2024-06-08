@@ -126,7 +126,7 @@ public class ComprobanteMySQL implements ComprobanteDAO {
           try {
             Date fecha_entrega = rs.getDate("fecha_entrega");
             ordenVenta.setFechaEntrega(fecha_entrega);
-          } catch (SQLException ex) {
+          } catch (Exception ex) {
             ordenVenta.setFechaEntrega(new Date());
           }
 
@@ -151,7 +151,7 @@ public class ComprobanteMySQL implements ComprobanteDAO {
           try {
             Date fecha_recepcion = rs.getDate("fecha_recepcion");
             ordenCompra.setFechaRecepcion(fecha_recepcion);
-          } catch (SQLException ex) {
+          } catch (Exception ex) {
             ordenCompra.setFechaRecepcion(new Date());
             ordenCompra.getFechaRecepcion().toString();
           }
