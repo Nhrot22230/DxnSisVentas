@@ -9,7 +9,6 @@ build/
 *.class
 
 # Package files
-*.jar
 *.war
 *.ear
 
