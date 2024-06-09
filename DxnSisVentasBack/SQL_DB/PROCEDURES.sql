@@ -45,6 +45,7 @@ DROP PROCEDURE IF EXISTS actualizar_orden;
 DROP PROCEDURE IF EXISTS listar_ordenes;
 
 DROP PROCEDURE IF EXISTS insertar_orden_venta;
+DROP PROCEDURE IF EXISTS insertar_orden_venta_con_repartidor;
 DROP PROCEDURE IF EXISTS actualizar_orden_venta;
 DROP PROCEDURE IF EXISTS listar_ordenes_venta;
 
@@ -558,6 +559,26 @@ BEGIN
   SET p_id_orden_venta = LAST_INSERT_ID();
 END$$
 
+CREATE PROCEDURE insertar_orden_venta_con_repartidor(
+  OUT p_id_orden_venta INT,
+  OUT p_id_orden INT,
+  IN p_id_cliente INT,
+  IN p_id_empleado INT,
+  IN p_id_repartidor INT,
+  IN p_estado ENUM('Pendiente', 'Entregado', 'Cancelado'),
+  IN p_fecha_creacion DATETIME,
+  IN p_tipo_venta ENUM('Presencial', 'Delivery'),
+  IN p_metodo_pago ENUM('Efectivo', 'Tarjeta'),
+  IN p_porcentaje_descuento DECIMAL(4,2),
+  IN p_total DECIMAL(10, 2)
+)
+BEGIN
+  CALL insertar_orden(p_id_orden, p_estado, p_fecha_creacion, p_total);
+  INSERT INTO Orden_Venta(id_orden, id_cliente, id_empleado, id_repartidor, tipo_venta, metodo_pago, porcentaje_descuento)
+  VALUES(p_id_orden, p_id_cliente, p_id_empleado, p_id_repartidor, p_tipo_venta, p_metodo_pago, p_porcentaje_descuento);
+  SET p_id_orden_venta = LAST_INSERT_ID();
+END$$
+
 CREATE PROCEDURE actualizar_orden_venta(
   IN p_id_orden_venta INT,
   IN p_id_orden INT,
@@ -589,9 +610,9 @@ CREATE PROCEDURE listar_ordenes_venta(
 BEGIN
   SELECT o.id_orden, o.estado, o.fecha_creacion, o.total,
   ov.id_orden_venta, ov.fecha_entrega, ov.tipo_venta, ov.metodo_pago, ov.porcentaje_descuento,
-  ov.id_cliente, c.dni AS dni_cliente, c.nombre AS nombre_cliente, c.apellido_paterno AS apellido_paterno_cliente, c.apellido_materno AS apellido_materno_cliente,
-  c.puntos, c.puntos_retenidos, c.ruc, c.razon_social, c.direccion,
-  ov.id_empleado, e.dni AS dni_empleado, e.nombre AS nombre_empleado, e.apellido_paterno AS apellido_paterno_empleado, e.apellido_materno AS apellido_materno_empleado,
+  ov.id_cliente, c.dni AS dni_cliente, c.nombre AS nombre_cliente, c.apellido_paterno AS apellido_paterno_cliente, c.apellido_materno AS apellido_materno_cliente, c.puntos, c.puntos_retenidos, c.ruc, c.razon_social, c.direccion,
+  ov.id_empleado, e.dni AS dni_empleado, e.nombre AS nombre_empleado, e.apellido_paterno AS apellido_paterno_empleado, e.apellido_materno AS apellido_materno_empleado, e.sueldo, e.rol,
+  ov.id_repartidor, e2.dni AS dni_repartidor, e2.nombre AS nombre_repartidor, e2.apellido_paterno AS apellido_paterno_repartidor, e2.apellido_materno AS apellido_materno_repartidor, e2.sueldo AS sueldo_repartidor, e2.rol AS rol_repartidor,
   e.sueldo, e.rol,
   ov.fecha_entrega, ov.tipo_venta, ov.metodo_pago,
   p.id_producto, p.nombre AS nombre_producto, p.precio_unitario, p.stock, p.capacidad, p.unidad_medida, p.tipo, p.puntos,
@@ -600,6 +621,7 @@ BEGIN
   JOIN Orden_Venta ov ON o.id_orden = ov.id_orden
   JOIN Cliente c ON ov.id_cliente = c.id_cliente
   JOIN Empleado e ON ov.id_empleado = e.id_empleado
+  LEFT JOIN Empleado e2 ON ov.id_repartidor = e2.id_empleado
   LEFT JOIN LineaOrden lo ON o.id_orden = lo.id_orden
   LEFT JOIN Producto p ON lo.id_producto = p.id_producto
   WHERE (o.id_orden LIKE CONCAT('%', p_cadena, '%') OR
@@ -696,14 +718,14 @@ CREATE PROCEDURE listar_comprobantes(
 )
 BEGIN
   SELECT c.id_comprobante, c.tipo_comprobante, c.fecha_emision,
-  o.id_orden, o.estado, o.fecha_creacion,
+  o.id_orden, o.estado, o.fecha_creacion, o.total,
   ov.id_orden_venta, 
-  ov.id_cliente, cl.dni as dni_cliente, cl.nombre as nombre_cliente, cl.apellido_paterno as apellido_paterno_cliente, cl.apellido_materno as apellido_materno_cliente,
-  ov.id_empleado, e.dni as dni_empleado, e.nombre as nombre_empleado, e.apellido_paterno as apellido_paterno_empleado, e.apellido_materno as apellido_materno_empleado,
+  ov.id_cliente, cl.dni as dni_cliente, cl.nombre as nombre_cliente, cl.apellido_paterno as apellido_paterno_cliente, cl.apellido_materno as apellido_materno_cliente, cl.puntos, cl.puntos_retenidos, cl.ruc, cl.razon_social, cl.direccion,
+  ov.id_empleado, e.dni as dni_empleado, e.nombre as nombre_empleado, e.apellido_paterno as apellido_paterno_empleado, e.apellido_materno as apellido_materno_empleado, e.sueldo, e.rol,
+  ov.id_repartidor, e2.dni as dni_repartidor, e2.nombre as nombre_repartidor, e2.apellido_paterno as apellido_paterno_repartidor, e2.apellido_materno as apellido_materno_repartidor, e2.sueldo as sueldo_repartidor, e2.rol as rol_repartidor,
   ov.fecha_entrega, ov.tipo_venta, ov.metodo_pago, ov.porcentaje_descuento,
   oc.id_orden_compra, oc.fecha_recepcion,
-  lo.id_producto,
-  p.nombre as nombre_producto, p.precio_unitario, p.stock, p.capacidad, p.unidad_medida, p.tipo, p.puntos, 
+  lo.id_producto, p.nombre as nombre_producto, p.precio_unitario, p.stock, p.capacidad, p.unidad_medida, p.tipo, p.puntos, 
   lo.cantidad, lo.subtotal
   FROM Comprobante c
   LEFT JOIN Orden o ON o.id_orden = c.id_orden
@@ -713,6 +735,7 @@ BEGIN
   LEFT JOIN Producto p ON lo.id_producto = p.id_producto
   LEFT JOIN Cliente cl ON ov.id_cliente = cl.id_cliente
   LEFT JOIN Empleado e ON ov.id_empleado = e.id_empleado
+  LEFT JOIN Empleado e2 ON ov.id_repartidor = e2.id_empleado
   WHERE c.id_orden IS NOT NULL
   AND (c.id_comprobante LIKE CONCAT('%', p_cadena, '%') );
 END$$

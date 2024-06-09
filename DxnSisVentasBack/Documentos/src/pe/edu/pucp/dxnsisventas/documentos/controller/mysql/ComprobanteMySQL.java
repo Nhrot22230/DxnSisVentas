@@ -42,40 +42,32 @@ public class ComprobanteMySQL implements ComprobanteDAO {
   private ResultSet rs;
 
   /*
-   * CREATE PROCEDURE listar_comprobantes(
-   * IN p_cadena VARCHAR(30)
-   * )
-   * BEGIN
-   * SELECT c.id_comprobante, c.tipo_comprobante, c.fecha_emision,
-   * o.id_orden, o.estado, o.fecha_creacion,
-   * ov.id_orden_venta,
-   * ov.id_cliente, cl.dni as dni_cliente, cl.nombre as nombre_cliente,
-   * cl.apellido_paterno as apellido_paterno_cliente, cl.apellido_materno as
-   * apellido_materno_cliente,
-   * ov.id_empleado, e.dni as dni_empleado, e.nombre as nombre_empleado,
-   * e.apellido_paterno as apellido_paterno_empleado, e.apellido_materno as
-   * apellido_materno_empleado,
-   * e2.id_empleado as id_repartidor, e2.dni as dni_repartidor, e2.nombre as
-   * nombre_repartidor, e2.apellido_paterno as apellido_paterno_repartidor,
-   * e2.apellido_materno as apellido_materno_repartidor,
-   * ov.fecha_entrega, ov.tipo_venta, ov.metodo_pago, ov.porcentaje_descuento,
-   * oc.id_orden_compra, oc.fecha_recepcion,
-   * lo.id_producto,
-   * p.nombre as nombre_producto, p.precio_unitario, p.stock, p.capacidad,
-   * p.unidad_medida, p.tipo, p.puntos,
-   * lo.cantidad, lo.subtotal
-   * FROM Comprobante c
-   * LEFT JOIN Orden o ON o.id_orden = c.id_orden
-   * LEFT JOIN Orden_Venta ov ON o.id_orden = ov.id_orden
-   * LEFT JOIN Orden_Compra oc ON o.id_orden = oc.id_orden
-   * LEFT JOIN LineaOrden lo ON o.id_orden = lo.id_orden
-   * LEFT JOIN Producto p ON lo.id_producto = p.id_producto
-   * LEFT JOIN Cliente cl ON ov.id_cliente = cl.id_cliente
-   * LEFT JOIN Empleado e ON ov.id_empleado = e.id_empleado
-   * LEFT JOIN Empleado e2 ON oc.id_empleado = e2.id_empleado
-   * WHERE c.id_orden IS NOT NULL
-   * AND (c.id_comprobante LIKE CONCAT('%', p_cadena, '%') );
-   * END$$
+  CREATE PROCEDURE listar_comprobantes(
+    IN p_cadena VARCHAR(30)
+  )
+  BEGIN
+    SELECT c.id_comprobante, c.tipo_comprobante, c.fecha_emision,
+    o.id_orden, o.estado, o.fecha_creacion, o.total,
+    ov.id_orden_venta, 
+    ov.id_cliente, cl.dni as dni_cliente, cl.nombre as nombre_cliente, cl.apellido_paterno as apellido_paterno_cliente, cl.apellido_materno as apellido_materno_cliente, cl.puntos, cl.puntos_retenidos, cl.ruc, cl.razon_social, cl.direccion,
+    ov.id_empleado, e.dni as dni_empleado, e.nombre as nombre_empleado, e.apellido_paterno as apellido_paterno_empleado, e.apellido_materno as apellido_materno_empleado, e.sueldo, e.rol,
+    ov.id_repartidor, e2.dni as dni_repartidor, e2.nombre as nombre_repartidor, e2.apellido_paterno as apellido_paterno_repartidor, e2.apellido_materno as apellido_materno_repartidor, e2.sueldo as sueldo_repartidor, e2.rol as rol_repartidor,
+    ov.fecha_entrega, ov.tipo_venta, ov.metodo_pago, ov.porcentaje_descuento,
+    oc.id_orden_compra, oc.fecha_recepcion,
+    lo.id_producto, p.nombre as nombre_producto, p.precio_unitario, p.stock, p.capacidad, p.unidad_medida, p.tipo, p.puntos, 
+    lo.cantidad, lo.subtotal
+    FROM Comprobante c
+    LEFT JOIN Orden o ON o.id_orden = c.id_orden
+    LEFT JOIN Orden_Venta ov ON o.id_orden = ov.id_orden
+    LEFT JOIN Orden_Compra oc ON o.id_orden = oc.id_orden
+    LEFT JOIN LineaOrden lo ON o.id_orden = lo.id_orden
+    LEFT JOIN Producto p ON lo.id_producto = p.id_producto
+    LEFT JOIN Cliente cl ON ov.id_cliente = cl.id_cliente
+    LEFT JOIN Empleado e ON ov.id_empleado = e.id_empleado
+    LEFT JOIN Empleado e2 ON ov.id_repartidor = e2.id_empleado
+    WHERE c.id_orden IS NOT NULL
+    AND (c.id_comprobante LIKE CONCAT('%', p_cadena, '%') );
+  END$$
    */
   @Override
   public ArrayList<Comprobante> listar(String cadena) {
@@ -99,8 +91,9 @@ public class ComprobanteMySQL implements ComprobanteDAO {
         int id_orden = rs.getInt("id_orden");
         EstadoOrden estado = EstadoOrden.valueOf(rs.getString("estado"));
         Date fecha_creacion = rs.getDate("fecha_creacion");
-        int id_orv = rs.getInt("id_orden_venta");
+        double total = rs.getDouble("total");
 
+        int id_orv = rs.getInt("id_orden_venta");
         if (id_orv != 0) {
           Cliente cliente = new Cliente();
           cliente.setIdNumerico(rs.getInt("id_cliente"));
@@ -109,9 +102,9 @@ public class ComprobanteMySQL implements ComprobanteDAO {
           cliente.setNombre(rs.getString("nombre_cliente"));
           cliente.setApellidoPaterno(rs.getString("apellido_paterno_cliente"));
           cliente.setApellidoMaterno(rs.getString("apellido_materno_cliente"));
-          cliente.setRUC("");
-          cliente.setRazonSocial("");
-          cliente.setDireccion("");
+          cliente.setRUC(rs.getString("ruc"));
+          cliente.setRazonSocial(rs.getString("razon_social"));
+          cliente.setDireccion(rs.getString("direccion"));
 
           Empleado empleado = new Empleado();
           empleado.setIdEmpleadoNumerico(rs.getInt("id_empleado"));
@@ -120,7 +113,22 @@ public class ComprobanteMySQL implements ComprobanteDAO {
           empleado.setNombre(rs.getString("nombre_empleado"));
           empleado.setApellidoPaterno(rs.getString("apellido_paterno_empleado"));
           empleado.setApellidoMaterno(rs.getString("apellido_materno_empleado"));
-          empleado.setRol(Rol.EncargadoVentas);
+          empleado.setSueldo(rs.getDouble("sueldo"));
+          empleado.setRol(Rol.valueOf(rs.getString("rol")));
+
+          Empleado repartidor = null;
+          int id_repartidor = rs.getInt("id_repartidor");
+          if (id_repartidor != 0) {
+            repartidor = new Empleado();
+            repartidor.setIdEmpleadoNumerico(rs.getInt("id_repartidor"));
+            repartidor.setIdEmpleadoCadena("EMP" + String.format("%05d", repartidor.getIdEmpleadoNumerico()));
+            repartidor.setDNI(rs.getString("dni_repartidor"));
+            repartidor.setNombre(rs.getString("nombre_repartidor"));
+            repartidor.setApellidoPaterno(rs.getString("apellido_paterno_repartidor"));
+            repartidor.setApellidoMaterno(rs.getString("apellido_materno_repartidor"));
+            repartidor.setSueldo(rs.getDouble("sueldo_repartidor"));
+            repartidor.setRol(Rol.valueOf(rs.getString("rol_repartidor")));
+          }
 
           OrdenVenta ordenVenta = new OrdenVenta();
           try {
@@ -139,8 +147,7 @@ public class ComprobanteMySQL implements ComprobanteDAO {
           ordenVenta.setIdOrden(id_orden);
           ordenVenta.setCliente(cliente);
           ordenVenta.setEncargadoVenta(empleado);
-          empleado.setRol(Rol.Repartidor);
-          ordenVenta.setRepartidor(empleado);
+          ordenVenta.setRepartidor(repartidor);
           ordenVenta.setTipoVenta(tipo_venta);
           ordenVenta.setMetodoPago(metodo_pago);
           ordenVenta.setPorcentajeDescuento(porcentaje_descuento);
@@ -163,6 +170,7 @@ public class ComprobanteMySQL implements ComprobanteDAO {
         orden.setIdOrden(id_orden);
         orden.setEstado(estado);
         orden.setFechaCreacion(fecha_creacion);
+        orden.setTotal(total);
 
         LineaOrden lineaOrden = new LineaOrden();
         Producto producto = new Producto();

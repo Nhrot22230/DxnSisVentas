@@ -43,34 +43,29 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
   }
 
   /*
-   * CREATE PROCEDURE listar_ordenes_venta(
-   * IN p_cadena VARCHAR(30)
-   * )
-   * BEGIN
-   * SELECT o.id_orden, o.estado, o.fecha_creacion, o.total,
-   * ov.id_orden_venta, ov.fecha_entrega, ov.tipo_venta, ov.metodo_pago,
-   * ov.porcentaje_descuento,
-   * ov.id_cliente, c.dni AS dni_cliente, c.nombre AS nombre_cliente,
-   * c.apellido_paterno AS apellido_paterno_cliente, c.apellido_materno AS
-   * apellido_materno_cliente,
-   * c.puntos, c.puntos_retenidos, c.ruc, c.razon_social, c.direccion,
-   * ov.id_empleado, e.dni AS dni_empleado, e.nombre AS nombre_empleado,
-   * e.apellido_paterno AS apellido_paterno_empleado, e.apellido_materno AS
-   * apellido_materno_empleado,
-   * e.sueldo, e.rol,
-   * ov.fecha_entrega, ov.tipo_venta, ov.metodo_pago,
-   * p.id_producto, p.nombre AS nombre_producto, p.precio_unitario, p.stock,
-   * p.capacidad, p.unidad_medida, p.tipo, p.puntos,
-   * lo.cantidad, lo.subtotal
-   * FROM Orden o
-   * JOIN Orden_Venta ov ON o.id_orden = ov.id_orden
-   * JOIN Cliente c ON ov.id_cliente = c.id_cliente
-   * JOIN Empleado e ON ov.id_empleado = e.id_empleado
-   * LEFT JOIN LineaOrden lo ON o.id_orden = lo.id_orden
-   * LEFT JOIN Producto p ON lo.id_producto = p.id_producto
-   * WHERE (o.id_orden LIKE CONCAT('%', p_cadena, '%') OR
-   * ov.id_orden_venta LIKE CONCAT('%', p_cadena, '%'));
-   * END$$
+  CREATE PROCEDURE listar_ordenes_venta(
+    IN p_cadena VARCHAR(30)
+  )
+  BEGIN
+    SELECT o.id_orden, o.estado, o.fecha_creacion, o.total,
+    ov.id_orden_venta, ov.fecha_entrega, ov.tipo_venta, ov.metodo_pago, ov.porcentaje_descuento,
+    ov.id_cliente, c.dni AS dni_cliente, c.nombre AS nombre_cliente, c.apellido_paterno AS apellido_paterno_cliente, c.apellido_materno AS apellido_materno_cliente, c.puntos, c.puntos_retenidos, c.ruc, c.razon_social, c.direccion,
+    ov.id_empleado, e.dni AS dni_empleado, e.nombre AS nombre_empleado, e.apellido_paterno AS apellido_paterno_empleado, e.apellido_materno AS apellido_materno_empleado, e.sueldo, e.rol,
+    ov.id_repartidor, e2.dni AS dni_repartidor, e2.nombre AS nombre_repartidor, e2.apellido_paterno AS apellido_paterno_repartidor, e2.apellido_materno AS apellido_materno_repartidor, e2.sueldo AS sueldo_repartidor, e2.rol AS rol_repartidor,
+    e.sueldo, e.rol,
+    ov.fecha_entrega, ov.tipo_venta, ov.metodo_pago,
+    p.id_producto, p.nombre AS nombre_producto, p.precio_unitario, p.stock, p.capacidad, p.unidad_medida, p.tipo, p.puntos,
+    lo.cantidad, lo.subtotal
+    FROM Orden o 
+    JOIN Orden_Venta ov ON o.id_orden = ov.id_orden
+    JOIN Cliente c ON ov.id_cliente = c.id_cliente
+    JOIN Empleado e ON ov.id_empleado = e.id_empleado
+    LEFT JOIN Empleado e2 ON ov.id_repartidor = e2.id_empleado
+    LEFT JOIN LineaOrden lo ON o.id_orden = lo.id_orden
+    LEFT JOIN Producto p ON lo.id_producto = p.id_producto
+    WHERE (o.id_orden LIKE CONCAT('%', p_cadena, '%') OR
+          ov.id_orden_venta LIKE CONCAT('%', p_cadena, '%'));
+  END$$
    */
   @Override
   public ArrayList<OrdenVenta> listar(String cadena) {
@@ -122,10 +117,23 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
         empleado.setApellidoPaterno(rs.getString("apellido_paterno_empleado"));
         empleado.setApellidoMaterno(rs.getString("apellido_materno_empleado"));
         empleado.setSueldo(rs.getDouble("sueldo"));
+        empleado.setRol(Rol.valueOf(rs.getString("rol")));
 
-        empleado.setRol(Rol.EncargadoVentas);
+        int id_repartidor = rs.getInt("id_repartidor");
+        Empleado repartidor = null;
+        if (id_repartidor != 0) {
+          repartidor = new Empleado();
+          repartidor.setIdEmpleadoNumerico(id_repartidor);
+          repartidor.setDNI(rs.getString("dni_repartidor"));
+          repartidor.setNombre(rs.getString("nombre_repartidor"));
+          repartidor.setApellidoPaterno(rs.getString("apellido_paterno_repartidor"));
+          repartidor.setApellidoMaterno(rs.getString("apellido_materno_repartidor"));
+          repartidor.setSueldo(rs.getDouble("sueldo_repartidor"));
+          repartidor.setRol(Rol.valueOf(rs.getString("rol_repartidor")));
+        }
+        ordenVenta.setRepartidor(repartidor);
+
         ordenVenta.setEncargadoVenta(empleado);
-
         LineaOrden lineaOrden = new LineaOrden();
         Producto producto = new Producto();
         producto.setIdProductoNumerico(rs.getInt("id_producto"));
