@@ -24,8 +24,12 @@
     </div>
     <div class="container row">
       <div class="text p-3">
-        <asp:LinkButton ID="BtnAgregar" runat="server" Text="<i class='fas fa-plus pe-2'> </i> Agregar"
-          OnClientClick="showModalForm(); return false;" CssClass="btn btn-success" />
+        <asp:LinkButton 
+          ID="BtnAgregar" runat="server" 
+          OnClick="BtnAgregar_Click"
+          CssClass="btn btn-success"
+          Text="<i class='fas fa-plus pe-2'> </i> Agregar"
+          />
       </div>
     </div>
     <div class="container row">

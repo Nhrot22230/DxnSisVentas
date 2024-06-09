@@ -52,7 +52,18 @@ namespace DxnSisventas.Views
     }
     protected void BtnAgregar_Click(object sender, EventArgs e)
     {
+      // Clean modal form
+      TxtNombre.Text = "";
+      TxtStock.Text = "";
+      TxtPrecio.Text = "";
+      TxtPuntos.Text = "";
+      TxtCapacidad.Text = "";
+      ddlTipoProducto.SelectedValue = "0";
+      ddlUnidadMedida.SelectedValue = "0";
+      TxtId.Text = "";
+      Session["idProducto"] = null;
 
+      ScriptManager.RegisterStartupScript(this, GetType(), "showModalForm", "showModalForm();", true);
     }
     protected void BtnEditar_Click(object sender, EventArgs e)
     {
@@ -111,17 +122,6 @@ namespace DxnSisventas.Views
       ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('" + mensaje + "');", true);
       
       CargarTabla();
-
-      // Clean modal form
-      TxtNombre.Text = "";
-      TxtStock.Text = "";
-      TxtPrecio.Text = "";
-      TxtPuntos.Text = "";
-      TxtCapacidad.Text = "";
-      ddlTipoProducto.SelectedValue = "0";
-      ddlUnidadMedida.SelectedValue = "0";
-      TxtId.Text = "";
-      Session["idProducto"] = null;
     }
   }
 }
