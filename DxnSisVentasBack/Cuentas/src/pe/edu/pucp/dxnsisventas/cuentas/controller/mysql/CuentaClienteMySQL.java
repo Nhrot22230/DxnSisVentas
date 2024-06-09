@@ -4,11 +4,13 @@
  */
 package pe.edu.pucp.dxnsisventas.cuentas.controller.mysql;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import pe.edu.pucp.dxnsisventas.cuentas.controller.dao.CuentaClienteDAO;
 import pe.edu.pucp.dxnsisventas.cuentas.model.CuentaCliente;
 import pe.edu.pucp.dxnsisventas.personas.model.Cliente;
@@ -45,6 +47,10 @@ public class CuentaClienteMySQL implements CuentaClienteDAO {
     END IF;
   END$$
    */
+  public boolean validar_acceso(String contrasena, String bcryptHashString) {
+    return BCrypt.verifyer().verify(contrasena.toCharArray(), bcryptHashString).verified;
+  }
+  
   @Override
   public Cliente iniciar_sesion(String usuario, String contrasena) {
     Cliente res = null;
@@ -52,10 +58,10 @@ public class CuentaClienteMySQL implements CuentaClienteDAO {
       con = DBManager.getInstance().getConnection();
       sql = "{ CALL iniciar_sesion_cliente(?, ?) }";
       cs = con.prepareCall(sql);
+      cs.registerOutParameter("p_contrasena", java.sql.Types.VARCHAR);
       cs.setString("p_usuario", usuario);
-      cs.setString("p_contrasena", contrasena);
-      cs.executeUpdate();
-      if (rs.next()) {
+      rs = cs.executeQuery();
+      if (rs.next() && validar_acceso(contrasena, rs.getString("p_contrasena"))) {
         res = new Cliente();
         res.setIdNumerico(rs.getInt("id_cliente"));
         res.setDNI(rs.getString("dni"));

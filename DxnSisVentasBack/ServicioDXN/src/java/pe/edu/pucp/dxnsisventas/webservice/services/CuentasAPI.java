@@ -8,6 +8,7 @@ import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import java.util.ArrayList;
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import pe.edu.pucp.dxnsisventas.cuentas.controller.dao.CuentaClienteDAO;
 import pe.edu.pucp.dxnsisventas.cuentas.controller.dao.CuentaEmpleadoDAO;
 import pe.edu.pucp.dxnsisventas.cuentas.controller.mysql.CuentaClienteMySQL;
@@ -73,6 +74,7 @@ public class CuentasAPI {
     int resultado = 0;
     
     try {
+      cc.setContrasena(BCrypt.withDefaults().hashToString(12, cc.getContrasena().toCharArray()));
       resultado = daoCuentaCli.insertar_Cuenta_Cliente(cc);
     } catch (Exception ex) {
       System.err.println(ex.getMessage());
@@ -86,6 +88,7 @@ public class CuentasAPI {
     int resultado = 0;
     
     try {
+      cc.setContrasena(BCrypt.withDefaults().hashToString(12, cc.getContrasena().toCharArray()));
       resultado = daoCuentaCli.actualizar_Cuenta_Cliente(cc);
     } catch (Exception ex) {
       System.err.println(ex.getMessage());
@@ -142,6 +145,7 @@ public class CuentasAPI {
     int resultado = 0;
     
     try {
+      ce.setContrasena(BCrypt.withDefaults().hashToString(12, ce.getContrasena().toCharArray()));
       resultado = daoCuentaEmp.insertar_Cuenta_Empleado(ce);
     } catch (Exception ex) {
       System.err.println(ex.getMessage());
@@ -155,6 +159,7 @@ public class CuentasAPI {
     int resultado = 0;
     
     try {
+      ce.setContrasena(BCrypt.withDefaults().hashToString(12, ce.getContrasena().toCharArray()));
       resultado = daoCuentaEmp.actualizar_Cuenta_Empleado(ce);
     } catch (Exception ex) {
       System.err.println(ex.getMessage());

@@ -241,7 +241,7 @@ END$$
 CREATE PROCEDURE validar_acceso(
   OUT p_acceso INT,
   IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30)
+  IN p_contrasena VARCHAR(60)
 )
 BEGIN
   DECLARE v_id_cuenta INT;
@@ -258,7 +258,7 @@ END$$
 CREATE PROCEDURE insertar_cuenta(
   OUT p_id_cuenta INT,
   IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30)
+  IN p_contrasena VARCHAR(60)
 )
 BEGIN
   INSERT INTO Cuenta(usuario, contrasena)
@@ -269,7 +269,7 @@ END$$
 CREATE PROCEDURE actualizar_cuenta(
   IN p_id_cuenta INT,
   IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30)
+  IN p_contrasena VARCHAR(60)
 )
 BEGIN
   UPDATE Cuenta
@@ -297,16 +297,16 @@ END$$
 -- CRUD para Cuenta Cliente
 -- ----------------------------------------------
 CREATE PROCEDURE iniciar_sesion_cliente(
-  IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30)
+  OUT p_contrasena VARCHAR(60),
+  IN p_usuario VARCHAR(30)
 )
 BEGIN
   DECLARE v_id_cuenta INT;
   DECLARE v_id_cliente INT;
 
-  SELECT id_cuenta INTO v_id_cuenta
+  SELECT id_cuenta, contrasena INTO v_id_cuenta, p_contrasena
   FROM Cuenta
-  WHERE usuario = p_usuario AND contrasena = p_contrasena;
+  WHERE usuario = p_usuario;
 
   SELECT id_cliente INTO v_id_cliente
   FROM Cuenta_Cliente
@@ -324,7 +324,7 @@ END$$
 CREATE PROCEDURE insertar_cuenta_cliente(
   OUT p_id_cuenta INT,
   IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30),
+  IN p_contrasena VARCHAR(60),
   IN p_id_cliente INT
 )
 BEGIN
@@ -337,7 +337,7 @@ END$$
 CREATE PROCEDURE actualizar_cuenta_cliente(
   IN p_id_cliente INT,
   IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30)
+  IN p_contrasena VARCHAR(60)
 )
 BEGIN
   DECLARE v_id_cuenta INT;
@@ -368,16 +368,16 @@ END$$
 -- CRUD para Cuenta Empleado
 -- ----------------------------------------------
 CREATE PROCEDURE iniciar_sesion_empleado(
-  IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30)
+  OUT p_contrasena VARCHAR(60),
+  IN p_usuario VARCHAR(30)
 )
 BEGIN
   DECLARE v_id_cuenta INT;
   DECLARE v_id_empleado INT;
   
-  SELECT id_cuenta INTO v_id_cuenta
+  SELECT id_cuenta, contrasena INTO v_id_cuenta, p_contrasena
   FROM Cuenta
-  WHERE usuario = p_usuario AND contrasena = p_contrasena;
+  WHERE usuario = p_usuario;
 
   SELECT id_empleado INTO v_id_empleado
   FROM Cuenta_Empleado
@@ -393,7 +393,7 @@ END$$
 CREATE PROCEDURE insertar_cuenta_empleado(
   OUT p_id_cuenta INT,
   IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30),
+  IN p_contrasena VARCHAR(60),
   IN p_id_empleado INT
 )
 BEGIN
@@ -406,7 +406,7 @@ END$$
 CREATE PROCEDURE actualizar_cuenta_empleado(
   IN p_id_empleado INT,
   IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30)
+  IN p_contrasena VARCHAR(60)
 )
 BEGIN
   DECLARE v_id_cuenta INT;

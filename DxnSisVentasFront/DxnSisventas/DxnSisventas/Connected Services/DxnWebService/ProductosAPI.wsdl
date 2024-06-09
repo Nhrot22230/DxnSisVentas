@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/WebServiceDXN/ProductosAPI?xsd=1" namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="hello">
-    <part name="parameters" element="tns:hello" />
+  <message name="actualizarProducto">
+    <part name="parameters" element="tns:actualizarProducto" />
   </message>
-  <message name="helloResponse">
-    <part name="parameters" element="tns:helloResponse" />
+  <message name="actualizarProductoResponse">
+    <part name="parameters" element="tns:actualizarProductoResponse" />
   </message>
   <message name="listarProductos">
     <part name="parameters" element="tns:listarProductos" />
@@ -23,22 +23,22 @@
   <message name="eliminarProductoResponse">
     <part name="parameters" element="tns:eliminarProductoResponse" />
   </message>
-  <message name="actualizarProducto">
-    <part name="parameters" element="tns:actualizarProducto" />
-  </message>
-  <message name="actualizarProductoResponse">
-    <part name="parameters" element="tns:actualizarProductoResponse" />
-  </message>
   <message name="insertarProducto">
     <part name="parameters" element="tns:insertarProducto" />
   </message>
   <message name="insertarProductoResponse">
     <part name="parameters" element="tns:insertarProductoResponse" />
   </message>
+  <message name="hello">
+    <part name="parameters" element="tns:hello" />
+  </message>
+  <message name="helloResponse">
+    <part name="parameters" element="tns:helloResponse" />
+  </message>
   <portType name="ProductosAPI">
-    <operation name="hello">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/helloRequest" message="tns:hello" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/helloResponse" message="tns:helloResponse" />
+    <operation name="actualizarProducto">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/actualizarProductoRequest" message="tns:actualizarProducto" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/actualizarProductoResponse" message="tns:actualizarProductoResponse" />
     </operation>
     <operation name="listarProductos">
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/listarProductosRequest" message="tns:listarProductos" />
@@ -48,18 +48,18 @@
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/eliminarProductoRequest" message="tns:eliminarProducto" />
       <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/eliminarProductoResponse" message="tns:eliminarProductoResponse" />
     </operation>
-    <operation name="actualizarProducto">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/actualizarProductoRequest" message="tns:actualizarProducto" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/actualizarProductoResponse" message="tns:actualizarProductoResponse" />
-    </operation>
     <operation name="insertarProducto">
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/insertarProductoRequest" message="tns:insertarProducto" />
       <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/insertarProductoResponse" message="tns:insertarProductoResponse" />
     </operation>
+    <operation name="hello">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/helloRequest" message="tns:hello" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/helloResponse" message="tns:helloResponse" />
+    </operation>
   </portType>
   <binding name="ProductosAPIPortBinding" type="tns:ProductosAPI">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="hello">
+    <operation name="actualizarProducto">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -86,7 +86,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarProducto">
+    <operation name="insertarProducto">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +95,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarProducto">
+    <operation name="hello">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
