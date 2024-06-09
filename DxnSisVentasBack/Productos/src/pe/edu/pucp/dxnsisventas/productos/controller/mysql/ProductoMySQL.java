@@ -120,7 +120,6 @@ public class ProductoMySQL implements ProductoDAO {
 
     try {
       con = DBManager.getInstance().getConnection();
-      con.setAutoCommit(false);
       sql = "{ CALL insertar_producto(?,?,?,?,?,?,?,?) }";
       cs = con.prepareCall(sql);
       cs.registerOutParameter("p_id_producto", java.sql.Types.INTEGER);
@@ -133,11 +132,9 @@ public class ProductoMySQL implements ProductoDAO {
       cs.setInt("p_puntos", producto.getPuntos());
       cs.executeUpdate();
       //Si se pudo insertar, se actualiza la tabla de últimos IDs
-      producto.setIdProductoNumerico(cs.getInt("p_id_producto"));
-      producto.setIdProductoCadena("PRO" + String.format("%05d",
-        cs.getInt("p_id_producto")));
-      con.commit();
-      resultado = 1;
+      resultado = cs.getInt("p_id_producto");
+      producto.setIdProductoNumerico(resultado);
+      producto.setIdProductoCadena("PRO" + String.format("%05d", resultado));
     } catch (SQLException ex) {
       System.out.print(ex.getMessage());
     } finally {

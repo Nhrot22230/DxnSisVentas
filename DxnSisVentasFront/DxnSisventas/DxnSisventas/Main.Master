@@ -5,8 +5,9 @@
 <html>
 <head runat="server">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script type="text/javascript" src="/Scripts/bootstrap.bundle.js"></script>
+  <script type="text/javascript" src="/Scripts/bootstrap.js"></script>
   <script type="text/javascript" src="/Scripts/jquery-3.7.1.min.js"></script>
-
   <title id="PageTitle" runat="server"></title>
 
   <asp:ContentPlaceHolder ID="head" runat="server">
@@ -16,11 +17,12 @@
   <link rel="stylesheet" href="/Content/fontawesome.min.css">
   <link rel="stylesheet" href="/Content/bootstrap.min.css" />
   <link rel="stylesheet" href="/CustomStyles/Master.css" />
-  
+
 </head>
 <body>
-  <div class="main-view">
-    <form id="masterForm" runat="server">
+  <form id="masterForm" runat="server">
+    <div class="main-view">
+
       <section class="side-container">
         <ul class="sidebar-menu">
           <li class="header">MENU DE NAVEGACION</li>
@@ -89,12 +91,14 @@
           <li><a href="#"><i class="fas fa-cogs"></i>Configuracion de Perfil</a></li>
         </ul>
       </section>
-    </form>
-    <div class="main-content">
-      <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-      </asp:ContentPlaceHolder>
+
+      <div class="main-content">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+      </div>
     </div>
-  </div>
+
+  </form>
   <script type="text/javascript" src="/CustomScripts/Master.js"></script>
 </body>
 </html>

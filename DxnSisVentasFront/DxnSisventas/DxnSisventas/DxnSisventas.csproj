@@ -47,7 +47,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data">
-      <HintPath>..\..\..\..\..\Escritorio\Prog3\ResearchSoftPUCP_2\MySql.Data.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Escritorio\Prog3\ResearchSoftPUCP_2\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -238,6 +238,7 @@
     <Content Include="Content\v4-shims.min.css" />
     <Content Include="CustomScripts\Login.js" />
     <Content Include="CustomScripts\Master.js" />
+    <Content Include="CustomScripts\Productos.js" />
     <Content Include="CustomStyles\Home.css" />
     <Content Include="CustomStyles\Login.css" />
     <Content Include="CustomStyles\Master.css" />
