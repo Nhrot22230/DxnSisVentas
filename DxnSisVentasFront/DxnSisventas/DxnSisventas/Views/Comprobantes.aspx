@@ -9,7 +9,7 @@
   </div>
   <div class="container">
     <div class="container row">
-      <h1>Registro de Ordenes de Venta</h1>
+      <h1>Registro de Comprobantes</h1>
     </div>
     <div class="container row">
       <div class="container row">
@@ -30,12 +30,18 @@
       <div class="container row ">
         <asp:GridView ID="GridComprobantes" runat="server" AutoGenerateColumns="false"
           AllowPaging="true" PageSize="7" OnPageIndexChanging="GridComprobantes_PageIndexChanging"
+          OnRowDataBound="GridComprobantes_RowDataBound"
           CssClass="table table-hover table-responsive table-striped">
           <Columns>
             <asp:BoundField DataField="idComprobanteCadena" HeaderText="ID Comprobante" />
             <asp:BoundField DataField="fechaEmision" HeaderText="Fecha Emisión" />
             <asp:BoundField DataField="tipoComprobante" HeaderText="Tipo de comprobante" />
             <asp:BoundField DataField="ordenAsociada.idOrden" HeaderText="idOrdenAsociada" />
+            <asp:TemplateField HeaderText="idOrdenVenta/Compra" >
+              <ItemTemplate>
+                <asp:Label ID="LblOrdenVentaCompra" runat="server" />
+              </ItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="ordenAsociada.total" HeaderText="Total" />
             <asp:TemplateField HeaderText="">
               <ItemTemplate>

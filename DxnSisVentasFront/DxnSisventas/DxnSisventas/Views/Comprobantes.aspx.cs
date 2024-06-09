@@ -47,7 +47,19 @@ namespace DxnSisventas.Views
 
     protected void BtnEditar_Click(object sender, EventArgs e)
     {
+      int idComprobante = int.Parse(((LinkButton)sender).CommandArgument);
+      comprobante comp = BlComprobantes.FirstOrDefault(c => c.idComprobanteNumerico == idComprobante);
 
+      bool flag = comp.ordenAsociada is ordenVenta;
+
+      if (flag)
+      {
+        MostrarMensaje("La orden asociada es de venta", true);
+      }
+      else
+      {
+        MostrarMensaje("La orden asociada es de compra", false);
+      }
     }
 
     protected void BtnEliminar_Click(object sender, EventArgs e)
@@ -100,6 +112,31 @@ namespace DxnSisventas.Views
         else
         {
           master.MostrarError(mensaje);
+        }
+      }
+    }
+
+    protected void GridComprobantes_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+      if (e.Row.RowType == DataControlRowType.DataRow)
+      {
+        // Obtener el objeto de datos actual
+        comprobante comprobante = (comprobante)e.Row.DataItem;
+
+        // Buscar el Label en el TemplateField
+        Label lblOrdenVentaCompra = (Label)e.Row.FindControl("LblOrdenVentaCompra");
+
+        if (comprobante.ordenAsociada is ordenVenta venta)
+        {
+          lblOrdenVentaCompra.Text = venta.idOrdenVentaCadena;
+        }
+        else if (comprobante.ordenAsociada is ordenCompra compra)
+        {
+          lblOrdenVentaCompra.Text = compra.idOrdenCompraCadena;
+        }
+        else
+        {
+          lblOrdenVentaCompra.Text = "N/A";
         }
       }
     }

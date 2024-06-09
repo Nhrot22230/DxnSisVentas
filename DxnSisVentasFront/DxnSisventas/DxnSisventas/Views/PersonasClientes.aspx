@@ -9,7 +9,7 @@
   </div>
   <div class="container">
     <div class="container row">
-      <h1>Registro de Empleados</h1>
+      <h1>Registro de Cliente</h1>
     </div>
     <div class="container row">
       <div class="container row">

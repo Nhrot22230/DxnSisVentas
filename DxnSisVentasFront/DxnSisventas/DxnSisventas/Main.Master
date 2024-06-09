@@ -110,7 +110,7 @@
           </li>
           <li class="treeview">
             <a href="#">
-              <i class="fas fa-file-pdf"></i><span>Documentos</span> <i class="fa fa-angle-left pull-right"></i>
+              <i class="fas fa-file-pdf"></i><span>Registros</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
               <li class="treeview">
