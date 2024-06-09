@@ -5,3 +5,13 @@
 nbproject/private/
 
 *.vsidx
+/DxnSisVentasBack/Utils/dist/
+/DxnSisVentasBack/Utils/build/
+/DxnSisVentasBack/Personas/build/
+/DxnSisVentasBack/Personas/dist/
+/DxnSisVentasBack/Cuentas/dist/
+/DxnSisVentasBack/Documentos/build/
+/DxnSisVentasBack/Productos/build/
+/DxnSisVentasBack/Productos/dist/
+/DxnSisVentasBack/ServicioDXN/build/
+/DxnSisVentasBack/Documentos/dist/

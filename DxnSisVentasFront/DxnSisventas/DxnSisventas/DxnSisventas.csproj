@@ -79,6 +79,9 @@
     <None Include="Connected Services\DxnWebService\DxnServices.disco" />
     <None Include="Connected Services\DxnWebService\configuration91.svcinfo" />
     <None Include="Connected Services\DxnWebService\configuration.svcinfo" />
+    <Content Include="Assets\BBB.png" />
+    <Content Include="Assets\LOGO.svg" />
+    <Content Include="Assets\SHOP.png" />
     <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.actualizarComprobanteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -372,9 +375,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\DxnWebService\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

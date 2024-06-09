@@ -42,6 +42,33 @@ namespace DxnSisventas
     protected global::System.Web.UI.HtmlControls.HtmlForm masterForm;
 
     /// <summary>
+    /// Control LbCerrarSesion.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.LinkButton LbCerrarSesion;
+
+    /// <summary>
+    /// Control ErrorPanel.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Panel ErrorPanel;
+
+    /// <summary>
+    /// Control ErrorLabel.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label ErrorLabel;
+
+    /// <summary>
     /// Control LbInicio.
     /// </summary>
     /// <remarks>

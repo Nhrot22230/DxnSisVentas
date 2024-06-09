@@ -18,11 +18,12 @@ namespace DxnSisventas.Views
     {
       Page.Title = "Productos";
       productosAPIClient = new ProductosAPIClient();
-      CargarTabla();
+      CargarTabla("");
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
     }
 
     protected void GvProductos_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -32,13 +33,13 @@ namespace DxnSisventas.Views
       GvProductos.DataBind();
     }
 
-    private void CargarTabla()
+    private void CargarTabla(string search)
     {
-      if (TxtBuscar.Text == null) TxtBuscar.Text = " ";
-      producto[] productos = productosAPIClient.listarProductos(TxtBuscar.Text);
+      producto[] productos = productosAPIClient.listarProductos(search);
       if (productos == null)
       {
-        ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('No se encontraron productos');", true);
+        string mensaje = "No se encontraron productos";
+        if (this.Master is Main master) master.MostrarError(mensaje);
         return;
       }
 
@@ -48,7 +49,11 @@ namespace DxnSisventas.Views
     }
     protected void BtnBuscar_Click(object sender, EventArgs e)
     {
-      CargarTabla();
+      if(TxtBuscar.Text == null)
+      {
+        TxtBuscar.Text = "";
+      }
+      CargarTabla(TxtBuscar.Text);
     }
     protected void BtnAgregar_Click(object sender, EventArgs e)
     {
@@ -79,49 +84,52 @@ namespace DxnSisventas.Views
       ddlUnidadMedida.SelectedValue = p.unidadDeMedida.ToString();
       TxtId.Text = p.idProductoCadena;
       TxtId.Enabled = false;
-      //CallJavascritp("showModalForm()");
+
       ScriptManager.RegisterStartupScript(this, GetType(), "showModalForm", "showModalForm();", true);
     }
     protected void BtnEliminar_Click(object sender, EventArgs e)
     {
       int idProducto = Int32.Parse(((LinkButton)sender).CommandArgument);
       productosAPIClient.eliminarProducto(idProducto);
-      CargarTabla();
+      CargarTabla("");
     }
     protected void ButGuardar_Click(object sender, EventArgs e)
     {
-      producto p = new producto();
-      p.nombre = TxtNombre.Text;
-      p.stock = Int32.Parse(TxtStock.Text);
-      p.precioUnitario = Math.Round(Double.Parse(TxtPrecio.Text), 2);
-      p.puntos = Int32.Parse(TxtPuntos.Text);
-      p.capacidad = Double.Parse(TxtCapacidad.Text);
-      p.tipo = (tipoProducto)Enum.Parse(typeof(tipoProducto), ddlTipoProducto.SelectedValue);
-      p.tipoSpecified = true;
-      p.unidadDeMedida = (unidadMedida)Enum.Parse(typeof(unidadMedida), ddlUnidadMedida.SelectedValue);
-      p.unidadDeMedidaSpecified = true;
-
-      if (Session["idProducto"] != null)
-        p.idProductoNumerico = (int)Session["idProducto"];
-      else 
-        p.idProductoNumerico = 0;
-
-      string mensaje;
-      if (p.idProductoNumerico > 0)
+      // Crear y asignar valores al objeto producto
+      producto p = new producto
       {
-        int error = productosAPIClient.actualizarProducto(p);
-        if (error != 0) mensaje = "Producto actualizado";
-        else mensaje = "Error al actualizar producto";
-      }
-      else
+        nombre = TxtNombre.Text,
+        stock = Int32.Parse(TxtStock.Text),
+        precioUnitario = Math.Round(Double.Parse(TxtPrecio.Text), 2),
+        puntos = Int32.Parse(TxtPuntos.Text),
+        capacidad = Double.Parse(TxtCapacidad.Text),
+        tipo = (tipoProducto)Enum.Parse(typeof(tipoProducto), ddlTipoProducto.SelectedValue),
+        tipoSpecified = true,
+        unidadDeMedida = (unidadMedida)Enum.Parse(typeof(unidadMedida), ddlUnidadMedida.SelectedValue),
+        unidadDeMedidaSpecified = true,
+        idProductoNumerico = Session["idProducto"] != null ? (int)Session["idProducto"] : 0
+      };
+
+      // Insertar o actualizar producto
+      int res = p.idProductoNumerico > 0 ? productosAPIClient.actualizarProducto(p) : productosAPIClient.insertarProducto(p);
+      string mensaje = res > 0 ? "Producto guardado correctamente" : "Error al guardar el producto";
+
+      // Mostrar mensaje en el panel de la página maestra
+      if (this.Master is Main master)
       {
-        int error = productosAPIClient.insertarProducto(p);
-        if (error != 0) mensaje = "Producto insertado";
-        else mensaje = "Error al insertar producto";
+        if (res > 0)
+        {
+          master.MostrarExito(mensaje);
+        }
+        else
+        {
+          master.MostrarError(mensaje);
+        }
       }
-      ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('" + mensaje + "');", true);
-      
-      CargarTabla();
+
+      // Recargar tabla de productos
+      CargarTabla("");
     }
+
   }
 }

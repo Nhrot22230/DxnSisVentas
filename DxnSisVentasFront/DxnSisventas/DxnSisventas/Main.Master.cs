@@ -11,13 +11,14 @@ namespace DxnSisventas
   {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+      ClearError();
     }
 
-    protected void BtnCerrarSesion_Click(object sender, EventArgs e)
+    protected void LbCerrarSesion_Click(object sender, EventArgs e)
     {
       Session["empleado"] = null;
       Session["datosCuenta"] = null;
+
       Response.Redirect("~/Login.aspx");
     }
 
@@ -29,6 +30,30 @@ namespace DxnSisventas
     protected void LbInicio_Click(object sender, EventArgs e)
     {
       Response.Redirect("~/Home.aspx");
+    }
+    
+    public void ClearError()
+    {
+      ErrorPanel.Visible = false;
+      ErrorLabel.Text = "";
+    }
+
+    public void MostrarError(string mensaje)
+    {
+      ErrorPanel.CssClass = "notification-panel error-panel";
+      ErrorLabel.CssClass = "error-message";
+      ErrorPanel.Visible = true;
+      ErrorLabel.Text = mensaje;
+      ScriptManager.RegisterStartupScript(this, GetType(), "showPanel", "showErrorPanel();", true);
+    }
+
+    public void MostrarExito(string mensaje)
+    {
+      ErrorPanel.CssClass = "notification-panel success-panel";
+      ErrorLabel.CssClass = "success-message";
+      ErrorPanel.Visible = true;
+      ErrorLabel.Text = mensaje;
+      ScriptManager.RegisterStartupScript(this, GetType(), "showPanel", "showErrorPanel();", true);
     }
   }
 }

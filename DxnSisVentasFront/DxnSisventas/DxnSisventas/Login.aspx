@@ -26,7 +26,7 @@
     <form id="loginForm" class="login-form" runat="server">
       <asp:Panel ID="ErrorPanel" runat="server" CssClass="error-panel">
         <i class="fas fa-exclamation-circle"></i>
-        <p class="error-message">Usuario o contraseña incorrectos</p>
+        <asp:Label ID="ErrorLabel" runat="server" Text="" CssClass="error-message"></asp:Label>
       </asp:Panel>
       <asp:ScriptManager ID="ScriptManager1" runat="server" />
       <h1 class="login-title">Login</h1>

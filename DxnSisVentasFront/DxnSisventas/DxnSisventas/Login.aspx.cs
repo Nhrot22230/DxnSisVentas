@@ -19,6 +19,13 @@ namespace DxnSisventas
     protected void Page_Load(object sender, EventArgs e)
     {
       ErrorPanel.Visible = false;
+
+      if (!VerificarDisponibilidadServicio())
+      {
+        MostrarError("No se pudo establecer conexión con el servicio de cuentas");
+        LoginButton.Enabled = false;
+      }
+      LoginButton.Enabled = true;
     }
 
     protected void LoginButton_Click(object sender, EventArgs e)
@@ -44,8 +51,29 @@ namespace DxnSisventas
       {
         password.Text = "";
         ErrorPanel.Visible = true;
+        ErrorLabel.Text = "Usuario o contraseña incorrectos";
         ScriptManager.RegisterStartupScript(this, GetType(), "showErrorPanel", "showErrorPanel();", true);
+      }
     }
+    private bool VerificarDisponibilidadServicio()
+    {
+      try
+      {
+        // Intenta realizar una operación simple
+        cuentasAPIClient.Endpoint.Address.ToString();
+        return true;
+      }
+      catch
+      {
+        return false;
+      }
+    }
+
+    private void MostrarError(string mensaje)
+    {
+      ErrorPanel.Visible = true;
+      ErrorLabel.Text = mensaje;
+      ScriptManager.RegisterStartupScript(this, GetType(), "showErrorPanel", "showErrorPanel();", true);
     }
   }
 }
