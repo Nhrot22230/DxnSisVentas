@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="80d18a08-f27f-4ab4-a7e2-d208aa8358d0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8080/WebServiceDXN/DxnServices.disco" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CuentasAPI.wsdl" MetadataType="Wsdl" ID="7d9bdad9-6fcd-448b-a2a2-d87714687f96" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/CuentasAPI?WSDL" />
+    <MetadataFile FileName="DxnServices.disco" MetadataType="Disco" ID="c7733c53-9866-44cd-a135-c96005f9ac29" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/DxnServices.disco" />
+    <MetadataFile FileName="ProductosAPI.wsdl" MetadataType="Wsdl" ID="69dcef61-f8a2-4b42-b203-a4312073c062" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/ProductosAPI?WSDL" />
+    <MetadataFile FileName="ProductosAPI.xsd" MetadataType="Schema" ID="df2bbf95-5f6c-40cd-9c1f-57cb9393975e" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/ProductosAPI?xsd=1" />
+    <MetadataFile FileName="CuentasAPI.xsd" MetadataType="Schema" ID="6f6211ce-bcc1-4faa-b51d-61a18a5ef8d7" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/CuentasAPI?xsd=1" />
+    <MetadataFile FileName="PersonasAPI.wsdl" MetadataType="Wsdl" ID="2a39c3cd-ce54-4929-a3ff-42fefb42e752" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/PersonasAPI?WSDL" />
+    <MetadataFile FileName="DocumentosAPI.wsdl" MetadataType="Wsdl" ID="7db554b3-2c30-443c-8088-98f8953df3bd" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/DocumentosAPI?WSDL" />
+    <MetadataFile FileName="DocumentosAPI.xsd" MetadataType="Schema" ID="54369a15-3c29-488a-b530-3bc09eceaf69" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/DocumentosAPI?xsd=1" />
+    <MetadataFile FileName="PersonasAPI.xsd" MetadataType="Schema" ID="68186057-e424-4056-8654-ada556eedae5" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/PersonasAPI?xsd=1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,104 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="DxnSisventas.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script type="text/javascript" src="/Scripts/bootstrap.bundle.js"></script>
+  <script type="text/javascript" src="/Scripts/bootstrap.js"></script>
+  <script type="text/javascript" src="/Scripts/jquery-3.7.1.min.js"></script>
+  <title id="PageTitle" runat="server"></title>
+
+  <asp:ContentPlaceHolder ID="head" runat="server">
+  </asp:ContentPlaceHolder>
+
+  <link rel="stylesheet" href="/Content/all.min.css" />
+  <link rel="stylesheet" href="/Content/fontawesome.min.css">
+  <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+  <link rel="stylesheet" href="/CustomStyles/Master.css" />
+
+</head>
+<body>
+  <form id="masterForm" runat="server">
+    <div class="main-view">
+
+      <section class="side-container">
+        <ul class="sidebar-menu">
+          <li class="header">MENU DE NAVEGACION</li>
+          <li>
+            <asp:LinkButton ID="LbInicio" runat="server" OnClick="LbInicio_Click">
+              <i class="fa fa-home"></i> <span>Inicio</span>
+            </asp:LinkButton>
+          </li>
+          <li>
+            <asp:LinkButton ID="LbProductos" runat="server" OnClick="LbProductos_Click">
+            <i class="fa fa-shopping-basket"></i> <span>Productos</span>
+            </asp:LinkButton>
+          </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-users"></i><span>Usuarios</span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+              <li>
+                <asp:LinkButton ID="LbUsuariosClientes" runat="server">
+                  <i class="fa fa-user"></i> <span>Clientes</span>
+                </asp:LinkButton>
+              </li>
+              <li>
+                <asp:LinkButton ID="LbUsuariosEmpleados" runat="server">
+                  <i class="fa fa-briefcase"></i> <span>Empleados</span>
+                </asp:LinkButton>
+              </li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-envelope"></i><span>Cuentas</span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#"><i class="fa fa-user"></i>Clientes</a></li>
+              <li><a href="#"><i class="fa fa-briefcase"></i>Empleados</a></li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fas fa-file-pdf"></i><span>Documentos</span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+              <li class="treeview">
+                <a href="#">
+                  <i class="fa fa-dashboard"></i><span>Ordenes</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                  <li><a href="#"><i class="fa fa-industry"></i>Compra</a></li>
+                  <li><a href="#"><i class="fa fa-shopping-cart"></i>Venta</a></li>
+                </ul>
+              </li>
+              <li><a href="#"><i class="fa fa-files-o"></i>Comprobantes</a></li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fas fa-chart-line"></i><span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#"><i class="fa fa-info-circle"></i>Reporte de Venta</a></li>
+              <li><a href="#"><i class="fa fa-info-circle"></i>Reporte de Clientes</a></li>
+            </ul>
+          </li>
+          <li><a href="#"><i class="fas fa-cogs"></i>Configuracion de Perfil</a></li>
+        </ul>
+      </section>
+
+      <div class="main-content">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+      </div>
+    </div>
+
+  </form>
+  <script type="text/javascript" src="/CustomScripts/Master.js"></script>
+</body>
+</html>
