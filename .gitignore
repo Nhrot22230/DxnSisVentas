@@ -33,7 +33,6 @@ Thumbs.db
 *.class
 *.war
 *.ear
-*.jar
 
 # Maven specific
 target/
