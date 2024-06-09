@@ -10,30 +10,30 @@ package pe.edu.pucp.dxnsisventas.personas.model;
  */
 public class Empleado extends Persona {
 
-  private int idEmpleadoActual;
-  private String idEmpleado;
+  private int idEmpleadoNumerico;
+  private String idEmpleadoCadena;
   private double sueldo;
-  private boolean empleadoActual;
+  private boolean empleadoActivo;
   private Rol rol;
 
   // Constructores
   public Empleado() {
   }
 
-  public int getIdEmpleadoActual() {
-    return idEmpleadoActual;
+  public int getIdEmpleadoNumerico() {
+    return idEmpleadoNumerico;
   }
 
-  public void setIdEmpleadoActual(int idEmpleadoActual) {
-    this.idEmpleadoActual = idEmpleadoActual;
+  public void setIdEmpleadoNumerico(int idEmpleadoActual) {
+    this.idEmpleadoNumerico = idEmpleadoActual;
   }
 
-  public String getIdEmpleado() {
-    return idEmpleado;
+  public String getIdEmpleadoCadena() {
+    return idEmpleadoCadena;
   }
 
-  public void setIdEmpleado(String idEmpleado) {
-    this.idEmpleado = idEmpleado;
+  public void setIdEmpleadoCadena(String idEmpleado) {
+    this.idEmpleadoCadena = idEmpleado;
   }
 
   public double getSueldo() {
@@ -44,12 +44,12 @@ public class Empleado extends Persona {
     this.sueldo = sueldo;
   }
 
-  public boolean isEmpleadoActual() {
-    return empleadoActual;
+  public boolean isEmpleadoActivo() {
+    return empleadoActivo;
   }
 
-  public void setEmpleadoActual(boolean empleadoActual) {
-    this.empleadoActual = empleadoActual;
+  public void setEmpleadoActivo(boolean empleadoActual) {
+    this.empleadoActivo = empleadoActual;
   }
 
   public Rol getRol() {

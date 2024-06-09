@@ -16,51 +16,12 @@ namespace DxnSisventas.DxnWebService {
     public interface CuentasAPI {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/helloRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/helloResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.helloResponse hello(DxnSisventas.DxnWebService.helloRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/helloRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/helloResponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> helloAsync(DxnSisventas.DxnWebService.helloRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionEmple" +
-            "adoRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionEmple" +
-            "adoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.iniciarSesionEmpleadoResponse iniciarSesionEmpleado(DxnSisventas.DxnWebService.iniciarSesionEmpleadoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionEmple" +
-            "adoRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionEmple" +
-            "adoResponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.iniciarSesionEmpleadoResponse> iniciarSesionEmpleadoAsync(DxnSisventas.DxnWebService.iniciarSesionEmpleadoRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaClie" +
-            "nteRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaClie" +
-            "nteResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.insertarCuentaClienteResponse insertarCuentaCliente(DxnSisventas.DxnWebService.insertarCuentaClienteRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaClie" +
-            "nteRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaClie" +
-            "nteResponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarCuentaClienteResponse> insertarCuentaClienteAsync(DxnSisventas.DxnWebService.insertarCuentaClienteRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/actualizarCuentaCl" +
             "ienteRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/actualizarCuentaCl" +
             "ienteResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         DxnSisventas.DxnWebService.actualizarCuentaClienteResponse actualizarCuentaCliente(DxnSisventas.DxnWebService.actualizarCuentaClienteRequest request);
         
@@ -70,72 +31,12 @@ namespace DxnSisventas.DxnWebService {
         System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarCuentaClienteResponse> actualizarCuentaClienteAsync(DxnSisventas.DxnWebService.actualizarCuentaClienteRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionClien" +
-            "teRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionClien" +
-            "teResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.iniciarSesionClienteResponse iniciarSesionCliente(DxnSisventas.DxnWebService.iniciarSesionClienteRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionClien" +
-            "teRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionClien" +
-            "teResponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.iniciarSesionClienteResponse> iniciarSesionClienteAsync(DxnSisventas.DxnWebService.iniciarSesionClienteRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/actualizarCuentaEm" +
-            "pleadoRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/actualizarCuentaEm" +
-            "pleadoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.actualizarCuentaEmpleadoResponse actualizarCuentaEmpleado(DxnSisventas.DxnWebService.actualizarCuentaEmpleadoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/actualizarCuentaEm" +
-            "pleadoRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/actualizarCuentaEm" +
-            "pleadoResponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarCuentaEmpleadoResponse> actualizarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.actualizarCuentaEmpleadoRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaEmpl" +
-            "eadoRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaEmpl" +
-            "eadoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.eliminarCuentaEmpleadoResponse eliminarCuentaEmpleado(DxnSisventas.DxnWebService.eliminarCuentaEmpleadoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaEmpl" +
-            "eadoRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaEmpl" +
-            "eadoResponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarCuentaEmpleadoResponse> eliminarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.eliminarCuentaEmpleadoRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarCuentaClient" +
-            "eRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarCuentaClient" +
-            "eResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.listarCuentaClienteResponse listarCuentaCliente(DxnSisventas.DxnWebService.listarCuentaClienteRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarCuentaClient" +
-            "eRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarCuentaClient" +
-            "eResponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarCuentaClienteResponse> listarCuentaClienteAsync(DxnSisventas.DxnWebService.listarCuentaClienteRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaClie" +
             "nteRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaClie" +
             "nteResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         DxnSisventas.DxnWebService.eliminarCuentaClienteResponse eliminarCuentaCliente(DxnSisventas.DxnWebService.eliminarCuentaClienteRequest request);
         
@@ -145,12 +46,72 @@ namespace DxnSisventas.DxnWebService {
         System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarCuentaClienteResponse> eliminarCuentaClienteAsync(DxnSisventas.DxnWebService.eliminarCuentaClienteRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaEmpl" +
+            "eadoRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaEmpl" +
+            "eadoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        DxnSisventas.DxnWebService.insertarCuentaEmpleadoResponse insertarCuentaEmpleado(DxnSisventas.DxnWebService.insertarCuentaEmpleadoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaEmpl" +
+            "eadoRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaEmpl" +
+            "eadoResponse")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarCuentaEmpleadoResponse> insertarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.insertarCuentaEmpleadoRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarCuentaClient" +
+            "eRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarCuentaClient" +
+            "eResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        DxnSisventas.DxnWebService.listarCuentaClienteResponse listarCuentaCliente(DxnSisventas.DxnWebService.listarCuentaClienteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarCuentaClient" +
+            "eRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarCuentaClient" +
+            "eResponse")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarCuentaClienteResponse> listarCuentaClienteAsync(DxnSisventas.DxnWebService.listarCuentaClienteRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/actualizarCuentaEm" +
+            "pleadoRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/actualizarCuentaEm" +
+            "pleadoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        DxnSisventas.DxnWebService.actualizarCuentaEmpleadoResponse actualizarCuentaEmpleado(DxnSisventas.DxnWebService.actualizarCuentaEmpleadoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/actualizarCuentaEm" +
+            "pleadoRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/actualizarCuentaEm" +
+            "pleadoResponse")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarCuentaEmpleadoResponse> actualizarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.actualizarCuentaEmpleadoRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionEmple" +
+            "adoRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionEmple" +
+            "adoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        DxnSisventas.DxnWebService.iniciarSesionEmpleadoResponse iniciarSesionEmpleado(DxnSisventas.DxnWebService.iniciarSesionEmpleadoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionEmple" +
+            "adoRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionEmple" +
+            "adoResponse")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.iniciarSesionEmpleadoResponse> iniciarSesionEmpleadoAsync(DxnSisventas.DxnWebService.iniciarSesionEmpleadoRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarCuentaEmplea" +
             "doRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarCuentaEmplea" +
             "doResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         DxnSisventas.DxnWebService.listarCuentaEmpleadoResponse listarCuentaEmpleado(DxnSisventas.DxnWebService.listarCuentaEmpleadoRequest request);
         
@@ -160,55 +121,60 @@ namespace DxnSisventas.DxnWebService {
         System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarCuentaEmpleadoResponse> listarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.listarCuentaEmpleadoRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaEmpl" +
-            "eadoRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaEmpl" +
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaClie" +
+            "nteRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaClie" +
+            "nteResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        DxnSisventas.DxnWebService.insertarCuentaClienteResponse insertarCuentaCliente(DxnSisventas.DxnWebService.insertarCuentaClienteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaClie" +
+            "nteRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaClie" +
+            "nteResponse")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarCuentaClienteResponse> insertarCuentaClienteAsync(DxnSisventas.DxnWebService.insertarCuentaClienteRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaEmpl" +
+            "eadoRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaEmpl" +
             "eadoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.insertarCuentaEmpleadoResponse insertarCuentaEmpleado(DxnSisventas.DxnWebService.insertarCuentaEmpleadoRequest request);
+        DxnSisventas.DxnWebService.eliminarCuentaEmpleadoResponse eliminarCuentaEmpleado(DxnSisventas.DxnWebService.eliminarCuentaEmpleadoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaEmpl" +
-            "eadoRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaEmpl" +
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaEmpl" +
+            "eadoRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaEmpl" +
             "eadoResponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarCuentaEmpleadoResponse> insertarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.insertarCuentaEmpleadoRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="hello", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class helloRequest {
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarCuentaEmpleadoResponse> eliminarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.eliminarCuentaEmpleadoRequest request);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string name;
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionClien" +
+            "teRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionClien" +
+            "teResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        DxnSisventas.DxnWebService.iniciarSesionClienteResponse iniciarSesionCliente(DxnSisventas.DxnWebService.iniciarSesionClienteRequest request);
         
-        public helloRequest() {
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionClien" +
+            "teRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionClien" +
+            "teResponse")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.iniciarSesionClienteResponse> iniciarSesionClienteAsync(DxnSisventas.DxnWebService.iniciarSesionClienteRequest request);
         
-        public helloRequest(string name) {
-            this.name = name;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="helloResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class helloResponse {
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/helloRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/helloResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        DxnSisventas.DxnWebService.helloResponse hello(DxnSisventas.DxnWebService.helloRequest request);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string @return;
-        
-        public helloResponse() {
-        }
-        
-        public helloResponse(string @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/helloRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/helloResponse")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> helloAsync(DxnSisventas.DxnWebService.helloRequest request);
     }
     
     /// <remarks/>
@@ -217,175 +183,86 @@ namespace DxnSisventas.DxnWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/")]
-    public partial class empleado : persona {
+    public partial class cuentaCliente : cuenta {
         
-        private bool empleadoActualField;
-        
-        private string idEmpleadoField;
-        
-        private int idEmpleadoActualField;
-        
-        private rol rolField;
-        
-        private bool rolFieldSpecified;
-        
-        private double sueldoField;
+        private int fid_ClienteField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public bool empleadoActual {
+        public int fid_Cliente {
             get {
-                return this.empleadoActualField;
+                return this.fid_ClienteField;
             }
             set {
-                this.empleadoActualField = value;
-                this.RaisePropertyChanged("empleadoActual");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string idEmpleado {
-            get {
-                return this.idEmpleadoField;
-            }
-            set {
-                this.idEmpleadoField = value;
-                this.RaisePropertyChanged("idEmpleado");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int idEmpleadoActual {
-            get {
-                return this.idEmpleadoActualField;
-            }
-            set {
-                this.idEmpleadoActualField = value;
-                this.RaisePropertyChanged("idEmpleadoActual");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public rol rol {
-            get {
-                return this.rolField;
-            }
-            set {
-                this.rolField = value;
-                this.RaisePropertyChanged("rol");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool rolSpecified {
-            get {
-                return this.rolFieldSpecified;
-            }
-            set {
-                this.rolFieldSpecified = value;
-                this.RaisePropertyChanged("rolSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public double sueldo {
-            get {
-                return this.sueldoField;
-            }
-            set {
-                this.sueldoField = value;
-                this.RaisePropertyChanged("sueldo");
+                this.fid_ClienteField = value;
+                this.RaisePropertyChanged("fid_Cliente");
             }
         }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9037.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/")]
-    public enum rol {
-        
-        /// <remarks/>
-        Repartidor,
-        
-        /// <remarks/>
-        EncargadoVentas,
-        
-        /// <remarks/>
-        EncargadoAlmacen,
-        
-        /// <remarks/>
-        Administrador,
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(empleado))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(cliente))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(cuentaCliente))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(cuentaEmpleado))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9037.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/")]
-    public partial class persona : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class cuenta : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private string apellidoMaternoField;
+        private bool activoField;
         
-        private string apellidoPaternoField;
+        private string contrasenaField;
         
-        private string dNIField;
+        private int idCuentaField;
         
-        private string nombreField;
+        private string usuarioField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string apellidoMaterno {
+        public bool activo {
             get {
-                return this.apellidoMaternoField;
+                return this.activoField;
             }
             set {
-                this.apellidoMaternoField = value;
-                this.RaisePropertyChanged("apellidoMaterno");
+                this.activoField = value;
+                this.RaisePropertyChanged("activo");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string apellidoPaterno {
+        public string contrasena {
             get {
-                return this.apellidoPaternoField;
+                return this.contrasenaField;
             }
             set {
-                this.apellidoPaternoField = value;
-                this.RaisePropertyChanged("apellidoPaterno");
+                this.contrasenaField = value;
+                this.RaisePropertyChanged("contrasena");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string DNI {
+        public int idCuenta {
             get {
-                return this.dNIField;
+                return this.idCuentaField;
             }
             set {
-                this.dNIField = value;
-                this.RaisePropertyChanged("DNI");
+                this.idCuentaField = value;
+                this.RaisePropertyChanged("idCuenta");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string nombre {
+        public string usuario {
             get {
-                return this.nombreField;
+                return this.usuarioField;
             }
             set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
+                this.usuarioField = value;
+                this.RaisePropertyChanged("usuario");
             }
         }
         
@@ -397,6 +274,256 @@ namespace DxnSisventas.DxnWebService {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9037.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/")]
+    public partial class comprobante : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.DateTime fechaEmisionField;
+        
+        private bool fechaEmisionFieldSpecified;
+        
+        private string idComprobanteCadenaField;
+        
+        private int idComprobanteNumericoField;
+        
+        private orden ordenAsociadaField;
+        
+        private tipoComprobante tipoComprobanteField;
+        
+        private bool tipoComprobanteFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public System.DateTime fechaEmision {
+            get {
+                return this.fechaEmisionField;
+            }
+            set {
+                this.fechaEmisionField = value;
+                this.RaisePropertyChanged("fechaEmision");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fechaEmisionSpecified {
+            get {
+                return this.fechaEmisionFieldSpecified;
+            }
+            set {
+                this.fechaEmisionFieldSpecified = value;
+                this.RaisePropertyChanged("fechaEmisionSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string idComprobanteCadena {
+            get {
+                return this.idComprobanteCadenaField;
+            }
+            set {
+                this.idComprobanteCadenaField = value;
+                this.RaisePropertyChanged("idComprobanteCadena");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public int idComprobanteNumerico {
+            get {
+                return this.idComprobanteNumericoField;
+            }
+            set {
+                this.idComprobanteNumericoField = value;
+                this.RaisePropertyChanged("idComprobanteNumerico");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public orden ordenAsociada {
+            get {
+                return this.ordenAsociadaField;
+            }
+            set {
+                this.ordenAsociadaField = value;
+                this.RaisePropertyChanged("ordenAsociada");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public tipoComprobante tipoComprobante {
+            get {
+                return this.tipoComprobanteField;
+            }
+            set {
+                this.tipoComprobanteField = value;
+                this.RaisePropertyChanged("tipoComprobante");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool tipoComprobanteSpecified {
+            get {
+                return this.tipoComprobanteFieldSpecified;
+            }
+            set {
+                this.tipoComprobanteFieldSpecified = value;
+                this.RaisePropertyChanged("tipoComprobanteSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ordenCompra))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ordenVenta))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9037.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/")]
+    public partial class orden : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private estadoOrden estadoField;
+        
+        private bool estadoFieldSpecified;
+        
+        private System.DateTime fechaCreacionField;
+        
+        private bool fechaCreacionFieldSpecified;
+        
+        private int idOrdenField;
+        
+        private lineaOrden[] lineasOrdenField;
+        
+        private double totalField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public estadoOrden estado {
+            get {
+                return this.estadoField;
+            }
+            set {
+                this.estadoField = value;
+                this.RaisePropertyChanged("estado");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool estadoSpecified {
+            get {
+                return this.estadoFieldSpecified;
+            }
+            set {
+                this.estadoFieldSpecified = value;
+                this.RaisePropertyChanged("estadoSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public System.DateTime fechaCreacion {
+            get {
+                return this.fechaCreacionField;
+            }
+            set {
+                this.fechaCreacionField = value;
+                this.RaisePropertyChanged("fechaCreacion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fechaCreacionSpecified {
+            get {
+                return this.fechaCreacionFieldSpecified;
+            }
+            set {
+                this.fechaCreacionFieldSpecified = value;
+                this.RaisePropertyChanged("fechaCreacionSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public int idOrden {
+            get {
+                return this.idOrdenField;
+            }
+            set {
+                this.idOrdenField = value;
+                this.RaisePropertyChanged("idOrden");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("lineasOrden", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
+        public lineaOrden[] lineasOrden {
+            get {
+                return this.lineasOrdenField;
+            }
+            set {
+                this.lineasOrdenField = value;
+                this.RaisePropertyChanged("lineasOrden");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public double total {
+            get {
+                return this.totalField;
+            }
+            set {
+                this.totalField = value;
+                this.RaisePropertyChanged("total");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9037.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/")]
+    public enum estadoOrden {
+        
+        /// <remarks/>
+        Pendiente,
+        
+        /// <remarks/>
+        Entregado,
+        
+        /// <remarks/>
+        Cancelado,
     }
     
     /// <remarks/>
@@ -661,140 +788,6 @@ namespace DxnSisventas.DxnWebService {
         
         /// <remarks/>
         unidad,
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ordenCompra))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ordenVenta))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9037.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/")]
-    public partial class orden : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private estadoOrden estadoField;
-        
-        private bool estadoFieldSpecified;
-        
-        private System.DateTime fechaCreacionField;
-        
-        private bool fechaCreacionFieldSpecified;
-        
-        private int idOrdenField;
-        
-        private lineaOrden[] lineasOrdenField;
-        
-        private double totalField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public estadoOrden estado {
-            get {
-                return this.estadoField;
-            }
-            set {
-                this.estadoField = value;
-                this.RaisePropertyChanged("estado");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool estadoSpecified {
-            get {
-                return this.estadoFieldSpecified;
-            }
-            set {
-                this.estadoFieldSpecified = value;
-                this.RaisePropertyChanged("estadoSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public System.DateTime fechaCreacion {
-            get {
-                return this.fechaCreacionField;
-            }
-            set {
-                this.fechaCreacionField = value;
-                this.RaisePropertyChanged("fechaCreacion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool fechaCreacionSpecified {
-            get {
-                return this.fechaCreacionFieldSpecified;
-            }
-            set {
-                this.fechaCreacionFieldSpecified = value;
-                this.RaisePropertyChanged("fechaCreacionSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int idOrden {
-            get {
-                return this.idOrdenField;
-            }
-            set {
-                this.idOrdenField = value;
-                this.RaisePropertyChanged("idOrden");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("lineasOrden", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
-        public lineaOrden[] lineasOrden {
-            get {
-                return this.lineasOrdenField;
-            }
-            set {
-                this.lineasOrdenField = value;
-                this.RaisePropertyChanged("lineasOrden");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public double total {
-            get {
-                return this.totalField;
-            }
-            set {
-                this.totalField = value;
-                this.RaisePropertyChanged("total");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9037.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/")]
-    public enum estadoOrden {
-        
-        /// <remarks/>
-        Pendiente,
-        
-        /// <remarks/>
-        Entregado,
-        
-        /// <remarks/>
-        Cancelado,
     }
     
     /// <remarks/>
@@ -1175,6 +1168,194 @@ namespace DxnSisventas.DxnWebService {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(empleado))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(cliente))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9037.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/")]
+    public partial class persona : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string apellidoMaternoField;
+        
+        private string apellidoPaternoField;
+        
+        private string dNIField;
+        
+        private string nombreField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string apellidoMaterno {
+            get {
+                return this.apellidoMaternoField;
+            }
+            set {
+                this.apellidoMaternoField = value;
+                this.RaisePropertyChanged("apellidoMaterno");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string apellidoPaterno {
+            get {
+                return this.apellidoPaternoField;
+            }
+            set {
+                this.apellidoPaternoField = value;
+                this.RaisePropertyChanged("apellidoPaterno");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string DNI {
+            get {
+                return this.dNIField;
+            }
+            set {
+                this.dNIField = value;
+                this.RaisePropertyChanged("DNI");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9037.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/")]
+    public partial class empleado : persona {
+        
+        private bool empleadoActivoField;
+        
+        private string idEmpleadoCadenaField;
+        
+        private int idEmpleadoNumericoField;
+        
+        private rol rolField;
+        
+        private bool rolFieldSpecified;
+        
+        private double sueldoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public bool empleadoActivo {
+            get {
+                return this.empleadoActivoField;
+            }
+            set {
+                this.empleadoActivoField = value;
+                this.RaisePropertyChanged("empleadoActivo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string idEmpleadoCadena {
+            get {
+                return this.idEmpleadoCadenaField;
+            }
+            set {
+                this.idEmpleadoCadenaField = value;
+                this.RaisePropertyChanged("idEmpleadoCadena");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public int idEmpleadoNumerico {
+            get {
+                return this.idEmpleadoNumericoField;
+            }
+            set {
+                this.idEmpleadoNumericoField = value;
+                this.RaisePropertyChanged("idEmpleadoNumerico");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public rol rol {
+            get {
+                return this.rolField;
+            }
+            set {
+                this.rolField = value;
+                this.RaisePropertyChanged("rol");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool rolSpecified {
+            get {
+                return this.rolFieldSpecified;
+            }
+            set {
+                this.rolFieldSpecified = value;
+                this.RaisePropertyChanged("rolSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public double sueldo {
+            get {
+                return this.sueldoField;
+            }
+            set {
+                this.sueldoField = value;
+                this.RaisePropertyChanged("sueldo");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9037.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/")]
+    public enum rol {
+        
+        /// <remarks/>
+        Repartidor,
+        
+        /// <remarks/>
+        EncargadoVentas,
+        
+        /// <remarks/>
+        EncargadoAlmacen,
+        
+        /// <remarks/>
+        Administrador,
+    }
+    
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9037.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/")]
@@ -1203,122 +1384,6 @@ namespace DxnSisventas.DxnWebService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9037.0")]
     [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/")]
-    public partial class comprobante : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private System.DateTime fechaEmisionField;
-        
-        private bool fechaEmisionFieldSpecified;
-        
-        private string idComprobanteCadenaField;
-        
-        private int idComprobanteNumericoField;
-        
-        private orden ordenAsociadaField;
-        
-        private tipoComprobante tipoComprobanteField;
-        
-        private bool tipoComprobanteFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public System.DateTime fechaEmision {
-            get {
-                return this.fechaEmisionField;
-            }
-            set {
-                this.fechaEmisionField = value;
-                this.RaisePropertyChanged("fechaEmision");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool fechaEmisionSpecified {
-            get {
-                return this.fechaEmisionFieldSpecified;
-            }
-            set {
-                this.fechaEmisionFieldSpecified = value;
-                this.RaisePropertyChanged("fechaEmisionSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string idComprobanteCadena {
-            get {
-                return this.idComprobanteCadenaField;
-            }
-            set {
-                this.idComprobanteCadenaField = value;
-                this.RaisePropertyChanged("idComprobanteCadena");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int idComprobanteNumerico {
-            get {
-                return this.idComprobanteNumericoField;
-            }
-            set {
-                this.idComprobanteNumericoField = value;
-                this.RaisePropertyChanged("idComprobanteNumerico");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public orden ordenAsociada {
-            get {
-                return this.ordenAsociadaField;
-            }
-            set {
-                this.ordenAsociadaField = value;
-                this.RaisePropertyChanged("ordenAsociada");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public tipoComprobante tipoComprobante {
-            get {
-                return this.tipoComprobanteField;
-            }
-            set {
-                this.tipoComprobanteField = value;
-                this.RaisePropertyChanged("tipoComprobante");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool tipoComprobanteSpecified {
-            get {
-                return this.tipoComprobanteFieldSpecified;
-            }
-            set {
-                this.tipoComprobanteFieldSpecified = value;
-                this.RaisePropertyChanged("tipoComprobanteSpecified");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9037.0")]
-    [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/")]
     public enum tipoComprobante {
         
@@ -1327,105 +1392,6 @@ namespace DxnSisventas.DxnWebService {
         
         /// <remarks/>
         Factura,
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(cuentaCliente))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(cuentaEmpleado))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9037.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/")]
-    public partial class cuenta : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private bool activoField;
-        
-        private string contrasenaField;
-        
-        private int idCuentaField;
-        
-        private string usuarioField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public bool activo {
-            get {
-                return this.activoField;
-            }
-            set {
-                this.activoField = value;
-                this.RaisePropertyChanged("activo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string contrasena {
-            get {
-                return this.contrasenaField;
-            }
-            set {
-                this.contrasenaField = value;
-                this.RaisePropertyChanged("contrasena");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int idCuenta {
-            get {
-                return this.idCuentaField;
-            }
-            set {
-                this.idCuentaField = value;
-                this.RaisePropertyChanged("idCuenta");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string usuario {
-            get {
-                return this.usuarioField;
-            }
-            set {
-                this.usuarioField = value;
-                this.RaisePropertyChanged("usuario");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9037.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/")]
-    public partial class cuentaCliente : cuenta {
-        
-        private int fid_ClienteField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int fid_Cliente {
-            get {
-                return this.fid_ClienteField;
-            }
-            set {
-                this.fid_ClienteField = value;
-                this.RaisePropertyChanged("fid_Cliente");
-            }
-        }
     }
     
     /// <remarks/>
@@ -1448,6 +1414,178 @@ namespace DxnSisventas.DxnWebService {
                 this.fid_EmpleadoField = value;
                 this.RaisePropertyChanged("fid_Empleado");
             }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCuentaCliente", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarCuentaClienteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public DxnSisventas.DxnWebService.cuentaCliente cuentaCliente;
+        
+        public actualizarCuentaClienteRequest() {
+        }
+        
+        public actualizarCuentaClienteRequest(DxnSisventas.DxnWebService.cuentaCliente cuentaCliente) {
+            this.cuentaCliente = cuentaCliente;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCuentaClienteResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarCuentaClienteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public actualizarCuentaClienteResponse() {
+        }
+        
+        public actualizarCuentaClienteResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarCuentaCliente", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarCuentaClienteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_cliente;
+        
+        public eliminarCuentaClienteRequest() {
+        }
+        
+        public eliminarCuentaClienteRequest(int id_cliente) {
+            this.id_cliente = id_cliente;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarCuentaClienteResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarCuentaClienteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public eliminarCuentaClienteResponse() {
+        }
+        
+        public eliminarCuentaClienteResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarCuentaEmpleado", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarCuentaEmpleadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public DxnSisventas.DxnWebService.cuentaEmpleado cuentaEmpleado;
+        
+        public insertarCuentaEmpleadoRequest() {
+        }
+        
+        public insertarCuentaEmpleadoRequest(DxnSisventas.DxnWebService.cuentaEmpleado cuentaEmpleado) {
+            this.cuentaEmpleado = cuentaEmpleado;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarCuentaEmpleadoResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarCuentaEmpleadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarCuentaEmpleadoResponse() {
+        }
+        
+        public insertarCuentaEmpleadoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarCuentaCliente", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarCuentaClienteRequest {
+        
+        public listarCuentaClienteRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarCuentaClienteResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarCuentaClienteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public DxnSisventas.DxnWebService.cuentaCliente[] @return;
+        
+        public listarCuentaClienteResponse() {
+        }
+        
+        public listarCuentaClienteResponse(DxnSisventas.DxnWebService.cuentaCliente[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCuentaEmpleado", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarCuentaEmpleadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public DxnSisventas.DxnWebService.cuentaEmpleado cuentaEmpleado;
+        
+        public actualizarCuentaEmpleadoRequest() {
+        }
+        
+        public actualizarCuentaEmpleadoRequest(DxnSisventas.DxnWebService.cuentaEmpleado cuentaEmpleado) {
+            this.cuentaEmpleado = cuentaEmpleado;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCuentaEmpleadoResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarCuentaEmpleadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public actualizarCuentaEmpleadoResponse() {
+        }
+        
+        public actualizarCuentaEmpleadoResponse(int @return) {
+            this.@return = @return;
         }
     }
     
@@ -1495,6 +1633,34 @@ namespace DxnSisventas.DxnWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarCuentaEmpleado", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarCuentaEmpleadoRequest {
+        
+        public listarCuentaEmpleadoRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarCuentaEmpleadoResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarCuentaEmpleadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public DxnSisventas.DxnWebService.cuentaEmpleado[] @return;
+        
+        public listarCuentaEmpleadoResponse() {
+        }
+        
+        public listarCuentaEmpleadoResponse(DxnSisventas.DxnWebService.cuentaEmpleado[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="insertarCuentaCliente", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
     public partial class insertarCuentaClienteRequest {
         
@@ -1531,35 +1697,35 @@ namespace DxnSisventas.DxnWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCuentaCliente", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarCuentaClienteRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarCuentaEmpleado", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarCuentaEmpleadoRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public DxnSisventas.DxnWebService.cuentaCliente cuentaCliente;
+        public int id_empleado;
         
-        public actualizarCuentaClienteRequest() {
+        public eliminarCuentaEmpleadoRequest() {
         }
         
-        public actualizarCuentaClienteRequest(DxnSisventas.DxnWebService.cuentaCliente cuentaCliente) {
-            this.cuentaCliente = cuentaCliente;
+        public eliminarCuentaEmpleadoRequest(int id_empleado) {
+            this.id_empleado = id_empleado;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCuentaClienteResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarCuentaClienteResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarCuentaEmpleadoResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarCuentaEmpleadoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int @return;
         
-        public actualizarCuentaClienteResponse() {
+        public eliminarCuentaEmpleadoResponse() {
         }
         
-        public actualizarCuentaClienteResponse(int @return) {
+        public eliminarCuentaEmpleadoResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -1608,199 +1774,35 @@ namespace DxnSisventas.DxnWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCuentaEmpleado", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarCuentaEmpleadoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="hello", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class helloRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public DxnSisventas.DxnWebService.cuentaEmpleado cuentaEmpleado;
+        public string name;
         
-        public actualizarCuentaEmpleadoRequest() {
+        public helloRequest() {
         }
         
-        public actualizarCuentaEmpleadoRequest(DxnSisventas.DxnWebService.cuentaEmpleado cuentaEmpleado) {
-            this.cuentaEmpleado = cuentaEmpleado;
+        public helloRequest(string name) {
+            this.name = name;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCuentaEmpleadoResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarCuentaEmpleadoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="helloResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class helloResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
+        public string @return;
         
-        public actualizarCuentaEmpleadoResponse() {
+        public helloResponse() {
         }
         
-        public actualizarCuentaEmpleadoResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarCuentaEmpleado", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarCuentaEmpleadoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_empleado;
-        
-        public eliminarCuentaEmpleadoRequest() {
-        }
-        
-        public eliminarCuentaEmpleadoRequest(int id_empleado) {
-            this.id_empleado = id_empleado;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarCuentaEmpleadoResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarCuentaEmpleadoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public eliminarCuentaEmpleadoResponse() {
-        }
-        
-        public eliminarCuentaEmpleadoResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarCuentaCliente", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarCuentaClienteRequest {
-        
-        public listarCuentaClienteRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarCuentaClienteResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarCuentaClienteResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public DxnSisventas.DxnWebService.cuentaCliente[] @return;
-        
-        public listarCuentaClienteResponse() {
-        }
-        
-        public listarCuentaClienteResponse(DxnSisventas.DxnWebService.cuentaCliente[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarCuentaCliente", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarCuentaClienteRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_cliente;
-        
-        public eliminarCuentaClienteRequest() {
-        }
-        
-        public eliminarCuentaClienteRequest(int id_cliente) {
-            this.id_cliente = id_cliente;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarCuentaClienteResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarCuentaClienteResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public eliminarCuentaClienteResponse() {
-        }
-        
-        public eliminarCuentaClienteResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarCuentaEmpleado", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarCuentaEmpleadoRequest {
-        
-        public listarCuentaEmpleadoRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarCuentaEmpleadoResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarCuentaEmpleadoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public DxnSisventas.DxnWebService.cuentaEmpleado[] @return;
-        
-        public listarCuentaEmpleadoResponse() {
-        }
-        
-        public listarCuentaEmpleadoResponse(DxnSisventas.DxnWebService.cuentaEmpleado[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarCuentaEmpleado", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarCuentaEmpleadoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public DxnSisventas.DxnWebService.cuentaEmpleado cuentaEmpleado;
-        
-        public insertarCuentaEmpleadoRequest() {
-        }
-        
-        public insertarCuentaEmpleadoRequest(DxnSisventas.DxnWebService.cuentaEmpleado cuentaEmpleado) {
-            this.cuentaEmpleado = cuentaEmpleado;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarCuentaEmpleadoResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarCuentaEmpleadoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarCuentaEmpleadoResponse() {
-        }
-        
-        public insertarCuentaEmpleadoResponse(int @return) {
+        public helloResponse(string @return) {
             this.@return = @return;
         }
     }
@@ -1833,26 +1835,116 @@ namespace DxnSisventas.DxnWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.helloResponse DxnSisventas.DxnWebService.CuentasAPI.hello(DxnSisventas.DxnWebService.helloRequest request) {
-            return base.Channel.hello(request);
+        DxnSisventas.DxnWebService.actualizarCuentaClienteResponse DxnSisventas.DxnWebService.CuentasAPI.actualizarCuentaCliente(DxnSisventas.DxnWebService.actualizarCuentaClienteRequest request) {
+            return base.Channel.actualizarCuentaCliente(request);
         }
         
-        public string hello(string name) {
-            DxnSisventas.DxnWebService.helloRequest inValue = new DxnSisventas.DxnWebService.helloRequest();
-            inValue.name = name;
-            DxnSisventas.DxnWebService.helloResponse retVal = ((DxnSisventas.DxnWebService.CuentasAPI)(this)).hello(inValue);
+        public int actualizarCuentaCliente(DxnSisventas.DxnWebService.cuentaCliente cuentaCliente) {
+            DxnSisventas.DxnWebService.actualizarCuentaClienteRequest inValue = new DxnSisventas.DxnWebService.actualizarCuentaClienteRequest();
+            inValue.cuentaCliente = cuentaCliente;
+            DxnSisventas.DxnWebService.actualizarCuentaClienteResponse retVal = ((DxnSisventas.DxnWebService.CuentasAPI)(this)).actualizarCuentaCliente(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> DxnSisventas.DxnWebService.CuentasAPI.helloAsync(DxnSisventas.DxnWebService.helloRequest request) {
-            return base.Channel.helloAsync(request);
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarCuentaClienteResponse> DxnSisventas.DxnWebService.CuentasAPI.actualizarCuentaClienteAsync(DxnSisventas.DxnWebService.actualizarCuentaClienteRequest request) {
+            return base.Channel.actualizarCuentaClienteAsync(request);
         }
         
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> helloAsync(string name) {
-            DxnSisventas.DxnWebService.helloRequest inValue = new DxnSisventas.DxnWebService.helloRequest();
-            inValue.name = name;
-            return ((DxnSisventas.DxnWebService.CuentasAPI)(this)).helloAsync(inValue);
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarCuentaClienteResponse> actualizarCuentaClienteAsync(DxnSisventas.DxnWebService.cuentaCliente cuentaCliente) {
+            DxnSisventas.DxnWebService.actualizarCuentaClienteRequest inValue = new DxnSisventas.DxnWebService.actualizarCuentaClienteRequest();
+            inValue.cuentaCliente = cuentaCliente;
+            return ((DxnSisventas.DxnWebService.CuentasAPI)(this)).actualizarCuentaClienteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        DxnSisventas.DxnWebService.eliminarCuentaClienteResponse DxnSisventas.DxnWebService.CuentasAPI.eliminarCuentaCliente(DxnSisventas.DxnWebService.eliminarCuentaClienteRequest request) {
+            return base.Channel.eliminarCuentaCliente(request);
+        }
+        
+        public int eliminarCuentaCliente(int id_cliente) {
+            DxnSisventas.DxnWebService.eliminarCuentaClienteRequest inValue = new DxnSisventas.DxnWebService.eliminarCuentaClienteRequest();
+            inValue.id_cliente = id_cliente;
+            DxnSisventas.DxnWebService.eliminarCuentaClienteResponse retVal = ((DxnSisventas.DxnWebService.CuentasAPI)(this)).eliminarCuentaCliente(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarCuentaClienteResponse> DxnSisventas.DxnWebService.CuentasAPI.eliminarCuentaClienteAsync(DxnSisventas.DxnWebService.eliminarCuentaClienteRequest request) {
+            return base.Channel.eliminarCuentaClienteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarCuentaClienteResponse> eliminarCuentaClienteAsync(int id_cliente) {
+            DxnSisventas.DxnWebService.eliminarCuentaClienteRequest inValue = new DxnSisventas.DxnWebService.eliminarCuentaClienteRequest();
+            inValue.id_cliente = id_cliente;
+            return ((DxnSisventas.DxnWebService.CuentasAPI)(this)).eliminarCuentaClienteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        DxnSisventas.DxnWebService.insertarCuentaEmpleadoResponse DxnSisventas.DxnWebService.CuentasAPI.insertarCuentaEmpleado(DxnSisventas.DxnWebService.insertarCuentaEmpleadoRequest request) {
+            return base.Channel.insertarCuentaEmpleado(request);
+        }
+        
+        public int insertarCuentaEmpleado(DxnSisventas.DxnWebService.cuentaEmpleado cuentaEmpleado) {
+            DxnSisventas.DxnWebService.insertarCuentaEmpleadoRequest inValue = new DxnSisventas.DxnWebService.insertarCuentaEmpleadoRequest();
+            inValue.cuentaEmpleado = cuentaEmpleado;
+            DxnSisventas.DxnWebService.insertarCuentaEmpleadoResponse retVal = ((DxnSisventas.DxnWebService.CuentasAPI)(this)).insertarCuentaEmpleado(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarCuentaEmpleadoResponse> DxnSisventas.DxnWebService.CuentasAPI.insertarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.insertarCuentaEmpleadoRequest request) {
+            return base.Channel.insertarCuentaEmpleadoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarCuentaEmpleadoResponse> insertarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.cuentaEmpleado cuentaEmpleado) {
+            DxnSisventas.DxnWebService.insertarCuentaEmpleadoRequest inValue = new DxnSisventas.DxnWebService.insertarCuentaEmpleadoRequest();
+            inValue.cuentaEmpleado = cuentaEmpleado;
+            return ((DxnSisventas.DxnWebService.CuentasAPI)(this)).insertarCuentaEmpleadoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        DxnSisventas.DxnWebService.listarCuentaClienteResponse DxnSisventas.DxnWebService.CuentasAPI.listarCuentaCliente(DxnSisventas.DxnWebService.listarCuentaClienteRequest request) {
+            return base.Channel.listarCuentaCliente(request);
+        }
+        
+        public DxnSisventas.DxnWebService.cuentaCliente[] listarCuentaCliente() {
+            DxnSisventas.DxnWebService.listarCuentaClienteRequest inValue = new DxnSisventas.DxnWebService.listarCuentaClienteRequest();
+            DxnSisventas.DxnWebService.listarCuentaClienteResponse retVal = ((DxnSisventas.DxnWebService.CuentasAPI)(this)).listarCuentaCliente(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarCuentaClienteResponse> DxnSisventas.DxnWebService.CuentasAPI.listarCuentaClienteAsync(DxnSisventas.DxnWebService.listarCuentaClienteRequest request) {
+            return base.Channel.listarCuentaClienteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarCuentaClienteResponse> listarCuentaClienteAsync() {
+            DxnSisventas.DxnWebService.listarCuentaClienteRequest inValue = new DxnSisventas.DxnWebService.listarCuentaClienteRequest();
+            return ((DxnSisventas.DxnWebService.CuentasAPI)(this)).listarCuentaClienteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        DxnSisventas.DxnWebService.actualizarCuentaEmpleadoResponse DxnSisventas.DxnWebService.CuentasAPI.actualizarCuentaEmpleado(DxnSisventas.DxnWebService.actualizarCuentaEmpleadoRequest request) {
+            return base.Channel.actualizarCuentaEmpleado(request);
+        }
+        
+        public int actualizarCuentaEmpleado(DxnSisventas.DxnWebService.cuentaEmpleado cuentaEmpleado) {
+            DxnSisventas.DxnWebService.actualizarCuentaEmpleadoRequest inValue = new DxnSisventas.DxnWebService.actualizarCuentaEmpleadoRequest();
+            inValue.cuentaEmpleado = cuentaEmpleado;
+            DxnSisventas.DxnWebService.actualizarCuentaEmpleadoResponse retVal = ((DxnSisventas.DxnWebService.CuentasAPI)(this)).actualizarCuentaEmpleado(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarCuentaEmpleadoResponse> DxnSisventas.DxnWebService.CuentasAPI.actualizarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.actualizarCuentaEmpleadoRequest request) {
+            return base.Channel.actualizarCuentaEmpleadoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarCuentaEmpleadoResponse> actualizarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.cuentaEmpleado cuentaEmpleado) {
+            DxnSisventas.DxnWebService.actualizarCuentaEmpleadoRequest inValue = new DxnSisventas.DxnWebService.actualizarCuentaEmpleadoRequest();
+            inValue.cuentaEmpleado = cuentaEmpleado;
+            return ((DxnSisventas.DxnWebService.CuentasAPI)(this)).actualizarCuentaEmpleadoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1881,6 +1973,27 @@ namespace DxnSisventas.DxnWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        DxnSisventas.DxnWebService.listarCuentaEmpleadoResponse DxnSisventas.DxnWebService.CuentasAPI.listarCuentaEmpleado(DxnSisventas.DxnWebService.listarCuentaEmpleadoRequest request) {
+            return base.Channel.listarCuentaEmpleado(request);
+        }
+        
+        public DxnSisventas.DxnWebService.cuentaEmpleado[] listarCuentaEmpleado() {
+            DxnSisventas.DxnWebService.listarCuentaEmpleadoRequest inValue = new DxnSisventas.DxnWebService.listarCuentaEmpleadoRequest();
+            DxnSisventas.DxnWebService.listarCuentaEmpleadoResponse retVal = ((DxnSisventas.DxnWebService.CuentasAPI)(this)).listarCuentaEmpleado(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarCuentaEmpleadoResponse> DxnSisventas.DxnWebService.CuentasAPI.listarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.listarCuentaEmpleadoRequest request) {
+            return base.Channel.listarCuentaEmpleadoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarCuentaEmpleadoResponse> listarCuentaEmpleadoAsync() {
+            DxnSisventas.DxnWebService.listarCuentaEmpleadoRequest inValue = new DxnSisventas.DxnWebService.listarCuentaEmpleadoRequest();
+            return ((DxnSisventas.DxnWebService.CuentasAPI)(this)).listarCuentaEmpleadoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         DxnSisventas.DxnWebService.insertarCuentaClienteResponse DxnSisventas.DxnWebService.CuentasAPI.insertarCuentaCliente(DxnSisventas.DxnWebService.insertarCuentaClienteRequest request) {
             return base.Channel.insertarCuentaCliente(request);
         }
@@ -1904,26 +2017,26 @@ namespace DxnSisventas.DxnWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.actualizarCuentaClienteResponse DxnSisventas.DxnWebService.CuentasAPI.actualizarCuentaCliente(DxnSisventas.DxnWebService.actualizarCuentaClienteRequest request) {
-            return base.Channel.actualizarCuentaCliente(request);
+        DxnSisventas.DxnWebService.eliminarCuentaEmpleadoResponse DxnSisventas.DxnWebService.CuentasAPI.eliminarCuentaEmpleado(DxnSisventas.DxnWebService.eliminarCuentaEmpleadoRequest request) {
+            return base.Channel.eliminarCuentaEmpleado(request);
         }
         
-        public int actualizarCuentaCliente(DxnSisventas.DxnWebService.cuentaCliente cuentaCliente) {
-            DxnSisventas.DxnWebService.actualizarCuentaClienteRequest inValue = new DxnSisventas.DxnWebService.actualizarCuentaClienteRequest();
-            inValue.cuentaCliente = cuentaCliente;
-            DxnSisventas.DxnWebService.actualizarCuentaClienteResponse retVal = ((DxnSisventas.DxnWebService.CuentasAPI)(this)).actualizarCuentaCliente(inValue);
+        public int eliminarCuentaEmpleado(int id_empleado) {
+            DxnSisventas.DxnWebService.eliminarCuentaEmpleadoRequest inValue = new DxnSisventas.DxnWebService.eliminarCuentaEmpleadoRequest();
+            inValue.id_empleado = id_empleado;
+            DxnSisventas.DxnWebService.eliminarCuentaEmpleadoResponse retVal = ((DxnSisventas.DxnWebService.CuentasAPI)(this)).eliminarCuentaEmpleado(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarCuentaClienteResponse> DxnSisventas.DxnWebService.CuentasAPI.actualizarCuentaClienteAsync(DxnSisventas.DxnWebService.actualizarCuentaClienteRequest request) {
-            return base.Channel.actualizarCuentaClienteAsync(request);
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarCuentaEmpleadoResponse> DxnSisventas.DxnWebService.CuentasAPI.eliminarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.eliminarCuentaEmpleadoRequest request) {
+            return base.Channel.eliminarCuentaEmpleadoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarCuentaClienteResponse> actualizarCuentaClienteAsync(DxnSisventas.DxnWebService.cuentaCliente cuentaCliente) {
-            DxnSisventas.DxnWebService.actualizarCuentaClienteRequest inValue = new DxnSisventas.DxnWebService.actualizarCuentaClienteRequest();
-            inValue.cuentaCliente = cuentaCliente;
-            return ((DxnSisventas.DxnWebService.CuentasAPI)(this)).actualizarCuentaClienteAsync(inValue);
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarCuentaEmpleadoResponse> eliminarCuentaEmpleadoAsync(int id_empleado) {
+            DxnSisventas.DxnWebService.eliminarCuentaEmpleadoRequest inValue = new DxnSisventas.DxnWebService.eliminarCuentaEmpleadoRequest();
+            inValue.id_empleado = id_empleado;
+            return ((DxnSisventas.DxnWebService.CuentasAPI)(this)).eliminarCuentaEmpleadoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1952,137 +2065,26 @@ namespace DxnSisventas.DxnWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.actualizarCuentaEmpleadoResponse DxnSisventas.DxnWebService.CuentasAPI.actualizarCuentaEmpleado(DxnSisventas.DxnWebService.actualizarCuentaEmpleadoRequest request) {
-            return base.Channel.actualizarCuentaEmpleado(request);
+        DxnSisventas.DxnWebService.helloResponse DxnSisventas.DxnWebService.CuentasAPI.hello(DxnSisventas.DxnWebService.helloRequest request) {
+            return base.Channel.hello(request);
         }
         
-        public int actualizarCuentaEmpleado(DxnSisventas.DxnWebService.cuentaEmpleado cuentaEmpleado) {
-            DxnSisventas.DxnWebService.actualizarCuentaEmpleadoRequest inValue = new DxnSisventas.DxnWebService.actualizarCuentaEmpleadoRequest();
-            inValue.cuentaEmpleado = cuentaEmpleado;
-            DxnSisventas.DxnWebService.actualizarCuentaEmpleadoResponse retVal = ((DxnSisventas.DxnWebService.CuentasAPI)(this)).actualizarCuentaEmpleado(inValue);
+        public string hello(string name) {
+            DxnSisventas.DxnWebService.helloRequest inValue = new DxnSisventas.DxnWebService.helloRequest();
+            inValue.name = name;
+            DxnSisventas.DxnWebService.helloResponse retVal = ((DxnSisventas.DxnWebService.CuentasAPI)(this)).hello(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarCuentaEmpleadoResponse> DxnSisventas.DxnWebService.CuentasAPI.actualizarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.actualizarCuentaEmpleadoRequest request) {
-            return base.Channel.actualizarCuentaEmpleadoAsync(request);
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> DxnSisventas.DxnWebService.CuentasAPI.helloAsync(DxnSisventas.DxnWebService.helloRequest request) {
+            return base.Channel.helloAsync(request);
         }
         
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarCuentaEmpleadoResponse> actualizarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.cuentaEmpleado cuentaEmpleado) {
-            DxnSisventas.DxnWebService.actualizarCuentaEmpleadoRequest inValue = new DxnSisventas.DxnWebService.actualizarCuentaEmpleadoRequest();
-            inValue.cuentaEmpleado = cuentaEmpleado;
-            return ((DxnSisventas.DxnWebService.CuentasAPI)(this)).actualizarCuentaEmpleadoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.eliminarCuentaEmpleadoResponse DxnSisventas.DxnWebService.CuentasAPI.eliminarCuentaEmpleado(DxnSisventas.DxnWebService.eliminarCuentaEmpleadoRequest request) {
-            return base.Channel.eliminarCuentaEmpleado(request);
-        }
-        
-        public int eliminarCuentaEmpleado(int id_empleado) {
-            DxnSisventas.DxnWebService.eliminarCuentaEmpleadoRequest inValue = new DxnSisventas.DxnWebService.eliminarCuentaEmpleadoRequest();
-            inValue.id_empleado = id_empleado;
-            DxnSisventas.DxnWebService.eliminarCuentaEmpleadoResponse retVal = ((DxnSisventas.DxnWebService.CuentasAPI)(this)).eliminarCuentaEmpleado(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarCuentaEmpleadoResponse> DxnSisventas.DxnWebService.CuentasAPI.eliminarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.eliminarCuentaEmpleadoRequest request) {
-            return base.Channel.eliminarCuentaEmpleadoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarCuentaEmpleadoResponse> eliminarCuentaEmpleadoAsync(int id_empleado) {
-            DxnSisventas.DxnWebService.eliminarCuentaEmpleadoRequest inValue = new DxnSisventas.DxnWebService.eliminarCuentaEmpleadoRequest();
-            inValue.id_empleado = id_empleado;
-            return ((DxnSisventas.DxnWebService.CuentasAPI)(this)).eliminarCuentaEmpleadoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.listarCuentaClienteResponse DxnSisventas.DxnWebService.CuentasAPI.listarCuentaCliente(DxnSisventas.DxnWebService.listarCuentaClienteRequest request) {
-            return base.Channel.listarCuentaCliente(request);
-        }
-        
-        public DxnSisventas.DxnWebService.cuentaCliente[] listarCuentaCliente() {
-            DxnSisventas.DxnWebService.listarCuentaClienteRequest inValue = new DxnSisventas.DxnWebService.listarCuentaClienteRequest();
-            DxnSisventas.DxnWebService.listarCuentaClienteResponse retVal = ((DxnSisventas.DxnWebService.CuentasAPI)(this)).listarCuentaCliente(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarCuentaClienteResponse> DxnSisventas.DxnWebService.CuentasAPI.listarCuentaClienteAsync(DxnSisventas.DxnWebService.listarCuentaClienteRequest request) {
-            return base.Channel.listarCuentaClienteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarCuentaClienteResponse> listarCuentaClienteAsync() {
-            DxnSisventas.DxnWebService.listarCuentaClienteRequest inValue = new DxnSisventas.DxnWebService.listarCuentaClienteRequest();
-            return ((DxnSisventas.DxnWebService.CuentasAPI)(this)).listarCuentaClienteAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.eliminarCuentaClienteResponse DxnSisventas.DxnWebService.CuentasAPI.eliminarCuentaCliente(DxnSisventas.DxnWebService.eliminarCuentaClienteRequest request) {
-            return base.Channel.eliminarCuentaCliente(request);
-        }
-        
-        public int eliminarCuentaCliente(int id_cliente) {
-            DxnSisventas.DxnWebService.eliminarCuentaClienteRequest inValue = new DxnSisventas.DxnWebService.eliminarCuentaClienteRequest();
-            inValue.id_cliente = id_cliente;
-            DxnSisventas.DxnWebService.eliminarCuentaClienteResponse retVal = ((DxnSisventas.DxnWebService.CuentasAPI)(this)).eliminarCuentaCliente(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarCuentaClienteResponse> DxnSisventas.DxnWebService.CuentasAPI.eliminarCuentaClienteAsync(DxnSisventas.DxnWebService.eliminarCuentaClienteRequest request) {
-            return base.Channel.eliminarCuentaClienteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarCuentaClienteResponse> eliminarCuentaClienteAsync(int id_cliente) {
-            DxnSisventas.DxnWebService.eliminarCuentaClienteRequest inValue = new DxnSisventas.DxnWebService.eliminarCuentaClienteRequest();
-            inValue.id_cliente = id_cliente;
-            return ((DxnSisventas.DxnWebService.CuentasAPI)(this)).eliminarCuentaClienteAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.listarCuentaEmpleadoResponse DxnSisventas.DxnWebService.CuentasAPI.listarCuentaEmpleado(DxnSisventas.DxnWebService.listarCuentaEmpleadoRequest request) {
-            return base.Channel.listarCuentaEmpleado(request);
-        }
-        
-        public DxnSisventas.DxnWebService.cuentaEmpleado[] listarCuentaEmpleado() {
-            DxnSisventas.DxnWebService.listarCuentaEmpleadoRequest inValue = new DxnSisventas.DxnWebService.listarCuentaEmpleadoRequest();
-            DxnSisventas.DxnWebService.listarCuentaEmpleadoResponse retVal = ((DxnSisventas.DxnWebService.CuentasAPI)(this)).listarCuentaEmpleado(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarCuentaEmpleadoResponse> DxnSisventas.DxnWebService.CuentasAPI.listarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.listarCuentaEmpleadoRequest request) {
-            return base.Channel.listarCuentaEmpleadoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarCuentaEmpleadoResponse> listarCuentaEmpleadoAsync() {
-            DxnSisventas.DxnWebService.listarCuentaEmpleadoRequest inValue = new DxnSisventas.DxnWebService.listarCuentaEmpleadoRequest();
-            return ((DxnSisventas.DxnWebService.CuentasAPI)(this)).listarCuentaEmpleadoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.insertarCuentaEmpleadoResponse DxnSisventas.DxnWebService.CuentasAPI.insertarCuentaEmpleado(DxnSisventas.DxnWebService.insertarCuentaEmpleadoRequest request) {
-            return base.Channel.insertarCuentaEmpleado(request);
-        }
-        
-        public int insertarCuentaEmpleado(DxnSisventas.DxnWebService.cuentaEmpleado cuentaEmpleado) {
-            DxnSisventas.DxnWebService.insertarCuentaEmpleadoRequest inValue = new DxnSisventas.DxnWebService.insertarCuentaEmpleadoRequest();
-            inValue.cuentaEmpleado = cuentaEmpleado;
-            DxnSisventas.DxnWebService.insertarCuentaEmpleadoResponse retVal = ((DxnSisventas.DxnWebService.CuentasAPI)(this)).insertarCuentaEmpleado(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarCuentaEmpleadoResponse> DxnSisventas.DxnWebService.CuentasAPI.insertarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.insertarCuentaEmpleadoRequest request) {
-            return base.Channel.insertarCuentaEmpleadoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarCuentaEmpleadoResponse> insertarCuentaEmpleadoAsync(DxnSisventas.DxnWebService.cuentaEmpleado cuentaEmpleado) {
-            DxnSisventas.DxnWebService.insertarCuentaEmpleadoRequest inValue = new DxnSisventas.DxnWebService.insertarCuentaEmpleadoRequest();
-            inValue.cuentaEmpleado = cuentaEmpleado;
-            return ((DxnSisventas.DxnWebService.CuentasAPI)(this)).insertarCuentaEmpleadoAsync(inValue);
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> helloAsync(string name) {
+            DxnSisventas.DxnWebService.helloRequest inValue = new DxnSisventas.DxnWebService.helloRequest();
+            inValue.name = name;
+            return ((DxnSisventas.DxnWebService.CuentasAPI)(this)).helloAsync(inValue);
         }
     }
     
@@ -2091,38 +2093,12 @@ namespace DxnSisventas.DxnWebService {
     public interface ProductosAPI {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/helloRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/helloResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.helloResponse hello(DxnSisventas.DxnWebService.helloRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/helloRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/helloResponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> helloAsync(DxnSisventas.DxnWebService.helloRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/listarProductosR" +
-            "equest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/listarProductosR" +
-            "esponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.listarProductosResponse listarProductos(DxnSisventas.DxnWebService.listarProductosRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/listarProductosR" +
-            "equest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/listarProductosR" +
-            "esponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarProductosResponse> listarProductosAsync(DxnSisventas.DxnWebService.listarProductosRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/actualizarProduc" +
             "toRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/actualizarProduc" +
             "toResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         DxnSisventas.DxnWebService.actualizarProductoResponse actualizarProducto(DxnSisventas.DxnWebService.actualizarProductoRequest request);
         
@@ -2132,12 +2108,27 @@ namespace DxnSisventas.DxnWebService {
         System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarProductoResponse> actualizarProductoAsync(DxnSisventas.DxnWebService.actualizarProductoRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/insertarProducto" +
+            "Request", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/insertarProducto" +
+            "Response")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        DxnSisventas.DxnWebService.insertarProductoResponse insertarProducto(DxnSisventas.DxnWebService.insertarProductoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/insertarProducto" +
+            "Request", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/insertarProducto" +
+            "Response")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarProductoResponse> insertarProductoAsync(DxnSisventas.DxnWebService.insertarProductoRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/eliminarProducto" +
             "Request", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/eliminarProducto" +
             "Response")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         DxnSisventas.DxnWebService.eliminarProductoResponse eliminarProducto(DxnSisventas.DxnWebService.eliminarProductoRequest request);
         
@@ -2147,55 +2138,30 @@ namespace DxnSisventas.DxnWebService {
         System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarProductoResponse> eliminarProductoAsync(DxnSisventas.DxnWebService.eliminarProductoRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/insertarProducto" +
-            "Request", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/insertarProducto" +
-            "Response")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/listarProductosR" +
+            "equest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/listarProductosR" +
+            "esponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.insertarProductoResponse insertarProducto(DxnSisventas.DxnWebService.insertarProductoRequest request);
+        DxnSisventas.DxnWebService.listarProductosResponse listarProductos(DxnSisventas.DxnWebService.listarProductosRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/insertarProducto" +
-            "Request", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/insertarProducto" +
-            "Response")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarProductoResponse> insertarProductoAsync(DxnSisventas.DxnWebService.insertarProductoRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductos", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProductosRequest {
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/listarProductosR" +
+            "equest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/listarProductosR" +
+            "esponse")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarProductosResponse> listarProductosAsync(DxnSisventas.DxnWebService.listarProductosRequest request);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string cadena;
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/helloRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/helloResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        DxnSisventas.DxnWebService.helloResponse hello(DxnSisventas.DxnWebService.helloRequest request);
         
-        public listarProductosRequest() {
-        }
-        
-        public listarProductosRequest(string cadena) {
-            this.cadena = cadena;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductosResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProductosResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public DxnSisventas.DxnWebService.producto[] @return;
-        
-        public listarProductosResponse() {
-        }
-        
-        public listarProductosResponse(DxnSisventas.DxnWebService.producto[] @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/helloRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/ProductosAPI/helloResponse")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> helloAsync(DxnSisventas.DxnWebService.helloRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2230,6 +2196,42 @@ namespace DxnSisventas.DxnWebService {
         }
         
         public actualizarProductoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarProducto", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarProductoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public DxnSisventas.DxnWebService.producto producto;
+        
+        public insertarProductoRequest() {
+        }
+        
+        public insertarProductoRequest(DxnSisventas.DxnWebService.producto producto) {
+            this.producto = producto;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarProductoResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarProductoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarProductoResponse() {
+        }
+        
+        public insertarProductoResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -2273,35 +2275,35 @@ namespace DxnSisventas.DxnWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarProducto", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarProductoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductos", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProductosRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public DxnSisventas.DxnWebService.producto producto;
+        public string cadena;
         
-        public insertarProductoRequest() {
+        public listarProductosRequest() {
         }
         
-        public insertarProductoRequest(DxnSisventas.DxnWebService.producto producto) {
-            this.producto = producto;
+        public listarProductosRequest(string cadena) {
+            this.cadena = cadena;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarProductoResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarProductoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductosResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProductosResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public DxnSisventas.DxnWebService.producto[] @return;
         
-        public insertarProductoResponse() {
+        public listarProductosResponse() {
         }
         
-        public insertarProductoResponse(int @return) {
+        public listarProductosResponse(DxnSisventas.DxnWebService.producto[] @return) {
             this.@return = @return;
         }
     }
@@ -2334,52 +2336,6 @@ namespace DxnSisventas.DxnWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.helloResponse DxnSisventas.DxnWebService.ProductosAPI.hello(DxnSisventas.DxnWebService.helloRequest request) {
-            return base.Channel.hello(request);
-        }
-        
-        public string hello(string name) {
-            DxnSisventas.DxnWebService.helloRequest inValue = new DxnSisventas.DxnWebService.helloRequest();
-            inValue.name = name;
-            DxnSisventas.DxnWebService.helloResponse retVal = ((DxnSisventas.DxnWebService.ProductosAPI)(this)).hello(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> DxnSisventas.DxnWebService.ProductosAPI.helloAsync(DxnSisventas.DxnWebService.helloRequest request) {
-            return base.Channel.helloAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> helloAsync(string name) {
-            DxnSisventas.DxnWebService.helloRequest inValue = new DxnSisventas.DxnWebService.helloRequest();
-            inValue.name = name;
-            return ((DxnSisventas.DxnWebService.ProductosAPI)(this)).helloAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.listarProductosResponse DxnSisventas.DxnWebService.ProductosAPI.listarProductos(DxnSisventas.DxnWebService.listarProductosRequest request) {
-            return base.Channel.listarProductos(request);
-        }
-        
-        public DxnSisventas.DxnWebService.producto[] listarProductos(string cadena) {
-            DxnSisventas.DxnWebService.listarProductosRequest inValue = new DxnSisventas.DxnWebService.listarProductosRequest();
-            inValue.cadena = cadena;
-            DxnSisventas.DxnWebService.listarProductosResponse retVal = ((DxnSisventas.DxnWebService.ProductosAPI)(this)).listarProductos(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarProductosResponse> DxnSisventas.DxnWebService.ProductosAPI.listarProductosAsync(DxnSisventas.DxnWebService.listarProductosRequest request) {
-            return base.Channel.listarProductosAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarProductosResponse> listarProductosAsync(string cadena) {
-            DxnSisventas.DxnWebService.listarProductosRequest inValue = new DxnSisventas.DxnWebService.listarProductosRequest();
-            inValue.cadena = cadena;
-            return ((DxnSisventas.DxnWebService.ProductosAPI)(this)).listarProductosAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         DxnSisventas.DxnWebService.actualizarProductoResponse DxnSisventas.DxnWebService.ProductosAPI.actualizarProducto(DxnSisventas.DxnWebService.actualizarProductoRequest request) {
             return base.Channel.actualizarProducto(request);
         }
@@ -2400,6 +2356,29 @@ namespace DxnSisventas.DxnWebService {
             DxnSisventas.DxnWebService.actualizarProductoRequest inValue = new DxnSisventas.DxnWebService.actualizarProductoRequest();
             inValue.producto = producto;
             return ((DxnSisventas.DxnWebService.ProductosAPI)(this)).actualizarProductoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        DxnSisventas.DxnWebService.insertarProductoResponse DxnSisventas.DxnWebService.ProductosAPI.insertarProducto(DxnSisventas.DxnWebService.insertarProductoRequest request) {
+            return base.Channel.insertarProducto(request);
+        }
+        
+        public int insertarProducto(DxnSisventas.DxnWebService.producto producto) {
+            DxnSisventas.DxnWebService.insertarProductoRequest inValue = new DxnSisventas.DxnWebService.insertarProductoRequest();
+            inValue.producto = producto;
+            DxnSisventas.DxnWebService.insertarProductoResponse retVal = ((DxnSisventas.DxnWebService.ProductosAPI)(this)).insertarProducto(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarProductoResponse> DxnSisventas.DxnWebService.ProductosAPI.insertarProductoAsync(DxnSisventas.DxnWebService.insertarProductoRequest request) {
+            return base.Channel.insertarProductoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarProductoResponse> insertarProductoAsync(DxnSisventas.DxnWebService.producto producto) {
+            DxnSisventas.DxnWebService.insertarProductoRequest inValue = new DxnSisventas.DxnWebService.insertarProductoRequest();
+            inValue.producto = producto;
+            return ((DxnSisventas.DxnWebService.ProductosAPI)(this)).insertarProductoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2426,26 +2405,49 @@ namespace DxnSisventas.DxnWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.insertarProductoResponse DxnSisventas.DxnWebService.ProductosAPI.insertarProducto(DxnSisventas.DxnWebService.insertarProductoRequest request) {
-            return base.Channel.insertarProducto(request);
+        DxnSisventas.DxnWebService.listarProductosResponse DxnSisventas.DxnWebService.ProductosAPI.listarProductos(DxnSisventas.DxnWebService.listarProductosRequest request) {
+            return base.Channel.listarProductos(request);
         }
         
-        public int insertarProducto(DxnSisventas.DxnWebService.producto producto) {
-            DxnSisventas.DxnWebService.insertarProductoRequest inValue = new DxnSisventas.DxnWebService.insertarProductoRequest();
-            inValue.producto = producto;
-            DxnSisventas.DxnWebService.insertarProductoResponse retVal = ((DxnSisventas.DxnWebService.ProductosAPI)(this)).insertarProducto(inValue);
+        public DxnSisventas.DxnWebService.producto[] listarProductos(string cadena) {
+            DxnSisventas.DxnWebService.listarProductosRequest inValue = new DxnSisventas.DxnWebService.listarProductosRequest();
+            inValue.cadena = cadena;
+            DxnSisventas.DxnWebService.listarProductosResponse retVal = ((DxnSisventas.DxnWebService.ProductosAPI)(this)).listarProductos(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarProductoResponse> DxnSisventas.DxnWebService.ProductosAPI.insertarProductoAsync(DxnSisventas.DxnWebService.insertarProductoRequest request) {
-            return base.Channel.insertarProductoAsync(request);
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarProductosResponse> DxnSisventas.DxnWebService.ProductosAPI.listarProductosAsync(DxnSisventas.DxnWebService.listarProductosRequest request) {
+            return base.Channel.listarProductosAsync(request);
         }
         
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarProductoResponse> insertarProductoAsync(DxnSisventas.DxnWebService.producto producto) {
-            DxnSisventas.DxnWebService.insertarProductoRequest inValue = new DxnSisventas.DxnWebService.insertarProductoRequest();
-            inValue.producto = producto;
-            return ((DxnSisventas.DxnWebService.ProductosAPI)(this)).insertarProductoAsync(inValue);
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarProductosResponse> listarProductosAsync(string cadena) {
+            DxnSisventas.DxnWebService.listarProductosRequest inValue = new DxnSisventas.DxnWebService.listarProductosRequest();
+            inValue.cadena = cadena;
+            return ((DxnSisventas.DxnWebService.ProductosAPI)(this)).listarProductosAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        DxnSisventas.DxnWebService.helloResponse DxnSisventas.DxnWebService.ProductosAPI.hello(DxnSisventas.DxnWebService.helloRequest request) {
+            return base.Channel.hello(request);
+        }
+        
+        public string hello(string name) {
+            DxnSisventas.DxnWebService.helloRequest inValue = new DxnSisventas.DxnWebService.helloRequest();
+            inValue.name = name;
+            DxnSisventas.DxnWebService.helloResponse retVal = ((DxnSisventas.DxnWebService.ProductosAPI)(this)).hello(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> DxnSisventas.DxnWebService.ProductosAPI.helloAsync(DxnSisventas.DxnWebService.helloRequest request) {
+            return base.Channel.helloAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> helloAsync(string name) {
+            DxnSisventas.DxnWebService.helloRequest inValue = new DxnSisventas.DxnWebService.helloRequest();
+            inValue.name = name;
+            return ((DxnSisventas.DxnWebService.ProductosAPI)(this)).helloAsync(inValue);
         }
     }
     
@@ -2454,53 +2456,42 @@ namespace DxnSisventas.DxnWebService {
     public interface PersonasAPI {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/helloRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/helloResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/actualizarCliente" +
+            "Request", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/actualizarCliente" +
+            "Response")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.helloResponse hello(DxnSisventas.DxnWebService.helloRequest request);
+        DxnSisventas.DxnWebService.actualizarClienteResponse actualizarCliente(DxnSisventas.DxnWebService.actualizarClienteRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/helloRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/helloResponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> helloAsync(DxnSisventas.DxnWebService.helloRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/actualizarCliente" +
+            "Request", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/actualizarCliente" +
+            "Response")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarClienteResponse> actualizarClienteAsync(DxnSisventas.DxnWebService.actualizarClienteRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/listarEmpleadosRe" +
-            "quest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/listarEmpleadosRe" +
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/insertarClienteRe" +
+            "quest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/insertarClienteRe" +
             "sponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.listarEmpleadosResponse listarEmpleados(DxnSisventas.DxnWebService.listarEmpleadosRequest request);
+        DxnSisventas.DxnWebService.insertarClienteResponse insertarCliente(DxnSisventas.DxnWebService.insertarClienteRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/listarEmpleadosRe" +
-            "quest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/listarEmpleadosRe" +
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/insertarClienteRe" +
+            "quest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/insertarClienteRe" +
             "sponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarEmpleadosResponse> listarEmpleadosAsync(DxnSisventas.DxnWebService.listarEmpleadosRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/eliminarEmpleadoR" +
-            "equest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/eliminarEmpleadoR" +
-            "esponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.eliminarEmpleadoResponse eliminarEmpleado(DxnSisventas.DxnWebService.eliminarEmpleadoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/eliminarEmpleadoR" +
-            "equest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/eliminarEmpleadoR" +
-            "esponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarEmpleadoResponse> eliminarEmpleadoAsync(DxnSisventas.DxnWebService.eliminarEmpleadoRequest request);
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarClienteResponse> insertarClienteAsync(DxnSisventas.DxnWebService.insertarClienteRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/insertarEmpleadoR" +
             "equest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/insertarEmpleadoR" +
             "esponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         DxnSisventas.DxnWebService.insertarEmpleadoResponse insertarEmpleado(DxnSisventas.DxnWebService.insertarEmpleadoRequest request);
         
@@ -2514,8 +2505,8 @@ namespace DxnSisventas.DxnWebService {
             "oRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/actualizarEmplead" +
             "oResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         DxnSisventas.DxnWebService.actualizarEmpleadoResponse actualizarEmpleado(DxnSisventas.DxnWebService.actualizarEmpleadoRequest request);
         
@@ -2529,8 +2520,8 @@ namespace DxnSisventas.DxnWebService {
             "uest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/listarClientesRes" +
             "ponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         DxnSisventas.DxnWebService.listarClientesResponse listarClientes(DxnSisventas.DxnWebService.listarClientesRequest request);
         
@@ -2540,27 +2531,12 @@ namespace DxnSisventas.DxnWebService {
         System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarClientesResponse> listarClientesAsync(DxnSisventas.DxnWebService.listarClientesRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/actualizarCliente" +
-            "Request", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/actualizarCliente" +
-            "Response")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.actualizarClienteResponse actualizarCliente(DxnSisventas.DxnWebService.actualizarClienteRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/actualizarCliente" +
-            "Request", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/actualizarCliente" +
-            "Response")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarClienteResponse> actualizarClienteAsync(DxnSisventas.DxnWebService.actualizarClienteRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/eliminarClienteRe" +
             "quest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/eliminarClienteRe" +
             "sponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         DxnSisventas.DxnWebService.eliminarClienteResponse eliminarCliente(DxnSisventas.DxnWebService.eliminarClienteRequest request);
         
@@ -2570,53 +2546,79 @@ namespace DxnSisventas.DxnWebService {
         System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarClienteResponse> eliminarClienteAsync(DxnSisventas.DxnWebService.eliminarClienteRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/insertarClienteRe" +
-            "quest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/insertarClienteRe" +
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/listarEmpleadosRe" +
+            "quest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/listarEmpleadosRe" +
             "sponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.insertarClienteResponse insertarCliente(DxnSisventas.DxnWebService.insertarClienteRequest request);
+        DxnSisventas.DxnWebService.listarEmpleadosResponse listarEmpleados(DxnSisventas.DxnWebService.listarEmpleadosRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/insertarClienteRe" +
-            "quest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/insertarClienteRe" +
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/listarEmpleadosRe" +
+            "quest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/listarEmpleadosRe" +
             "sponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarClienteResponse> insertarClienteAsync(DxnSisventas.DxnWebService.insertarClienteRequest request);
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarEmpleadosResponse> listarEmpleadosAsync(DxnSisventas.DxnWebService.listarEmpleadosRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/eliminarEmpleadoR" +
+            "equest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/eliminarEmpleadoR" +
+            "esponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        DxnSisventas.DxnWebService.eliminarEmpleadoResponse eliminarEmpleado(DxnSisventas.DxnWebService.eliminarEmpleadoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/eliminarEmpleadoR" +
+            "equest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/eliminarEmpleadoR" +
+            "esponse")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarEmpleadoResponse> eliminarEmpleadoAsync(DxnSisventas.DxnWebService.eliminarEmpleadoRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/helloRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/helloResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        DxnSisventas.DxnWebService.helloResponse hello(DxnSisventas.DxnWebService.helloRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/helloRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/helloResponse")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> helloAsync(DxnSisventas.DxnWebService.helloRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarEmpleados", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarEmpleadosRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCliente", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarClienteRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string cadena;
+        public DxnSisventas.DxnWebService.cliente cliente;
         
-        public listarEmpleadosRequest() {
+        public actualizarClienteRequest() {
         }
         
-        public listarEmpleadosRequest(string cadena) {
-            this.cadena = cadena;
+        public actualizarClienteRequest(DxnSisventas.DxnWebService.cliente cliente) {
+            this.cliente = cliente;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarEmpleadosResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarEmpleadosResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarClienteResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarClienteResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public DxnSisventas.DxnWebService.empleado[] @return;
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
         
-        public listarEmpleadosResponse() {
+        public actualizarClienteResponse() {
         }
         
-        public listarEmpleadosResponse(DxnSisventas.DxnWebService.empleado[] @return) {
+        public actualizarClienteResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -2624,35 +2626,35 @@ namespace DxnSisventas.DxnWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarEmpleado", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarEmpleadoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarCliente", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarClienteRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int empleado;
+        public DxnSisventas.DxnWebService.cliente cliente;
         
-        public eliminarEmpleadoRequest() {
+        public insertarClienteRequest() {
         }
         
-        public eliminarEmpleadoRequest(int empleado) {
-            this.empleado = empleado;
+        public insertarClienteRequest(DxnSisventas.DxnWebService.cliente cliente) {
+            this.cliente = cliente;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarEmpleadoResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarEmpleadoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarClienteResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarClienteResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int @return;
         
-        public eliminarEmpleadoResponse() {
+        public insertarClienteResponse() {
         }
         
-        public eliminarEmpleadoResponse(int @return) {
+        public insertarClienteResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -2768,42 +2770,6 @@ namespace DxnSisventas.DxnWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCliente", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarClienteRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public DxnSisventas.DxnWebService.cliente cliente;
-        
-        public actualizarClienteRequest() {
-        }
-        
-        public actualizarClienteRequest(DxnSisventas.DxnWebService.cliente cliente) {
-            this.cliente = cliente;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarClienteResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarClienteResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public actualizarClienteResponse() {
-        }
-        
-        public actualizarClienteResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarCliente", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
     public partial class eliminarClienteRequest {
         
@@ -2840,35 +2806,71 @@ namespace DxnSisventas.DxnWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarCliente", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarClienteRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarEmpleados", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarEmpleadosRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public DxnSisventas.DxnWebService.cliente cliente;
+        public string cadena;
         
-        public insertarClienteRequest() {
+        public listarEmpleadosRequest() {
         }
         
-        public insertarClienteRequest(DxnSisventas.DxnWebService.cliente cliente) {
-            this.cliente = cliente;
+        public listarEmpleadosRequest(string cadena) {
+            this.cadena = cadena;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarClienteResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarClienteResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarEmpleadosResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarEmpleadosResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public DxnSisventas.DxnWebService.empleado[] @return;
+        
+        public listarEmpleadosResponse() {
+        }
+        
+        public listarEmpleadosResponse(DxnSisventas.DxnWebService.empleado[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarEmpleado", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarEmpleadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int empleado;
+        
+        public eliminarEmpleadoRequest() {
+        }
+        
+        public eliminarEmpleadoRequest(int empleado) {
+            this.empleado = empleado;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarEmpleadoResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarEmpleadoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int @return;
         
-        public insertarClienteResponse() {
+        public eliminarEmpleadoResponse() {
         }
         
-        public insertarClienteResponse(int @return) {
+        public eliminarEmpleadoResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -2901,72 +2903,49 @@ namespace DxnSisventas.DxnWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.helloResponse DxnSisventas.DxnWebService.PersonasAPI.hello(DxnSisventas.DxnWebService.helloRequest request) {
-            return base.Channel.hello(request);
+        DxnSisventas.DxnWebService.actualizarClienteResponse DxnSisventas.DxnWebService.PersonasAPI.actualizarCliente(DxnSisventas.DxnWebService.actualizarClienteRequest request) {
+            return base.Channel.actualizarCliente(request);
         }
         
-        public string hello(string name) {
-            DxnSisventas.DxnWebService.helloRequest inValue = new DxnSisventas.DxnWebService.helloRequest();
-            inValue.name = name;
-            DxnSisventas.DxnWebService.helloResponse retVal = ((DxnSisventas.DxnWebService.PersonasAPI)(this)).hello(inValue);
+        public int actualizarCliente(DxnSisventas.DxnWebService.cliente cliente) {
+            DxnSisventas.DxnWebService.actualizarClienteRequest inValue = new DxnSisventas.DxnWebService.actualizarClienteRequest();
+            inValue.cliente = cliente;
+            DxnSisventas.DxnWebService.actualizarClienteResponse retVal = ((DxnSisventas.DxnWebService.PersonasAPI)(this)).actualizarCliente(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> DxnSisventas.DxnWebService.PersonasAPI.helloAsync(DxnSisventas.DxnWebService.helloRequest request) {
-            return base.Channel.helloAsync(request);
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarClienteResponse> DxnSisventas.DxnWebService.PersonasAPI.actualizarClienteAsync(DxnSisventas.DxnWebService.actualizarClienteRequest request) {
+            return base.Channel.actualizarClienteAsync(request);
         }
         
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> helloAsync(string name) {
-            DxnSisventas.DxnWebService.helloRequest inValue = new DxnSisventas.DxnWebService.helloRequest();
-            inValue.name = name;
-            return ((DxnSisventas.DxnWebService.PersonasAPI)(this)).helloAsync(inValue);
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarClienteResponse> actualizarClienteAsync(DxnSisventas.DxnWebService.cliente cliente) {
+            DxnSisventas.DxnWebService.actualizarClienteRequest inValue = new DxnSisventas.DxnWebService.actualizarClienteRequest();
+            inValue.cliente = cliente;
+            return ((DxnSisventas.DxnWebService.PersonasAPI)(this)).actualizarClienteAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.listarEmpleadosResponse DxnSisventas.DxnWebService.PersonasAPI.listarEmpleados(DxnSisventas.DxnWebService.listarEmpleadosRequest request) {
-            return base.Channel.listarEmpleados(request);
+        DxnSisventas.DxnWebService.insertarClienteResponse DxnSisventas.DxnWebService.PersonasAPI.insertarCliente(DxnSisventas.DxnWebService.insertarClienteRequest request) {
+            return base.Channel.insertarCliente(request);
         }
         
-        public DxnSisventas.DxnWebService.empleado[] listarEmpleados(string cadena) {
-            DxnSisventas.DxnWebService.listarEmpleadosRequest inValue = new DxnSisventas.DxnWebService.listarEmpleadosRequest();
-            inValue.cadena = cadena;
-            DxnSisventas.DxnWebService.listarEmpleadosResponse retVal = ((DxnSisventas.DxnWebService.PersonasAPI)(this)).listarEmpleados(inValue);
+        public int insertarCliente(DxnSisventas.DxnWebService.cliente cliente) {
+            DxnSisventas.DxnWebService.insertarClienteRequest inValue = new DxnSisventas.DxnWebService.insertarClienteRequest();
+            inValue.cliente = cliente;
+            DxnSisventas.DxnWebService.insertarClienteResponse retVal = ((DxnSisventas.DxnWebService.PersonasAPI)(this)).insertarCliente(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarEmpleadosResponse> DxnSisventas.DxnWebService.PersonasAPI.listarEmpleadosAsync(DxnSisventas.DxnWebService.listarEmpleadosRequest request) {
-            return base.Channel.listarEmpleadosAsync(request);
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarClienteResponse> DxnSisventas.DxnWebService.PersonasAPI.insertarClienteAsync(DxnSisventas.DxnWebService.insertarClienteRequest request) {
+            return base.Channel.insertarClienteAsync(request);
         }
         
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarEmpleadosResponse> listarEmpleadosAsync(string cadena) {
-            DxnSisventas.DxnWebService.listarEmpleadosRequest inValue = new DxnSisventas.DxnWebService.listarEmpleadosRequest();
-            inValue.cadena = cadena;
-            return ((DxnSisventas.DxnWebService.PersonasAPI)(this)).listarEmpleadosAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.eliminarEmpleadoResponse DxnSisventas.DxnWebService.PersonasAPI.eliminarEmpleado(DxnSisventas.DxnWebService.eliminarEmpleadoRequest request) {
-            return base.Channel.eliminarEmpleado(request);
-        }
-        
-        public int eliminarEmpleado(int empleado) {
-            DxnSisventas.DxnWebService.eliminarEmpleadoRequest inValue = new DxnSisventas.DxnWebService.eliminarEmpleadoRequest();
-            inValue.empleado = empleado;
-            DxnSisventas.DxnWebService.eliminarEmpleadoResponse retVal = ((DxnSisventas.DxnWebService.PersonasAPI)(this)).eliminarEmpleado(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarEmpleadoResponse> DxnSisventas.DxnWebService.PersonasAPI.eliminarEmpleadoAsync(DxnSisventas.DxnWebService.eliminarEmpleadoRequest request) {
-            return base.Channel.eliminarEmpleadoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarEmpleadoResponse> eliminarEmpleadoAsync(int empleado) {
-            DxnSisventas.DxnWebService.eliminarEmpleadoRequest inValue = new DxnSisventas.DxnWebService.eliminarEmpleadoRequest();
-            inValue.empleado = empleado;
-            return ((DxnSisventas.DxnWebService.PersonasAPI)(this)).eliminarEmpleadoAsync(inValue);
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarClienteResponse> insertarClienteAsync(DxnSisventas.DxnWebService.cliente cliente) {
+            DxnSisventas.DxnWebService.insertarClienteRequest inValue = new DxnSisventas.DxnWebService.insertarClienteRequest();
+            inValue.cliente = cliente;
+            return ((DxnSisventas.DxnWebService.PersonasAPI)(this)).insertarClienteAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3039,29 +3018,6 @@ namespace DxnSisventas.DxnWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.actualizarClienteResponse DxnSisventas.DxnWebService.PersonasAPI.actualizarCliente(DxnSisventas.DxnWebService.actualizarClienteRequest request) {
-            return base.Channel.actualizarCliente(request);
-        }
-        
-        public int actualizarCliente(DxnSisventas.DxnWebService.cliente cliente) {
-            DxnSisventas.DxnWebService.actualizarClienteRequest inValue = new DxnSisventas.DxnWebService.actualizarClienteRequest();
-            inValue.cliente = cliente;
-            DxnSisventas.DxnWebService.actualizarClienteResponse retVal = ((DxnSisventas.DxnWebService.PersonasAPI)(this)).actualizarCliente(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarClienteResponse> DxnSisventas.DxnWebService.PersonasAPI.actualizarClienteAsync(DxnSisventas.DxnWebService.actualizarClienteRequest request) {
-            return base.Channel.actualizarClienteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarClienteResponse> actualizarClienteAsync(DxnSisventas.DxnWebService.cliente cliente) {
-            DxnSisventas.DxnWebService.actualizarClienteRequest inValue = new DxnSisventas.DxnWebService.actualizarClienteRequest();
-            inValue.cliente = cliente;
-            return ((DxnSisventas.DxnWebService.PersonasAPI)(this)).actualizarClienteAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         DxnSisventas.DxnWebService.eliminarClienteResponse DxnSisventas.DxnWebService.PersonasAPI.eliminarCliente(DxnSisventas.DxnWebService.eliminarClienteRequest request) {
             return base.Channel.eliminarCliente(request);
         }
@@ -3085,26 +3041,72 @@ namespace DxnSisventas.DxnWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.insertarClienteResponse DxnSisventas.DxnWebService.PersonasAPI.insertarCliente(DxnSisventas.DxnWebService.insertarClienteRequest request) {
-            return base.Channel.insertarCliente(request);
+        DxnSisventas.DxnWebService.listarEmpleadosResponse DxnSisventas.DxnWebService.PersonasAPI.listarEmpleados(DxnSisventas.DxnWebService.listarEmpleadosRequest request) {
+            return base.Channel.listarEmpleados(request);
         }
         
-        public int insertarCliente(DxnSisventas.DxnWebService.cliente cliente) {
-            DxnSisventas.DxnWebService.insertarClienteRequest inValue = new DxnSisventas.DxnWebService.insertarClienteRequest();
-            inValue.cliente = cliente;
-            DxnSisventas.DxnWebService.insertarClienteResponse retVal = ((DxnSisventas.DxnWebService.PersonasAPI)(this)).insertarCliente(inValue);
+        public DxnSisventas.DxnWebService.empleado[] listarEmpleados(string cadena) {
+            DxnSisventas.DxnWebService.listarEmpleadosRequest inValue = new DxnSisventas.DxnWebService.listarEmpleadosRequest();
+            inValue.cadena = cadena;
+            DxnSisventas.DxnWebService.listarEmpleadosResponse retVal = ((DxnSisventas.DxnWebService.PersonasAPI)(this)).listarEmpleados(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarClienteResponse> DxnSisventas.DxnWebService.PersonasAPI.insertarClienteAsync(DxnSisventas.DxnWebService.insertarClienteRequest request) {
-            return base.Channel.insertarClienteAsync(request);
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarEmpleadosResponse> DxnSisventas.DxnWebService.PersonasAPI.listarEmpleadosAsync(DxnSisventas.DxnWebService.listarEmpleadosRequest request) {
+            return base.Channel.listarEmpleadosAsync(request);
         }
         
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarClienteResponse> insertarClienteAsync(DxnSisventas.DxnWebService.cliente cliente) {
-            DxnSisventas.DxnWebService.insertarClienteRequest inValue = new DxnSisventas.DxnWebService.insertarClienteRequest();
-            inValue.cliente = cliente;
-            return ((DxnSisventas.DxnWebService.PersonasAPI)(this)).insertarClienteAsync(inValue);
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarEmpleadosResponse> listarEmpleadosAsync(string cadena) {
+            DxnSisventas.DxnWebService.listarEmpleadosRequest inValue = new DxnSisventas.DxnWebService.listarEmpleadosRequest();
+            inValue.cadena = cadena;
+            return ((DxnSisventas.DxnWebService.PersonasAPI)(this)).listarEmpleadosAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        DxnSisventas.DxnWebService.eliminarEmpleadoResponse DxnSisventas.DxnWebService.PersonasAPI.eliminarEmpleado(DxnSisventas.DxnWebService.eliminarEmpleadoRequest request) {
+            return base.Channel.eliminarEmpleado(request);
+        }
+        
+        public int eliminarEmpleado(int empleado) {
+            DxnSisventas.DxnWebService.eliminarEmpleadoRequest inValue = new DxnSisventas.DxnWebService.eliminarEmpleadoRequest();
+            inValue.empleado = empleado;
+            DxnSisventas.DxnWebService.eliminarEmpleadoResponse retVal = ((DxnSisventas.DxnWebService.PersonasAPI)(this)).eliminarEmpleado(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarEmpleadoResponse> DxnSisventas.DxnWebService.PersonasAPI.eliminarEmpleadoAsync(DxnSisventas.DxnWebService.eliminarEmpleadoRequest request) {
+            return base.Channel.eliminarEmpleadoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarEmpleadoResponse> eliminarEmpleadoAsync(int empleado) {
+            DxnSisventas.DxnWebService.eliminarEmpleadoRequest inValue = new DxnSisventas.DxnWebService.eliminarEmpleadoRequest();
+            inValue.empleado = empleado;
+            return ((DxnSisventas.DxnWebService.PersonasAPI)(this)).eliminarEmpleadoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        DxnSisventas.DxnWebService.helloResponse DxnSisventas.DxnWebService.PersonasAPI.hello(DxnSisventas.DxnWebService.helloRequest request) {
+            return base.Channel.hello(request);
+        }
+        
+        public string hello(string name) {
+            DxnSisventas.DxnWebService.helloRequest inValue = new DxnSisventas.DxnWebService.helloRequest();
+            inValue.name = name;
+            DxnSisventas.DxnWebService.helloResponse retVal = ((DxnSisventas.DxnWebService.PersonasAPI)(this)).hello(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> DxnSisventas.DxnWebService.PersonasAPI.helloAsync(DxnSisventas.DxnWebService.helloRequest request) {
+            return base.Channel.helloAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> helloAsync(string name) {
+            DxnSisventas.DxnWebService.helloRequest inValue = new DxnSisventas.DxnWebService.helloRequest();
+            inValue.name = name;
+            return ((DxnSisventas.DxnWebService.PersonasAPI)(this)).helloAsync(inValue);
         }
     }
     
@@ -3113,53 +3115,12 @@ namespace DxnSisventas.DxnWebService {
     public interface DocumentosAPI {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/helloRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/helloResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.helloResponse hello(DxnSisventas.DxnWebService.helloRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/helloRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/helloResponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> helloAsync(DxnSisventas.DxnWebService.helloRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarComproban" +
-            "teRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarComproban" +
-            "teResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.listarComprobanteResponse listarComprobante(DxnSisventas.DxnWebService.listarComprobanteRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarComproban" +
-            "teRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarComproban" +
-            "teResponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarComprobanteResponse> listarComprobanteAsync(DxnSisventas.DxnWebService.listarComprobanteRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarOrdenComp" +
-            "raRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarOrdenComp" +
-            "raResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.listarOrdenCompraResponse listarOrdenCompra(DxnSisventas.DxnWebService.listarOrdenCompraRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarOrdenComp" +
-            "raRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarOrdenComp" +
-            "raResponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarOrdenCompraResponse> listarOrdenCompraAsync(DxnSisventas.DxnWebService.listarOrdenCompraRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarOrdenVent" +
             "aRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarOrdenVent" +
             "aResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         DxnSisventas.DxnWebService.listarOrdenVentaResponse listarOrdenVenta(DxnSisventas.DxnWebService.listarOrdenVentaRequest request);
         
@@ -3169,12 +3130,42 @@ namespace DxnSisventas.DxnWebService {
         System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarOrdenVentaResponse> listarOrdenVentaAsync(DxnSisventas.DxnWebService.listarOrdenVentaRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarOrdenComp" +
+            "raRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarOrdenComp" +
+            "raResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        DxnSisventas.DxnWebService.listarOrdenCompraResponse listarOrdenCompra(DxnSisventas.DxnWebService.listarOrdenCompraRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarOrdenComp" +
+            "raRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarOrdenComp" +
+            "raResponse")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarOrdenCompraResponse> listarOrdenCompraAsync(DxnSisventas.DxnWebService.listarOrdenCompraRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarComproban" +
+            "teRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarComproban" +
+            "teResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        DxnSisventas.DxnWebService.listarComprobanteResponse listarComprobante(DxnSisventas.DxnWebService.listarComprobanteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarComproban" +
+            "teRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarComproban" +
+            "teResponse")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarComprobanteResponse> listarComprobanteAsync(DxnSisventas.DxnWebService.listarComprobanteRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarOrdenVe" +
             "ntaRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarOrdenVe" +
             "ntaResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         DxnSisventas.DxnWebService.insertarOrdenVentaResponse insertarOrdenVenta(DxnSisventas.DxnWebService.insertarOrdenVentaRequest request);
         
@@ -3185,26 +3176,11 @@ namespace DxnSisventas.DxnWebService {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarOrden" +
-            "CompraRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarOrden" +
-            "CompraResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.actualizarOrdenCompraResponse actualizarOrdenCompra(DxnSisventas.DxnWebService.actualizarOrdenCompraRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarOrden" +
-            "CompraRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarOrden" +
-            "CompraResponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarOrdenCompraResponse> actualizarOrdenCompraAsync(DxnSisventas.DxnWebService.actualizarOrdenCompraRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarOrden" +
             "VentaRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarOrden" +
             "VentaResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         DxnSisventas.DxnWebService.actualizarOrdenVentaResponse actualizarOrdenVenta(DxnSisventas.DxnWebService.actualizarOrdenVentaRequest request);
         
@@ -3214,27 +3190,12 @@ namespace DxnSisventas.DxnWebService {
         System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarOrdenVentaResponse> actualizarOrdenVentaAsync(DxnSisventas.DxnWebService.actualizarOrdenVentaRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarComprob" +
-            "anteRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarComprob" +
-            "anteResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        DxnSisventas.DxnWebService.insertarComprobanteResponse insertarComprobante(DxnSisventas.DxnWebService.insertarComprobanteRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarComprob" +
-            "anteRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarComprob" +
-            "anteResponse")]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarComprobanteResponse> insertarComprobanteAsync(DxnSisventas.DxnWebService.insertarComprobanteRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarCompr" +
             "obanteRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarCompr" +
             "obanteResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         DxnSisventas.DxnWebService.actualizarComprobanteResponse actualizarComprobante(DxnSisventas.DxnWebService.actualizarComprobanteRequest request);
         
@@ -3244,12 +3205,27 @@ namespace DxnSisventas.DxnWebService {
         System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarComprobanteResponse> actualizarComprobanteAsync(DxnSisventas.DxnWebService.actualizarComprobanteRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarOrden" +
+            "CompraRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarOrden" +
+            "CompraResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        DxnSisventas.DxnWebService.actualizarOrdenCompraResponse actualizarOrdenCompra(DxnSisventas.DxnWebService.actualizarOrdenCompraRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarOrden" +
+            "CompraRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarOrden" +
+            "CompraResponse")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarOrdenCompraResponse> actualizarOrdenCompraAsync(DxnSisventas.DxnWebService.actualizarOrdenCompraRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/eliminarComprob" +
             "anteRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/eliminarComprob" +
             "anteResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         DxnSisventas.DxnWebService.eliminarComprobanteResponse eliminarComprobante(DxnSisventas.DxnWebService.eliminarComprobanteRequest request);
         
@@ -3259,12 +3235,27 @@ namespace DxnSisventas.DxnWebService {
         System.Threading.Tasks.Task<DxnSisventas.DxnWebService.eliminarComprobanteResponse> eliminarComprobanteAsync(DxnSisventas.DxnWebService.eliminarComprobanteRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarComprob" +
+            "anteRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarComprob" +
+            "anteResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        DxnSisventas.DxnWebService.insertarComprobanteResponse insertarComprobante(DxnSisventas.DxnWebService.insertarComprobanteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarComprob" +
+            "anteRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarComprob" +
+            "anteResponse")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarComprobanteResponse> insertarComprobanteAsync(DxnSisventas.DxnWebService.insertarComprobanteRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarOrdenCo" +
             "mpraRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarOrdenCo" +
             "mpraResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         DxnSisventas.DxnWebService.insertarOrdenCompraResponse insertarOrdenCompra(DxnSisventas.DxnWebService.insertarOrdenCompraRequest request);
         
@@ -3272,22 +3263,33 @@ namespace DxnSisventas.DxnWebService {
             "mpraRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarOrdenCo" +
             "mpraResponse")]
         System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarOrdenCompraResponse> insertarOrdenCompraAsync(DxnSisventas.DxnWebService.insertarOrdenCompraRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/helloRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/helloResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(cuenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        DxnSisventas.DxnWebService.helloResponse hello(DxnSisventas.DxnWebService.helloRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/helloRequest", ReplyAction="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/helloResponse")]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> helloAsync(DxnSisventas.DxnWebService.helloRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarComprobante", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarComprobanteRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenVenta", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarOrdenVentaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string cadena;
         
-        public listarComprobanteRequest() {
+        public listarOrdenVentaRequest() {
         }
         
-        public listarComprobanteRequest(string cadena) {
+        public listarOrdenVentaRequest(string cadena) {
             this.cadena = cadena;
         }
     }
@@ -3295,17 +3297,17 @@ namespace DxnSisventas.DxnWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarComprobanteResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarComprobanteResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenVentaResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarOrdenVentaResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public DxnSisventas.DxnWebService.comprobante[] @return;
+        public DxnSisventas.DxnWebService.ordenVenta[] @return;
         
-        public listarComprobanteResponse() {
+        public listarOrdenVentaResponse() {
         }
         
-        public listarComprobanteResponse(DxnSisventas.DxnWebService.comprobante[] @return) {
+        public listarOrdenVentaResponse(DxnSisventas.DxnWebService.ordenVenta[] @return) {
             this.@return = @return;
         }
     }
@@ -3349,17 +3351,17 @@ namespace DxnSisventas.DxnWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenVenta", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarOrdenVentaRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarComprobante", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarComprobanteRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string cadena;
         
-        public listarOrdenVentaRequest() {
+        public listarComprobanteRequest() {
         }
         
-        public listarOrdenVentaRequest(string cadena) {
+        public listarComprobanteRequest(string cadena) {
             this.cadena = cadena;
         }
     }
@@ -3367,17 +3369,17 @@ namespace DxnSisventas.DxnWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenVentaResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarOrdenVentaResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarComprobanteResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarComprobanteResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public DxnSisventas.DxnWebService.ordenVenta[] @return;
+        public DxnSisventas.DxnWebService.comprobante[] @return;
         
-        public listarOrdenVentaResponse() {
+        public listarComprobanteResponse() {
         }
         
-        public listarOrdenVentaResponse(DxnSisventas.DxnWebService.ordenVenta[] @return) {
+        public listarComprobanteResponse(DxnSisventas.DxnWebService.comprobante[] @return) {
             this.@return = @return;
         }
     }
@@ -3421,42 +3423,6 @@ namespace DxnSisventas.DxnWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarOrdenCompra", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarOrdenCompraRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public DxnSisventas.DxnWebService.ordenCompra ordenCompra;
-        
-        public actualizarOrdenCompraRequest() {
-        }
-        
-        public actualizarOrdenCompraRequest(DxnSisventas.DxnWebService.ordenCompra ordenCompra) {
-            this.ordenCompra = ordenCompra;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarOrdenCompraResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarOrdenCompraResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public actualizarOrdenCompraResponse() {
-        }
-        
-        public actualizarOrdenCompraResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarOrdenVenta", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
     public partial class actualizarOrdenVentaRequest {
         
@@ -3486,42 +3452,6 @@ namespace DxnSisventas.DxnWebService {
         }
         
         public actualizarOrdenVentaResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarComprobante", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarComprobanteRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public DxnSisventas.DxnWebService.comprobante comprobante;
-        
-        public insertarComprobanteRequest() {
-        }
-        
-        public insertarComprobanteRequest(DxnSisventas.DxnWebService.comprobante comprobante) {
-            this.comprobante = comprobante;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarComprobanteResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarComprobanteResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarComprobanteResponse() {
-        }
-        
-        public insertarComprobanteResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -3565,6 +3495,42 @@ namespace DxnSisventas.DxnWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarOrdenCompra", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarOrdenCompraRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public DxnSisventas.DxnWebService.ordenCompra ordenCompra;
+        
+        public actualizarOrdenCompraRequest() {
+        }
+        
+        public actualizarOrdenCompraRequest(DxnSisventas.DxnWebService.ordenCompra ordenCompra) {
+            this.ordenCompra = ordenCompra;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarOrdenCompraResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarOrdenCompraResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public actualizarOrdenCompraResponse() {
+        }
+        
+        public actualizarOrdenCompraResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarComprobante", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
     public partial class eliminarComprobanteRequest {
         
@@ -3594,6 +3560,42 @@ namespace DxnSisventas.DxnWebService {
         }
         
         public eliminarComprobanteResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarComprobante", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarComprobanteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public DxnSisventas.DxnWebService.comprobante comprobante;
+        
+        public insertarComprobanteRequest() {
+        }
+        
+        public insertarComprobanteRequest(DxnSisventas.DxnWebService.comprobante comprobante) {
+            this.comprobante = comprobante;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarComprobanteResponse", WrapperNamespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarComprobanteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarComprobanteResponse() {
+        }
+        
+        public insertarComprobanteResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -3662,49 +3664,26 @@ namespace DxnSisventas.DxnWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.helloResponse DxnSisventas.DxnWebService.DocumentosAPI.hello(DxnSisventas.DxnWebService.helloRequest request) {
-            return base.Channel.hello(request);
+        DxnSisventas.DxnWebService.listarOrdenVentaResponse DxnSisventas.DxnWebService.DocumentosAPI.listarOrdenVenta(DxnSisventas.DxnWebService.listarOrdenVentaRequest request) {
+            return base.Channel.listarOrdenVenta(request);
         }
         
-        public string hello(string name) {
-            DxnSisventas.DxnWebService.helloRequest inValue = new DxnSisventas.DxnWebService.helloRequest();
-            inValue.name = name;
-            DxnSisventas.DxnWebService.helloResponse retVal = ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).hello(inValue);
+        public DxnSisventas.DxnWebService.ordenVenta[] listarOrdenVenta(string cadena) {
+            DxnSisventas.DxnWebService.listarOrdenVentaRequest inValue = new DxnSisventas.DxnWebService.listarOrdenVentaRequest();
+            inValue.cadena = cadena;
+            DxnSisventas.DxnWebService.listarOrdenVentaResponse retVal = ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).listarOrdenVenta(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> DxnSisventas.DxnWebService.DocumentosAPI.helloAsync(DxnSisventas.DxnWebService.helloRequest request) {
-            return base.Channel.helloAsync(request);
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarOrdenVentaResponse> DxnSisventas.DxnWebService.DocumentosAPI.listarOrdenVentaAsync(DxnSisventas.DxnWebService.listarOrdenVentaRequest request) {
+            return base.Channel.listarOrdenVentaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> helloAsync(string name) {
-            DxnSisventas.DxnWebService.helloRequest inValue = new DxnSisventas.DxnWebService.helloRequest();
-            inValue.name = name;
-            return ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).helloAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.listarComprobanteResponse DxnSisventas.DxnWebService.DocumentosAPI.listarComprobante(DxnSisventas.DxnWebService.listarComprobanteRequest request) {
-            return base.Channel.listarComprobante(request);
-        }
-        
-        public DxnSisventas.DxnWebService.comprobante[] listarComprobante(string cadena) {
-            DxnSisventas.DxnWebService.listarComprobanteRequest inValue = new DxnSisventas.DxnWebService.listarComprobanteRequest();
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarOrdenVentaResponse> listarOrdenVentaAsync(string cadena) {
+            DxnSisventas.DxnWebService.listarOrdenVentaRequest inValue = new DxnSisventas.DxnWebService.listarOrdenVentaRequest();
             inValue.cadena = cadena;
-            DxnSisventas.DxnWebService.listarComprobanteResponse retVal = ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).listarComprobante(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarComprobanteResponse> DxnSisventas.DxnWebService.DocumentosAPI.listarComprobanteAsync(DxnSisventas.DxnWebService.listarComprobanteRequest request) {
-            return base.Channel.listarComprobanteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarComprobanteResponse> listarComprobanteAsync(string cadena) {
-            DxnSisventas.DxnWebService.listarComprobanteRequest inValue = new DxnSisventas.DxnWebService.listarComprobanteRequest();
-            inValue.cadena = cadena;
-            return ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).listarComprobanteAsync(inValue);
+            return ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).listarOrdenVentaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3731,26 +3710,26 @@ namespace DxnSisventas.DxnWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.listarOrdenVentaResponse DxnSisventas.DxnWebService.DocumentosAPI.listarOrdenVenta(DxnSisventas.DxnWebService.listarOrdenVentaRequest request) {
-            return base.Channel.listarOrdenVenta(request);
+        DxnSisventas.DxnWebService.listarComprobanteResponse DxnSisventas.DxnWebService.DocumentosAPI.listarComprobante(DxnSisventas.DxnWebService.listarComprobanteRequest request) {
+            return base.Channel.listarComprobante(request);
         }
         
-        public DxnSisventas.DxnWebService.ordenVenta[] listarOrdenVenta(string cadena) {
-            DxnSisventas.DxnWebService.listarOrdenVentaRequest inValue = new DxnSisventas.DxnWebService.listarOrdenVentaRequest();
+        public DxnSisventas.DxnWebService.comprobante[] listarComprobante(string cadena) {
+            DxnSisventas.DxnWebService.listarComprobanteRequest inValue = new DxnSisventas.DxnWebService.listarComprobanteRequest();
             inValue.cadena = cadena;
-            DxnSisventas.DxnWebService.listarOrdenVentaResponse retVal = ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).listarOrdenVenta(inValue);
+            DxnSisventas.DxnWebService.listarComprobanteResponse retVal = ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).listarComprobante(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarOrdenVentaResponse> DxnSisventas.DxnWebService.DocumentosAPI.listarOrdenVentaAsync(DxnSisventas.DxnWebService.listarOrdenVentaRequest request) {
-            return base.Channel.listarOrdenVentaAsync(request);
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarComprobanteResponse> DxnSisventas.DxnWebService.DocumentosAPI.listarComprobanteAsync(DxnSisventas.DxnWebService.listarComprobanteRequest request) {
+            return base.Channel.listarComprobanteAsync(request);
         }
         
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarOrdenVentaResponse> listarOrdenVentaAsync(string cadena) {
-            DxnSisventas.DxnWebService.listarOrdenVentaRequest inValue = new DxnSisventas.DxnWebService.listarOrdenVentaRequest();
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.listarComprobanteResponse> listarComprobanteAsync(string cadena) {
+            DxnSisventas.DxnWebService.listarComprobanteRequest inValue = new DxnSisventas.DxnWebService.listarComprobanteRequest();
             inValue.cadena = cadena;
-            return ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).listarOrdenVentaAsync(inValue);
+            return ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).listarComprobanteAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3777,29 +3756,6 @@ namespace DxnSisventas.DxnWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.actualizarOrdenCompraResponse DxnSisventas.DxnWebService.DocumentosAPI.actualizarOrdenCompra(DxnSisventas.DxnWebService.actualizarOrdenCompraRequest request) {
-            return base.Channel.actualizarOrdenCompra(request);
-        }
-        
-        public int actualizarOrdenCompra(DxnSisventas.DxnWebService.ordenCompra ordenCompra) {
-            DxnSisventas.DxnWebService.actualizarOrdenCompraRequest inValue = new DxnSisventas.DxnWebService.actualizarOrdenCompraRequest();
-            inValue.ordenCompra = ordenCompra;
-            DxnSisventas.DxnWebService.actualizarOrdenCompraResponse retVal = ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).actualizarOrdenCompra(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarOrdenCompraResponse> DxnSisventas.DxnWebService.DocumentosAPI.actualizarOrdenCompraAsync(DxnSisventas.DxnWebService.actualizarOrdenCompraRequest request) {
-            return base.Channel.actualizarOrdenCompraAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarOrdenCompraResponse> actualizarOrdenCompraAsync(DxnSisventas.DxnWebService.ordenCompra ordenCompra) {
-            DxnSisventas.DxnWebService.actualizarOrdenCompraRequest inValue = new DxnSisventas.DxnWebService.actualizarOrdenCompraRequest();
-            inValue.ordenCompra = ordenCompra;
-            return ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).actualizarOrdenCompraAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         DxnSisventas.DxnWebService.actualizarOrdenVentaResponse DxnSisventas.DxnWebService.DocumentosAPI.actualizarOrdenVenta(DxnSisventas.DxnWebService.actualizarOrdenVentaRequest request) {
             return base.Channel.actualizarOrdenVenta(request);
         }
@@ -3820,29 +3776,6 @@ namespace DxnSisventas.DxnWebService {
             DxnSisventas.DxnWebService.actualizarOrdenVentaRequest inValue = new DxnSisventas.DxnWebService.actualizarOrdenVentaRequest();
             inValue.ordenVenta = ordenVenta;
             return ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).actualizarOrdenVentaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DxnSisventas.DxnWebService.insertarComprobanteResponse DxnSisventas.DxnWebService.DocumentosAPI.insertarComprobante(DxnSisventas.DxnWebService.insertarComprobanteRequest request) {
-            return base.Channel.insertarComprobante(request);
-        }
-        
-        public int insertarComprobante(DxnSisventas.DxnWebService.comprobante comprobante) {
-            DxnSisventas.DxnWebService.insertarComprobanteRequest inValue = new DxnSisventas.DxnWebService.insertarComprobanteRequest();
-            inValue.comprobante = comprobante;
-            DxnSisventas.DxnWebService.insertarComprobanteResponse retVal = ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).insertarComprobante(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarComprobanteResponse> DxnSisventas.DxnWebService.DocumentosAPI.insertarComprobanteAsync(DxnSisventas.DxnWebService.insertarComprobanteRequest request) {
-            return base.Channel.insertarComprobanteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarComprobanteResponse> insertarComprobanteAsync(DxnSisventas.DxnWebService.comprobante comprobante) {
-            DxnSisventas.DxnWebService.insertarComprobanteRequest inValue = new DxnSisventas.DxnWebService.insertarComprobanteRequest();
-            inValue.comprobante = comprobante;
-            return ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).insertarComprobanteAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3869,6 +3802,29 @@ namespace DxnSisventas.DxnWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        DxnSisventas.DxnWebService.actualizarOrdenCompraResponse DxnSisventas.DxnWebService.DocumentosAPI.actualizarOrdenCompra(DxnSisventas.DxnWebService.actualizarOrdenCompraRequest request) {
+            return base.Channel.actualizarOrdenCompra(request);
+        }
+        
+        public int actualizarOrdenCompra(DxnSisventas.DxnWebService.ordenCompra ordenCompra) {
+            DxnSisventas.DxnWebService.actualizarOrdenCompraRequest inValue = new DxnSisventas.DxnWebService.actualizarOrdenCompraRequest();
+            inValue.ordenCompra = ordenCompra;
+            DxnSisventas.DxnWebService.actualizarOrdenCompraResponse retVal = ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).actualizarOrdenCompra(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarOrdenCompraResponse> DxnSisventas.DxnWebService.DocumentosAPI.actualizarOrdenCompraAsync(DxnSisventas.DxnWebService.actualizarOrdenCompraRequest request) {
+            return base.Channel.actualizarOrdenCompraAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.actualizarOrdenCompraResponse> actualizarOrdenCompraAsync(DxnSisventas.DxnWebService.ordenCompra ordenCompra) {
+            DxnSisventas.DxnWebService.actualizarOrdenCompraRequest inValue = new DxnSisventas.DxnWebService.actualizarOrdenCompraRequest();
+            inValue.ordenCompra = ordenCompra;
+            return ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).actualizarOrdenCompraAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         DxnSisventas.DxnWebService.eliminarComprobanteResponse DxnSisventas.DxnWebService.DocumentosAPI.eliminarComprobante(DxnSisventas.DxnWebService.eliminarComprobanteRequest request) {
             return base.Channel.eliminarComprobante(request);
         }
@@ -3892,6 +3848,29 @@ namespace DxnSisventas.DxnWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        DxnSisventas.DxnWebService.insertarComprobanteResponse DxnSisventas.DxnWebService.DocumentosAPI.insertarComprobante(DxnSisventas.DxnWebService.insertarComprobanteRequest request) {
+            return base.Channel.insertarComprobante(request);
+        }
+        
+        public int insertarComprobante(DxnSisventas.DxnWebService.comprobante comprobante) {
+            DxnSisventas.DxnWebService.insertarComprobanteRequest inValue = new DxnSisventas.DxnWebService.insertarComprobanteRequest();
+            inValue.comprobante = comprobante;
+            DxnSisventas.DxnWebService.insertarComprobanteResponse retVal = ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).insertarComprobante(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarComprobanteResponse> DxnSisventas.DxnWebService.DocumentosAPI.insertarComprobanteAsync(DxnSisventas.DxnWebService.insertarComprobanteRequest request) {
+            return base.Channel.insertarComprobanteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.insertarComprobanteResponse> insertarComprobanteAsync(DxnSisventas.DxnWebService.comprobante comprobante) {
+            DxnSisventas.DxnWebService.insertarComprobanteRequest inValue = new DxnSisventas.DxnWebService.insertarComprobanteRequest();
+            inValue.comprobante = comprobante;
+            return ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).insertarComprobanteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         DxnSisventas.DxnWebService.insertarOrdenCompraResponse DxnSisventas.DxnWebService.DocumentosAPI.insertarOrdenCompra(DxnSisventas.DxnWebService.insertarOrdenCompraRequest request) {
             return base.Channel.insertarOrdenCompra(request);
         }
@@ -3912,6 +3891,29 @@ namespace DxnSisventas.DxnWebService {
             DxnSisventas.DxnWebService.insertarOrdenCompraRequest inValue = new DxnSisventas.DxnWebService.insertarOrdenCompraRequest();
             inValue.ordenCompra = ordenCompra;
             return ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).insertarOrdenCompraAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        DxnSisventas.DxnWebService.helloResponse DxnSisventas.DxnWebService.DocumentosAPI.hello(DxnSisventas.DxnWebService.helloRequest request) {
+            return base.Channel.hello(request);
+        }
+        
+        public string hello(string name) {
+            DxnSisventas.DxnWebService.helloRequest inValue = new DxnSisventas.DxnWebService.helloRequest();
+            inValue.name = name;
+            DxnSisventas.DxnWebService.helloResponse retVal = ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).hello(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> DxnSisventas.DxnWebService.DocumentosAPI.helloAsync(DxnSisventas.DxnWebService.helloRequest request) {
+            return base.Channel.helloAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<DxnSisventas.DxnWebService.helloResponse> helloAsync(string name) {
+            DxnSisventas.DxnWebService.helloRequest inValue = new DxnSisventas.DxnWebService.helloRequest();
+            inValue.name = name;
+            return ((DxnSisventas.DxnWebService.DocumentosAPI)(this)).helloAsync(inValue);
         }
     }
 }

@@ -65,9 +65,9 @@ public class CuentaEmpleadoMySQL implements CuentaEmpleadoDAO {
         empleado.setSueldo(rs.getDouble("sueldo"));
         empleado.setRol(Rol.valueOf(rs.getString("rol")));
 
-        empleado.setIdEmpleadoActual(rs.getInt("id_empleado"));
-        empleado.setIdEmpleado("EMP" + String.format("%05d", empleado.getIdEmpleadoActual()));
-        empleado.setEmpleadoActual(true);
+        empleado.setIdEmpleadoNumerico(rs.getInt("id_empleado"));
+        empleado.setIdEmpleadoCadena("EMP" + String.format("%05d", empleado.getIdEmpleadoNumerico()));
+        empleado.setEmpleadoActivo(true);
       }
     } catch (SQLException ex) {
       System.out.println(ex.getMessage());

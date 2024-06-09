@@ -8,6 +8,12 @@ call insertar_producto(@id, 'Shampoo', 10.5, 100, 1, 'mililitros', 'CuidadoPerso
 call insertar_producto(@id, 'Acondicionador', 10.5, 100, 1, 'mililitros', 'CuidadoPersonal', 10);
 call insertar_producto(@id, 'Crema', 10.5, 100, 1, 'mililitros', 'CuidadoPersonal', 10);
 call insertar_producto(@id, 'Desodorante', 10.5, 100, 1, 'mililitros', 'CuidadoPersonal', 10);
+call insertar_producto(@id, 'Jamón', 15.5, 100, 1, 'gramos', 'Comestible', 10);
+call insertar_producto(@id, 'Queso', 20.5, 100, 1, 'gramos', 'Comestible', 10);
+call insertar_producto(@id, 'Leche', 8.5, 100, 1, 'mililitros', 'Comestible', 10);
+call insertar_producto(@id, 'Yogurt', 5.5, 100, 1, 'mililitros', 'Comestible', 10);
+call insertar_producto(@id, 'Galletas', 4.5, 100, 1, 'gramos', 'Comestible', 10);
+call insertar_producto(@id, 'Pan', 2.5, 100, 1, 'gramos', 'Comestible', 10);
 
 -- ==============================================
 -- INSERTS DE EMPLEADOS Y CUENTAS_EMPLEADOS
@@ -17,6 +23,12 @@ CALL insertar_empleado(@out_value, '74368258', 'Fernando', 'Candia', 'Aroni', 25
 CALL insertar_empleado(@out_value, '76841888', 'Jorge', 'Alejandro', 'Contreras', 1500.0, 'Administrador');
 CALL insertar_empleado(@out_value, '70402080', 'Jhairt', 'Vega', 'Quino', 3500.0, 'Repartidor');
 CALL insertar_empleado(@out_value, '72845864', 'Gian', 'Luca', 'Lujan', 3500.0, 'Repartidor');
+CALL insertar_empleado(@out_value, '35264357', 'Yayito', 'Lujan', 'Carrion', 3500.0, 'EncargadoAlmacen');
+CALL insertar_empleado(@out_value, '95483726', 'Maria', 'Ramos', 'Cantu', 3500.0, 'EncargadoVentas');
+CALL insertar_empleado(@out_value, '12345678', 'Juan', 'Perez', 'Gonzales', 3500.0, 'EncargadoAlmacen');
+CALL insertar_empleado(@out_value, '87654321', 'Luis', 'Rodriguez', 'Fernandez', 3500.0, 'EncargadoVentas');
+CALL insertar_empleado(@out_value, '11223344', 'Ana', 'Martinez', 'Garcia', 3500.0, 'Administrador');
+CALL insertar_empleado(@out_value, '55667788', 'Carlos', 'Diaz', 'Torres', 3500.0, 'Repartidor');
 
 CALL insertar_cuenta_empleado(@id_cuenta, "fernando.candia", "74368258", 1);
 CALL insertar_cuenta_empleado(@id_cuenta, "jorge.alejandro", "23456789", 2);
@@ -80,3 +92,25 @@ CALL insertar_comprobante(@id_comprobante, @id_orden, 'BoletaSimple', NOW()); --
 -- ==============================================
 -- INSERTS DE ORDENVENTA, LINEAORDEN Y COMPROBANTE
 -- ==============================================
+
+-- Las ordenes de venta son registros sobre pedidos que realiza un cliente a la empresa son generadas por los empleados
+-- Las lineas de orden son los productos que se solicitan en una orden de venta y la cantidad de cada uno
+-- Primero se debe crear una orden de venta y luego se pueden agregar lineas a esta orden
+-- Luego actualizar el total de la orden de venta
+-- Por ultimo se puede generar un comprobante de la orden de venta
+
+CALL insertar_orden_venta(@id_orden_venta, @id_orden, 1, 1, 'Pendiente', NOW(), 'Presencial', 'Efectivo', 0.0, 0.0);
+CALL insertar_linea_orden(@id_orden, 1, 100, 5.5*100); -- Arroz 100 gramos
+CALL insertar_linea_orden(@id_orden, 2, 100, 3.5*100); -- Azucar 100 gramos
+CALL insertar_linea_orden(@id_orden, 3, 100, 7.5*100); -- Aceite 100 mililitros
+CALL actualizar_orden_venta(@id_orden_venta, @id_orden, 1, 1, 'Entregado', NOW(), 'Presencial', 'Efectivo', 0.0, 5.5*100 + 3.5*100 + 7.5*100);
+CALL insertar_comprobante(@id_comprobante, @id_orden, 'BoletaSimple', NOW()); -- ID_COMP, ID_ORDEN, TIPO, FECHA
+
+CALL insertar_orden_venta(@id_orden_venta, @id_orden, 2, 2, 'Pendiente', NOW(), 'Delivery', 'Tarjeta', 10.0, 0.0);
+CALL insertar_linea_orden(@id_orden, 4, 100, 10.5*100); -- Shampoo 100 mililitros
+CALL insertar_linea_orden(@id_orden, 5, 100, 10.5*100); -- Acondicionador 100 mililitros
+CALL insertar_linea_orden(@id_orden, 6, 100, 10.5*100); -- Crema 100 mililitros
+CALL insertar_linea_orden(@id_orden, 7, 100, 10.5*100); -- Desodorante 100 mililitros
+
+CALL actualizar_orden_venta(@id_orden_venta, @id_orden, 2, 2, 'Entregado', NOW(), 'Delivery', 'Tarjeta', 10.0, 10.5*100 + 10.5*100 + 10.5*100 + 10.5*100);
+CALL insertar_comprobante(@id_comprobante, @id_orden, 'Factura', NOW()); -- ID_COMP, ID_ORDEN, TIPO, FECHA

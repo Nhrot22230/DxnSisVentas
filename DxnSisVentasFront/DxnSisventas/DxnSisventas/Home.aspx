@@ -27,7 +27,7 @@
         <div class="card-text">
           <div class="info-item">
             <i class="fa fa-id-badge icon"></i>
-            <strong>ID Empleado:</strong> <%: emp.idEmpleado %>
+            <strong>ID Empleado:</strong> <%: emp.idEmpleadoCadena %>
           </div>
           <div class="info-item">
             <i class="fa fa-money-bill-wave icon"></i>

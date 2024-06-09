@@ -114,8 +114,8 @@ public class ComprobanteMySQL implements ComprobanteDAO {
           cliente.setDireccion("");
 
           Empleado empleado = new Empleado();
-          empleado.setIdEmpleadoActual(rs.getInt("id_empleado"));
-          empleado.setIdEmpleado("EMP" + String.format("%05d", empleado.getIdEmpleadoActual()));
+          empleado.setIdEmpleadoNumerico(rs.getInt("id_empleado"));
+          empleado.setIdEmpleadoCadena("EMP" + String.format("%05d", empleado.getIdEmpleadoNumerico()));
           empleado.setDNI(rs.getString("dni_empleado"));
           empleado.setNombre(rs.getString("nombre_empleado"));
           empleado.setApellidoPaterno(rs.getString("apellido_paterno_empleado"));

@@ -50,7 +50,7 @@ function validateCapacidad() {
     errMsgCapacidad.style.display = "block";
     return false;
   }
-  if (labelCapacidad.value < 0) {
+  if (labelCapacidad.value <= 0) {
     labelCapacidad.classList.add("is-invalid");
     errMsgCapacidad.style.display = "block";
     return false;
@@ -72,7 +72,7 @@ function validatePrecio() {
     errMsgPrecio.style.display = "block";
     return false;
   }
-  if (labelPrecio.value < 0) {
+  if (labelPrecio.value <= 0) {
     labelPrecio.classList.add("is-invalid");
     errMsgPrecio.style.display = "block";
     return false;
@@ -105,7 +105,7 @@ function validateStock() {
     errMsgStock.style.display = "block";
     return false;
   }
-  if (labelStock.value < 0) {
+  if (labelStock.value <= 0) {
     labelStock.classList.add("is-invalid");
     errMsgStock.style.display = "block";
     return false;

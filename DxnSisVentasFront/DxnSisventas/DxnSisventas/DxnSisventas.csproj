@@ -281,6 +281,11 @@
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Views\Comprobantes.aspx" />
+    <Content Include="Views\OrdenCompra.aspx" />
+    <Content Include="Views\OrdenVenta.aspx" />
+    <Content Include="Views\PersonasClientes.aspx" />
+    <Content Include="Views\PersonasEmpleados.aspx" />
     <Content Include="Views\Productos.aspx" />
     <Content Include="Web.config" />
     <Content Include="webfonts\fa-brands-400.svg" />
@@ -327,6 +332,41 @@
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Comprobantes.aspx.cs">
+      <DependentUpon>Comprobantes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Comprobantes.aspx.designer.cs">
+      <DependentUpon>Comprobantes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrdenCompra.aspx.cs">
+      <DependentUpon>OrdenCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OrdenCompra.aspx.designer.cs">
+      <DependentUpon>OrdenCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrdenVenta.aspx.cs">
+      <DependentUpon>OrdenVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OrdenVenta.aspx.designer.cs">
+      <DependentUpon>OrdenVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonasClientes.aspx.cs">
+      <DependentUpon>PersonasClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PersonasClientes.aspx.designer.cs">
+      <DependentUpon>PersonasClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonasEmpleados.aspx.cs">
+      <DependentUpon>PersonasEmpleados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PersonasEmpleados.aspx.designer.cs">
+      <DependentUpon>PersonasEmpleados.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Productos.aspx.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

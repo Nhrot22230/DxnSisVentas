@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Candi\\OneDrive\\Documentos\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\candi\\onedrive\\documentos\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\productos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\productos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\candi\\onedrive\\documentos\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\ordenventa.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordenventa.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\candi\\onedrive\\documentos\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\main.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\main.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\candi\\onedrive\\documentos\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\ordenventa.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordenventa.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\candi\\onedrive\\documentos\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\main.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\main.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\candi\\onedrive\\documentos\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\ordencompra.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordencompra.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\candi\\onedrive\\documentos\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\personasempleados.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\personasempleados.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Productos.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Candi\\OneDrive\\Documentos\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Productos.aspx.cs",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\Productos.aspx.cs",
-              "ToolTip": "C:\\Users\\Candi\\OneDrive\\Documentos\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Productos.aspx.cs",
-              "RelativeToolTip": "DxnSisventas\\Views\\Productos.aspx.cs",
-              "ViewState": "AQIAAFwAAAAAAAAAAAAAwDYAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T06:33:15.379Z",
+              "DocumentIndex": 3,
+              "Title": "PersonasEmpleados.aspx",
+              "DocumentMoniker": "C:\\Users\\Candi\\OneDrive\\Documentos\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\PersonasEmpleados.aspx",
+              "RelativeDocumentMoniker": "DxnSisventas\\Views\\PersonasEmpleados.aspx",
+              "ToolTip": "C:\\Users\\Candi\\OneDrive\\Documentos\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\PersonasEmpleados.aspx",
+              "RelativeToolTip": "DxnSisventas\\Views\\PersonasEmpleados.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-06-09T10:23:39.963Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Main.Master",
-              "DocumentMoniker": "C:\\Users\\Candi\\OneDrive\\Documentos\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Main.Master",
-              "RelativeDocumentMoniker": "DxnSisventas\\Main.Master",
-              "ToolTip": "C:\\Users\\Candi\\OneDrive\\Documentos\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Main.Master",
-              "RelativeToolTip": "DxnSisventas\\Main.Master",
+              "Title": "OrdenCompra.aspx",
+              "DocumentMoniker": "C:\\Users\\Candi\\OneDrive\\Documentos\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompra.aspx",
+              "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenCompra.aspx",
+              "ToolTip": "C:\\Users\\Candi\\OneDrive\\Documentos\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompra.aspx",
+              "RelativeToolTip": "DxnSisventas\\Views\\OrdenCompra.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-09T06:32:05.045Z",
+              "WhenOpened": "2024-06-09T10:16:18.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrdenVenta.aspx",
+              "DocumentMoniker": "C:\\Users\\Candi\\OneDrive\\Documentos\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenVenta.aspx",
+              "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenVenta.aspx",
+              "ToolTip": "C:\\Users\\Candi\\OneDrive\\Documentos\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenVenta.aspx",
+              "RelativeToolTip": "DxnSisventas\\Views\\OrdenVenta.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-06-09T10:03:40.57Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Main.Master.cs",
-              "DocumentMoniker": "C:\\Users\\Candi\\OneDrive\\Documentos\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Main.Master.cs",
-              "RelativeDocumentMoniker": "DxnSisventas\\Main.Master.cs",
-              "ToolTip": "C:\\Users\\Candi\\OneDrive\\Documentos\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Main.Master.cs",
-              "RelativeToolTip": "DxnSisventas\\Main.Master.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAATAAAA",
+              "Title": "OrdenVenta.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Candi\\OneDrive\\Documentos\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenVenta.aspx.cs",
+              "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenVenta.aspx.cs",
+              "ToolTip": "C:\\Users\\Candi\\OneDrive\\Documentos\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenVenta.aspx.cs",
+              "RelativeToolTip": "DxnSisventas\\Views\\OrdenVenta.aspx.cs",
+              "ViewState": "AQIAAFkAAAAAAAAAAAAAwBYAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T06:40:10.012Z",
+              "WhenOpened": "2024-06-09T10:05:07.246Z",
               "EditorCaption": ""
             }
           ]

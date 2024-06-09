@@ -105,6 +105,33 @@ namespace DxnSisventas
     protected global::System.Web.UI.WebControls.LinkButton LbUsuariosEmpleados;
 
     /// <summary>
+    /// Control LbOrdenCompra.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.LinkButton LbOrdenCompra;
+
+    /// <summary>
+    /// Control LbOrdenVenta.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.LinkButton LbOrdenVenta;
+
+    /// <summary>
+    /// Control LbComprobante.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.LinkButton LbComprobante;
+
+    /// <summary>
     /// Control ContentPlaceHolder1.
     /// </summary>
     /// <remarks>

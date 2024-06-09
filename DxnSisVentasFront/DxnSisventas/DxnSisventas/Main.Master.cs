@@ -31,7 +31,7 @@ namespace DxnSisventas
     {
       Response.Redirect("~/Home.aspx");
     }
-    
+
     public void ClearError()
     {
       ErrorPanel.Visible = false;
@@ -54,6 +54,31 @@ namespace DxnSisventas
       ErrorPanel.Visible = true;
       ErrorLabel.Text = mensaje;
       ScriptManager.RegisterStartupScript(this, GetType(), "showPanel", "showErrorPanel();", true);
+    }
+
+    protected void LbUsuariosEmpleados_Click(object sender, EventArgs e)
+    {
+      Response.Redirect("~/Views/PersonasEmpleados.aspx");
+    }
+
+    protected void LbUsuariosClientes_Click(object sender, EventArgs e)
+    {
+      Response.Redirect("~/Views/PersonasClientes.aspx");
+    }
+
+    protected void LbOrdenCompra_Click(object sender, EventArgs e)
+    {
+      Response.Redirect("~/Views/OrdenCompra.aspx");
+    }
+
+    protected void LbOrdenVenta_Click(object sender, EventArgs e)
+    {
+      Response.Redirect("~/Views/OrdenVenta.aspx");
+    }
+
+    protected void LbComprobante_Click(object sender, EventArgs e)
+    {
+      Response.Redirect("~/Views/Comprobantes.aspx");
     }
   }
 }

@@ -126,9 +126,9 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:persona">
         <xs:sequence>
-          <xs:element name="empleadoActual" type="xs:boolean" />
-          <xs:element minOccurs="0" name="idEmpleado" type="xs:string" />
-          <xs:element name="idEmpleadoActual" type="xs:int" />
+          <xs:element name="empleadoActivo" type="xs:boolean" />
+          <xs:element minOccurs="0" name="idEmpleadoCadena" type="xs:string" />
+          <xs:element name="idEmpleadoNumerico" type="xs:int" />
           <xs:element minOccurs="0" name="rol" type="tns:rol" />
           <xs:element name="sueldo" type="xs:double" />
         </xs:sequence>

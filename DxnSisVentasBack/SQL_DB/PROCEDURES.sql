@@ -571,7 +571,7 @@ CREATE PROCEDURE actualizar_orden_venta(
   IN p_total DECIMAL(10, 2)
 )
 BEGIN
-  CALL actualizar_orden(p_id_orden, p_estado);
+  CALL actualizar_orden(p_id_orden, p_estado, p_total);
   UPDATE Orden_Venta
   SET id_orden = p_id_orden,
       id_cliente = p_id_cliente,
@@ -579,8 +579,7 @@ BEGIN
       fecha_entrega = p_fecha_entrega,
       tipo_venta = p_tipo_venta,
       metodo_pago = p_metodo_pago,
-      porcentaje_descuento = p_porcentaje_descuento,
-      total = p_total
+      porcentaje_descuento = p_porcentaje_descuento
   WHERE id_orden_venta = p_id_orden_venta;
 END$$
 

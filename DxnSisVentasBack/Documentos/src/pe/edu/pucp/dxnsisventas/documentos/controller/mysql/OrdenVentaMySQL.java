@@ -84,21 +84,22 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
 
       OrdenVenta prevORV = null;
       while (rs.next()) {
-        OrdenVenta orden = new OrdenVenta();
-        orden.setIdOrden(rs.getInt("id_orden"));
-        orden.setEstado(EstadoOrden.valueOf(rs.getString("estado")));
-        orden.setFechaCreacion(rs.getTimestamp("fecha_creacion"));
-        orden.setTotal(rs.getDouble("total"));
-        orden.setIdOrdenVentaNumerico(rs.getInt("id_orden_venta"));
+        OrdenVenta ordenVenta = new OrdenVenta();
+        ordenVenta.setIdOrden(rs.getInt("id_orden"));
+        ordenVenta.setEstado(EstadoOrden.valueOf(rs.getString("estado")));
+        ordenVenta.setFechaCreacion(rs.getTimestamp("fecha_creacion"));
+        ordenVenta.setTotal(rs.getDouble("total"));
+        ordenVenta.setIdOrdenVentaNumerico(rs.getInt("id_orden_venta"));
+        ordenVenta.setIdOrdenVentaCadena("ORV" + String.format("%05d", ordenVenta.getIdOrdenVentaNumerico()));
         try {
           Timestamp fechaEntrega = rs.getTimestamp("fecha_entrega");
-          orden.setFechaEntrega(fechaEntrega != null ? new Date(fechaEntrega.getTime()) : null);
+          ordenVenta.setFechaEntrega(fechaEntrega != null ? new Date(fechaEntrega.getTime()) : null);
         } catch (Exception ex) {
-          orden.setFechaEntrega(null);
+          ordenVenta.setFechaEntrega(null);
         }
-        orden.setTipoVenta(TipoVenta.valueOf(rs.getString("tipo_venta")));
-        orden.setMetodoPago(MetodoPago.valueOf(rs.getString("metodo_pago")));
-        orden.setPorcentajeDescuento(rs.getDouble("porcentaje_descuento"));
+        ordenVenta.setTipoVenta(TipoVenta.valueOf(rs.getString("tipo_venta")));
+        ordenVenta.setMetodoPago(MetodoPago.valueOf(rs.getString("metodo_pago")));
+        ordenVenta.setPorcentajeDescuento(rs.getDouble("porcentaje_descuento"));
 
         Cliente cliente = new Cliente();
         cliente.setIdNumerico(rs.getInt("id_cliente"));
@@ -112,10 +113,10 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
         cliente.setRazonSocial(rs.getString("razon_social"));
         cliente.setDireccion(rs.getString("direccion"));
 
-        orden.setCliente(cliente);
+        ordenVenta.setCliente(cliente);
 
         Empleado empleado = new Empleado();
-        empleado.setIdEmpleadoActual(rs.getInt("id_empleado"));
+        empleado.setIdEmpleadoNumerico(rs.getInt("id_empleado"));
         empleado.setDNI(rs.getString("dni_empleado"));
         empleado.setNombre(rs.getString("nombre_empleado"));
         empleado.setApellidoPaterno(rs.getString("apellido_paterno_empleado"));
@@ -123,7 +124,7 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
         empleado.setSueldo(rs.getDouble("sueldo"));
 
         empleado.setRol(Rol.EncargadoVentas);
-        orden.setEncargadoVenta(empleado);
+        ordenVenta.setEncargadoVenta(empleado);
 
         LineaOrden lineaOrden = new LineaOrden();
         Producto producto = new Producto();
@@ -139,13 +140,13 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
         lineaOrden.setCantidad(rs.getInt("cantidad"));
         lineaOrden.setSubtotal(rs.getDouble("subtotal"));
 
-        if (prevORV != null && prevORV.getIdOrdenVentaNumerico()== orden.getIdOrdenVentaNumerico()) {
+        if (prevORV != null && prevORV.getIdOrdenVentaNumerico()== ordenVenta.getIdOrdenVentaNumerico()) {
           prevORV.agregarLineaOrden(lineaOrden);
         } else {
           if (prevORV != null) {
             ordenes.add(prevORV);
           }
-          prevORV = orden;
+          prevORV = ordenVenta;
           prevORV.agregarLineaOrden(lineaOrden);
         }
       }
@@ -205,7 +206,7 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
       cs.registerOutParameter("p_id_orden_venta", java.sql.Types.INTEGER);
       cs.registerOutParameter("p_id_orden", java.sql.Types.INTEGER);
       cs.setInt("p_id_cliente", ordenVenta.getCliente().getIdNumerico());
-      cs.setInt("p_id_empleado", ordenVenta.getEncargadoVenta().getIdEmpleadoActual());
+      cs.setInt("p_id_empleado", ordenVenta.getEncargadoVenta().getIdEmpleadoNumerico());
       cs.setString("p_estado", ordenVenta.getEstado().toString());
       cs.setTimestamp("p_fecha_creacion", new Timestamp(ordenVenta.getFechaCreacion().getTime()));
       cs.setString("p_tipo_venta", ordenVenta.getTipoVenta().toString());
@@ -278,7 +279,7 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
       cs.setInt("p_id_orden_venta", ordenVenta.getIdOrdenVentaNumerico());
       cs.setInt("p_id_orden", ordenVenta.getIdOrden());
       cs.setInt("p_id_cliente", ordenVenta.getCliente().getIdNumerico());
-      cs.setInt("p_id_empleado", ordenVenta.getEncargadoVenta().getIdEmpleadoActual());
+      cs.setInt("p_id_empleado", ordenVenta.getEncargadoVenta().getIdEmpleadoNumerico());
       cs.setString("p_estado", ordenVenta.getEstado().toString());
       cs.setTimestamp("p_fecha_entrega", new Timestamp(ordenVenta.getFechaEntrega().getTime()));
       cs.setString("p_tipo_venta", ordenVenta.getTipoVenta().toString());

@@ -51,15 +51,15 @@ public class EmpleadoMySQL implements EmpleadoDAO {
       rs = cs.executeQuery();
       while (rs.next()) {
         Empleado empleado = new Empleado();
-        empleado.setIdEmpleadoActual(rs.getInt("id_empleado"));
-        empleado.setIdEmpleado("EMP" + String.format("%05d", empleado.getIdEmpleadoActual()));
+        empleado.setIdEmpleadoNumerico(rs.getInt("id_empleado"));
+        empleado.setIdEmpleadoCadena("EMP" + String.format("%05d", empleado.getIdEmpleadoNumerico()));
         empleado.setDNI(rs.getString("dni"));
         empleado.setNombre(rs.getString("nombre"));
         empleado.setApellidoPaterno(rs.getString("apellido_paterno"));
         empleado.setApellidoMaterno(rs.getString("apellido_materno"));
         empleado.setSueldo(rs.getDouble("sueldo"));
         empleado.setRol(Rol.valueOf(rs.getString("rol")));
-        empleado.setEmpleadoActual(true);
+        empleado.setEmpleadoActivo(true);
         lista.add(empleado);
       }
     } catch (SQLException ex) {
@@ -102,15 +102,15 @@ public class EmpleadoMySQL implements EmpleadoDAO {
       rs = cs.executeQuery();
       while (rs.next()) {
         Empleado empleado = new Empleado();
-        empleado.setIdEmpleadoActual(rs.getInt("id_empleado"));
-        empleado.setIdEmpleado("EMP" + String.format("%05d", empleado.getIdEmpleadoActual()));
+        empleado.setIdEmpleadoNumerico(rs.getInt("id_empleado"));
+        empleado.setIdEmpleadoCadena("EMP" + String.format("%05d", empleado.getIdEmpleadoNumerico()));
         empleado.setDNI(rs.getString("dni"));
         empleado.setNombre(rs.getString("nombre"));
         empleado.setApellidoPaterno(rs.getString("apellido_paterno"));
         empleado.setApellidoMaterno(rs.getString("apellido_materno"));
         empleado.setSueldo(rs.getDouble("sueldo"));
         empleado.setRol(Rol.valueOf(rs.getString("rol")));
-        empleado.setEmpleadoActual(rs.getBoolean("activo"));
+        empleado.setEmpleadoActivo(rs.getBoolean("activo"));
         lista.add(empleado);
       }
     } catch (SQLException ex) {
@@ -170,8 +170,8 @@ public class EmpleadoMySQL implements EmpleadoDAO {
       cs.setString(7, empleado.getRol().toString());
       cs.executeUpdate();
       resultado = cs.getInt(1);
-      empleado.setIdEmpleadoActual(resultado);
-      empleado.setIdEmpleado("EMP" + String.format("%05d", resultado));
+      empleado.setIdEmpleadoNumerico(resultado);
+      empleado.setIdEmpleadoCadena("EMP" + String.format("%05d", resultado));
     } catch (SQLException ex) {
       System.err.println(ex.getMessage());
     } finally {
@@ -265,7 +265,7 @@ public class EmpleadoMySQL implements EmpleadoDAO {
       con = DBManager.getInstance().getConnection();
       sql = "{CALL actualizar_empleado(?,?,?,?,?,?,?)}";
       cs = con.prepareCall(sql);
-      cs.setInt(1, empleado.getIdEmpleadoActual());
+      cs.setInt(1, empleado.getIdEmpleadoNumerico());
       cs.setString(2, empleado.getDNI());
       cs.setString(3, empleado.getNombre());
       cs.setString(4, empleado.getApellidoPaterno());

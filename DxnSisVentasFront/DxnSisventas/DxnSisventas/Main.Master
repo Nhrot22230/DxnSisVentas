@@ -88,12 +88,12 @@
             </a>
             <ul class="treeview-menu">
               <li>
-                <asp:LinkButton ID="LbUsuariosClientes" runat="server">
+                <asp:LinkButton ID="LbUsuariosClientes" runat="server" OnClick="LbUsuariosClientes_Click">
                   <i class="fa fa-user"></i> <span>Clientes</span>
                 </asp:LinkButton>
               </li>
               <li>
-                <asp:LinkButton ID="LbUsuariosEmpleados" runat="server">
+                <asp:LinkButton ID="LbUsuariosEmpleados" runat="server" OnClick="LbUsuariosEmpleados_Click">
                   <i class="fa fa-briefcase"></i> <span>Empleados</span>
                 </asp:LinkButton>
               </li>
@@ -118,11 +118,23 @@
                   <i class="fa fa-dashboard"></i><span>Ordenes</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="#"><i class="fa fa-industry"></i>Compra</a></li>
-                  <li><a href="#"><i class="fa fa-shopping-cart"></i>Venta</a></li>
+                  <li>
+                    <asp:LinkButton ID="LbOrdenCompra" runat="server" OnClick="LbOrdenCompra_Click">
+                      <i class="fa fa-industry"></i> <span>Compra</span>
+                    </asp:LinkButton>
+                  </li>
+                  <li>
+                    <asp:LinkButton ID="LbOrdenVenta" runat="server" OnClick="LbOrdenVenta_Click">
+                      <i class="fa fa-shopping-cart"></i> <span>Venta</span>
+                    </asp:LinkButton>
+                  </li>
                 </ul>
               </li>
-              <li><a href="#"><i class="fa fa-files-o"></i>Comprobantes</a></li>
+              <li>
+                <asp:LinkButton ID="LbComprobante" runat="server" OnClick="LbComprobante_Click">
+                  <i class="fa fa-files-o"></i> <span>Comprobantes</span>
+                </asp:LinkButton>
+              </li>
             </ul>
           </li>
           <li class="treeview">
