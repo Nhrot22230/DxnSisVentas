@@ -18,11 +18,4 @@ private.xml
 
 
 # Configuration for Visual Studio
-
-# Ignore dll files
 *.vsidx
-
-# Ignore Visual Studio Project User Options (ncb, suo, user)
-*.ncb
-*.suo
-*.user
