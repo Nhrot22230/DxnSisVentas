@@ -1,49 +1,21 @@
-# NetBeans specific files
+# ===================================================
+# NetBeans Java Proect specific files
+# ===================================================
+
 nbproject/private/
 nbbuild/
 dist/
 nbdist/
 build/
 
-# Class files
+# Builded files
 *.class
-
-# Package files
-*.war
-*.ear
-
-# Logs
-*.log
-
-# Temporary files
-*.tmp
 *.temp
-*.swp
-*~.*
 
-# IDE files
-*.iml
-.idea/
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Java specific
-*.class
-*.war
-*.ear
-
-# Maven specific
-target/
-
-# Ant specific
-build/
-
-# NetBeans local history
-nbproject/private/
+# Private files
 private.properties
 private.xml
+
 
 # Configuration for Visual Studio
 
