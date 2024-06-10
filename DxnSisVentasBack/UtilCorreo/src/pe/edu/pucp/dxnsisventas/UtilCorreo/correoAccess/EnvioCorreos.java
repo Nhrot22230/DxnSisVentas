@@ -77,7 +77,7 @@ public class EnvioCorreos  implements CorreoDAO {
             mCorreo.setFrom(new InternetAddress(emailFrom));
             mCorreo.setRecipient(Message.RecipientType.TO, new InternetAddress(emailTo));
             mCorreo.setSubject(subject);
-            mCorreo.setText(content, "ISO-8859-1", "html");
+            mCorreo.setContent(content, "text/html; charset=utf-8"); // Establecer el tipo de contenido como HTML
                      
             
         } catch (AddressException ex) {

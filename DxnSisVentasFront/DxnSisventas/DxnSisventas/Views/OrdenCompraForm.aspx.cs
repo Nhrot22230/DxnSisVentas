@@ -243,23 +243,34 @@ namespace DxnSisventas.Views
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
 
+        protected string CrearContenido()
+        {
+            string contenido = "<html><body>";
+            contenido += "<h2>Saludos Estimado(a),</h2>";
+            contenido += "<p>Adjunto encontrará la orden de compra Nro: " + ordenCompra.idOrdenCompraCadena.ToString() + ".</p>";
+            contenido += "<p>A continuación, detallamos los productos:</p>";
+            contenido += "<table border='1'>";
+            contenido += "<tr><th>ID</th><th>Nombre</th><th>Cantidad</th></tr>";
+            foreach (lineaOrden x in lineasOrden)
+            {
+                contenido += "<tr>";
+                contenido += "<td style='text-align:center'>" + x.producto.idProductoCadena.ToString() + "</td>";
+                contenido += "<td>" + x.producto.nombre.ToString() + "</td>";
+                contenido += "<td style='text-align:center'>" + x.cantidad.ToString() + "</td>";
+                contenido += "</tr>";
+            }
+            contenido += "</table>";
+            contenido += "<p>Quedamos a disposición para cualquier consulta.</p>";
+            contenido += "<p>Atentamente,<br>Tu Nombre</p>";
+            contenido += "</body></html>";
+
+            return contenido;
+        }
         protected void lbEnviaroModal_Click(object sender, EventArgs e)
         {
 
             string asunto = "Orden de compra Nro: " + ordenCompra.idOrdenCompraCadena.ToString();
-            string contenido = "Saludos Estimado(a),\n\n";
-            contenido += "Adjunto encontrará la orden de compra Nro: " + ordenCompra.idOrdenCompraCadena.ToString() + ".\n\n";
-            contenido += "A continuación, detallamos los productos:\n\n";
-            contenido += "ID       Nombre          Cantidad\n";
-
-            foreach (lineaOrden x in lineasOrden)
-            {
-                contenido += $"{x.producto.idProductoCadena,-9} {x.producto.nombre,-15} {x.cantidad}\n";
-            }
-
-            contenido += "\nQuedamos a disposición para cualquier consulta.\n\n";
-            contenido += "Atentamente,\n";
-            contenido += "DXN Services";
+            string contenido = CrearContenido();
 
 
             string correo = txtCorreo.Text.ToString();
