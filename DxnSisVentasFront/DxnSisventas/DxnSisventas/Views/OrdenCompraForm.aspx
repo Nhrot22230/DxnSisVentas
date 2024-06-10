@@ -192,6 +192,5 @@
 </div>
 
 
-    <script type="text/javascript" src="/CustomScripts/Master.js"></script>
 
 </asp:Content>

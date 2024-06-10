@@ -251,7 +251,7 @@ namespace DxnSisventas.Views
             contenido += "<p>A continuación, detallamos los productos:</p>";
             contenido += "<table border='1'>";
             contenido += "<tr><th>ID</th><th>Nombre</th><th>Cantidad</th></tr>";
-            foreach (lineaOrden x in lineasOrden)
+            foreach (lineaOrden x in ordenCompra.lineasOrden)
             {
                 contenido += "<tr>";
                 contenido += "<td style='text-align:center'>" + x.producto.idProductoCadena.ToString() + "</td>";
