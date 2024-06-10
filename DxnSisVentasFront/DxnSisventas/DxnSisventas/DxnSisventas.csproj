@@ -286,6 +286,7 @@
     <Content Include="Views\OrdenCompra.aspx" />
     <Content Include="Views\OrdenVenta.aspx" />
     <Content Include="Views\PersonasClientes.aspx" />
+    <Content Include="Views\PersonasClientesForms.aspx" />
     <Content Include="Views\PersonasEmpleados.aspx" />
     <Content Include="Views\PersonasEmpleadosForms.aspx" />
     <Content Include="Views\Productos.aspx" />
@@ -361,6 +362,13 @@
     </Compile>
     <Compile Include="Views\PersonasClientes.aspx.designer.cs">
       <DependentUpon>PersonasClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonasClientesForms.aspx.cs">
+      <DependentUpon>PersonasClientesForms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PersonasClientesForms.aspx.designer.cs">
+      <DependentUpon>PersonasClientesForms.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\PersonasEmpleados.aspx.cs">
       <DependentUpon>PersonasEmpleados.aspx</DependentUpon>
