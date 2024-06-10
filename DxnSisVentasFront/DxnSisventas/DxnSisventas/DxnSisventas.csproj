@@ -241,6 +241,7 @@
     <Content Include="Content\v4-shims.min.css" />
     <Content Include="CustomScripts\Login.js" />
     <Content Include="CustomScripts\Master.js" />
+    <Content Include="CustomScripts\PersonasEmpleadosForms.js" />
     <Content Include="CustomScripts\Productos.js" />
     <Content Include="CustomStyles\Home.css" />
     <Content Include="CustomStyles\Login.css" />
@@ -285,7 +286,9 @@
     <Content Include="Views\OrdenCompra.aspx" />
     <Content Include="Views\OrdenVenta.aspx" />
     <Content Include="Views\PersonasClientes.aspx" />
+    <Content Include="Views\PersonasClientesForms.aspx" />
     <Content Include="Views\PersonasEmpleados.aspx" />
+    <Content Include="Views\PersonasEmpleadosForms.aspx" />
     <Content Include="Views\Productos.aspx" />
     <Content Include="Web.config" />
     <Content Include="webfonts\fa-brands-400.svg" />
@@ -360,12 +363,26 @@
     <Compile Include="Views\PersonasClientes.aspx.designer.cs">
       <DependentUpon>PersonasClientes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\PersonasClientesForms.aspx.cs">
+      <DependentUpon>PersonasClientesForms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PersonasClientesForms.aspx.designer.cs">
+      <DependentUpon>PersonasClientesForms.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\PersonasEmpleados.aspx.cs">
       <DependentUpon>PersonasEmpleados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\PersonasEmpleados.aspx.designer.cs">
       <DependentUpon>PersonasEmpleados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonasEmpleadosForms.aspx.cs">
+      <DependentUpon>PersonasEmpleadosForms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PersonasEmpleadosForms.aspx.designer.cs">
+      <DependentUpon>PersonasEmpleadosForms.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Productos.aspx.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
