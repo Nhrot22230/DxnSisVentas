@@ -174,6 +174,11 @@ public class OrdenCompraMySQL implements OrdenCompraDAO {
       ordenCompra.setIdOrdenCompraCadena("OC" + String.format("%05d", ordenCompra.getIdOrdenCompraNumerico()));
       ordenCompra.setIdOrden(cs.getInt("p_id_orden"));
       resultado = ordenCompra.getIdOrdenCompraNumerico();
+      
+      for (LineaOrden lineaOrden : ordenCompra.getLineasOrden()) {
+      lineaOrdenDAO.insertar(lineaOrden, ordenCompra.getIdOrden());
+    }
+
     } catch (SQLException ex) {
       System.out.println(ex.getMessage());
     } finally {
@@ -192,10 +197,7 @@ public class OrdenCompraMySQL implements OrdenCompraDAO {
       }
     }
 
-    for (LineaOrden lineaOrden : ordenCompra.getLineasOrden()) {
-      lineaOrdenDAO.insertar(lineaOrden, ordenCompra.getIdOrden());
-    }
-
+    
     return resultado;
   }
 
