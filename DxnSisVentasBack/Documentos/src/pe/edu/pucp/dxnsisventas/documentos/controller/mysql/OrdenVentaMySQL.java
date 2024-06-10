@@ -10,7 +10,6 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 
 import pe.edu.pucp.dxnsisventas.documentos.controller.dao.OrdenVentaDAO;
 import pe.edu.pucp.dxnsisventas.documentos.model.EstadoOrden;
@@ -79,25 +78,32 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
 
       OrdenVenta prevORV = null;
       while (rs.next()) {
-        OrdenVenta ordenVenta = new OrdenVenta();
-        ordenVenta.setIdOrden(rs.getInt("id_orden"));
-        ordenVenta.setEstado(EstadoOrden.valueOf(rs.getString("estado")));
-        ordenVenta.setFechaCreacion(rs.getTimestamp("fecha_creacion"));
-        ordenVenta.setTotal(rs.getDouble("total"));
-        ordenVenta.setIdOrdenVentaNumerico(rs.getInt("id_orden_venta"));
-        ordenVenta.setIdOrdenVentaCadena("ORV" + String.format("%05d", ordenVenta.getIdOrdenVentaNumerico()));
-        try {
-          Timestamp fechaEntrega = rs.getTimestamp("fecha_entrega");
-          ordenVenta.setFechaEntrega(fechaEntrega != null ? new Date(fechaEntrega.getTime()) : null);
-        } catch (Exception ex) {
-          ordenVenta.setFechaEntrega(null);
+        int id_orden = rs.getInt("id_orden");
+        if (prevORV != null && prevORV.getIdOrden() != id_orden) {
+          ordenes.add(prevORV);
+          prevORV = null;
         }
-        ordenVenta.setTipoVenta(TipoVenta.valueOf(rs.getString("tipo_venta")));
-        ordenVenta.setMetodoPago(MetodoPago.valueOf(rs.getString("metodo_pago")));
-        ordenVenta.setPorcentajeDescuento(rs.getDouble("porcentaje_descuento"));
+
+        OrdenVenta current = new OrdenVenta();
+        current.setIdOrden(id_orden);
+        current.setIdOrdenVentaNumerico(rs.getInt("id_orden_venta"));
+        current.setIdOrdenVentaCadena("ORV" + String.format("%05d", current.getIdOrdenVentaNumerico()));
+        current.setEstado(EstadoOrden.valueOf(rs.getString("estado")));
+        current.setFechaCreacion(rs.getDate("fecha_creacion"));
+        current.setTotal(rs.getDouble("total"));
+        try{
+          current.setFechaEntrega(rs.getDate("fecha_entrega"));
+        }
+        catch(Exception ex){
+          current.setFechaEntrega(null);
+        }
+        current.setTipoVenta(TipoVenta.valueOf(rs.getString("tipo_venta")));
+        current.setMetodoPago(MetodoPago.valueOf(rs.getString("metodo_pago")));
+        current.setPorcentajeDescuento(rs.getDouble("porcentaje_descuento"));
 
         Cliente cliente = new Cliente();
         cliente.setIdNumerico(rs.getInt("id_cliente"));
+        cliente.setIdCadena("CLI" + String.format("%05d", cliente.getIdNumerico()));
         cliente.setDNI(rs.getString("dni_cliente"));
         cliente.setNombre(rs.getString("nombre_cliente"));
         cliente.setApellidoPaterno(rs.getString("apellido_paterno_cliente"));
@@ -108,22 +114,26 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
         cliente.setRazonSocial(rs.getString("razon_social"));
         cliente.setDireccion(rs.getString("direccion"));
 
-        ordenVenta.setCliente(cliente);
+        current.setCliente(cliente);
 
-        Empleado empleado = new Empleado();
-        empleado.setIdEmpleadoNumerico(rs.getInt("id_empleado"));
-        empleado.setDNI(rs.getString("dni_empleado"));
-        empleado.setNombre(rs.getString("nombre_empleado"));
-        empleado.setApellidoPaterno(rs.getString("apellido_paterno_empleado"));
-        empleado.setApellidoMaterno(rs.getString("apellido_materno_empleado"));
-        empleado.setSueldo(rs.getDouble("sueldo"));
-        empleado.setRol(Rol.valueOf(rs.getString("rol")));
+        Empleado encargadoVenta = new Empleado();
+        encargadoVenta.setIdEmpleadoNumerico(rs.getInt("id_empleado"));
+        encargadoVenta.setIdEmpleadoCadena("EMP" + String.format("%05d", encargadoVenta.getIdEmpleadoNumerico()));
+        encargadoVenta.setDNI(rs.getString("dni_empleado"));
+        encargadoVenta.setNombre(rs.getString("nombre_empleado"));
+        encargadoVenta.setApellidoPaterno(rs.getString("apellido_paterno_empleado"));
+        encargadoVenta.setApellidoMaterno(rs.getString("apellido_materno_empleado"));
+        encargadoVenta.setSueldo(rs.getDouble("sueldo"));
+        encargadoVenta.setRol(Rol.valueOf(rs.getString("rol")));
+
+        current.setEncargadoVenta(encargadoVenta);
 
         int id_repartidor = rs.getInt("id_repartidor");
         Empleado repartidor = null;
         if (id_repartidor != 0) {
           repartidor = new Empleado();
           repartidor.setIdEmpleadoNumerico(id_repartidor);
+          repartidor.setIdEmpleadoCadena("EMP" + String.format("%05d", repartidor.getIdEmpleadoNumerico()));
           repartidor.setDNI(rs.getString("dni_repartidor"));
           repartidor.setNombre(rs.getString("nombre_repartidor"));
           repartidor.setApellidoPaterno(rs.getString("apellido_paterno_repartidor"));
@@ -131,12 +141,18 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
           repartidor.setSueldo(rs.getDouble("sueldo_repartidor"));
           repartidor.setRol(Rol.valueOf(rs.getString("rol_repartidor")));
         }
-        ordenVenta.setRepartidor(repartidor);
+        current.setRepartidor(repartidor);
 
-        ordenVenta.setEncargadoVenta(empleado);
-        LineaOrden lineaOrden = new LineaOrden();
+        int idProducto = rs.getInt("id_producto");
+        if (idProducto == 0) {
+          ordenes.add(current);
+          prevORV = null;
+          continue;
+        }
+
         Producto producto = new Producto();
-        producto.setIdProductoNumerico(rs.getInt("id_producto"));
+        producto.setIdProductoNumerico(idProducto);
+        producto.setIdProductoCadena("PRO" + String.format("%05d", producto.getIdProductoNumerico()));
         producto.setNombre(rs.getString("nombre_producto"));
         producto.setPrecioUnitario(rs.getDouble("precio_unitario"));
         producto.setStock(rs.getInt("stock"));
@@ -144,22 +160,20 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
         producto.setUnidadDeMedida(UnidadMedida.valueOf(rs.getString("unidad_medida")));
         producto.setTipo(TipoProducto.valueOf(rs.getString("tipo")));
         producto.setPuntos(rs.getInt("puntos"));
+
+        LineaOrden lineaOrden = new LineaOrden();
         lineaOrden.setProducto(producto);
         lineaOrden.setCantidad(rs.getInt("cantidad"));
         lineaOrden.setSubtotal(rs.getDouble("subtotal"));
 
-        if (prevORV != null && prevORV.getIdOrdenVentaNumerico()== ordenVenta.getIdOrdenVentaNumerico()) {
-          prevORV.agregarLineaOrden(lineaOrden);
-        } else {
-          if (prevORV != null) {
-            ordenes.add(prevORV);
-          }
-          prevORV = ordenVenta;
-          prevORV.agregarLineaOrden(lineaOrden);
+        if (prevORV == null) {
+          prevORV = current;
         }
-      }
-      if (prevORV != null) {
-        ordenes.add(prevORV);
+        prevORV.agregarLineaOrden(lineaOrden);
+
+        if (rs.isLast()) {
+          ordenes.add(prevORV);
+        }
       }
     } catch (SQLException ex) {
       System.out.println(ex.getMessage());
