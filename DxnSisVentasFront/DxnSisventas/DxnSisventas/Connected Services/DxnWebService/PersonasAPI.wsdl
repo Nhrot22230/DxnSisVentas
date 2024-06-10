@@ -5,12 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/WebServiceDXN/PersonasAPI?xsd=1" namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="hello">
-    <part name="parameters" element="tns:hello" />
-  </message>
-  <message name="helloResponse">
-    <part name="parameters" element="tns:helloResponse" />
-  </message>
   <message name="listarClientes">
     <part name="parameters" element="tns:listarClientes" />
   </message>
@@ -28,6 +22,18 @@
   </message>
   <message name="eliminarEmpleadoResponse">
     <part name="parameters" element="tns:eliminarEmpleadoResponse" />
+  </message>
+  <message name="listarEmpleados">
+    <part name="parameters" element="tns:listarEmpleados" />
+  </message>
+  <message name="listarEmpleadosResponse">
+    <part name="parameters" element="tns:listarEmpleadosResponse" />
+  </message>
+  <message name="insertarEmpleado">
+    <part name="parameters" element="tns:insertarEmpleado" />
+  </message>
+  <message name="insertarEmpleadoResponse">
+    <part name="parameters" element="tns:insertarEmpleadoResponse" />
   </message>
   <message name="insertarCliente">
     <part name="parameters" element="tns:insertarCliente" />
@@ -47,23 +53,13 @@
   <message name="eliminarClienteResponse">
     <part name="parameters" element="tns:eliminarClienteResponse" />
   </message>
-  <message name="insertarEmpleado">
-    <part name="parameters" element="tns:insertarEmpleado" />
+  <message name="hello">
+    <part name="parameters" element="tns:hello" />
   </message>
-  <message name="insertarEmpleadoResponse">
-    <part name="parameters" element="tns:insertarEmpleadoResponse" />
-  </message>
-  <message name="listarEmpleados">
-    <part name="parameters" element="tns:listarEmpleados" />
-  </message>
-  <message name="listarEmpleadosResponse">
-    <part name="parameters" element="tns:listarEmpleadosResponse" />
+  <message name="helloResponse">
+    <part name="parameters" element="tns:helloResponse" />
   </message>
   <portType name="PersonasAPI">
-    <operation name="hello">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/helloRequest" message="tns:hello" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/helloResponse" message="tns:helloResponse" />
-    </operation>
     <operation name="listarClientes">
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/listarClientesRequest" message="tns:listarClientes" />
       <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/listarClientesResponse" message="tns:listarClientesResponse" />
@@ -75,6 +71,14 @@
     <operation name="eliminarEmpleado">
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/eliminarEmpleadoRequest" message="tns:eliminarEmpleado" />
       <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/eliminarEmpleadoResponse" message="tns:eliminarEmpleadoResponse" />
+    </operation>
+    <operation name="listarEmpleados">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/listarEmpleadosRequest" message="tns:listarEmpleados" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/listarEmpleadosResponse" message="tns:listarEmpleadosResponse" />
+    </operation>
+    <operation name="insertarEmpleado">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/insertarEmpleadoRequest" message="tns:insertarEmpleado" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/insertarEmpleadoResponse" message="tns:insertarEmpleadoResponse" />
     </operation>
     <operation name="insertarCliente">
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/insertarClienteRequest" message="tns:insertarCliente" />
@@ -88,26 +92,13 @@
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/eliminarClienteRequest" message="tns:eliminarCliente" />
       <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/eliminarClienteResponse" message="tns:eliminarClienteResponse" />
     </operation>
-    <operation name="insertarEmpleado">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/insertarEmpleadoRequest" message="tns:insertarEmpleado" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/insertarEmpleadoResponse" message="tns:insertarEmpleadoResponse" />
-    </operation>
-    <operation name="listarEmpleados">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/listarEmpleadosRequest" message="tns:listarEmpleados" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/listarEmpleadosResponse" message="tns:listarEmpleadosResponse" />
+    <operation name="hello">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/helloRequest" message="tns:hello" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/PersonasAPI/helloResponse" message="tns:helloResponse" />
     </operation>
   </portType>
   <binding name="PersonasAPIPortBinding" type="tns:PersonasAPI">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="hello">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="listarClientes">
       <soap:operation soapAction="" />
       <input>
@@ -127,6 +118,24 @@
       </output>
     </operation>
     <operation name="eliminarEmpleado">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarEmpleados">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarEmpleado">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -162,16 +171,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarEmpleado">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarEmpleados">
+    <operation name="hello">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

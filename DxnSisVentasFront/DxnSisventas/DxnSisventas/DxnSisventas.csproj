@@ -69,6 +69,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\DxnWebService\CorreoAPI.wsdl" />
+    <None Include="Connected Services\DxnWebService\CorreoAPI.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\DxnWebService\CuentasAPI.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -205,6 +209,9 @@
     <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.insertarClienteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.enviarCorreoWebResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\DxnWebService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -239,6 +246,7 @@
     <Content Include="Content\svg-with-js.min.css" />
     <Content Include="Content\v4-shims.css" />
     <Content Include="Content\v4-shims.min.css" />
+    <Content Include="CustomScripts\Documentos.js" />
     <Content Include="CustomScripts\Login.js" />
     <Content Include="CustomScripts\Master.js" />
     <Content Include="CustomScripts\Productos.js" />
@@ -263,6 +271,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
+    <Content Include="Scripts\Documentos.js" />
     <Content Include="Scripts\fontawesome\all.js" />
     <Content Include="Scripts\fontawesome\all.min.js" />
     <Content Include="Scripts\fontawesome\brands.js" />
@@ -283,6 +292,7 @@
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="Views\Comprobantes.aspx" />
     <Content Include="Views\OrdenCompra.aspx" />
+    <Content Include="Views\OrdenCompraForm.aspx" />
     <Content Include="Views\OrdenVenta.aspx" />
     <Content Include="Views\PersonasClientes.aspx" />
     <Content Include="Views\PersonasEmpleados.aspx" />
@@ -345,6 +355,13 @@
     </Compile>
     <Compile Include="Views\OrdenCompra.aspx.designer.cs">
       <DependentUpon>OrdenCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrdenCompraForm.aspx.cs">
+      <DependentUpon>OrdenCompraForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OrdenCompraForm.aspx.designer.cs">
+      <DependentUpon>OrdenCompraForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\OrdenVenta.aspx.cs">
       <DependentUpon>OrdenVenta.aspx</DependentUpon>

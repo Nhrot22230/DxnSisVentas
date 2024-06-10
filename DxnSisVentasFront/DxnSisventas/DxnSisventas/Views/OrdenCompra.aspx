@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="OrdenCompra.aspx.cs" Inherits="DxnSisventas.Views.OrdenCompra" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript" src="/CustomScripts/Documentos.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   <div class="page-path">
@@ -62,4 +63,6 @@
       </asp:GridView>
     </div>
   </div>
+
+
 </asp:Content>
