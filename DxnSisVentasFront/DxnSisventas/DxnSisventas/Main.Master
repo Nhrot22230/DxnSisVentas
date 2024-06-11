@@ -104,7 +104,11 @@
               <i class="fa fa-envelope"></i><span>Cuentas</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-user"></i>Clientes</a></li>
+              <li>
+                <asp:LinkButton ID="LbCuentasClientes" runat="server" OnClick="LbCuentasClientes_Click">
+                  <i class="fa fa-user"></i> <span>Clientes</span>
+                </asp:LinkButton>
+              </li>
               <li>
                 <asp:LinkButton ID="LbCuentasEmpleado" runat="server" OnClick="LbCuentasEmpleado_Click">
                   <i class="fa fa-briefcase"></i> <span>Empleados</span>

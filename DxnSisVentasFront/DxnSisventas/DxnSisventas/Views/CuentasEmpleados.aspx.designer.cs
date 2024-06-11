@@ -11,7 +11,7 @@ namespace DxnSisventas.Views
 {
 
 
-  public partial class CuentasClientes
+  public partial class CuentasEmpleados
   {
 
     /// <summary>

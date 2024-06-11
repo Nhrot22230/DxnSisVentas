@@ -193,7 +193,9 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
         System.err.println(ex.getMessage());
       }
     }
-
+    
+    return ordenes;
+  }
     /*
    * CREATE PROCEDURE insertar_orden_venta(
    * OUT p_id_orden_venta INT,

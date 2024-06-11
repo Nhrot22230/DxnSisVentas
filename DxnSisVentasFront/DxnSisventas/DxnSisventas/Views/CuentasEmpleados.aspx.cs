@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace DxnSisventas.Views
 {
-  public partial class CuentasClientes : System.Web.UI.Page
+  public partial class CuentasEmpleados : System.Web.UI.Page
   {
     private CuentasAPIClient cuentasAPIClient = new CuentasAPIClient();
     private BindingList<personaCuenta> BlEmpleadosCuentas;
