@@ -69,10 +69,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\DxnWebService\CorreoAPI.wsdl" />
-    <None Include="Connected Services\DxnWebService\CorreoAPI.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\DxnWebService\CuentasAPI.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -209,18 +205,6 @@
     <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.insertarClienteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.enviarCorreoWebResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.listarClientesMasCuentasResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.listarEmpleadosMasCuentasResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.personaCuenta.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Connected Services\DxnWebService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -255,11 +239,9 @@
     <Content Include="Content\svg-with-js.min.css" />
     <Content Include="Content\v4-shims.css" />
     <Content Include="Content\v4-shims.min.css" />
-    <Content Include="CustomScripts\Documentos.js" />
     <Content Include="CustomScripts\Login.js" />
     <Content Include="CustomScripts\Master.js" />
-    <Content Include="CustomScripts\PersonasClientesForms.js" />
-    <Content Include="CustomScripts\PersonasEmpleadosForms.js" />
+    <Content Include="CustomScripts\OrdenVenta.js" />
     <Content Include="CustomScripts\Productos.js" />
     <Content Include="CustomStyles\Home.css" />
     <Content Include="CustomStyles\Login.css" />
@@ -282,7 +264,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
-    <Content Include="Scripts\Documentos.js" />
     <Content Include="Scripts\fontawesome\all.js" />
     <Content Include="Scripts\fontawesome\all.min.js" />
     <Content Include="Scripts\fontawesome\brands.js" />
@@ -302,14 +283,11 @@
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="Views\Comprobantes.aspx" />
-    <Content Include="Views\CuentasEmpleados.aspx" />
     <Content Include="Views\OrdenCompra.aspx" />
-    <Content Include="Views\OrdenCompraForm.aspx" />
     <Content Include="Views\OrdenVenta.aspx" />
+    <Content Include="Views\OrdenVentaForm.aspx" />
     <Content Include="Views\PersonasClientes.aspx" />
-    <Content Include="Views\PersonasClientesForms.aspx" />
     <Content Include="Views\PersonasEmpleados.aspx" />
-    <Content Include="Views\PersonasEmpleadosForms.aspx" />
     <Content Include="Views\Productos.aspx" />
     <Content Include="Web.config" />
     <Content Include="webfonts\fa-brands-400.svg" />
@@ -363,26 +341,12 @@
     <Compile Include="Views\Comprobantes.aspx.designer.cs">
       <DependentUpon>Comprobantes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\CuentasEmpleados.aspx.cs">
-      <DependentUpon>CuentasEmpleados.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\CuentasEmpleados.aspx.designer.cs">
-      <DependentUpon>CuentasEmpleados.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\OrdenCompra.aspx.cs">
       <DependentUpon>OrdenCompra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\OrdenCompra.aspx.designer.cs">
       <DependentUpon>OrdenCompra.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\OrdenCompraForm.aspx.cs">
-      <DependentUpon>OrdenCompraForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\OrdenCompraForm.aspx.designer.cs">
-      <DependentUpon>OrdenCompraForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\OrdenVenta.aspx.cs">
       <DependentUpon>OrdenVenta.aspx</DependentUpon>
@@ -391,6 +355,13 @@
     <Compile Include="Views\OrdenVenta.aspx.designer.cs">
       <DependentUpon>OrdenVenta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\OrdenVentaForm.aspx.cs">
+      <DependentUpon>OrdenVentaForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OrdenVentaForm.aspx.designer.cs">
+      <DependentUpon>OrdenVentaForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\PersonasClientes.aspx.cs">
       <DependentUpon>PersonasClientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -398,26 +369,12 @@
     <Compile Include="Views\PersonasClientes.aspx.designer.cs">
       <DependentUpon>PersonasClientes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\PersonasClientesForms.aspx.cs">
-      <DependentUpon>PersonasClientesForms.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\PersonasClientesForms.aspx.designer.cs">
-      <DependentUpon>PersonasClientesForms.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\PersonasEmpleados.aspx.cs">
       <DependentUpon>PersonasEmpleados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\PersonasEmpleados.aspx.designer.cs">
       <DependentUpon>PersonasEmpleados.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PersonasEmpleadosForms.aspx.cs">
-      <DependentUpon>PersonasEmpleadosForms.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\PersonasEmpleadosForms.aspx.designer.cs">
-      <DependentUpon>PersonasEmpleadosForms.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Productos.aspx.cs">
       <DependentUpon>Productos.aspx</DependentUpon>

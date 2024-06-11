@@ -1,0 +1,7 @@
+C:\Users\jhair\Desktop\LP2\Proyectos\TA_PROG3_VERSION2\DxnSisVentas\DxnSisVentasFront\DxnSisventas\tester\bin\Debug\tester.exe.config
+C:\Users\jhair\Desktop\LP2\Proyectos\TA_PROG3_VERSION2\DxnSisVentas\DxnSisVentasFront\DxnSisventas\tester\bin\Debug\tester.exe
+C:\Users\jhair\Desktop\LP2\Proyectos\TA_PROG3_VERSION2\DxnSisVentas\DxnSisVentasFront\DxnSisventas\tester\bin\Debug\tester.pdb
+C:\Users\jhair\Desktop\LP2\Proyectos\TA_PROG3_VERSION2\DxnSisVentas\DxnSisVentasFront\DxnSisventas\tester\obj\Debug\tester.csproj.AssemblyReference.cache
+C:\Users\jhair\Desktop\LP2\Proyectos\TA_PROG3_VERSION2\DxnSisVentas\DxnSisVentasFront\DxnSisventas\tester\obj\Debug\tester.csproj.CoreCompileInputs.cache
+C:\Users\jhair\Desktop\LP2\Proyectos\TA_PROG3_VERSION2\DxnSisVentas\DxnSisVentasFront\DxnSisventas\tester\obj\Debug\tester.exe
+C:\Users\jhair\Desktop\LP2\Proyectos\TA_PROG3_VERSION2\DxnSisVentas\DxnSisVentasFront\DxnSisventas\tester\obj\Debug\tester.pdb
