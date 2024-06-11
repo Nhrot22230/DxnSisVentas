@@ -7,146 +7,146 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace DxnSisventas
+namespace DxnSisventas.Views
 {
 
 
-  public partial class Main
+  public partial class CuentasClientes
   {
 
     /// <summary>
-    /// Control PageTitle.
+    /// Control TxtBuscar.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlTitle PageTitle;
+    protected global::System.Web.UI.WebControls.TextBox TxtBuscar;
 
     /// <summary>
-    /// Control head.
+    /// Control BtnBuscar.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+    protected global::System.Web.UI.WebControls.LinkButton BtnBuscar;
 
     /// <summary>
-    /// Control masterForm.
+    /// Control DropDownListRoles.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlForm masterForm;
+    protected global::System.Web.UI.WebControls.DropDownList DropDownListRoles;
 
     /// <summary>
-    /// Control LbCerrarSesion.
+    /// Control GridClienteCuenta.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.LinkButton LbCerrarSesion;
+    protected global::System.Web.UI.WebControls.GridView GridClienteCuenta;
 
     /// <summary>
-    /// Control ErrorPanel.
+    /// Control LblTitulo.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel ErrorPanel;
+    protected global::System.Web.UI.WebControls.Label LblTitulo;
 
     /// <summary>
-    /// Control ErrorLabel.
+    /// Control LblIdEmpleado.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label ErrorLabel;
+    protected global::System.Web.UI.WebControls.Label LblIdEmpleado;
 
     /// <summary>
-    /// Control LbInicio.
+    /// Control TxtIdEmpleado.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.LinkButton LbInicio;
+    protected global::System.Web.UI.WebControls.TextBox TxtIdEmpleado;
 
     /// <summary>
-    /// Control LbProductos.
+    /// Control LblIdCuenta.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.LinkButton LbProductos;
+    protected global::System.Web.UI.WebControls.Label LblIdCuenta;
 
     /// <summary>
-    /// Control LbUsuariosClientes.
+    /// Control TxtIdCuenta.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.LinkButton LbUsuariosClientes;
+    protected global::System.Web.UI.WebControls.TextBox TxtIdCuenta;
 
     /// <summary>
-    /// Control LbUsuariosEmpleados.
+    /// Control LblUsuario.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.LinkButton LbUsuariosEmpleados;
+    protected global::System.Web.UI.WebControls.Label LblUsuario;
 
     /// <summary>
-    /// Control LbCuentasEmpleado.
+    /// Control TxtUsuario.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.LinkButton LbCuentasEmpleado;
+    protected global::System.Web.UI.WebControls.TextBox TxtUsuario;
 
     /// <summary>
-    /// Control LbOrdenCompra.
+    /// Control LblContrasena.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.LinkButton LbOrdenCompra;
+    protected global::System.Web.UI.WebControls.Label LblContrasena;
 
     /// <summary>
-    /// Control LbOrdenVenta.
+    /// Control TxtContrasena.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.LinkButton LbOrdenVenta;
+    protected global::System.Web.UI.WebControls.TextBox TxtContrasena;
 
     /// <summary>
-    /// Control LbComprobante.
+    /// Control BtnGuardar.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.LinkButton LbComprobante;
+    protected global::System.Web.UI.WebControls.Button BtnGuardar;
 
     /// <summary>
-    /// Control ContentPlaceHolder1.
+    /// Control BtnCancelar.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+    protected global::System.Web.UI.WebControls.Button BtnCancelar;
   }
 }
