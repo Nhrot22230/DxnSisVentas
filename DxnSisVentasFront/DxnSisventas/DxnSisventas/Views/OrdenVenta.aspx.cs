@@ -103,7 +103,7 @@ namespace DxnSisventas.Views
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
 
-            Response.Redirect("OrdenVentaForm.aspx?op=new");
+            Response.Redirect("OrdenVentaForm.aspx?accion=new");
         }
 
         protected void BtnEditar_Click(object sender, EventArgs e)

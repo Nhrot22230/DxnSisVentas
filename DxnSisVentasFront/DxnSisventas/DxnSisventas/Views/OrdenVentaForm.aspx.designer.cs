@@ -24,31 +24,31 @@ namespace DxnSisventas.Views
         protected global::System.Web.UI.WebControls.TextBox TxtIdOrdenVenta;
 
         /// <summary>
-        /// Control ListEstado.
+        /// Control ddlEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ListEstado;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
 
         /// <summary>
-        /// Control ListMetodoPago.
+        /// Control ddlMetodoDePago.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ListMetodoPago;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMetodoDePago;
 
         /// <summary>
-        /// Control ListVenta.
+        /// Control ddlTipoVenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ListVenta;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoVenta;
 
         /// <summary>
         /// Control TxtFechaCreacion.

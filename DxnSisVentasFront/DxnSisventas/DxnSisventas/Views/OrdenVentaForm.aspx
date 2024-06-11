@@ -28,9 +28,9 @@
                                         CssClass="form-control">
                                     </asp:TextBox>
                                 </div>
-                                <label for="ListEstado" class="col-sm-2 col-form-label">Estado:</label>
+                                <label for="ddlEstado" class="col-sm-2 col-form-label">Estado:</label>
                                 <div class="col-sm-4">
-                                    <asp:DropDownList ID="ListEstado" runat="server" CssClass="form-select"
+                                    <asp:DropDownList ID="ddlEstado" runat="server" CssClass="form-select"
                                         SelectionMode="Single">
                                         <asp:ListItem Text="Pendiente" Enabled="true" Selected="True"
                                             Value="Pendiente"></asp:ListItem>
@@ -42,9 +42,9 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="ListMetodoPago" class="col-sm-2 col-form-label">Metodo Pago:</label>
+                                <label for="ddlMetodoDePago" class="col-sm-2 col-form-label">Metodo Pago:</label>
                                 <div class="col-sm-4">
-                                    <asp:DropDownList ID="ListMetodoPago" runat="server" CssClass="form-select"
+                                    <asp:DropDownList ID="ddlMetodoDePago" runat="server" CssClass="form-select"
                                         SelectionMode="Single">
                                         <asp:ListItem Text="Efectivo" Enabled="true" Selected="True"
                                             Value="Efectivo"></asp:ListItem>
@@ -52,10 +52,10 @@
                                     </asp:DropDownList>
                                 </div>
 
-                                <label for="ListVenta" class="col-sm-2 col-form-label">Tipo de Venta:</label>
+                                <label for="ddlTipoVenta" class="col-sm-2 col-form-label">Tipo de Venta:</label>
 
                                 <div class="col-sm-4">
-                                    <asp:DropDownList ID="ListVenta" runat="server" CssClass="form-select"
+                                    <asp:DropDownList ID="ddlTipoVenta" runat="server" CssClass="form-select"
                                         SelectionMode="Single">
                                         <asp:ListItem Text="Presencial" Selected="True" Value="Presencial">
                                         </asp:ListItem>
@@ -84,14 +84,17 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
-                                <label for="TxtId" class="col-sm-2 col-form-label">Descuento:</label>
-                                <div class="col-sm-4">
-                                    <asp:TextBox ID="TxtDescuento" runat="server" type="number"
-                                        CssClass="form-control">
-                                    </asp:TextBox>
-                                </div>
+                             <div class="row mb-3">
+                            <label for="TxtDescuento" class="col-sm-2 col-form-label">Descuento:</label>
+                            <div class="col-sm-4">
+                                <asp:TextBox ID="TxtDescuento" runat="server" 
+                                    type="number" 
+                                    step="0.01" 
+                                    CssClass="form-control">
+                                </asp:TextBox>
                             </div>
+                        </div>
+
                         </div>
 
                     </div>
@@ -192,13 +195,13 @@
                             </div>
                             <div class="col-sm-3">
                                 <asp:Button ID="btnAgregarProducto" runat="server" Text="Agregar producto"
-                                    CssClass="btn btn-success" />
+                                    CssClass="btn btn-success" OnClick="btnAgregarProducto_Click"/>
                             </div>
                         </div>
                         <div class="row">
                             <asp:GridView ID="gvLineasOrdenVenta" AllowPaging="True" PageSize="5" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered">
                                 <Columns>
-                                    <asp:BoundField DataField="producto.idProductoActual" HeaderText="Id" />
+                                    <asp:BoundField DataField="producto.idProductoCadena" HeaderText="ID Producto" />
                                     <asp:BoundField DataField="producto.nombre" HeaderText="Producto" />
                                     <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
                                     <asp:BoundField DataField="producto.precioUnitario" HeaderText="Precio" />
@@ -206,7 +209,7 @@
                                     <asp:TemplateField HeaderText="Acciones">
                                         <ItemTemplate>
                                             <asp:Button ID="BtnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger"
-                                                OnClick="BtnEliminar_Click" CommandArgument='<%# Eval("producto.idProductoActual") %>' />
+                                                OnClick="BtnEliminar_Click" CommandArgument='<%# Eval("producto.idProductoNumerico") %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
@@ -222,8 +225,10 @@
                 </div>
 
                 <div class="card-footer">
-                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="float-end btn btn-primary" />
-                    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="float-start btn btn-danger" />
+                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click"
+                        CssClass="float-end btn btn-primary" />
+                    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"
+                        CssClass="float-start btn btn-danger" />
                 </div>
             </div>
         </div>
