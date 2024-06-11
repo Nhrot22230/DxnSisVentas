@@ -19,10 +19,12 @@ namespace DxnSisventas.Views
         private BindingList<producto> listaProductos = null;
         private ordenCompra ordenCompra;
         private static List<lineaOrden> lineasOrden;
+        private static List<lineaOrden> lineasEliminadas;
    
         static OrdenCompraForm()
         {
             lineasOrden = new List<lineaOrden>();
+            lineasEliminadas = new List<lineaOrden>();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,15 +42,22 @@ namespace DxnSisventas.Views
             if (accion != null && accion == "ver" && Session["idOrdenVenta"] != null)
             {
                 int idOrdenVenta = (int)Session["idOrdenVenta"];
-                ordenCompra = apiOrdenCompra.listarOrdenCompra(idOrdenVenta.ToString()).FirstOrDefault();
+                if (Session["ordenCompra"] != null)
+                    ordenCompra = (ordenCompra)Session["ordenCompra"];
+                else
+                
+                    ordenCompra = apiOrdenCompra.listarOrdenCompra(idOrdenVenta.ToString()).FirstOrDefault(x => x.idOrdenCompraNumerico == idOrdenVenta);
                 //denCompra.lineasOrden = apiOrdenCompra.listarLineaOrden(ordenCompra.idOrden);
+                
                 Session["lineasOrdenVenta"] = ordenCompra.lineasOrden;
                 lineasOrden = ordenCompra.lineasOrden.ToList();
                 mostrarDatos();
             }
             else
             {
-                
+                if (accion != null && accion == "new" && Session["idOrdenVenta"] == null)
+                    btnEnviar.Enabled = false;
+                   
                 ordenCompra = new ordenCompra();
                 if (!IsPostBack)
                 {
@@ -59,7 +68,7 @@ namespace DxnSisventas.Views
                 }
             }
             if (Session["lineasOrdenVenta"] == null) { }
-
+  
             //ordenCompra.lineasOrden = new BindingList<lineaOrden>();
             else
                 gvLineasOrdenVenta.DataSource = lineasOrden;
@@ -71,13 +80,21 @@ namespace DxnSisventas.Views
         public void mostrarDatos()
         {
             txtEstado.Text = ordenCompra.estado.ToString();
-            txtID.Text = ordenCompra.idOrden.ToString();
+            txtID.Text = ordenCompra.idOrdenCompraNumerico.ToString();
             txtFecha.Text = ordenCompra.fechaCreacion.ToShortDateString();
             btnBuscarProducto.Enabled = false;
+            if (ordenCompra.estado.ToString() == estadoOrden.Pendiente.ToString())
+            {
+                btnGuardar.Enabled = true;
+                lbAgregarLOV.Enabled = true;
+                txtCantidadUnidades.Enabled = true;
+            }
+            else { 
             btnGuardar.Enabled = false;
             lbAgregarLOV.Enabled = false;
             txtCantidadUnidades.Enabled = false;
-
+            btnEnviar.Enabled = false;
+            }
         }
 
         protected void BtnRegresar_Click(object sender, EventArgs e)
@@ -180,10 +197,20 @@ namespace DxnSisventas.Views
 
         protected void btnEliminarProducto_Click(object sender, EventArgs e)
         {
+            if(ordenCompra.estado.ToString() == estadoOrden.Entregado.ToString())
+            {
+                Response.Write("La orden ya ha sido Entregada...");
+                return;
+            }
+
             LinkButton btn = (LinkButton)sender;
             int id = int.Parse(btn.CommandArgument);
             lineaOrden linea = lineasOrden.Find(l => l.producto.idProductoNumerico == id);
+            lineasEliminadas.Add(linea);
             lineasOrden.Remove(linea);
+            if (Request.QueryString["accion"] == "ver")
+                ordenCompra.lineasOrden = lineasOrden.ToArray();
+                Session["ordenCompra"]=ordenCompra;
             calcularTotal();
             Response.Redirect(Request.Url.AbsoluteUri);
         }
@@ -212,15 +239,34 @@ namespace DxnSisventas.Views
                 Response.Write("Debe agregar un producto...");
                 return;
             }
+            if (Request.QueryString["accion"] == "ver")
+            {
+                ordenCompra.lineasOrden = lineasOrden.ToArray();
+                ordenCompra.fechaCreacionSpecified = true;
+                ordenCompra.estadoSpecified = true;
+                ordenCompra.fechaRecepcionSpecified= true;
+                foreach(lineaOrden x in lineasEliminadas)
+                {
+                    apiOrdenCompra.eliminarLOV(ordenCompra.idOrden, x.producto.idProductoNumerico);
 
+                }
+                apiOrdenCompra.actualizarOrdenCompra(ordenCompra);
+                lineasEliminadas.Clear();
+                
+            }
+            else { 
 
-            int resultado = apiOrdenCompra.insertarOrdenCompra(orden);
+                apiOrdenCompra.insertarOrdenCompra(orden);
+            }
             lineasOrden.Clear();
             Response.Redirect("/Views/OrdenCompra.aspx");
         }
 
         protected void btnRegresar_Click1(object sender, EventArgs e)
         {
+            lineasEliminadas.Clear ();
+            Session["ordenCompra"]=null;
+            Session["idOrdenVenta"] = null;
             lineasOrden.Clear();
             Response.Redirect("/Views/OrdenCompra.aspx");
         }
@@ -245,23 +291,29 @@ namespace DxnSisventas.Views
 
         protected string CrearContenido()
         {
-            string contenido = "<html><body>";
-            contenido += "<h2>Saludos Estimado(a),</h2>";
+            string contenido = "<html><body style='font-family: Arial, sans-serif;'>";
+            double total = 0;
+            contenido += "<h2 style='text-align: center;'>Saludos Estimado(a),</h2>";
             contenido += "<p>Adjunto encontrará la orden de compra Nro: " + ordenCompra.idOrdenCompraCadena.ToString() + ".</p>";
             contenido += "<p>A continuación, detallamos los productos:</p>";
-            contenido += "<table border='1'>";
-            contenido += "<tr><th>ID</th><th>Nombre</th><th>Cantidad</th></tr>";
+            contenido += "<table style='width: 100%; border-collapse: collapse;'>";
+            contenido += "<tr><th style='border: 1px solid #000; padding: 8px; text-align: center;'>ID</th><th style='border: 1px solid #000; padding: 8px;'>Nombre</th><th style='border: 1px solid #000; padding: 8px; text-align: center;'>Cantidad</th><th style='border: 1px solid #000; padding: 8px; text-align: center;'>Subtotal</th></tr>";
+
             foreach (lineaOrden x in lineasOrden)
             {
                 contenido += "<tr>";
-                contenido += "<td style='text-align:center'>" + x.producto.idProductoCadena.ToString() + "</td>";
-                contenido += "<td>" + x.producto.nombre.ToString() + "</td>";
-                contenido += "<td style='text-align:center'>" + x.cantidad.ToString() + "</td>";
+                contenido += "<td style='border: 1px solid #000; padding: 8px; text-align: center;'>" + x.producto.idProductoNumerico.ToString()+ "</td>";
+                contenido += "<td style='border: 1px solid #000; padding: 8px;'>" + x.producto.nombre.ToString() + "</td>";
+                contenido += "<td style='border: 1px solid #000; padding: 8px; text-align: center;'>" + x.cantidad.ToString() + "</td>";
+                contenido += "<td style='border: 1px solid #000; padding: 8px; text-align: center;'>" + x.subtotal.ToString("N2") + "</td>";
                 contenido += "</tr>";
+                total += x.subtotal;
             }
+
             contenido += "</table>";
+            contenido += "<p style='text-align: right; font-weight: bold; margin-top: 20px;'>Total: " + total.ToString("N2") + "</p>";
             contenido += "<p>Quedamos a disposición para cualquier consulta.</p>";
-            contenido += "<p>Atentamente,<br>Tu Nombre</p>";
+            contenido += "<p>Atentamente,<br>DXN Ventas</p>";
             contenido += "</body></html>";
 
             return contenido;
@@ -269,12 +321,19 @@ namespace DxnSisventas.Views
         protected void lbEnviaroModal_Click(object sender, EventArgs e)
         {
 
-            string asunto = "Orden de compra Nro: " + ordenCompra.idOrdenCompraCadena.ToString();
+            string asunto = "Orden de compra Nro: " + ordenCompra.idOrdenCompraCadena;
             string contenido = CrearContenido();
 
 
             string correo = txtCorreo.Text.ToString();
             apiCorreo.enviarCorreoWeb(asunto, contenido, correo);
+            ordenCompra.estadoSpecified= true;
+            ordenCompra.estado = estadoOrden.Entregado;
+            ordenCompra.fechaRecepcionSpecified= true;
+            ordenCompra.fechaRecepcion = DateTime.Now;
+            apiOrdenCompra.actualizarOrdenCompra(ordenCompra);
+            lineasOrden.Clear();
+            lineasEliminadas.Clear();
             Response.Redirect("/Views/OrdenCompra.aspx");
         }  
     }

@@ -140,4 +140,38 @@ public class LineaOrdenMySQL implements LineaOrdenDAO {
 
     return lineasOrden;
   }
+
+    @Override
+    public int eliminar(int id_orden, int id_producto) {
+        
+        
+       int  resultado = 0;
+    try {
+      con = DBManager.getInstance().getConnection();
+      sql = "{ CALL eliminar_linea_orden (?, ?) }";
+      cs = con.prepareCall(sql);
+      cs.setInt("p_id_orden", id_orden);
+      cs.setInt("p_id_producto", id_producto);
+      cs.executeUpdate();
+      resultado = 1;
+    } catch (SQLException ex) {
+      System.out.println(ex.getMessage());
+    } finally {
+      try {
+        if (rs != null) {
+          rs.close();
+        }
+        if (cs != null) {
+          cs.close();
+        }
+        if (con != null) {
+          con.close();
+        }
+      } catch (SQLException ex) {
+        System.err.println(ex.getMessage());
+      }
+    }
+
+    return resultado;
+    }
 }

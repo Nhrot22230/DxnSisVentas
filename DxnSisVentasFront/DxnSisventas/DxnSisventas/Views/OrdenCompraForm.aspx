@@ -139,7 +139,7 @@
                                         <asp:BoundField HeaderText="Precio Unit" />
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:LinkButton class="btn btn-success" runat="server" Text="<i class='fa-solid fa-check ps-2'></i> Seleccionar" OnClick="btnSeleccionarProductoModal_Click" CommandArgument='<%# Eval("idProductoNumerico") %>' />
+                                                <asp:LinkButton class="btn btn-success" runat="server" Text="Seleccionar" OnClick="btnSeleccionarProductoModal_Click" CommandArgument='<%# Eval("idProductoNumerico") %>' />
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
@@ -192,6 +192,6 @@
 </div>
 
 
-    <script type="text/javascript" src="/CustomScripts/Master.js"></script>
+    
 
 </asp:Content>
