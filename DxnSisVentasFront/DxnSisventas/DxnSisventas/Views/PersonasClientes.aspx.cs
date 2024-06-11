@@ -27,6 +27,7 @@ namespace DxnSisventas.Views
 
     protected void Page_Init(object sender, EventArgs e)
     {
+      Page.Title = "Clientes";
       personasAPIClient = new PersonasAPIClient();
       CargarTabla("");
     }
@@ -43,12 +44,16 @@ namespace DxnSisventas.Views
     }
     protected void BtnAgregar_Click(object sender, EventArgs e)
     {
-
+      Session["clienteEditar"] = null;
+      Response.Redirect("~/Views/PersonasClientesForms.aspx");
     }
 
     protected void BtnEditar_Click(object sender, EventArgs e)
     {
-
+      int idCliente = Int32.Parse(((LinkButton)sender).CommandArgument);
+      cliente clienteEditar = clientes.FirstOrDefault(c => c.idNumerico == idCliente);
+      Session["clienteEditar"] = clienteEditar;
+      Response.Redirect("~/Views/PersonasClientesForms.aspx");
     }
 
     protected void BtnEliminar_Click(object sender, EventArgs e)

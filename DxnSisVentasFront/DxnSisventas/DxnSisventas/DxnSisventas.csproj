@@ -249,6 +249,7 @@
     <Content Include="CustomScripts\Documentos.js" />
     <Content Include="CustomScripts\Login.js" />
     <Content Include="CustomScripts\Master.js" />
+    <Content Include="CustomScripts\PersonasClientesForms.js" />
     <Content Include="CustomScripts\PersonasEmpleadosForms.js" />
     <Content Include="CustomScripts\Productos.js" />
     <Content Include="CustomStyles\Home.css" />
