@@ -241,6 +241,7 @@
     <Content Include="Content\v4-shims.min.css" />
     <Content Include="CustomScripts\Login.js" />
     <Content Include="CustomScripts\Master.js" />
+    <Content Include="CustomScripts\OrdenVenta.js" />
     <Content Include="CustomScripts\Productos.js" />
     <Content Include="CustomStyles\Home.css" />
     <Content Include="CustomStyles\Login.css" />
@@ -284,6 +285,7 @@
     <Content Include="Views\Comprobantes.aspx" />
     <Content Include="Views\OrdenCompra.aspx" />
     <Content Include="Views\OrdenVenta.aspx" />
+    <Content Include="Views\OrdenVentaForm.aspx" />
     <Content Include="Views\PersonasClientes.aspx" />
     <Content Include="Views\PersonasEmpleados.aspx" />
     <Content Include="Views\Productos.aspx" />
@@ -352,6 +354,13 @@
     </Compile>
     <Compile Include="Views\OrdenVenta.aspx.designer.cs">
       <DependentUpon>OrdenVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrdenVentaForm.aspx.cs">
+      <DependentUpon>OrdenVentaForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OrdenVentaForm.aspx.designer.cs">
+      <DependentUpon>OrdenVentaForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\PersonasClientes.aspx.cs">
       <DependentUpon>PersonasClientes.aspx</DependentUpon>

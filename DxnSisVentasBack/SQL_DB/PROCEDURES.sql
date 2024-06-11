@@ -45,7 +45,6 @@ DROP PROCEDURE IF EXISTS actualizar_orden;
 DROP PROCEDURE IF EXISTS listar_ordenes;
 
 DROP PROCEDURE IF EXISTS insertar_orden_venta;
-DROP PROCEDURE IF EXISTS insertar_orden_venta_con_repartidor;
 DROP PROCEDURE IF EXISTS actualizar_orden_venta;
 DROP PROCEDURE IF EXISTS listar_ordenes_venta;
 
@@ -545,6 +544,7 @@ CREATE PROCEDURE insertar_orden_venta(
   OUT p_id_orden INT,
   IN p_id_cliente INT,
   IN p_id_empleado INT,
+  IN p_id_repartidor INT, -- Este es ahora opcional
   IN p_estado ENUM('Pendiente', 'Entregado', 'Cancelado'),
   IN p_fecha_creacion DATETIME,
   IN p_tipo_venta ENUM('Presencial', 'Delivery'),
@@ -553,37 +553,29 @@ CREATE PROCEDURE insertar_orden_venta(
   IN p_total DECIMAL(10, 2)
 )
 BEGIN
+  -- Insertar en la tabla Orden
   CALL insertar_orden(p_id_orden, p_estado, p_fecha_creacion, p_total);
-  INSERT INTO Orden_Venta(id_orden, id_cliente, id_empleado, tipo_venta, metodo_pago, porcentaje_descuento)
-  VALUES(p_id_orden, p_id_cliente, p_id_empleado, p_tipo_venta, p_metodo_pago, p_porcentaje_descuento);
+  
+  -- Insertar en la tabla Orden_Venta, manejando el id_repartidor opcional
+  IF p_id_repartidor IS NOT NULL THEN
+    INSERT INTO Orden_Venta(id_orden, id_cliente, id_empleado, id_repartidor, tipo_venta, metodo_pago, porcentaje_descuento)
+    VALUES(p_id_orden, p_id_cliente, p_id_empleado, p_id_repartidor, p_tipo_venta, p_metodo_pago, p_porcentaje_descuento);
+  ELSE
+    INSERT INTO Orden_Venta(id_orden, id_cliente, id_empleado, tipo_venta, metodo_pago, porcentaje_descuento)
+    VALUES(p_id_orden, p_id_cliente, p_id_empleado, p_tipo_venta, p_metodo_pago, p_porcentaje_descuento);
+  END IF;
+  
   SET p_id_orden_venta = LAST_INSERT_ID();
 END$$
 
-CREATE PROCEDURE insertar_orden_venta_con_repartidor(
-  OUT p_id_orden_venta INT,
-  OUT p_id_orden INT,
-  IN p_id_cliente INT,
-  IN p_id_empleado INT,
-  IN p_id_repartidor INT,
-  IN p_estado ENUM('Pendiente', 'Entregado', 'Cancelado'),
-  IN p_fecha_creacion DATETIME,
-  IN p_tipo_venta ENUM('Presencial', 'Delivery'),
-  IN p_metodo_pago ENUM('Efectivo', 'Tarjeta'),
-  IN p_porcentaje_descuento DECIMAL(4,2),
-  IN p_total DECIMAL(10, 2)
-)
-BEGIN
-  CALL insertar_orden(p_id_orden, p_estado, p_fecha_creacion, p_total);
-  INSERT INTO Orden_Venta(id_orden, id_cliente, id_empleado, id_repartidor, tipo_venta, metodo_pago, porcentaje_descuento)
-  VALUES(p_id_orden, p_id_cliente, p_id_empleado, p_id_repartidor, p_tipo_venta, p_metodo_pago, p_porcentaje_descuento);
-  SET p_id_orden_venta = LAST_INSERT_ID();
-END$$
+
 
 CREATE PROCEDURE actualizar_orden_venta(
   IN p_id_orden_venta INT,
   IN p_id_orden INT,
   IN p_id_cliente INT,
   IN p_id_empleado INT,
+  IN p_id_repartidor INT, -- Este es ahora opcional
   IN p_estado ENUM('Pendiente', 'Entregado', 'Cancelado'),
   IN p_fecha_entrega DATETIME,
   IN p_tipo_venta ENUM('Presencial', 'Delivery'),
@@ -592,11 +584,15 @@ CREATE PROCEDURE actualizar_orden_venta(
   IN p_total DECIMAL(10, 2)
 )
 BEGIN
+  -- Actualizar en la tabla Orden
   CALL actualizar_orden(p_id_orden, p_estado, p_total);
+  
+  -- Actualizar en la tabla Orden_Venta
   UPDATE Orden_Venta
   SET id_orden = p_id_orden,
       id_cliente = p_id_cliente,
       id_empleado = p_id_empleado,
+      id_repartidor = COALESCE(NULLIF(p_id_repartidor, 0), NULL),
       fecha_entrega = p_fecha_entrega,
       tipo_venta = p_tipo_venta,
       metodo_pago = p_metodo_pago,
