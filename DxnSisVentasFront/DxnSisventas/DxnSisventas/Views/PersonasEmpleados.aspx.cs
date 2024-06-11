@@ -41,6 +41,7 @@ namespace DxnSisventas.Views
 
     protected void Page_Init(object sender, EventArgs e)
     {
+      Page.Title = "Empleados";
       personasAPIClient = new PersonasAPIClient();
       CargarTabla("");
     }
@@ -49,19 +50,22 @@ namespace DxnSisventas.Views
     {
 
     }
-    
-    protected void BtnAgregar_Click(object sender, EventArgs e)
-    {
-
-    }
-
     protected void GridEmpleado_SelectedIndexChanged(object sender, EventArgs e)
     {
 
     }
+
+    protected void BtnAgregar_Click(object sender, EventArgs e)
+    {
+      Session["empleadoEditar"] = null;
+      Response.Redirect("~/Views/PersonasEmpleadosForms.aspx");
+    }
     protected void BtnEditar_Click(object sender, EventArgs e)
     {
-
+      int idEmpleado = Int32.Parse(((LinkButton)sender).CommandArgument);
+      empleado empEditar = empleados.FirstOrDefault(emp => emp.idEmpleadoNumerico == idEmpleado);
+      Session["empleadoEditar"] = empEditar;
+      Response.Redirect("~/Views/PersonasEmpleadosForms.aspx");
     }
 
     protected void BtnBuscar_Click(object sender, EventArgs e)

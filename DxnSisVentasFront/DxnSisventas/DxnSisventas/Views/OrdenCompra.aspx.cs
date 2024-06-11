@@ -1,4 +1,5 @@
 ﻿using DxnSisventas.DxnWebService;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -118,13 +119,15 @@ namespace DxnSisventas.Views
 
     protected void BtnAgregar_Click(object sender, EventArgs e)
     {
-
+            Response.Redirect("/Views/OrdenCompraForm.aspx");
     }
 
     protected void BtnEditar_Click(object sender, EventArgs e)
     {
-
-    }
+            int idOrdenVenta = int.Parse(((LinkButton)sender).CommandArgument);
+            Session["idOrdenVenta"] = idOrdenVenta;
+            Response.Redirect("OrdenCompraForm.aspx?accion=ver");
+        }
 
     protected void BtnEliminar_Click(object sender, EventArgs e)
     {

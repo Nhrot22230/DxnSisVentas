@@ -5,29 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/WebServiceDXN/DocumentosAPI?xsd=1" namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="actualizarOrdenVenta">
-    <part name="parameters" element="tns:actualizarOrdenVenta" />
+  <message name="listarOrdenCompra">
+    <part name="parameters" element="tns:listarOrdenCompra" />
   </message>
-  <message name="actualizarOrdenVentaResponse">
-    <part name="parameters" element="tns:actualizarOrdenVentaResponse" />
-  </message>
-  <message name="hello">
-    <part name="parameters" element="tns:hello" />
-  </message>
-  <message name="helloResponse">
-    <part name="parameters" element="tns:helloResponse" />
+  <message name="listarOrdenCompraResponse">
+    <part name="parameters" element="tns:listarOrdenCompraResponse" />
   </message>
   <message name="listarComprobante">
     <part name="parameters" element="tns:listarComprobante" />
   </message>
   <message name="listarComprobanteResponse">
     <part name="parameters" element="tns:listarComprobanteResponse" />
-  </message>
-  <message name="listarOrdenCompra">
-    <part name="parameters" element="tns:listarOrdenCompra" />
-  </message>
-  <message name="listarOrdenCompraResponse">
-    <part name="parameters" element="tns:listarOrdenCompraResponse" />
   </message>
   <message name="listarOrdenVenta">
     <part name="parameters" element="tns:listarOrdenVenta" />
@@ -41,23 +29,23 @@
   <message name="insertarOrdenVentaResponse">
     <part name="parameters" element="tns:insertarOrdenVentaResponse" />
   </message>
+  <message name="insertarComprobante">
+    <part name="parameters" element="tns:insertarComprobante" />
+  </message>
+  <message name="insertarComprobanteResponse">
+    <part name="parameters" element="tns:insertarComprobanteResponse" />
+  </message>
   <message name="actualizarOrdenCompra">
     <part name="parameters" element="tns:actualizarOrdenCompra" />
   </message>
   <message name="actualizarOrdenCompraResponse">
     <part name="parameters" element="tns:actualizarOrdenCompraResponse" />
   </message>
-  <message name="actualizarComprobante">
-    <part name="parameters" element="tns:actualizarComprobante" />
+  <message name="actualizarOrdenVenta">
+    <part name="parameters" element="tns:actualizarOrdenVenta" />
   </message>
-  <message name="actualizarComprobanteResponse">
-    <part name="parameters" element="tns:actualizarComprobanteResponse" />
-  </message>
-  <message name="insertarComprobante">
-    <part name="parameters" element="tns:insertarComprobante" />
-  </message>
-  <message name="insertarComprobanteResponse">
-    <part name="parameters" element="tns:insertarComprobanteResponse" />
+  <message name="actualizarOrdenVentaResponse">
+    <part name="parameters" element="tns:actualizarOrdenVentaResponse" />
   </message>
   <message name="eliminarComprobante">
     <part name="parameters" element="tns:eliminarComprobante" />
@@ -71,22 +59,26 @@
   <message name="insertarOrdenCompraResponse">
     <part name="parameters" element="tns:insertarOrdenCompraResponse" />
   </message>
+  <message name="actualizarComprobante">
+    <part name="parameters" element="tns:actualizarComprobante" />
+  </message>
+  <message name="actualizarComprobanteResponse">
+    <part name="parameters" element="tns:actualizarComprobanteResponse" />
+  </message>
+  <message name="hello">
+    <part name="parameters" element="tns:hello" />
+  </message>
+  <message name="helloResponse">
+    <part name="parameters" element="tns:helloResponse" />
+  </message>
   <portType name="DocumentosAPI">
-    <operation name="actualizarOrdenVenta">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarOrdenVentaRequest" message="tns:actualizarOrdenVenta" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarOrdenVentaResponse" message="tns:actualizarOrdenVentaResponse" />
-    </operation>
-    <operation name="hello">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/helloRequest" message="tns:hello" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/helloResponse" message="tns:helloResponse" />
+    <operation name="listarOrdenCompra">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarOrdenCompraRequest" message="tns:listarOrdenCompra" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarOrdenCompraResponse" message="tns:listarOrdenCompraResponse" />
     </operation>
     <operation name="listarComprobante">
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarComprobanteRequest" message="tns:listarComprobante" />
       <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarComprobanteResponse" message="tns:listarComprobanteResponse" />
-    </operation>
-    <operation name="listarOrdenCompra">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarOrdenCompraRequest" message="tns:listarOrdenCompra" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarOrdenCompraResponse" message="tns:listarOrdenCompraResponse" />
     </operation>
     <operation name="listarOrdenVenta">
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/listarOrdenVentaRequest" message="tns:listarOrdenVenta" />
@@ -96,17 +88,17 @@
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarOrdenVentaRequest" message="tns:insertarOrdenVenta" />
       <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarOrdenVentaResponse" message="tns:insertarOrdenVentaResponse" />
     </operation>
+    <operation name="insertarComprobante">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarComprobanteRequest" message="tns:insertarComprobante" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarComprobanteResponse" message="tns:insertarComprobanteResponse" />
+    </operation>
     <operation name="actualizarOrdenCompra">
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarOrdenCompraRequest" message="tns:actualizarOrdenCompra" />
       <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarOrdenCompraResponse" message="tns:actualizarOrdenCompraResponse" />
     </operation>
-    <operation name="actualizarComprobante">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarComprobanteRequest" message="tns:actualizarComprobante" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarComprobanteResponse" message="tns:actualizarComprobanteResponse" />
-    </operation>
-    <operation name="insertarComprobante">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarComprobanteRequest" message="tns:insertarComprobante" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarComprobanteResponse" message="tns:insertarComprobanteResponse" />
+    <operation name="actualizarOrdenVenta">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarOrdenVentaRequest" message="tns:actualizarOrdenVenta" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarOrdenVentaResponse" message="tns:actualizarOrdenVentaResponse" />
     </operation>
     <operation name="eliminarComprobante">
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/eliminarComprobanteRequest" message="tns:eliminarComprobante" />
@@ -116,19 +108,18 @@
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarOrdenCompraRequest" message="tns:insertarOrdenCompra" />
       <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/insertarOrdenCompraResponse" message="tns:insertarOrdenCompraResponse" />
     </operation>
+    <operation name="actualizarComprobante">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarComprobanteRequest" message="tns:actualizarComprobante" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/actualizarComprobanteResponse" message="tns:actualizarComprobanteResponse" />
+    </operation>
+    <operation name="hello">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/helloRequest" message="tns:hello" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/DocumentosAPI/helloResponse" message="tns:helloResponse" />
+    </operation>
   </portType>
   <binding name="DocumentosAPIPortBinding" type="tns:DocumentosAPI">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="actualizarOrdenVenta">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="hello">
+    <operation name="listarOrdenCompra">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -138,15 +129,6 @@
       </output>
     </operation>
     <operation name="listarComprobante">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarOrdenCompra">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -173,6 +155,15 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="insertarComprobante">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="actualizarOrdenCompra">
       <soap:operation soapAction="" />
       <input>
@@ -182,16 +173,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarComprobante">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarComprobante">
+    <operation name="actualizarOrdenVenta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -210,6 +192,24 @@
       </output>
     </operation>
     <operation name="insertarOrdenCompra">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="actualizarComprobante">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="hello">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

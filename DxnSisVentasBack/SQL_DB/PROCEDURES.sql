@@ -62,6 +62,8 @@ DROP PROCEDURE IF EXISTS actualizar_linea_orden;
 DROP PROCEDURE IF EXISTS listar_lineas_orden;
 DROP PROCEDURE IF EXISTS eliminar_linea_orden;
 
+DROP PROCEDURE IF EXISTS listar_empleado_cuenta;
+DROP PROCEDURE IF EXISTS listar_cliente_cuenta;
 -- ----------------------------------------------
 -- CRUD para Empleado
 -- ----------------------------------------------
@@ -784,6 +786,49 @@ CREATE PROCEDURE eliminar_linea_orden(
 BEGIN
   DELETE FROM LineaOrden
   WHERE id_orden = p_id_orden AND id_producto = p_id_producto;
+END$$
+
+-- ==============================================
+-- CUENTAS DE EMPLEADO Y CLIENTE
+-- ==============================================
+
+CREATE PROCEDURE listar_empleado_cuenta(
+  IN p_cadena VARCHAR(30)
+)
+BEGIN
+  SELECT e.id_empleado, e.dni, e.nombre, e.apellido_paterno, e.apellido_materno, e.sueldo, e.rol,
+  c.id_cuenta, c.usuario, c.contrasena
+  FROM Empleado e
+  LEFT JOIN Cuenta_Empleado ce ON ce.id_empleado = e.id_empleado
+  LEFT JOIN Cuenta c ON c.id_cuenta = ce.id_cuenta
+  WHERE e.activo = 1
+  AND (e.dni LIKE CONCAT('%', p_cadena, '%') OR
+       e.nombre LIKE CONCAT('%', p_cadena, '%') OR
+       e.apellido_paterno LIKE CONCAT('%', p_cadena, '%') OR
+       e.apellido_materno LIKE CONCAT('%', p_cadena, '%') OR
+       c.usuario LIKE CONCAT('%', p_cadena, '%')
+       );
+END$$
+
+CREATE PROCEDURE listar_cliente_cuenta(
+  IN p_cadena VARCHAR(30)
+)
+BEGIN
+  SELECT cli.id_cliente, cli.dni, cli.nombre, cli.apellido_paterno, cli.apellido_materno, cli.direccion, cli.ruc, cli.razon_social, cli.puntos, cli.puntos_retenidos,
+  c.id_cuenta, c.usuario, c.contrasena
+  FROM Cliente cli
+  LEFT JOIN Cuenta_Cliente cc ON cc.id_cliente = cli.id_cliente
+  LEFT JOIN Cuenta c ON c.id_cuenta = cc.id_cuenta
+  WHERE cli.activo = 1
+  AND (cli.dni LIKE CONCAT('%', p_cadena, '%') OR
+       cli.nombre LIKE CONCAT('%', p_cadena, '%') OR
+       cli.apellido_paterno LIKE CONCAT('%', p_cadena, '%') OR
+       cli.apellido_materno LIKE CONCAT('%', p_cadena, '%') OR
+       cli.direccion LIKE CONCAT('%', p_cadena, '%') OR
+       cli.ruc LIKE CONCAT('%', p_cadena, '%') OR
+       cli.razon_social LIKE CONCAT('%', p_cadena, '%') OR
+       c.usuario LIKE CONCAT('%', p_cadena, '%')
+       );
 END$$
 
 DELIMITER ;

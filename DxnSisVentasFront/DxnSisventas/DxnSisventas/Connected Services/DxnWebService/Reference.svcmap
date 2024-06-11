@@ -25,6 +25,8 @@
     <MetadataFile FileName="CuentasAPI.wsdl" MetadataType="Wsdl" ID="7d9bdad9-6fcd-448b-a2a2-d87714687f96" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/CuentasAPI?WSDL" />
     <MetadataFile FileName="DxnServices.disco" MetadataType="Disco" ID="c7733c53-9866-44cd-a135-c96005f9ac29" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/DxnServices.disco" />
     <MetadataFile FileName="ProductosAPI.wsdl" MetadataType="Wsdl" ID="69dcef61-f8a2-4b42-b203-a4312073c062" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/ProductosAPI?WSDL" />
+    <MetadataFile FileName="CorreoAPI.wsdl" MetadataType="Wsdl" ID="ee27755c-4251-4f26-9c88-3af4a2ae3bee" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/CorreoAPI?WSDL" />
+    <MetadataFile FileName="CorreoAPI.xsd" MetadataType="Schema" ID="f3056133-a925-4215-9723-fa1ef80f9b72" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/CorreoAPI?xsd=1" />
     <MetadataFile FileName="ProductosAPI.xsd" MetadataType="Schema" ID="df2bbf95-5f6c-40cd-9c1f-57cb9393975e" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/ProductosAPI?xsd=1" />
     <MetadataFile FileName="CuentasAPI.xsd" MetadataType="Schema" ID="6f6211ce-bcc1-4faa-b51d-61a18a5ef8d7" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/CuentasAPI?xsd=1" />
     <MetadataFile FileName="PersonasAPI.wsdl" MetadataType="Wsdl" ID="2a39c3cd-ce54-4929-a3ff-42fefb42e752" SourceId="1" SourceUrl="http://localhost:8080/WebServiceDXN/PersonasAPI?WSDL" />

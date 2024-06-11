@@ -8,7 +8,6 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import pe.edu.pucp.dxnsisventas.documentos.controller.dao.LineaOrdenDAO;
@@ -63,22 +62,43 @@ public class OrdenCompraMySQL implements OrdenCompraDAO {
       rs = cs.executeQuery();
       OrdenCompra prevORC = null;
       while (rs.next()) {
-        OrdenCompra ordenCompra = new OrdenCompra();
-        ordenCompra.setIdOrden(rs.getInt("id_orden"));
-        ordenCompra.setEstado(EstadoOrden.valueOf(rs.getString("estado")));
-        ordenCompra.setFechaCreacion(rs.getTimestamp("fecha_creacion"));
-        ordenCompra.setTotal(rs.getDouble("total"));
-        ordenCompra.setIdOrdenCompraNumerico(rs.getInt("id_orden_compra"));
-        ordenCompra.setIdOrdenCompraCadena("ORC" + String.format("%05d", ordenCompra.getIdOrdenCompraNumerico()));
-        try {
-          Timestamp fechaRecepcion = rs.getTimestamp("fecha_recepcion");
-          ordenCompra.setFechaRecepcion(fechaRecepcion != null ? fechaRecepcion : null);
-        } catch (Exception ex) {
-          ordenCompra.setFechaRecepcion(null);
+        // Casos a considerar:
+        // 1. Si prevORC es null, entonces es la primera vez que se lee una orden de compra.
+        // 2. Si prevORC no es null, entonces se está guardando una orden de compra previa.
+        // 3. Si prevORC no es null y el id de la orden de compra actual es diferente al id de la orden de compra previa, entonces se está leyendo una nueva orden de compra.
+        // 4. Si prevORC no es null y el id de la orden de compra actual es igual al id de la orden de compra previa, entonces se está leyendo una linea de orden de la orden de compra previa.
+        // 5. Si es la última iteración...
+        
+        int id_orden = rs.getInt("id_orden");
+        if (prevORC != null && prevORC.getIdOrden() != id_orden) {
+          ordenCompras.add(prevORC);
+          prevORC = null;
         }
+
+        OrdenCompra current = new OrdenCompra();
+        current.setIdOrden(id_orden);
+        current.setEstado(EstadoOrden.valueOf(rs.getString("estado")));
+        current.setFechaCreacion(rs.getTimestamp("fecha_creacion"));
+        current.setTotal(rs.getDouble("total"));
+        current.setIdOrdenCompraNumerico(rs.getInt("id_orden_compra"));
+        current.setIdOrdenCompraCadena("ORC" + String.format("%05d", current.getIdOrdenCompraNumerico()));
+        try {
+          current.setFechaRecepcion(rs.getTimestamp("fecha_recepcion"));
+        } catch (Exception ex) {
+          current.setFechaRecepcion(null);
+        }
+
+        // verificar si tiene lineas de orden
+        int idProducto = rs.getInt("id_producto");
+        if (idProducto == 0) {
+          // no tiene lineas de orden
+          ordenCompras.add(current);
+          prevORC = null;
+          continue;
+        }
+
         Producto producto = new Producto();
-        producto.setIdProductoNumerico(rs.getInt("id_producto"));
-        producto.setIdProductoCadena("PRO" + String.format("%05d", producto.getIdProductoNumerico()));
+        producto.setIdProductoNumerico(idProducto);
         producto.setNombre(rs.getString("nombre"));
         producto.setPrecioUnitario(rs.getDouble("precio_unitario"));
         producto.setStock(rs.getInt("stock"));
@@ -86,23 +106,20 @@ public class OrdenCompraMySQL implements OrdenCompraDAO {
         producto.setUnidadDeMedida(UnidadMedida.valueOf(rs.getString("unidad_medida")));
         producto.setTipo(TipoProducto.valueOf(rs.getString("tipo")));
         producto.setPuntos(rs.getInt("puntos"));
+
         LineaOrden lineaOrden = new LineaOrden();
         lineaOrden.setProducto(producto);
         lineaOrden.setCantidad(rs.getInt("cantidad"));
         lineaOrden.setSubtotal(rs.getDouble("subtotal"));
 
-        if (prevORC != null && prevORC.getIdOrden() == ordenCompra.getIdOrden()) {
-          prevORC.agregarLineaOrden(lineaOrden);
-        } else {
-          if (prevORC != null) {
-            ordenCompras.add(prevORC);
-          }
-          prevORC = ordenCompra;
-          prevORC.agregarLineaOrden(lineaOrden);
+        if (prevORC == null) {
+          prevORC = current;
         }
-      }
-      if (prevORC != null) {
-        ordenCompras.add(prevORC);
+        prevORC.agregarLineaOrden(lineaOrden);
+
+        if (rs.isLast()) {
+          ordenCompras.add(prevORC);
+        }
       }
     } catch (Exception ex) {
       System.out.println(ex.getMessage());
@@ -157,6 +174,11 @@ public class OrdenCompraMySQL implements OrdenCompraDAO {
       ordenCompra.setIdOrdenCompraCadena("OC" + String.format("%05d", ordenCompra.getIdOrdenCompraNumerico()));
       ordenCompra.setIdOrden(cs.getInt("p_id_orden"));
       resultado = ordenCompra.getIdOrdenCompraNumerico();
+      
+      for (LineaOrden lineaOrden : ordenCompra.getLineasOrden()) {
+      lineaOrdenDAO.insertar(lineaOrden, ordenCompra.getIdOrden());
+    }
+
     } catch (SQLException ex) {
       System.out.println(ex.getMessage());
     } finally {
@@ -175,10 +197,7 @@ public class OrdenCompraMySQL implements OrdenCompraDAO {
       }
     }
 
-    for (LineaOrden lineaOrden : ordenCompra.getLineasOrden()) {
-      lineaOrdenDAO.insertar(lineaOrden, ordenCompra.getIdOrden());
-    }
-
+    
     return resultado;
   }
 
