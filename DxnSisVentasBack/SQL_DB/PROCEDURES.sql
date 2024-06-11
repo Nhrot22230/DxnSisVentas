@@ -425,7 +425,9 @@ BEGIN
   SELECT id_cuenta INTO v_id_cuenta
   FROM Cuenta_Empleado
   WHERE id_empleado = p_id_empleado;
-  CALL eliminar_cuenta(v_id_cuenta);
+  DELETE FROM Cuenta_Empleado ce WHERE ce.id_empleado = p_id_empleado;
+  DELETE FROM Cuenta c WHERE c.id_cuenta = v_id_cuenta;
+  -- CALL eliminar_cuenta(v_id_cuenta);
 END$$
 
 CREATE PROCEDURE listar_cuentas_empleado()

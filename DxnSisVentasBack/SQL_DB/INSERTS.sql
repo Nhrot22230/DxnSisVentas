@@ -99,18 +99,18 @@ CALL insertar_comprobante(@id_comprobante, @id_orden, 'BoletaSimple', NOW()); --
 -- Luego actualizar el total de la orden de venta
 -- Por ultimo se puede generar un comprobante de la orden de venta
 
-CALL insertar_orden_venta(@id_orden_venta, @id_orden, 1, 1, 'Pendiente', NOW(), 'Presencial', 'Efectivo', 0.0, 0.0);
+CALL insertar_orden_venta(@id_orden_venta, @id_orden, 1, 1, NULL, 'Pendiente', NOW(), 'Presencial', 'Efectivo', 0.0, 0.0);
 CALL insertar_linea_orden(@id_orden, 1, 100, 5.5*100); -- Arroz 100 gramos
 CALL insertar_linea_orden(@id_orden, 2, 100, 3.5*100); -- Azucar 100 gramos
 CALL insertar_linea_orden(@id_orden, 3, 100, 7.5*100); -- Aceite 100 mililitros
-CALL actualizar_orden_venta(@id_orden_venta, @id_orden, 1, 1, 'Entregado', NOW(), 'Presencial', 'Efectivo', 0.0, 5.5*100 + 3.5*100 + 7.5*100);
+CALL actualizar_orden_venta(@id_orden_venta, @id_orden, 1, 1, NULL, 'Entregado', NOW(), 'Presencial', 'Efectivo', 0.0, 5.5*100 + 3.5*100 + 7.5*100);
 CALL insertar_comprobante(@id_comprobante, @id_orden, 'BoletaSimple', NOW()); -- ID_COMP, ID_ORDEN, TIPO, FECHA
 
-CALL insertar_orden_venta(@id_orden_venta, @id_orden, 2, 2, 'Pendiente', NOW(), 'Delivery', 'Tarjeta', 10.0, 0.0);
+CALL insertar_orden_venta(@id_orden_venta, @id_orden, 2, 2, NULL, 'Pendiente', NOW(), 'Delivery', 'Tarjeta', 10.0, 0.0);
 CALL insertar_linea_orden(@id_orden, 4, 100, 10.5*100); -- Shampoo 100 mililitros
 CALL insertar_linea_orden(@id_orden, 5, 100, 10.5*100); -- Acondicionador 100 mililitros
 CALL insertar_linea_orden(@id_orden, 6, 100, 10.5*100); -- Crema 100 mililitros
 CALL insertar_linea_orden(@id_orden, 7, 100, 10.5*100); -- Desodorante 100 mililitros
 
-CALL actualizar_orden_venta(@id_orden_venta, @id_orden, 2, 2, 'Entregado', NOW(), 'Delivery', 'Tarjeta', 10.0, 10.5*100 + 10.5*100 + 10.5*100 + 10.5*100);
+CALL actualizar_orden_venta(@id_orden_venta, @id_orden, 2, 2, NULL, 'Entregado', NOW(), 'Delivery', 'Tarjeta', 10.0, 10.5*100 + 10.5*100 + 10.5*100 + 10.5*100);
 CALL insertar_comprobante(@id_comprobante, @id_orden, 'Factura', NOW()); -- ID_COMP, ID_ORDEN, TIPO, FECHA
