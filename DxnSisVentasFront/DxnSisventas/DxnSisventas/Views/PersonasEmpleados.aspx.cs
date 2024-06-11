@@ -41,6 +41,7 @@ namespace DxnSisventas.Views
 
     protected void Page_Init(object sender, EventArgs e)
     {
+      Page.Title = "Empleados";
       personasAPIClient = new PersonasAPIClient();
       CargarTabla("");
     }
