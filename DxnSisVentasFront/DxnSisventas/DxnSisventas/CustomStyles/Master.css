@@ -1,4 +1,10 @@
-﻿.notification-panel {
+﻿* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.notification-panel {
   position: absolute;
   top: 20px;
   right: 20px;

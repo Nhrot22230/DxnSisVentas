@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import pe.edu.pucp.dxnsisventas.cuentas.controller.dao.CuentaEmpleadoDAO;
 import pe.edu.pucp.dxnsisventas.cuentas.model.CuentaEmpleado;
+import pe.edu.pucp.dxnsisventas.cuentas.model.PersonaCuenta;
 import pe.edu.pucp.dxnsisventas.personas.model.Empleado;
 import pe.edu.pucp.dxnsisventas.personas.model.Rol;
 import pe.edu.pucp.dxnsisventas.utils.database.DBManager;
@@ -228,4 +229,81 @@ public class CuentaEmpleadoMySQL implements CuentaEmpleadoDAO {
     return cuentas;
   }
 
+  /*
+  CREATE PROCEDURE listar_empleado_cuenta(
+    IN p_cadena VARCHAR(30)
+  )
+  BEGIN
+    SELECT e.id_empleado, e.dni, e.nombre, e.apellido_paterno, e.apellido_materno, e.sueldo, e.rol,
+    c.id_cuenta, c.usuario, c.contrasena
+    FROM Empleado e
+    LEFT JOIN Cuenta_Empleado ce ON ce.id_empleado = e.id_empleado
+    LEFT JOIN Cuenta c ON c.id_cuenta = ce.id_cuenta
+    WHERE e.activo = 1
+    AND (e.dni LIKE CONCAT('%', p_cadena, '%') OR
+        e.nombre LIKE CONCAT('%', p_cadena, '%') OR
+        e.apellido_paterno LIKE CONCAT('%', p_cadena, '%') OR
+        e.apellido_materno LIKE CONCAT('%', p_cadena, '%') OR
+        c.usuario LIKE CONCAT('%', p_cadena, '%')
+        );
+  END$$
+   */
+  @Override
+  public ArrayList<PersonaCuenta> listar_empleados_cuentas(String cadena) {
+    ArrayList<PersonaCuenta> lista = new ArrayList<>();
+    try{
+      con = DBManager.getInstance().getConnection();
+      sql = "{CALL listar_empleado_cuenta(?)}";
+      cs = con.prepareCall(sql);
+      cs.setString("p_cadena", cadena);
+      rs = cs.executeQuery();
+      while(rs.next()){
+        Empleado e = new Empleado();
+        e.setIdEmpleadoNumerico(rs.getInt("id_empleado"));
+        e.setIdEmpleadoCadena("EMP" + String.format("%05d", e.getIdEmpleadoNumerico()));
+        e.setDNI(rs.getString("dni"));
+        e.setNombre(rs.getString("nombre"));
+        e.setApellidoPaterno(rs.getString("apellido_paterno"));
+        e.setApellidoMaterno(rs.getString("apellido_materno"));
+        e.setSueldo(rs.getDouble("sueldo"));
+        e.setRol(Rol.valueOf(rs.getString("rol")));
+        e.setEmpleadoActivo(true);
+
+        int id_cuenta = rs.getInt("id_cuenta");
+        if (id_cuenta == 0) {
+          lista.add(new PersonaCuenta(e, null));
+          continue;
+        }
+
+        CuentaEmpleado ce = new CuentaEmpleado();
+        ce.setIdCuenta(id_cuenta);
+        ce.setFid_Empleado(e.getIdEmpleadoNumerico());
+        ce.setUsuario(rs.getString("usuario"));
+        ce.setContrasena(rs.getString("contrasena"));
+
+        lista.add(new PersonaCuenta(e, ce));
+      }
+    }
+    catch(SQLException ex){
+      System.out.println(ex.getMessage());
+    }
+    finally{
+      try{
+        if (con != null){
+          con.close();
+        }
+        if (rs != null){
+          rs.close();
+        }
+        if (cs != null){
+          cs.close();
+        }
+      }
+      catch(SQLException ex){
+        System.out.println(ex.getMessage());
+      }
+    }
+
+    return lista;
+  }
 }

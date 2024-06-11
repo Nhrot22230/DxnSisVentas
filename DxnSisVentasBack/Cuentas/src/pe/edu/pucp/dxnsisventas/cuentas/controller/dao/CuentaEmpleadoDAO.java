@@ -6,6 +6,7 @@ package pe.edu.pucp.dxnsisventas.cuentas.controller.dao;
 
 import java.util.ArrayList;
 import pe.edu.pucp.dxnsisventas.cuentas.model.CuentaEmpleado;
+import pe.edu.pucp.dxnsisventas.cuentas.model.PersonaCuenta;
 import pe.edu.pucp.dxnsisventas.personas.model.Empleado;
 
 /**
@@ -14,7 +15,7 @@ import pe.edu.pucp.dxnsisventas.personas.model.Empleado;
  */
 public interface CuentaEmpleadoDAO {
 
-  public Empleado iniciar_sesion(String usuario, String contrasena);
+  Empleado iniciar_sesion(String usuario, String contrasena);
 
   ArrayList<CuentaEmpleado> listarCuentas_Empleados();
 
@@ -23,4 +24,6 @@ public interface CuentaEmpleadoDAO {
   int actualizar_Cuenta_Empleado(CuentaEmpleado cuenta);
 
   int eliminar_Cuenta_Empleado(int idCuenta);
+  
+  ArrayList<PersonaCuenta> listar_empleados_cuentas(String cadena);
 }

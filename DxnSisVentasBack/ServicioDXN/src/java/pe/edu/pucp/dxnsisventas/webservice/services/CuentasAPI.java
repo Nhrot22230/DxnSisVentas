@@ -14,6 +14,7 @@ import pe.edu.pucp.dxnsisventas.cuentas.controller.mysql.CuentaClienteMySQL;
 import pe.edu.pucp.dxnsisventas.cuentas.controller.mysql.CuentaEmpleadoMySQL;
 import pe.edu.pucp.dxnsisventas.cuentas.model.CuentaCliente;
 import pe.edu.pucp.dxnsisventas.cuentas.model.CuentaEmpleado;
+import pe.edu.pucp.dxnsisventas.cuentas.model.PersonaCuenta;
 import pe.edu.pucp.dxnsisventas.personas.model.Cliente;
 import pe.edu.pucp.dxnsisventas.personas.model.Empleado;
 
@@ -174,5 +175,37 @@ public class CuentasAPI {
     }
     
     return resultado;
+  }
+  
+  @WebMethod(operationName = "listarClientesMasCuentas")
+  public ArrayList<PersonaCuenta> listarClientesMasCuentas(@WebParam(name = "filtro") String txt){
+    ArrayList<PersonaCuenta> lista = null;
+    
+    txt = txt == null ? "" : txt;
+    try {
+      lista = daoCuentaCli.listar_clientes_cuentas(txt);
+    } catch (Exception ex) {
+      System.err.println(ex.getMessage());
+    }
+    
+    if(lista != null) lista = (lista.isEmpty()) ? null : lista;
+    
+    return lista;
+  }
+
+  @WebMethod(operationName = "listarEmpleadosMasCuentas")
+  public ArrayList<PersonaCuenta> listarEmpleadosMasCuentas(@WebParam(name = "filtro") String txt){
+    ArrayList<PersonaCuenta> lista = null;
+    
+    txt = txt == null ? "" : txt;
+    try {
+      lista = daoCuentaEmp.listar_empleados_cuentas(txt);
+    } catch (Exception ex) {
+      System.err.println(ex.getMessage());
+    }
+    
+    if(lista != null) lista = (lista.isEmpty()) ? null : lista;
+    
+    return lista;
   }
 }

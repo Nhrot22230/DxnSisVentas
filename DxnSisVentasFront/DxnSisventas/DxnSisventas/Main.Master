@@ -105,7 +105,11 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="#"><i class="fa fa-user"></i>Clientes</a></li>
-              <li><a href="#"><i class="fa fa-briefcase"></i>Empleados</a></li>
+              <li>
+                <asp:LinkButton ID="LbCuentasEmpleado" runat="server" OnClick="LbCuentasEmpleado_Click">
+                  <i class="fa fa-briefcase"></i> <span>Empleados</span>
+                </asp:LinkButton>
+              </li>
             </ul>
           </li>
           <li class="treeview">
