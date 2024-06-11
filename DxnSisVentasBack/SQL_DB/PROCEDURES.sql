@@ -356,7 +356,9 @@ BEGIN
   SELECT id_cuenta INTO v_id_cuenta
   FROM Cuenta_Cliente
   WHERE id_cliente = p_id_cliente;
-  CALL eliminar_cuenta(v_id_cuenta);
+  DELETE FROM Cuenta_Cliente cc WHERE cc.id_cliente = p_id_cliente;
+  DELETE FROM Cuenta c WHERE c.id_cuenta = v_id_cuenta;
+  -- CALL eliminar_cuenta(v_id_cuenta);
 END$$
 
 CREATE PROCEDURE listar_cuentas_cliente()

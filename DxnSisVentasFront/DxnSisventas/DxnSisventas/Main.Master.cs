@@ -85,5 +85,10 @@ namespace DxnSisventas
     {
       Response.Redirect("~/Views/CuentasEmpleados.aspx");
     }
+
+    protected void LbCuentasClientes_Click(object sender, EventArgs e)
+    {
+      Response.Redirect("~/Views/CuentasClientes.aspx");
+    }
   }
 }

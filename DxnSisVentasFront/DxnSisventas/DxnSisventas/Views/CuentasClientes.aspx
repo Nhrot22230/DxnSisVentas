@@ -1,15 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="CuentasEmpleados.aspx.cs" Inherits="DxnSisventas.Views.CuentasEmpleados" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="CuentasClientes.aspx.cs" Inherits="DxnSisventas.Views.CuentasClientes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   <div class="page-path">
-    <p><i class="fa fa-home"></i>> Inicio > Cuentas > Empleados</p>
+    <p><i class="fa fa-home"></i>> Inicio > Cuentas > Clientes</p>
     <hr>
   </div>
   <div class="container">
     <div class="container row">
-      <h1>Registro de Cuentas de Empleados</h1>
+      <h1>Registro de Cuentas de Clientes</h1>
     </div>
     <div class="container row">
       <div class="col-md-6">
@@ -20,30 +20,15 @@
         </div>
       </div>
     </div>
-    <div class="container row">
-      <!-- Panel de filtros -->
-      <label class="col-sm-2 col-form-label">Filtrar por Rol</label>
-      <!-- Seleccionar el tipo de producto -->
-      <div class="col-sm-3">
-        <asp:DropDownList AutoPostBack="true" ID="DropDownListRoles" runat="server" CssClass="form-select"
-          OnSelectedIndexChanged="DropDownListRoles_SelectedIndexChanged">
-          <asp:ListItem Text="Todos" Value="Todos"></asp:ListItem>
-          <asp:ListItem Text="Repartidor" Value="Repartidor"></asp:ListItem>
-          <asp:ListItem Text="Encargado de Ventas" Value="EncargadoVentas" />
-          <asp:ListItem Text="Encargado de Almacen" Value="EncargadoAlmacen" />
-          <asp:ListItem Text="Administrador" Value="Administrador" />
-        </asp:DropDownList>
-      </div>
-    </div>
     <div class="container row pt-3">
       <asp:GridView ID="GridClienteCuenta" AutoGenerateColumns="false" PageSize="8" AllowPaging="true"
         CssClass="table table-hover table-responsive table-striped" runat="server"
         OnPageIndexChanging="GridClienteCuenta_PageIndexChanged"
         OnRowDataBound="GridClienteCuenta_RowDataBound">
         <Columns>
-          <asp:TemplateField HeaderText="Id Empleado">
+          <asp:TemplateField HeaderText="Id Cliente">
             <ItemTemplate>
-              <asp:Label ID="LblIdEmpleado" runat="server"></asp:Label>
+              <asp:Label ID="LblIdCliente" runat="server"></asp:Label>
             </ItemTemplate>
           </asp:TemplateField>
           <asp:BoundField DataField="persona.nombre" HeaderText="Nombre" />
@@ -64,7 +49,6 @@
       </asp:GridView>
     </div>
   </div>
-
 
   <div id="modalCuenta" class="modal">
     <div class="modal-dialog modal-lg">

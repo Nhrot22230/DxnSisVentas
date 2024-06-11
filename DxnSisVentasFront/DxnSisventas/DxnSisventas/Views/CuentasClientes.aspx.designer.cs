@@ -11,7 +11,7 @@ namespace DxnSisventas.Views
 {
 
 
-  public partial class CuentasEmpleados
+  public partial class CuentasClientes
   {
 
     /// <summary>
@@ -31,15 +31,6 @@ namespace DxnSisventas.Views
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
     protected global::System.Web.UI.WebControls.LinkButton BtnBuscar;
-
-    /// <summary>
-    /// Control DropDownListRoles.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.DropDownList DropDownListRoles;
 
     /// <summary>
     /// Control GridClienteCuenta.

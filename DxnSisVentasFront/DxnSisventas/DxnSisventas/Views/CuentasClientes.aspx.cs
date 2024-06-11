@@ -9,20 +9,16 @@ using System.Web.UI.WebControls;
 
 namespace DxnSisventas.Views
 {
-  public partial class CuentasEmpleados : System.Web.UI.Page
+  public partial class CuentasClientes : System.Web.UI.Page
   {
     private CuentasAPIClient cuentasAPIClient = new CuentasAPIClient();
-    private BindingList<personaCuenta> BlEmpleadosCuentas;
-    private BindingList<personaCuenta> BlEmpleadosCuentasFiltrado;
+    private BindingList<personaCuenta> BlClientesCuentas;
 
     protected void Page_Init(object sender, EventArgs e)
     {
-      Page.Title = "Cuentas de Empleados";
+      Page.Title = "Cuentas de Clientes";
       CargarTabla("");
-      AplicarFiltro();
       GridBind();
-
-
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -30,35 +26,31 @@ namespace DxnSisventas.Views
 
     }
 
-    private void AplicarFiltro()
+    private void LimpiarCampos()
     {
-      string filtro = DropDownListRoles.SelectedValue;
-      if (filtro == "Todos")
-      {
-        BlEmpleadosCuentasFiltrado = BlEmpleadosCuentas;
-        return;
-      }
-      rol selectedRol = (rol)Enum.Parse(typeof(rol), filtro);
-      BlEmpleadosCuentasFiltrado = new BindingList<personaCuenta>(BlEmpleadosCuentas.Where(
-        x => ((empleado)x.persona).rol == selectedRol
-        ).ToList());
+      Session["cuentaCrearEditar"] = null;
+      Session["idCliente"] = null;
+      TxtIdEmpleado.Text = "";
+      TxtIdCuenta.Text = "";
+      TxtUsuario.Text = "";
+      TxtContrasena.Text = "";
     }
 
     private bool CargarTabla(string filtro)
     {
-      personaCuenta[] lista = cuentasAPIClient.listarEmpleadosMasCuentas(filtro);
+      personaCuenta[] lista = cuentasAPIClient.listarClientesMasCuentas(filtro);
       if (lista == null)
       {
         return false;
       }
-      BlEmpleadosCuentas = new BindingList<personaCuenta>(lista.ToList());
+      BlClientesCuentas = new BindingList<personaCuenta>(lista.ToList());
 
       return true;
     }
 
     private void GridBind()
     {
-      GridClienteCuenta.DataSource = BlEmpleadosCuentasFiltrado;
+      GridClienteCuenta.DataSource = BlClientesCuentas;
       GridClienteCuenta.DataBind();
     }
 
@@ -82,21 +74,13 @@ namespace DxnSisventas.Views
       bool flag = CargarTabla(TxtBuscar.Text);
       if (flag)
       {
-        AplicarFiltro();
         GridBind();
-        MostrarMensaje($"Se encontraron {BlEmpleadosCuentasFiltrado.Count} resultados", true);
+        MostrarMensaje($"Se encontraron {BlClientesCuentas.Count} resultados", true);
       }
       else
       {
         MostrarMensaje("No se encontraron resultados", false);
       }
-    }
-
-    protected void DropDownListRoles_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      AplicarFiltro();
-      GridBind();
-      MostrarMensaje("Se aplicó el filtro", true);
     }
 
     protected void GridClienteCuenta_PageIndexChanged(object sender, GridViewPageEventArgs e)
@@ -112,11 +96,11 @@ namespace DxnSisventas.Views
         empleado logedUser = (empleado)Session["empleado"];
 
         personaCuenta pc = (personaCuenta)e.Row.DataItem;
-        Label lblIdEmpleado = (Label)e.Row.FindControl("LblIdEmpleado");
+        Label lblIdCliente = (Label)e.Row.FindControl("LblIdCliente");
         LinkButton btnEditar = (LinkButton)e.Row.FindControl("BtnEditar");
         LinkButton btnEliminar = (LinkButton)e.Row.FindControl("BtnEliminar");
 
-        int idEmpleado = ((empleado)pc.persona).idEmpleadoNumerico;
+        int idCliente = ((cliente)pc.persona).idNumerico;
         if (pc.cuenta == null)
         {
           btnEditar.Text = "Crear Cuenta";
@@ -131,23 +115,27 @@ namespace DxnSisventas.Views
           btnEliminar.Visible = false;
         }
 
-        btnEditar.CommandArgument = idEmpleado.ToString();
-        btnEliminar.CommandArgument = idEmpleado.ToString();
-        lblIdEmpleado.Text = ((empleado)pc.persona).idEmpleadoCadena;
+        btnEditar.CommandArgument = idCliente.ToString();
+        btnEliminar.CommandArgument = idCliente.ToString();
+        lblIdCliente.Text = ((cliente)pc.persona).idCadena;
       }
     }
 
     protected void BtnEditar_Click(object sender, EventArgs e)
     {
       LinkButton btn = (LinkButton)sender;
-      int idEmpleado = int.Parse(btn.CommandArgument);
+      int idCliente = int.Parse(btn.CommandArgument);
 
-      personaCuenta pc = BlEmpleadosCuentasFiltrado.FirstOrDefault(x => ((empleado)x.persona).idEmpleadoNumerico == idEmpleado);
-      cuentaEmpleado cuenta = (cuentaEmpleado)pc.cuenta;
-      empleado emp = (empleado)pc.persona;
-      TxtIdEmpleado.Text = emp.idEmpleadoCadena;
+      personaCuenta pc = BlClientesCuentas.FirstOrDefault(x => ((cliente)x.persona).idNumerico == idCliente);
+      cuentaCliente cuenta = (cuentaCliente)pc.cuenta;
+      
+      cliente cli = (cliente)pc.persona;
+      
+      TxtIdEmpleado.Text = cli.idCadena;
+      
       Session["cuentaCrearEditar"] = cuenta;
-      Session["idEmpleado"] = emp.idEmpleadoNumerico;
+      Session["idCliente"] = cli.idNumerico;
+      
       if (cuenta != null)
       {
         TxtIdCuenta.Text = cuenta.idCuenta.ToString();
@@ -159,11 +147,11 @@ namespace DxnSisventas.Views
     protected void BtnEliminar_Click(object sender, EventArgs e)
     {
       LinkButton btn = (LinkButton)sender;
-      int idEmpleado = int.Parse(btn.CommandArgument);
+      int idCliente = int.Parse(btn.CommandArgument);
 
       int result;
 
-      result = cuentasAPIClient.eliminarCuentaEmpleado(idEmpleado);
+      result = cuentasAPIClient.eliminarCuentaCliente(idCliente);
 
       if (result == 0)
       {
@@ -175,35 +163,34 @@ namespace DxnSisventas.Views
       }
 
       CargarTabla("");
-      AplicarFiltro();
       GridBind();
       LimpiarCampos();
     }
 
     protected void BtnGuardar_Click(object sender, EventArgs e)
     {
-      if (Session["idEmpleado"] == null)
+      if (Session["idCliente"] == null)
       {
         MostrarMensaje("No se ha seleccionado un empleado", false);
         return;
       }
 
-      cuentaEmpleado cuenta = new cuentaEmpleado
+      cuentaCliente cuenta = new cuentaCliente
       {
         usuario = TxtUsuario.Text,
         contrasena = TxtContrasena.Text,
-        fid_Empleado = (int)Session["idEmpleado"]
+        fid_Cliente = (int)Session["idCliente"]
       };
 
       int result;
       if (Session["cuentaCrearEditar"] == null)
       {
-        result = cuentasAPIClient.insertarCuentaEmpleado(cuenta);
+        result = cuentasAPIClient.insertarCuentaCliente(cuenta);
       }
       else
       {
-        cuenta.idCuenta = ((cuentaEmpleado)Session["cuentaCrearEditar"]).idCuenta;
-        result = cuentasAPIClient.actualizarCuentaEmpleado(cuenta);
+        cuenta.idCuenta = ((cuentaCliente)Session["cuentaCrearEditar"]).idCuenta;
+        result = cuentasAPIClient.actualizarCuentaCliente(cuenta);
       }
 
       if (result == 0)
@@ -217,18 +204,7 @@ namespace DxnSisventas.Views
 
       LimpiarCampos();
       CargarTabla("");
-      AplicarFiltro();
       GridBind();
-    }
-
-    private void LimpiarCampos()
-    {
-      Session["cuentaCrearEditar"] = null;
-      Session["idEmpleado"] = null;
-      TxtIdEmpleado.Text = "";
-      TxtIdCuenta.Text = "";
-      TxtUsuario.Text = "";
-      TxtContrasena.Text = "";
     }
   }
 }

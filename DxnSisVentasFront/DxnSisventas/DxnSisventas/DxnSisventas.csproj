@@ -69,6 +69,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\DxnWebService\CorreoAPI.wsdl" />
+    <None Include="Connected Services\DxnWebService\CorreoAPI.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\DxnWebService\CuentasAPI.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -205,6 +209,18 @@
     <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.insertarClienteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.enviarCorreoWebResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.listarClientesMasCuentasResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.listarEmpleadosMasCuentasResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.personaCuenta1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\DxnWebService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -286,6 +302,7 @@
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="Views\Comprobantes.aspx" />
+    <Content Include="Views\CuentasClientes.aspx" />
     <Content Include="Views\CuentasEmpleados.aspx" />
     <Content Include="Views\OrdenCompra.aspx" />
     <Content Include="Views\OrdenCompraForm.aspx" />
@@ -347,6 +364,13 @@
     </Compile>
     <Compile Include="Views\Comprobantes.aspx.designer.cs">
       <DependentUpon>Comprobantes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CuentasClientes.aspx.cs">
+      <DependentUpon>CuentasClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\CuentasClientes.aspx.designer.cs">
+      <DependentUpon>CuentasClientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\CuentasEmpleados.aspx.cs">
       <DependentUpon>CuentasEmpleados.aspx</DependentUpon>
