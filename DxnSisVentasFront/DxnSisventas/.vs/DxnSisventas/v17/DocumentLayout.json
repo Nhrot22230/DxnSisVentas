@@ -3,68 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\comprobantesform.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\cesar\\documents\\github\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\comprobantesform.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\comprobantesform.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\comprobantes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\comprobantes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\cesar\\documents\\github\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\comprobantesform.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\comprobantesform.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\ordencompraform.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\cesar\\documents\\github\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\ordencompraform.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordencompraform.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\cesar\\documents\\github\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\ordencompraform.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordencompraform.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\comprobantesform.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\comprobantesform.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\cesar\\documents\\github\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\ordencompra.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordencompra.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\cesar\\documents\\github\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\customscripts\\documentos.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\customscripts\\documentos.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\ordencompra.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordencompra.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\ordencompra.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordencompra.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\productos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\productos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\customscripts\\productos.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\customscripts\\productos.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\cesar\\documents\\github\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\comprobantes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\comprobantes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\comprobantesform.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\comprobantesform.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\customscripts\\master.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\customscripts\\master.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\ordenventa.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordenventa.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\ordenventa.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordenventa.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\productos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\productos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\main.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\main.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     }
   ],
   "DocumentGroupContainers": [
@@ -74,22 +34,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 285,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ComprobantesForm.aspx",
-              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\ComprobantesForm.aspx",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\ComprobantesForm.aspx",
-              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\ComprobantesForm.aspx",
-              "RelativeToolTip": "DxnSisventas\\Views\\ComprobantesForm.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-10T22:21:39.52Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
@@ -100,7 +46,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "OrdenCompraForm.aspx",
               "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompraForm.aspx",
               "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenCompraForm.aspx",
@@ -108,20 +54,7 @@
               "RelativeToolTip": "DxnSisventas\\Views\\OrdenCompraForm.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-12T03:50:08.155Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Comprobantes.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Comprobantes.aspx.cs",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\Comprobantes.aspx.cs",
-              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Comprobantes.aspx.cs",
-              "RelativeToolTip": "DxnSisventas\\Views\\Comprobantes.aspx.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAADwvzIAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-10T22:09:37.363Z",
+              "WhenOpened": "2024-06-12T08:01:16.54Z",
               "EditorCaption": ""
             },
             {
@@ -132,161 +65,61 @@
               "RelativeDocumentMoniker": "DxnSisventas\\Views\\ComprobantesForm.aspx.cs",
               "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\ComprobantesForm.aspx.cs",
               "RelativeToolTip": "DxnSisventas\\Views\\ComprobantesForm.aspx.cs",
-              "ViewState": "AQIAAEkAAAAAAAAAAAAuwFUAAAAtAAAA",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAqwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-10T22:22:11.627Z",
+              "WhenOpened": "2024-06-12T08:00:15.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrdenCompraForm.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompraForm.aspx.cs",
+              "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenCompraForm.aspx.cs",
+              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompraForm.aspx.cs",
+              "RelativeToolTip": "DxnSisventas\\Views\\OrdenCompraForm.aspx.cs",
+              "ViewState": "AQIAAKwAAAAAAAAAAAAUwGMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-12T08:00:13.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ComprobantesForm.aspx",
+              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\ComprobantesForm.aspx",
+              "RelativeDocumentMoniker": "DxnSisventas\\Views\\ComprobantesForm.aspx",
+              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\ComprobantesForm.aspx",
+              "RelativeToolTip": "DxnSisventas\\Views\\ComprobantesForm.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-06-12T07:58:12.514Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Documentos.js",
-              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\CustomScripts\\Documentos.js",
-              "RelativeDocumentMoniker": "DxnSisventas\\CustomScripts\\Documentos.js",
-              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\CustomScripts\\Documentos.js",
-              "RelativeToolTip": "DxnSisventas\\CustomScripts\\Documentos.js",
-              "ViewState": "AQIAAFoAAAAAAAAAAAA7wEwAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-06-12T06:49:50.409Z",
+              "Title": "OrdenCompra.aspx",
+              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompra.aspx",
+              "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenCompra.aspx",
+              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompra.aspx",
+              "RelativeToolTip": "DxnSisventas\\Views\\OrdenCompra.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-06-12T08:01:15.622Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "OrdenCompra.aspx.designer.cs",
-              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompra.aspx.designer.cs",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenCompra.aspx.designer.cs",
-              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompra.aspx.designer.cs",
-              "RelativeToolTip": "DxnSisventas\\Views\\OrdenCompra.aspx.designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-12T05:48:05.353Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Productos.js",
-              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\CustomScripts\\Productos.js",
-              "RelativeDocumentMoniker": "DxnSisventas\\CustomScripts\\Productos.js",
-              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\CustomScripts\\Productos.js",
-              "RelativeToolTip": "DxnSisventas\\CustomScripts\\Productos.js",
-              "ViewState": "AQIAAKcAAAAAAAAAAAAAAJwAAAABAAAA",
+              "Title": "Documentos.js",
+              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\CustomScripts\\Documentos.js",
+              "RelativeDocumentMoniker": "DxnSisventas\\CustomScripts\\Documentos.js",
+              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\CustomScripts\\Documentos.js",
+              "RelativeToolTip": "DxnSisventas\\CustomScripts\\Documentos.js",
+              "ViewState": "AQIAACAAAAAAAAAAAAAgwCsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-06-11T20:29:17.991Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OrdenCompra.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompra.aspx.cs",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenCompra.aspx.cs",
-              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompra.aspx.cs",
-              "RelativeToolTip": "DxnSisventas\\Views\\OrdenCompra.aspx.cs",
-              "ViewState": "AQIAAFQAAAAAAAAAAAAIwH4AAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-12T03:24:23.178Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Productos.aspx",
-              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Productos.aspx",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\Productos.aspx",
-              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Productos.aspx",
-              "RelativeToolTip": "DxnSisventas\\Views\\Productos.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-12T03:21:35.393Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Comprobantes.aspx",
-              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Comprobantes.aspx",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\Comprobantes.aspx",
-              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Comprobantes.aspx",
-              "RelativeToolTip": "DxnSisventas\\Views\\Comprobantes.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-10T22:07:33.416Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ComprobantesForm.aspx.designer.cs",
-              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\ComprobantesForm.aspx.designer.cs",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\ComprobantesForm.aspx.designer.cs",
-              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\ComprobantesForm.aspx.designer.cs",
-              "RelativeToolTip": "DxnSisventas\\Views\\ComprobantesForm.aspx.designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-12T05:48:03.731Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Master.js",
-              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\CustomScripts\\Master.js",
-              "RelativeDocumentMoniker": "DxnSisventas\\CustomScripts\\Master.js",
-              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\CustomScripts\\Master.js",
-              "RelativeToolTip": "DxnSisventas\\CustomScripts\\Master.js",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-06-11T21:23:05.845Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "OrdenVenta.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenVenta.aspx.cs",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenVenta.aspx.cs",
-              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenVenta.aspx.cs",
-              "RelativeToolTip": "DxnSisventas\\Views\\OrdenVenta.aspx.cs",
-              "ViewState": "AQIAAGsAAAAAAAAAAAAAwDYAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-12T04:47:34.356Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "OrdenVenta.aspx",
-              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenVenta.aspx",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenVenta.aspx",
-              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenVenta.aspx",
-              "RelativeToolTip": "DxnSisventas\\Views\\OrdenVenta.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-12T04:47:31.559Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Productos.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Productos.aspx.cs",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\Productos.aspx.cs",
-              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Productos.aspx.cs",
-              "RelativeToolTip": "DxnSisventas\\Views\\Productos.aspx.cs",
-              "ViewState": "AQIAADcAAAAAAAAAAADwvzoAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-11T20:24:36.048Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Main.Master",
-              "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Main.Master",
-              "RelativeDocumentMoniker": "DxnSisventas\\Main.Master",
-              "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Main.Master",
-              "RelativeToolTip": "DxnSisventas\\Main.Master",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-10T22:27:54.223Z",
+              "WhenOpened": "2024-06-12T08:03:50.397Z",
               "EditorCaption": ""
             }
           ]

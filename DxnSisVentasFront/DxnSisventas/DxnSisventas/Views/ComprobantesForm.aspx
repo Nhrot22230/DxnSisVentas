@@ -58,7 +58,7 @@
                             <div class="col-sm-2">
                                 <asp:LinkButton ID="BtnBuscar" runat="server"
                                     CssClass="btn btn-primary" Text="<i class='fas fa-solid fa-search pe-2'></i> Buscar" 
-                                    OnClick="BtnBuscar_Click" ></asp:LinkButton>
+                                    OnClick="BtnBuscar_Click"  ></asp:LinkButton>
                             </div>
                             <label for="LbFecha" class="col-sm-2 col-form-label">Fecha Orden</label>
                             <div class="col-sm-4">

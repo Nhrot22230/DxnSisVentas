@@ -18,7 +18,7 @@
           <div class="input-group mb-3">
             <asp:TextBox ID="TxtBuscar" runat="server" CssClass="form-control" placeholder="Buscar"></asp:TextBox>
             <asp:LinkButton ID="BtnBuscar" runat="server" Text="<i class='fas fa-search'> </i>"
-              CssClass="btn btn-secondary" OnClick="BtnBuscar_Click" />
+              CssClass="btn btn-secondary" OnClick="BtnBuscar_Click"/>
           </div>
         </div>
       </div>

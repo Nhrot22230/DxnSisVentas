@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/Users/cesar/Documents/GitHub/DxnSisVentas/DxnSisVentasBack/Documentos/src/pe/edu/pucp/dxnsisventas/documentos/controller/dao/ComprobanteDAO.java</file>
             <file>file:/C:/Users/cesar/Documents/GitHub/DxnSisVentas/DxnSisVentasBack/Documentos/src/pe/edu/pucp/dxnsisventas/documentos/model/Comprobante.java</file>
+            <file>file:/C:/Users/cesar/Documents/GitHub/DxnSisVentas/DxnSisVentasBack/Documentos/src/pe/edu/pucp/dxnsisventas/documentos/controller/mysql/OrdenCompraMySQL.java</file>
             <file>file:/C:/Users/cesar/Documents/GitHub/DxnSisVentas/DxnSisVentasBack/Documentos/src/pe/edu/pucp/dxnsisventas/documentos/model/OrdenCompra.java</file>
             <file>file:/C:/Users/cesar/Documents/GitHub/DxnSisVentas/DxnSisVentasBack/Documentos/src/pe/edu/pucp/dxnsisventas/documentos/controller/mysql/ComprobanteMySQL.java</file>
             <file>file:/C:/Users/cesar/Documents/GitHub/DxnSisVentas/DxnSisVentasBack/Documentos/src/pe/edu/pucp/dxnsisventas/documentos/model/OrdenVenta.java</file>
