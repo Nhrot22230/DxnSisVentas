@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.dxnsisventas.cuentas.controller.mysql;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -46,6 +47,10 @@ public class CuentaEmpleadoMySQL implements CuentaEmpleadoDAO {
    * AND e.activo = 1;
    * END$$
    */
+  public boolean validar_acceso(String contrasena, String bcryptHashString) {
+    return BCrypt.verifyer().verify(contrasena.toCharArray(), bcryptHashString).verified;
+  }
+  
   @Override
   public Empleado iniciar_sesion(String usuario, String contrasena) {
     Empleado empleado = null;
@@ -54,10 +59,10 @@ public class CuentaEmpleadoMySQL implements CuentaEmpleadoDAO {
       con = DBManager.getInstance().getConnection();
       sql = "{CALL iniciar_sesion_empleado(?, ?)}";
       cs = con.prepareCall(sql);
+      cs.registerOutParameter("p_contrasena", java.sql.Types.VARCHAR);
       cs.setString("p_usuario", usuario);
-      cs.setString("p_contrasena", contrasena);
       rs = cs.executeQuery();
-      if (rs.next()) {
+      if (rs.next() && validar_acceso(contrasena, cs.getString("p_contrasena"))) {
         empleado = new Empleado();
         empleado.setDNI(rs.getString("dni"));
         empleado.setNombre(rs.getString("nombre"));
