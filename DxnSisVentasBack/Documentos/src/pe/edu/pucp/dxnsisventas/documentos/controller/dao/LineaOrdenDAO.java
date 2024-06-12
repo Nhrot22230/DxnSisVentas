@@ -14,4 +14,5 @@ import pe.edu.pucp.dxnsisventas.documentos.model.LineaOrden;
 public interface LineaOrdenDAO {
     int insertar(LineaOrden lineaOrden, int id_orden);
     ArrayList<LineaOrden> listar(int id_orden);
+    int eliminar(int id_orden,int id_producto);
 }

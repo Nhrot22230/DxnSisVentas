@@ -54,8 +54,7 @@
             <ItemTemplate>
               <asp:LinkButton ID="BtnEditar" runat="server" Text="<i class='fas fa-edit ps-2'>  </i>"
                 OnClick="BtnEditar_Click" CommandArgument='<%# Eval("idOrdenCompraNumerico") %>' />
-              <asp:LinkButton ID="BtnEliminar" runat="server" Text="<i class='fas fa-trash ps-2'>  </i>"
-                OnClick="BtnEliminar_Click" CommandArgument='<%# Eval("idOrdenCompraNumerico") %>' />
+              
             </ItemTemplate>
             <ItemStyle HorizontalAlign="Center" Width="100px" />
           </asp:TemplateField>

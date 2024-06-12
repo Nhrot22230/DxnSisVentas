@@ -9,9 +9,11 @@ import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import java.util.ArrayList;
 import pe.edu.pucp.dxnsisventas.documentos.controller.dao.ComprobanteDAO;
+import pe.edu.pucp.dxnsisventas.documentos.controller.dao.LineaOrdenDAO;
 import pe.edu.pucp.dxnsisventas.documentos.controller.dao.OrdenCompraDAO;
 import pe.edu.pucp.dxnsisventas.documentos.controller.dao.OrdenVentaDAO;
 import pe.edu.pucp.dxnsisventas.documentos.controller.mysql.ComprobanteMySQL;
+import pe.edu.pucp.dxnsisventas.documentos.controller.mysql.LineaOrdenMySQL;
 import pe.edu.pucp.dxnsisventas.documentos.controller.mysql.OrdenCompraMySQL;
 import pe.edu.pucp.dxnsisventas.documentos.controller.mysql.OrdenVentaMySQL;
 import pe.edu.pucp.dxnsisventas.documentos.model.Comprobante;
@@ -27,11 +29,12 @@ public class DocumentosAPI {
   OrdenCompraDAO daoOrdenCompra;
   OrdenVentaDAO daoOrdenVenta;
   ComprobanteDAO daoComprobante;
-  
+  LineaOrdenDAO daoOrdenlv;
   public DocumentosAPI(){
     daoOrdenCompra = new OrdenCompraMySQL();
     daoOrdenVenta = new OrdenVentaMySQL();
     daoComprobante = new ComprobanteMySQL();
+    daoOrdenlv = new LineaOrdenMySQL();
   }
   /**
    * This is a sample web service operation
@@ -170,6 +173,19 @@ public class DocumentosAPI {
     
     try{
       resultado = daoOrdenVenta.modificar(orv);
+    } catch (Exception ex) {
+      System.err.println(ex.getMessage());
+    }
+    
+    return resultado;
+  }
+  
+  @WebMethod(operationName = "eliminarLOV")
+  public int eliminarLOV(@WebParam(name = "id_orden") int orden, @WebParam(name = "id_producto")int producto){
+    int resultado = 0;
+    
+    try{
+      resultado = daoOrdenlv.eliminar(orden,producto );
     } catch (Exception ex) {
       System.err.println(ex.getMessage());
     }
