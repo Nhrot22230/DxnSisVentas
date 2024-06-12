@@ -30,10 +30,10 @@ CALL insertar_empleado(@out_value, '87654321', 'Luis', 'Rodriguez', 'Fernandez',
 CALL insertar_empleado(@out_value, '11223344', 'Ana', 'Martinez', 'Garcia', 3500.0, 'Administrador');
 CALL insertar_empleado(@out_value, '55667788', 'Carlos', 'Diaz', 'Torres', 3500.0, 'Repartidor');
 
-CALL insertar_cuenta_empleado(@id_cuenta, "fernando.candia", "74368258", 1);
-CALL insertar_cuenta_empleado(@id_cuenta, "jorge.alejandro", "23456789", 2);
-CALL insertar_cuenta_empleado(@id_cuenta, "jhairt.vega", "70402080", 3);
-CALL insertar_cuenta_empleado(@id_cuenta, "gian.luca", "72845864", 4);
+CALL insertar_cuenta_empleado(@id_cuenta, "fernando.candia", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 1);
+CALL insertar_cuenta_empleado(@id_cuenta, "jorge.alejandro", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 2);
+CALL insertar_cuenta_empleado(@id_cuenta, "jhairt.vega", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 3);
+CALL insertar_cuenta_empleado(@id_cuenta, "gian.luca", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 4);
 
 -- ==============================================
 -- INSERTS DE CLIENTES Y CUENTAS_CLIENTES
