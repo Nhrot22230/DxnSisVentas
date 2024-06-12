@@ -26,3 +26,8 @@ function showModalFormEnviar() {
     var modalFormProducto = new bootstrap.Modal(document.getElementById('form-modal-enviar'));
     modalFormProducto.toggle();
 }
+
+function showModalFormOrdenes(){
+    var modalFormOrdenes = new bootstrap.Modal(document.getElementById('form-modal-ordenes'));
+    modalFormOrdenes.toggle();
+}

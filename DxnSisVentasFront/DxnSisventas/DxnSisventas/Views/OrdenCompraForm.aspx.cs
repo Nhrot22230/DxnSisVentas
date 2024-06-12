@@ -237,8 +237,6 @@ namespace DxnSisventas.Views
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-
-
             string script = "window.onload = function() { showModalFormEnviar() };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }

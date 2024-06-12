@@ -16,11 +16,18 @@ public class DBManager {
 
   private static DBManager instancia = null;
   private Connection con = null;
-  private final String host = "lp2-20213812.cqglh3zviqfb.us-east-1.rds.amazonaws.com";
+  private final String host = "prog3-labs-1inf30.ctlxuo0xunhu.us-east-1.rds.amazonaws.com";
+  private final String port = "3306";
+  private final String db = "laboratorio4";
+  private final String username = "admin";
+  private final String password = "labs1inf3020241";
+  
+  
+  /*private final String host = "lp2-20213812.cqglh3zviqfb.us-east-1.rds.amazonaws.com";
   private final String port = "3306";
   private final String db = "TA_HTML";
   private final String username = "admin";
-  private final String password = "20213812";
+  private final String password = "20213812";*/
 
   private DBManager() {
   }

@@ -17,6 +17,7 @@ import pe.edu.pucp.dxnsisventas.documentos.controller.mysql.OrdenVentaMySQL;
 import pe.edu.pucp.dxnsisventas.documentos.model.Comprobante;
 import pe.edu.pucp.dxnsisventas.documentos.model.OrdenCompra;
 import pe.edu.pucp.dxnsisventas.documentos.model.OrdenVenta;
+import pe.edu.pucp.dxnsisventas.documentos.model.Orden;
 
 /**
  *
@@ -175,5 +176,29 @@ public class DocumentosAPI {
     }
     
     return resultado;
+  }
+  
+  /* Ordenes */
+  @WebMethod(operationName = "listarOrden")
+  public ArrayList<Orden> listarOrden(@WebParam(name = "cadena") String txt){
+    ArrayList<Orden> lista = null;
+    ArrayList<OrdenVenta> listaVenta = null;
+    ArrayList<OrdenCompra> listaCompra = null;
+    txt = (txt == null) ? "" : txt;
+    try{
+        lista = new ArrayList<>();
+        listaVenta = daoOrdenVenta.listar(txt);
+        if(listaVenta!=null)
+            for(OrdenVenta ordVenta : listaVenta)
+                lista.add(ordVenta);
+        listaCompra = daoOrdenCompra.listar(txt);
+        if(listaCompra!=null)
+            for(OrdenCompra ordCompra : listaCompra)
+                lista.add(ordCompra);
+    } catch (Exception ex) {
+      System.err.println(ex.getMessage());
+    }
+    if(lista != null) lista = (lista.isEmpty()) ? null : lista;
+    return lista;
   }
 }

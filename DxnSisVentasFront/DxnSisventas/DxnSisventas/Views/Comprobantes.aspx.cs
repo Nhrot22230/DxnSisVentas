@@ -42,7 +42,7 @@ namespace DxnSisventas.Views
 
     protected void BtnAgregar_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("/Views/ComprobantesForm.aspx");
     }
 
     protected void BtnEditar_Click(object sender, EventArgs e)

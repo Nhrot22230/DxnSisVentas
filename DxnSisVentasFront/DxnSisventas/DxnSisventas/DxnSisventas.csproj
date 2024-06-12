@@ -212,6 +212,12 @@
     <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.enviarCorreoWebResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.listarOrdenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.orden.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\DxnWebService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -292,6 +298,7 @@
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="Views\Comprobantes.aspx" />
+    <Content Include="Views\ComprobantesForm.aspx" />
     <Content Include="Views\OrdenCompra.aspx" />
     <Content Include="Views\OrdenCompraForm.aspx" />
     <Content Include="Views\OrdenVenta.aspx" />
@@ -351,6 +358,13 @@
     </Compile>
     <Compile Include="Views\Comprobantes.aspx.designer.cs">
       <DependentUpon>Comprobantes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComprobantesForm.aspx.cs">
+      <DependentUpon>ComprobantesForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ComprobantesForm.aspx.designer.cs">
+      <DependentUpon>ComprobantesForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\OrdenCompra.aspx.cs">
       <DependentUpon>OrdenCompra.aspx</DependentUpon>
