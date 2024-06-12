@@ -56,7 +56,8 @@
 
                                 <div class="col-sm-4">
                                     <asp:DropDownList ID="ddlTipoVenta" runat="server" CssClass="form-select"
-                                        SelectionMode="Single">
+                                        SelectionMode="Single" OnSelectedIndexChanged="ddlTipoVenta_SelectedIndexChanged"
+                                        AutoPostBack="true">
                                         <asp:ListItem Text="Presencial" Selected="True" Value="Presencial">
                                         </asp:ListItem>
                                         <asp:ListItem Text="Delivery" Value="Delivery"></asp:ListItem>
@@ -84,16 +85,16 @@
                                 </div>
                             </div>
 
-                             <div class="row mb-3">
-                            <label for="TxtDescuento" class="col-sm-2 col-form-label">Descuento:</label>
-                            <div class="col-sm-4">
-                                <asp:TextBox ID="TxtDescuento" runat="server" 
-                                    type="number" 
-                                    step="0.01" 
-                                    CssClass="form-control">
-                                </asp:TextBox>
+                            <div class="row mb-3">
+                                <label for="TxtDescuento" class="col-sm-2 col-form-label">Descuento:</label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox ID="TxtDescuento" runat="server"
+                                        type="number"
+                                        step="0.01"
+                                        CssClass="form-control">
+                                    </asp:TextBox>
+                                </div>
                             </div>
-                        </div>
 
                         </div>
 
@@ -128,34 +129,39 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <h4>Información del Repartidor
-                        </h4>
-                    </div>
-                    <div class="card-body">
+                <asp:Panel ID="panelRepartidor" runat="server">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <h4>Información del Repartidor
+                            </h4>
+                        </div>
+                        <div class="card-body">
 
-                        <div class="row">
-                            <label for="TxtIDRepartidor" class="col-sm-2 col-form-label">ID Repartidor:</label>
-                            <div class="col-sm-2">
-                                <asp:TextBox ID="TxtIDRepartidor" runat="server" Enabled="false"
-                                    CssClass="form-control" required="true"></asp:TextBox>
-                            </div>
-                            <label for="TxtNombreCompletoRepartidor" class="col-sm-2 col-form-label">
-                                Nombre
+                            <div class="row">
+                                <label for="TxtIDRepartidor" class="col-sm-2 col-form-label">ID Repartidor:</label>
+                                <div class="col-sm-2">
+                                    <asp:TextBox ID="TxtIDRepartidor" runat="server" Enabled="false"
+                                        CssClass="form-control" required="true"></asp:TextBox>
+                                </div>
+                                <label for="TxtNombreCompletoRepartidor" class="col-sm-2 col-form-label">
+                                    Nombre
                                     completo:</label>
-                            <div class="col-sm-4">
-                                <asp:TextBox ID="TxtNombreCompletoRepartidor" runat="server" Enabled="false"
-                                    CssClass="form-control" required="true"></asp:TextBox>
-                            </div>
-                            <div class="col-sm-2">
-                                <asp:LinkButton ID="lbBuscarRepartidor" runat="server" CssClass="btn btn-warning"
-                                    OnClick="lbBuscarRepartidor_Click">
+                                <div class="col-sm-4">
+                                    <asp:TextBox ID="TxtNombreCompletoRepartidor" runat="server" Enabled="false"
+                                        CssClass="form-control" required="true"></asp:TextBox>
+                                </div>
+                                <div class="col-sm-2">
+                                    <asp:LinkButton ID="lbBuscarRepartidor" runat="server" CssClass="btn btn-warning"
+                                        OnClick="lbBuscarRepartidor_Click">
                                         Buscar</asp:LinkButton>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+
+                </asp:Panel>
+
+
 
                 <div class="card mb-3">
                     <div class="card-header mb-3">
@@ -195,11 +201,13 @@
                             </div>
                             <div class="col-sm-3">
                                 <asp:Button ID="btnAgregarProducto" runat="server" Text="Agregar producto"
-                                    CssClass="btn btn-success" OnClick="btnAgregarProducto_Click"/>
+                                    CssClass="btn btn-success" OnClick="btnAgregarProducto_Click" />
                             </div>
                         </div>
                         <div class="row">
-                            <asp:GridView ID="gvLineasOrdenVenta" AllowPaging="True" PageSize="5" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered">
+                            <asp:GridView ID="gvLineasOrdenVenta" AllowPaging="True" PageSize="5" runat="server" 
+                                AutoGenerateColumns="False"
+                                CssClass="table table-striped table-bordered">
                                 <Columns>
                                     <asp:BoundField DataField="producto.idProductoCadena" HeaderText="ID Producto" />
                                     <asp:BoundField DataField="producto.nombre" HeaderText="Producto" />
@@ -233,7 +241,7 @@
             </div>
         </div>
 
-        
+
         <asp:ScriptManager runat="server"></asp:ScriptManager>
 
         <div id="modalFormBuscarEmpleado" class="modal" tabindex="-1">
