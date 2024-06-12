@@ -63,7 +63,7 @@
                         <div class="mb-3 row">
                             <asp:Label ID="lblCantidadUnidades" type="number" runat="server" Text="Cantidad:" CssClass="col-sm-2 col-form-label" />
                             <div class="col-sm-3">
-                                <asp:TextBox ID="txtCantidadUnidades" runat="server" CssClass="form-control" />
+                                <asp:TextBox ID="txtCantidadUnidades" type= "number" runat="server" CssClass="form-control" />
                             </div>
                             <div class="col-sm-3">
                                 <asp:LinkButton ID="lbAgregarLOV" CssClass="btn btn-success" runat="server" Text=" Agregar" OnClick="lbAgregarLOV_Click" />
@@ -78,7 +78,7 @@
                                     <asp:BoundField HeaderText="Subtotal" DataField="subtotal" />
                                     <asp:TemplateField>
                                         <ItemTemplate>
-                                            <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2'></i>" OnClick="btnEliminarProducto_Click" CommandArgument='<%# Eval("producto.idProductoNumerico") %>' />
+                                            <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash ps-2'></i>" OnClick="btnEliminarProducto_Click" CommandArgument='<%# Eval("producto.idProductoNumerico") + "," + Eval("cantidad") %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
