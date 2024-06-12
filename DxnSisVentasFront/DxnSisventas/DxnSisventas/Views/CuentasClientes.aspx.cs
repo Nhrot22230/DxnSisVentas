@@ -23,7 +23,10 @@ namespace DxnSisventas.Views
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+      if (Session["empleado"] == null)
+      {
+        Response.Redirect("Login.aspx");
+      }
     }
 
     private void LimpiarCampos()

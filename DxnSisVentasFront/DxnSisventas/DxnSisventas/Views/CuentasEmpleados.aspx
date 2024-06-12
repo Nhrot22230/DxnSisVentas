@@ -87,12 +87,12 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <asp:Label ID="LblUsuario" runat="server" Text="Usuario:" CssClass="form-label"></asp:Label>
-              <asp:TextBox ID="TxtUsuario" runat="server" CssClass="form-control" />
+              <asp:TextBox ID="TxtUsuario" runat="server" CssClass="form-control" onblur="validateUsuario()" />
               <p id="errMsgUsuario" style="color: red; display: none;" />
             </div>
             <div class="col-md-6 mb-3">
               <asp:Label ID="LblContrasena" runat="server" Text="Contraseña:" CssClass="form-label"></asp:Label>
-              <asp:TextBox ID="TxtContrasena" runat="server" CssClass="form-control" />
+              <asp:TextBox ID="TxtContrasena" runat="server" CssClass="form-control" onblur="validateContrasena()" />
               <p id="errMsgContrasena" style="color: red; display: none;" />
             </div>
           </div>
