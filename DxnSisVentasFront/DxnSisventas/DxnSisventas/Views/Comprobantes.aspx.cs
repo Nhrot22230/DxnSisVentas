@@ -42,19 +42,21 @@ namespace DxnSisventas.Views
 
     protected void BtnAgregar_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("/Views/ComprobantesForm.aspx");
     }
 
     protected void BtnEditar_Click(object sender, EventArgs e)
     {
       int idComprobante = int.Parse(((LinkButton)sender).CommandArgument);
+        Session["IdComprobante"] = idComprobante;
       comprobante comp = BlComprobantes.FirstOrDefault(c => c.idComprobanteNumerico == idComprobante);
 
       bool flag = comp.ordenAsociada is ordenVenta;
 
       if (flag)
       {
-        MostrarMensaje("La orden asociada es de venta", true);
+            Response.Redirect("/Views/ComprobantesForm.aspx?accion=update");
+            MostrarMensaje("La orden asociada es de venta", true);
       }
       else
       {
