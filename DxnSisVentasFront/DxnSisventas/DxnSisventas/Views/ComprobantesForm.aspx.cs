@@ -41,16 +41,17 @@ namespace DxnSisventas.Views
                 }*/
             }
 
-            if (apiDocumentos.listarOrden(txtCodOrdenModal.Text) != null)
-            {
-                listaOrdenes = new BindingList<orden>(apiDocumentos.listarOrden(txtCodOrdenModal.Text).ToList());
-                GridBindOrdenes();
-            }
+            
         }
 
         protected void Page_Init()
         {
             apiDocumentos = new DocumentosAPIClient();
+            if (apiDocumentos.listarOrden(txtCodOrdenModal.Text) != null)
+            {
+                listaOrdenes = new BindingList<orden>(apiDocumentos.listarOrden(txtCodOrdenModal.Text).ToList());
+                GridBindOrdenes();
+            }
         }
         protected void CargarDatos()
         {

@@ -50,13 +50,16 @@ function formatoFecha(fechaInput) {
     const regex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
     const match = fechaInput.match(regex);
     // Extraer los componentes de la fecha
-    const day = match[1];
-    const month = match[2];
-    const year = match[3];
+    if (!match) {
+        throw new Error("Formato de fecha inválido");
+    }
 
+    const day = parseInt(match[1], 10);
+    const month = parseInt(match[2], 10);
+    const year = parseInt(match[3], 10);
     // Formatear a yyyy-mm-dd
-    const fechaComprobante_formato = `${year}-${month}-${day}`;
-    return fechaComprobante_formato;
+    const fecha_formato = `${String(year).padStart(4, '0')}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    return fecha_formato;
 }
 function validateFechaComprobante() {
     if (!labelFechaComprobante.value) {
@@ -68,7 +71,7 @@ function validateFechaComprobante() {
     
     if (labelFechaOrden.value && labelFechaComprobante.value) {
 
-        const fechaComprobante_formato = formatoFecha(labelFechaComprobante.value);
+        const fechaComprobante_formato = labelFechaComprobante.value;
         const fechaOrden_formato = formatoFecha(labelFechaOrden.value);
 
         const date_comprobante = new Date(fechaComprobante_formato);
