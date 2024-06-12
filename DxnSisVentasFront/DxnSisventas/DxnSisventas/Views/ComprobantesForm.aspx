@@ -23,7 +23,8 @@
 
                             <label for="TxtFecha" class="col-sm-2 col-form-label">Fecha</label>
                             <div class="col-sm-4">
-                                <asp:TextBox ID="TxtFecha" runat="server" type="date" Enabled="true" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="TxtFechaComprobante" runat="server" type="date" Enabled="true" CssClass="form-control" onblur="validateFechaComprobante()"></asp:TextBox>
+                                <div id="fechaComprobanteErrorMessage" style="display: none; color: red;"></div>
                             </div>
                         </div>
                         <div class="mb-3 row">
@@ -56,22 +57,22 @@
                             </div>
                             <div class="col-sm-2">
                                 <asp:LinkButton ID="BtnBuscar" runat="server"
-                                    CssClass="btn btn-primary" Text="<i class='fas fa-solid fa-magnifying-glass pe-2'></i> Buscar" 
+                                    CssClass="btn btn-primary" Text="<i class='fas fa-solid fa-search pe-2'></i> Buscar" 
                                     OnClick="BtnBuscar_Click" ></asp:LinkButton>
-                                    <%--data-toggle="modal" data-target="#form-modal-ordenes"%--%>
                             </div>
                             <label for="LbFecha" class="col-sm-2 col-form-label">Fecha Orden</label>
                             <div class="col-sm-4">
-                                <asp:TextBox ID="TxtFechaOrden" runat="server" Enabled="false" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="TxtFechaOrden" runat="server" Enabled="false" CssClass="form-control" onblur="validateOrdenAsociada()"></asp:TextBox>
                             </div>
                         </div>
+                        <div id="ordenAsociadaErrorMessage" style="display: none; color: red;"></div>
                     </div>
                 </div>
             <div class="card-footer clearfix">
                 <asp:Button ID="BtnRegresar" runat="server" Text="Regresar"
                     CssClass="float-start btn btn-secondary" OnClick="BtnRegresar_Click" />
                 <asp:Button ID="BtnGuardar" runat="server" Text="Guardar"
-                    CssClass="float-end btn btn-primary" OnClick="BtnGuardar_Click" />
+                    CssClass="float-end btn btn-primary" OnClick="BtnGuardar_Click" OnClientClick="return validarFormularioComprobante();"/>
             </div>
         </div>
     </div>
@@ -94,17 +95,18 @@
                             <div class="col-sm-3">
                                 <asp:TextBox CssClass="form-control" ID="txtCodOrdenModal" runat="server" OnTextChanged="txtCodOrdenModal_TextChanged"></asp:TextBox>
                             </div>
-                            <div class="col-sm-2">
-                                <asp:LinkButton ID="BtnBuscarModal" runat="server" CssClass="btn btn-info" Text="<i class='fas fa-solid fa-magnifying-glass pe-2'></i> Buscar" OnClick="BtnBuscarModal_Click" />
+                            <div class="col-sm-3">
+                                <asp:LinkButton ID="BtnBuscarModal" runat="server" CssClass="btn btn-info" Text="<i class='fas fa-solid fa-search pe-2'></i> Buscar" OnClick="BtnBuscarModal_Click" />
                             </div>
                         </div>
                     </div>
                     <div class="container row">
-                        <asp:GridView ID="gvOrdenes" runat="server" AllowPaging="true" PageSize="5" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped" OnPageIndexChanging="gvOrdenes_PageIndexChanging">
+                        <asp:GridView ID="gvOrdenes" runat="server" AllowPaging="true" PageSize="5" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped" OnPageIndexChanging="gvOrdenes_PageIndexChanging" OnRowDataBound="gvOrdenes_RowDataBound">
                             <Columns>
                                 <asp:BoundField HeaderText="IdOrden" DataField="idOrden" />
-                                <%-- Estamos enlazando de otra manera el precio unitario, a traves del evento OnRowDataBound --%>
-                                <asp:BoundField HeaderText="Fecha Creacion" DataField="fechaCreacion"/>
+                                <%-- Estamos enlazando de otra manera a traves del evento OnRowDataBound --%>
+                                <asp:BoundField HeaderText="IdOrdenCompra/Venta"/>
+                                <asp:BoundField HeaderText="Fecha Creacion"/>
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:LinkButton class="btn btn-success" runat="server" Text="<i class='fas fa-solid fa-check ps-2'></i> Seleccionar" OnClick="BtnSeleccionarOrdenModal_Click" CommandArgument='<%# Eval("idOrden") %>' />

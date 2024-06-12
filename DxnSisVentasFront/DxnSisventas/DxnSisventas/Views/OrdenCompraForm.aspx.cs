@@ -123,12 +123,13 @@ namespace DxnSisventas.Views
         }
 
 
-        protected void gvProductos_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void gvOrdenes_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Cells[1].Text = ((double)DataBinder.Eval(e.Row.DataItem, "precioUnitario")).ToString("N2");
-
+                //e.Row.Cells[1].Text = (DataBinder.Eval(e.Row.DataItem, "idOrdenVen")).ToString();
+                e.Row.Cells[1].Text = "";
+                e.Row.Cells[2].Text = ((DateTime)DataBinder.Eval(e.Row.DataItem, "fechaCreacion")).ToString();
             }
         }
 

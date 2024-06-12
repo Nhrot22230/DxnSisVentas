@@ -24,13 +24,13 @@ namespace DxnSisventas.Views
         protected global::System.Web.UI.WebControls.TextBox TxtId;
 
         /// <summary>
-        /// Control TxtFecha.
+        /// Control TxtFechaComprobante.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtFecha;
+        protected global::System.Web.UI.WebControls.TextBox TxtFechaComprobante;
 
         /// <summary>
         /// Control DropDownListTipoComprobante.

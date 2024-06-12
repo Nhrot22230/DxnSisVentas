@@ -45,8 +45,10 @@
             <asp:BoundField DataField="ordenAsociada.total" HeaderText="Total" />
             <asp:TemplateField HeaderText="">
               <ItemTemplate>
-                <asp:LinkButton ID="BtnEditar" runat="server" Text="<i class='fas fa-edit ps-2'>  </i>"
-                  OnClick="BtnEditar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />
+                  <asp:LinkButton ID="LinkButton1" runat="server" Text="<i class='fas fa- ps-2'>  </i>"
+                    OnClick="BtnEditar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />
+                <%-- <asp:LinkButton ID="BtnEditar" runat="server" Text="<i class='fas fa-edit ps-2'>  </i>"
+                  OnClick="BtnEditar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />--%>
                 <asp:LinkButton ID="BtnEliminar" runat="server" Text="<i class='fas fa-trash ps-2'>  </i>"
                   OnClick="BtnEliminar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>'
                   OnClientClick="return confirm('¿Esta seguro de eliminar este registro?');" />
