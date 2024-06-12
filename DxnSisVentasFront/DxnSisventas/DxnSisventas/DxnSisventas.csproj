@@ -209,13 +209,22 @@
     <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.insertarClienteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.enviarCorreoWebResponse.datasource">
+    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.enviarCorreoWebResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.listarOrdenResponse.datasource">
+    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.listarClientesMasCuentasResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.orden.datasource">
+    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.listarEmpleadosMasCuentasResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.personaCuenta1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.eliminarLOVResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.insertarLOVResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\DxnWebService\Reference.svcmap">
@@ -255,6 +264,8 @@
     <Content Include="CustomScripts\Documentos.js" />
     <Content Include="CustomScripts\Login.js" />
     <Content Include="CustomScripts\Master.js" />
+    <Content Include="CustomScripts\OrdenVenta.js" />
+    <Content Include="CustomScripts\PersonasClientesForms.js" />
     <Content Include="CustomScripts\PersonasEmpleadosForms.js" />
     <Content Include="CustomScripts\Productos.js" />
     <Content Include="CustomStyles\Home.css" />
@@ -278,7 +289,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
-    <Content Include="Scripts\Documentos.js" />
     <Content Include="Scripts\fontawesome\all.js" />
     <Content Include="Scripts\fontawesome\all.min.js" />
     <Content Include="Scripts\fontawesome\brands.js" />
@@ -298,10 +308,12 @@
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="Views\Comprobantes.aspx" />
-    <Content Include="Views\ComprobantesForm.aspx" />
+    <Content Include="Views\CuentasClientes.aspx" />
+    <Content Include="Views\CuentasEmpleados.aspx" />
     <Content Include="Views\OrdenCompra.aspx" />
     <Content Include="Views\OrdenCompraForm.aspx" />
     <Content Include="Views\OrdenVenta.aspx" />
+    <Content Include="Views\OrdenVentaForm.aspx" />
     <Content Include="Views\PersonasClientes.aspx" />
     <Content Include="Views\PersonasClientesForms.aspx" />
     <Content Include="Views\PersonasEmpleados.aspx" />
@@ -359,12 +371,19 @@
     <Compile Include="Views\Comprobantes.aspx.designer.cs">
       <DependentUpon>Comprobantes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ComprobantesForm.aspx.cs">
-      <DependentUpon>ComprobantesForm.aspx</DependentUpon>
+    <Compile Include="Views\CuentasClientes.aspx.cs">
+      <DependentUpon>CuentasClientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ComprobantesForm.aspx.designer.cs">
-      <DependentUpon>ComprobantesForm.aspx</DependentUpon>
+    <Compile Include="Views\CuentasClientes.aspx.designer.cs">
+      <DependentUpon>CuentasClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CuentasEmpleados.aspx.cs">
+      <DependentUpon>CuentasEmpleados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\CuentasEmpleados.aspx.designer.cs">
+      <DependentUpon>CuentasEmpleados.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\OrdenCompra.aspx.cs">
       <DependentUpon>OrdenCompra.aspx</DependentUpon>
@@ -386,6 +405,13 @@
     </Compile>
     <Compile Include="Views\OrdenVenta.aspx.designer.cs">
       <DependentUpon>OrdenVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrdenVentaForm.aspx.cs">
+      <DependentUpon>OrdenVentaForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OrdenVentaForm.aspx.designer.cs">
+      <DependentUpon>OrdenVentaForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\PersonasClientes.aspx.cs">
       <DependentUpon>PersonasClientes.aspx</DependentUpon>

@@ -30,10 +30,10 @@ CALL insertar_empleado(@out_value, '87654321', 'Luis', 'Rodriguez', 'Fernandez',
 CALL insertar_empleado(@out_value, '11223344', 'Ana', 'Martinez', 'Garcia', 3500.0, 'Administrador');
 CALL insertar_empleado(@out_value, '55667788', 'Carlos', 'Diaz', 'Torres', 3500.0, 'Repartidor');
 
-CALL insertar_cuenta_empleado(@id_cuenta, "fernando.candia", "74368258", 1);
-CALL insertar_cuenta_empleado(@id_cuenta, "jorge.alejandro", "23456789", 2);
-CALL insertar_cuenta_empleado(@id_cuenta, "jhairt.vega", "70402080", 3);
-CALL insertar_cuenta_empleado(@id_cuenta, "gian.luca", "72845864", 4);
+CALL insertar_cuenta_empleado(@id_cuenta, "fernando.candia", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 1);
+CALL insertar_cuenta_empleado(@id_cuenta, "jorge.alejandro", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 2);
+CALL insertar_cuenta_empleado(@id_cuenta, "jhairt.vega", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 3);
+CALL insertar_cuenta_empleado(@id_cuenta, "gian.luca", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 4);
 
 -- ==============================================
 -- INSERTS DE CLIENTES Y CUENTAS_CLIENTES
@@ -52,18 +52,18 @@ CALL insertar_cliente(@out_value, '66778899', 'Teresa', 'Gutierrez', 'Hernandez'
 CALL insertar_cliente(@out_value, '77665544', 'Ricardo', 'Herrera', 'Chavez', 130, 20, NULL, NULL, 'Av. Grau 741', 4);
 CALL insertar_cliente(@out_value, '55443322', 'Isabel', 'Vargas', 'Diaz', 110, 30, '12309845677', 'Almacen RST', 'Calle San Martin 555', 7);
 
-CALL insertar_cuenta_cliente(@id_cuenta, "juan.casas", "72947932", 1);
-CALL insertar_cuenta_cliente(@id_cuenta, "maria.perez", "12345678", 2);
-CALL insertar_cuenta_cliente(@id_cuenta, "luis.rodriguez", "87654321", 3);
-CALL insertar_cuenta_cliente(@id_cuenta, "ana.martinez", "11223344", 4);
-CALL insertar_cuenta_cliente(@id_cuenta, "carlos.diaz", "55667788", 5);
-CALL insertar_cuenta_cliente(@id_cuenta, "elena.sanchez", "99887766", 6);
-CALL insertar_cuenta_cliente(@id_cuenta, "jorge.mendoza", "44556677", 7);
-CALL insertar_cuenta_cliente(@id_cuenta, "patricia.flores", "33445566", 8);
-CALL insertar_cuenta_cliente(@id_cuenta, "miguel.gomez", "22114433", 9);
-CALL insertar_cuenta_cliente(@id_cuenta, "teresa.gutierrez", "66778899", 10);
-CALL insertar_cuenta_cliente(@id_cuenta, "ricardo.herrera", "77665544", 11);
-CALL insertar_cuenta_cliente(@id_cuenta, "isabel.vargas", "55443322", 12);
+CALL insertar_cuenta_cliente(@id_cuenta, "juan.casas", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 1);
+CALL insertar_cuenta_cliente(@id_cuenta, "maria.perez", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 2);
+CALL insertar_cuenta_cliente(@id_cuenta, "luis.rodriguez", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 3);
+CALL insertar_cuenta_cliente(@id_cuenta, "ana.martinez", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 4);
+CALL insertar_cuenta_cliente(@id_cuenta, "carlos.diaz", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 5);
+CALL insertar_cuenta_cliente(@id_cuenta, "elena.sanchez", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 6);
+CALL insertar_cuenta_cliente(@id_cuenta, "jorge.mendoza", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 7);
+CALL insertar_cuenta_cliente(@id_cuenta, "patricia.flores", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 8);
+CALL insertar_cuenta_cliente(@id_cuenta, "miguel.gomez", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 9);
+CALL insertar_cuenta_cliente(@id_cuenta, "teresa.gutierrez", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 10);
+CALL insertar_cuenta_cliente(@id_cuenta, "ricardo.herrera", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 11);
+CALL insertar_cuenta_cliente(@id_cuenta, "isabel.vargas", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 12);
 
 -- ==============================================
 -- INSERTS DE ORDENCOMPRA, LINEAORDEN Y COMPROBANTE
@@ -99,18 +99,18 @@ CALL insertar_comprobante(@id_comprobante, @id_orden, 'BoletaSimple', NOW()); --
 -- Luego actualizar el total de la orden de venta
 -- Por ultimo se puede generar un comprobante de la orden de venta
 
-CALL insertar_orden_venta(@id_orden_venta, @id_orden, 1, 1, 'Pendiente', NOW(), 'Presencial', 'Efectivo', 0.0, 0.0);
+CALL insertar_orden_venta(@id_orden_venta, @id_orden, 1, 1, NULL, 'Pendiente', NOW(), 'Presencial', 'Efectivo', 0.0, 0.0);
 CALL insertar_linea_orden(@id_orden, 1, 100, 5.5*100); -- Arroz 100 gramos
 CALL insertar_linea_orden(@id_orden, 2, 100, 3.5*100); -- Azucar 100 gramos
 CALL insertar_linea_orden(@id_orden, 3, 100, 7.5*100); -- Aceite 100 mililitros
-CALL actualizar_orden_venta(@id_orden_venta, @id_orden, 1, 1, 'Entregado', NOW(), 'Presencial', 'Efectivo', 0.0, 5.5*100 + 3.5*100 + 7.5*100);
+CALL actualizar_orden_venta(@id_orden_venta, @id_orden, 1, 1, NULL, 'Entregado', NOW(), 'Presencial', 'Efectivo', 0.0, 5.5*100 + 3.5*100 + 7.5*100);
 CALL insertar_comprobante(@id_comprobante, @id_orden, 'BoletaSimple', NOW()); -- ID_COMP, ID_ORDEN, TIPO, FECHA
 
-CALL insertar_orden_venta(@id_orden_venta, @id_orden, 2, 2, 'Pendiente', NOW(), 'Delivery', 'Tarjeta', 10.0, 0.0);
+CALL insertar_orden_venta(@id_orden_venta, @id_orden, 2, 2, NULL, 'Pendiente', NOW(), 'Delivery', 'Tarjeta', 10.0, 0.0);
 CALL insertar_linea_orden(@id_orden, 4, 100, 10.5*100); -- Shampoo 100 mililitros
 CALL insertar_linea_orden(@id_orden, 5, 100, 10.5*100); -- Acondicionador 100 mililitros
 CALL insertar_linea_orden(@id_orden, 6, 100, 10.5*100); -- Crema 100 mililitros
 CALL insertar_linea_orden(@id_orden, 7, 100, 10.5*100); -- Desodorante 100 mililitros
 
-CALL actualizar_orden_venta(@id_orden_venta, @id_orden, 2, 2, 'Entregado', NOW(), 'Delivery', 'Tarjeta', 10.0, 10.5*100 + 10.5*100 + 10.5*100 + 10.5*100);
+CALL actualizar_orden_venta(@id_orden_venta, @id_orden, 2, 2, NULL, 'Entregado', NOW(), 'Delivery', 'Tarjeta', 10.0, 10.5*100 + 10.5*100 + 10.5*100 + 10.5*100);
 CALL insertar_comprobante(@id_comprobante, @id_orden, 'Factura', NOW()); -- ID_COMP, ID_ORDEN, TIPO, FECHA

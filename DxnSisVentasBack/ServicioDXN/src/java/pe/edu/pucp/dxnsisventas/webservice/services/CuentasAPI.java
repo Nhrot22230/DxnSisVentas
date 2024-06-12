@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.dxnsisventas.webservice.services;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
@@ -14,6 +15,7 @@ import pe.edu.pucp.dxnsisventas.cuentas.controller.mysql.CuentaClienteMySQL;
 import pe.edu.pucp.dxnsisventas.cuentas.controller.mysql.CuentaEmpleadoMySQL;
 import pe.edu.pucp.dxnsisventas.cuentas.model.CuentaCliente;
 import pe.edu.pucp.dxnsisventas.cuentas.model.CuentaEmpleado;
+import pe.edu.pucp.dxnsisventas.cuentas.model.PersonaCuenta;
 import pe.edu.pucp.dxnsisventas.personas.model.Cliente;
 import pe.edu.pucp.dxnsisventas.personas.model.Empleado;
 
@@ -73,6 +75,7 @@ public class CuentasAPI {
     int resultado = 0;
     
     try {
+      cc.setContrasena(BCrypt.withDefaults().hashToString(12, cc.getContrasena().toCharArray()));
       resultado = daoCuentaCli.insertar_Cuenta_Cliente(cc);
     } catch (Exception ex) {
       System.err.println(ex.getMessage());
@@ -86,6 +89,7 @@ public class CuentasAPI {
     int resultado = 0;
     
     try {
+      cc.setContrasena(BCrypt.withDefaults().hashToString(12, cc.getContrasena().toCharArray()));
       resultado = daoCuentaCli.actualizar_Cuenta_Cliente(cc);
     } catch (Exception ex) {
       System.err.println(ex.getMessage());
@@ -142,6 +146,7 @@ public class CuentasAPI {
     int resultado = 0;
     
     try {
+      ce.setContrasena(BCrypt.withDefaults().hashToString(12, ce.getContrasena().toCharArray()));
       resultado = daoCuentaEmp.insertar_Cuenta_Empleado(ce);
     } catch (Exception ex) {
       System.err.println(ex.getMessage());
@@ -155,6 +160,7 @@ public class CuentasAPI {
     int resultado = 0;
     
     try {
+      ce.setContrasena(BCrypt.withDefaults().hashToString(12, ce.getContrasena().toCharArray()));
       resultado = daoCuentaEmp.actualizar_Cuenta_Empleado(ce);
     } catch (Exception ex) {
       System.err.println(ex.getMessage());
@@ -174,5 +180,37 @@ public class CuentasAPI {
     }
     
     return resultado;
+  }
+  
+  @WebMethod(operationName = "listarClientesMasCuentas")
+  public ArrayList<PersonaCuenta> listarClientesMasCuentas(@WebParam(name = "filtro") String txt){
+    ArrayList<PersonaCuenta> lista = null;
+    
+    txt = txt == null ? "" : txt;
+    try {
+      lista = daoCuentaCli.listar_clientes_cuentas(txt);
+    } catch (Exception ex) {
+      System.err.println(ex.getMessage());
+    }
+    
+    if(lista != null) lista = (lista.isEmpty()) ? null : lista;
+    
+    return lista;
+  }
+
+  @WebMethod(operationName = "listarEmpleadosMasCuentas")
+  public ArrayList<PersonaCuenta> listarEmpleadosMasCuentas(@WebParam(name = "filtro") String txt){
+    ArrayList<PersonaCuenta> lista = null;
+    
+    txt = txt == null ? "" : txt;
+    try {
+      lista = daoCuentaEmp.listar_empleados_cuentas(txt);
+    } catch (Exception ex) {
+      System.err.println(ex.getMessage());
+    }
+    
+    if(lista != null) lista = (lista.isEmpty()) ? null : lista;
+    
+    return lista;
   }
 }

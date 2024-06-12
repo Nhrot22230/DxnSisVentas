@@ -45,7 +45,6 @@ DROP PROCEDURE IF EXISTS actualizar_orden;
 DROP PROCEDURE IF EXISTS listar_ordenes;
 
 DROP PROCEDURE IF EXISTS insertar_orden_venta;
-DROP PROCEDURE IF EXISTS insertar_orden_venta_con_repartidor;
 DROP PROCEDURE IF EXISTS actualizar_orden_venta;
 DROP PROCEDURE IF EXISTS listar_ordenes_venta;
 
@@ -63,6 +62,8 @@ DROP PROCEDURE IF EXISTS actualizar_linea_orden;
 DROP PROCEDURE IF EXISTS listar_lineas_orden;
 DROP PROCEDURE IF EXISTS eliminar_linea_orden;
 
+DROP PROCEDURE IF EXISTS listar_empleado_cuenta;
+DROP PROCEDURE IF EXISTS listar_cliente_cuenta;
 -- ----------------------------------------------
 -- CRUD para Empleado
 -- ----------------------------------------------
@@ -241,7 +242,7 @@ END$$
 CREATE PROCEDURE validar_acceso(
   OUT p_acceso INT,
   IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30)
+  IN p_contrasena VARCHAR(60)
 )
 BEGIN
   DECLARE v_id_cuenta INT;
@@ -258,7 +259,7 @@ END$$
 CREATE PROCEDURE insertar_cuenta(
   OUT p_id_cuenta INT,
   IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30)
+  IN p_contrasena VARCHAR(60)
 )
 BEGIN
   INSERT INTO Cuenta(usuario, contrasena)
@@ -269,7 +270,7 @@ END$$
 CREATE PROCEDURE actualizar_cuenta(
   IN p_id_cuenta INT,
   IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30)
+  IN p_contrasena VARCHAR(60)
 )
 BEGIN
   UPDATE Cuenta
@@ -297,16 +298,16 @@ END$$
 -- CRUD para Cuenta Cliente
 -- ----------------------------------------------
 CREATE PROCEDURE iniciar_sesion_cliente(
-  IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30)
+  OUT p_contrasena VARCHAR(60),
+  IN p_usuario VARCHAR(30)
 )
 BEGIN
   DECLARE v_id_cuenta INT;
   DECLARE v_id_cliente INT;
 
-  SELECT id_cuenta INTO v_id_cuenta
+  SELECT id_cuenta, contrasena INTO v_id_cuenta, p_contrasena
   FROM Cuenta
-  WHERE usuario = p_usuario AND contrasena = p_contrasena;
+  WHERE usuario = p_usuario;
 
   SELECT id_cliente INTO v_id_cliente
   FROM Cuenta_Cliente
@@ -324,7 +325,7 @@ END$$
 CREATE PROCEDURE insertar_cuenta_cliente(
   OUT p_id_cuenta INT,
   IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30),
+  IN p_contrasena VARCHAR(60),
   IN p_id_cliente INT
 )
 BEGIN
@@ -337,7 +338,7 @@ END$$
 CREATE PROCEDURE actualizar_cuenta_cliente(
   IN p_id_cliente INT,
   IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30)
+  IN p_contrasena VARCHAR(60)
 )
 BEGIN
   DECLARE v_id_cuenta INT;
@@ -355,7 +356,9 @@ BEGIN
   SELECT id_cuenta INTO v_id_cuenta
   FROM Cuenta_Cliente
   WHERE id_cliente = p_id_cliente;
-  CALL eliminar_cuenta(v_id_cuenta);
+  DELETE FROM Cuenta_Cliente cc WHERE cc.id_cliente = p_id_cliente;
+  DELETE FROM Cuenta c WHERE c.id_cuenta = v_id_cuenta;
+  -- CALL eliminar_cuenta(v_id_cuenta);
 END$$
 
 CREATE PROCEDURE listar_cuentas_cliente()
@@ -368,16 +371,16 @@ END$$
 -- CRUD para Cuenta Empleado
 -- ----------------------------------------------
 CREATE PROCEDURE iniciar_sesion_empleado(
-  IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30)
+  OUT p_contrasena VARCHAR(60),
+  IN p_usuario VARCHAR(30)
 )
 BEGIN
   DECLARE v_id_cuenta INT;
   DECLARE v_id_empleado INT;
   
-  SELECT id_cuenta INTO v_id_cuenta
+  SELECT id_cuenta, contrasena INTO v_id_cuenta, p_contrasena
   FROM Cuenta
-  WHERE usuario = p_usuario AND contrasena = p_contrasena;
+  WHERE usuario = p_usuario;
 
   SELECT id_empleado INTO v_id_empleado
   FROM Cuenta_Empleado
@@ -393,7 +396,7 @@ END$$
 CREATE PROCEDURE insertar_cuenta_empleado(
   OUT p_id_cuenta INT,
   IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30),
+  IN p_contrasena VARCHAR(60),
   IN p_id_empleado INT
 )
 BEGIN
@@ -406,7 +409,7 @@ END$$
 CREATE PROCEDURE actualizar_cuenta_empleado(
   IN p_id_empleado INT,
   IN p_usuario VARCHAR(30),
-  IN p_contrasena VARCHAR(30)
+  IN p_contrasena VARCHAR(60)
 )
 BEGIN
   DECLARE v_id_cuenta INT;
@@ -424,7 +427,9 @@ BEGIN
   SELECT id_cuenta INTO v_id_cuenta
   FROM Cuenta_Empleado
   WHERE id_empleado = p_id_empleado;
-  CALL eliminar_cuenta(v_id_cuenta);
+  DELETE FROM Cuenta_Empleado ce WHERE ce.id_empleado = p_id_empleado;
+  DELETE FROM Cuenta c WHERE c.id_cuenta = v_id_cuenta;
+  -- CALL eliminar_cuenta(v_id_cuenta);
 END$$
 
 CREATE PROCEDURE listar_cuentas_empleado()
@@ -545,6 +550,7 @@ CREATE PROCEDURE insertar_orden_venta(
   OUT p_id_orden INT,
   IN p_id_cliente INT,
   IN p_id_empleado INT,
+  IN p_id_repartidor INT, -- Este es ahora opcional
   IN p_estado ENUM('Pendiente', 'Entregado', 'Cancelado'),
   IN p_fecha_creacion DATETIME,
   IN p_tipo_venta ENUM('Presencial', 'Delivery'),
@@ -553,37 +559,29 @@ CREATE PROCEDURE insertar_orden_venta(
   IN p_total DECIMAL(10, 2)
 )
 BEGIN
+  -- Insertar en la tabla Orden
   CALL insertar_orden(p_id_orden, p_estado, p_fecha_creacion, p_total);
-  INSERT INTO Orden_Venta(id_orden, id_cliente, id_empleado, tipo_venta, metodo_pago, porcentaje_descuento)
-  VALUES(p_id_orden, p_id_cliente, p_id_empleado, p_tipo_venta, p_metodo_pago, p_porcentaje_descuento);
+  
+  -- Insertar en la tabla Orden_Venta, manejando el id_repartidor opcional
+  IF p_id_repartidor IS NOT NULL THEN
+    INSERT INTO Orden_Venta(id_orden, id_cliente, id_empleado, id_repartidor, tipo_venta, metodo_pago, porcentaje_descuento)
+    VALUES(p_id_orden, p_id_cliente, p_id_empleado, p_id_repartidor, p_tipo_venta, p_metodo_pago, p_porcentaje_descuento);
+  ELSE
+    INSERT INTO Orden_Venta(id_orden, id_cliente, id_empleado, tipo_venta, metodo_pago, porcentaje_descuento)
+    VALUES(p_id_orden, p_id_cliente, p_id_empleado, p_tipo_venta, p_metodo_pago, p_porcentaje_descuento);
+  END IF;
+  
   SET p_id_orden_venta = LAST_INSERT_ID();
 END$$
 
-CREATE PROCEDURE insertar_orden_venta_con_repartidor(
-  OUT p_id_orden_venta INT,
-  OUT p_id_orden INT,
-  IN p_id_cliente INT,
-  IN p_id_empleado INT,
-  IN p_id_repartidor INT,
-  IN p_estado ENUM('Pendiente', 'Entregado', 'Cancelado'),
-  IN p_fecha_creacion DATETIME,
-  IN p_tipo_venta ENUM('Presencial', 'Delivery'),
-  IN p_metodo_pago ENUM('Efectivo', 'Tarjeta'),
-  IN p_porcentaje_descuento DECIMAL(4,2),
-  IN p_total DECIMAL(10, 2)
-)
-BEGIN
-  CALL insertar_orden(p_id_orden, p_estado, p_fecha_creacion, p_total);
-  INSERT INTO Orden_Venta(id_orden, id_cliente, id_empleado, id_repartidor, tipo_venta, metodo_pago, porcentaje_descuento)
-  VALUES(p_id_orden, p_id_cliente, p_id_empleado, p_id_repartidor, p_tipo_venta, p_metodo_pago, p_porcentaje_descuento);
-  SET p_id_orden_venta = LAST_INSERT_ID();
-END$$
+
 
 CREATE PROCEDURE actualizar_orden_venta(
   IN p_id_orden_venta INT,
   IN p_id_orden INT,
   IN p_id_cliente INT,
   IN p_id_empleado INT,
+  IN p_id_repartidor INT, -- Este es ahora opcional
   IN p_estado ENUM('Pendiente', 'Entregado', 'Cancelado'),
   IN p_fecha_entrega DATETIME,
   IN p_tipo_venta ENUM('Presencial', 'Delivery'),
@@ -592,11 +590,15 @@ CREATE PROCEDURE actualizar_orden_venta(
   IN p_total DECIMAL(10, 2)
 )
 BEGIN
+  -- Actualizar en la tabla Orden
   CALL actualizar_orden(p_id_orden, p_estado, p_total);
+  
+  -- Actualizar en la tabla Orden_Venta
   UPDATE Orden_Venta
   SET id_orden = p_id_orden,
       id_cliente = p_id_cliente,
       id_empleado = p_id_empleado,
+      id_repartidor = COALESCE(NULLIF(p_id_repartidor, 0), NULL),
       fecha_entrega = p_fecha_entrega,
       tipo_venta = p_tipo_venta,
       metodo_pago = p_metodo_pago,
@@ -788,6 +790,49 @@ CREATE PROCEDURE eliminar_linea_orden(
 BEGIN
   DELETE FROM LineaOrden
   WHERE id_orden = p_id_orden AND id_producto = p_id_producto;
+END$$
+
+-- ==============================================
+-- CUENTAS DE EMPLEADO Y CLIENTE
+-- ==============================================
+
+CREATE PROCEDURE listar_empleado_cuenta(
+  IN p_cadena VARCHAR(30)
+)
+BEGIN
+  SELECT e.id_empleado, e.dni, e.nombre, e.apellido_paterno, e.apellido_materno, e.sueldo, e.rol,
+  c.id_cuenta, c.usuario, c.contrasena
+  FROM Empleado e
+  LEFT JOIN Cuenta_Empleado ce ON ce.id_empleado = e.id_empleado
+  LEFT JOIN Cuenta c ON c.id_cuenta = ce.id_cuenta
+  WHERE e.activo = 1
+  AND (e.dni LIKE CONCAT('%', p_cadena, '%') OR
+       e.nombre LIKE CONCAT('%', p_cadena, '%') OR
+       e.apellido_paterno LIKE CONCAT('%', p_cadena, '%') OR
+       e.apellido_materno LIKE CONCAT('%', p_cadena, '%') OR
+       c.usuario LIKE CONCAT('%', p_cadena, '%')
+       );
+END$$
+
+CREATE PROCEDURE listar_cliente_cuenta(
+  IN p_cadena VARCHAR(30)
+)
+BEGIN
+  SELECT cli.id_cliente, cli.dni, cli.nombre, cli.apellido_paterno, cli.apellido_materno, cli.direccion, cli.ruc, cli.razon_social, cli.puntos, cli.puntos_retenidos,
+  c.id_cuenta, c.usuario, c.contrasena
+  FROM Cliente cli
+  LEFT JOIN Cuenta_Cliente cc ON cc.id_cliente = cli.id_cliente
+  LEFT JOIN Cuenta c ON c.id_cuenta = cc.id_cuenta
+  WHERE cli.activo = 1
+  AND (cli.dni LIKE CONCAT('%', p_cadena, '%') OR
+       cli.nombre LIKE CONCAT('%', p_cadena, '%') OR
+       cli.apellido_paterno LIKE CONCAT('%', p_cadena, '%') OR
+       cli.apellido_materno LIKE CONCAT('%', p_cadena, '%') OR
+       cli.direccion LIKE CONCAT('%', p_cadena, '%') OR
+       cli.ruc LIKE CONCAT('%', p_cadena, '%') OR
+       cli.razon_social LIKE CONCAT('%', p_cadena, '%') OR
+       c.usuario LIKE CONCAT('%', p_cadena, '%')
+       );
 END$$
 
 DELIMITER ;

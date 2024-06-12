@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.dxnsisventas.cuentas.controller.mysql;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import pe.edu.pucp.dxnsisventas.cuentas.controller.dao.CuentaClienteDAO;
 import pe.edu.pucp.dxnsisventas.cuentas.model.CuentaCliente;
+import pe.edu.pucp.dxnsisventas.cuentas.model.PersonaCuenta;
 import pe.edu.pucp.dxnsisventas.personas.model.Cliente;
 import pe.edu.pucp.dxnsisventas.utils.database.DBManager;
 
@@ -45,6 +47,10 @@ public class CuentaClienteMySQL implements CuentaClienteDAO {
     END IF;
   END$$
    */
+  public boolean validar_acceso(String contrasena, String bcryptHashString) {
+    return BCrypt.verifyer().verify(contrasena.toCharArray(), bcryptHashString).verified;
+  }
+  
   @Override
   public Cliente iniciar_sesion(String usuario, String contrasena) {
     Cliente res = null;
@@ -52,10 +58,10 @@ public class CuentaClienteMySQL implements CuentaClienteDAO {
       con = DBManager.getInstance().getConnection();
       sql = "{ CALL iniciar_sesion_cliente(?, ?) }";
       cs = con.prepareCall(sql);
+      cs.registerOutParameter("p_contrasena", java.sql.Types.VARCHAR);
       cs.setString("p_usuario", usuario);
-      cs.setString("p_contrasena", contrasena);
-      cs.executeUpdate();
-      if (rs.next()) {
+      rs = cs.executeQuery();
+      if (rs.next() && validar_acceso(contrasena, cs.getString("p_contrasena"))) {
         res = new Cliente();
         res.setIdNumerico(rs.getInt("id_cliente"));
         res.setDNI(rs.getString("dni"));
@@ -279,5 +285,90 @@ public class CuentaClienteMySQL implements CuentaClienteDAO {
       }
     }
     return cuentas;
+  }
+
+
+  /*
+  CREATE PROCEDURE listar_cliente_cuenta(
+    IN p_cadena VARCHAR(30)
+  )
+  BEGIN
+    SELECT cli.id_cliente, cli.dni, cli.nombre, cli.apellido_paterno, cli.apellido_materno, cli.direccion, cli.ruc, cli.razon_social, cli.puntos, cli.puntos_retenidos,
+    c.id_cuenta, c.usuario, c.contrasena
+    FROM Cliente cli
+    LEFT JOIN Cuenta_Cliente cc ON cc.id_cliente = cli.id_cliente
+    LEFT JOIN Cuenta c ON c.id_cuenta = cc.id_cuenta
+    WHERE cli.activo = 1
+    AND (cli.dni LIKE CONCAT('%', p_cadena, '%') OR
+        cli.nombre LIKE CONCAT('%', p_cadena, '%') OR
+        cli.apellido_paterno LIKE CONCAT('%', p_cadena, '%') OR
+        cli.apellido_materno LIKE CONCAT('%', p_cadena, '%') OR
+        cli.direccion LIKE CONCAT('%', p_cadena, '%') OR
+        cli.ruc LIKE CONCAT('%', p_cadena, '%') OR
+        cli.razon_social LIKE CONCAT('%', p_cadena, '%') OR
+        c.usuario LIKE CONCAT('%', p_cadena, '%')
+        );
+  END$$
+   */
+  @Override
+  public ArrayList<PersonaCuenta> listar_clientes_cuentas(String cadena) {
+    ArrayList<PersonaCuenta> lista = new ArrayList<>();
+  
+    try {
+      con = DBManager.getInstance().getConnection();
+      sql = "{ CALL listar_cliente_cuenta(?) }";
+      cs = con.prepareCall(sql);
+      cs.setString("p_cadena", cadena);
+      rs = cs.executeQuery();
+      while (rs.next()) {
+        Cliente cliente = new Cliente();
+        cliente.setIdNumerico(rs.getInt("id_cliente"));
+        cliente.setIdCadena("CLI" + String.format("%05d", cliente.getIdNumerico()));
+        cliente.setDNI(rs.getString("dni"));
+        cliente.setNombre(rs.getString("nombre"));
+        cliente.setApellidoPaterno(rs.getString("apellido_paterno"));
+        cliente.setApellidoMaterno(rs.getString("apellido_materno"));
+        cliente.setDireccion(rs.getString("direccion"));
+        cliente.setRUC(rs.getString("ruc"));
+        cliente.setRazonSocial(rs.getString("razon_social"));
+        cliente.setPuntos(rs.getInt("puntos"));
+        cliente.setPuntosRetenidos(rs.getInt("puntos_retenidos"));
+
+        int id_cuenta = rs.getInt("id_cuenta");
+        if (id_cuenta == 0) {
+          lista.add(new PersonaCuenta(cliente, null));
+          continue;
+        }
+
+        CuentaCliente cuenta = new CuentaCliente();
+        cuenta.setIdCuenta(id_cuenta);
+        cuenta.setFid_Cliente(cliente.getIdNumerico());
+        cuenta.setUsuario(rs.getString("usuario"));
+        cuenta.setContrasena(rs.getString("contrasena"));
+
+        lista.add(new PersonaCuenta(cliente, cuenta));
+      }
+    }
+    catch (SQLException ex) {
+      System.out.println(ex.getMessage());
+    }
+    finally {
+      try {
+        if (rs != null) {
+          rs.close();
+        }
+        if (cs != null) {
+          cs.close();
+        }
+        if (con != null) {
+          con.close();
+        }
+      }
+      catch (SQLException ex) {
+        System.err.println(ex.getMessage());
+      }
+    }
+
+    return lista;
   }
 }

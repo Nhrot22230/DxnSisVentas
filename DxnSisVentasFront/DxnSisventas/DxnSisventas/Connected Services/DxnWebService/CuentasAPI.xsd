@@ -18,10 +18,14 @@
   <xs:element name="insertarCuentaClienteResponse" type="tns:insertarCuentaClienteResponse" />
   <xs:element name="insertarCuentaEmpleado" type="tns:insertarCuentaEmpleado" />
   <xs:element name="insertarCuentaEmpleadoResponse" type="tns:insertarCuentaEmpleadoResponse" />
+  <xs:element name="listarClientesMasCuentas" type="tns:listarClientesMasCuentas" />
+  <xs:element name="listarClientesMasCuentasResponse" type="tns:listarClientesMasCuentasResponse" />
   <xs:element name="listarCuentaCliente" type="tns:listarCuentaCliente" />
   <xs:element name="listarCuentaClienteResponse" type="tns:listarCuentaClienteResponse" />
   <xs:element name="listarCuentaEmpleado" type="tns:listarCuentaEmpleado" />
   <xs:element name="listarCuentaEmpleadoResponse" type="tns:listarCuentaEmpleadoResponse" />
+  <xs:element name="listarEmpleadosMasCuentas" type="tns:listarEmpleadosMasCuentas" />
+  <xs:element name="listarEmpleadosMasCuentasResponse" type="tns:listarEmpleadosMasCuentasResponse" />
   <xs:complexType name="actualizarCuentaEmpleado">
     <xs:sequence>
       <xs:element minOccurs="0" name="cuentaEmpleado" type="tns:cuentaEmpleado" />
@@ -49,6 +53,30 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="listarEmpleadosMasCuentas">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="filtro" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarEmpleadosMasCuentasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:personaCuenta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="personaCuenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cuenta" type="tns:cuenta" />
+      <xs:element minOccurs="0" name="persona" type="tns:persona" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="persona">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="apellidoMaterno" type="xs:string" />
+      <xs:element minOccurs="0" name="apellidoPaterno" type="xs:string" />
+      <xs:element minOccurs="0" name="DNI" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="actualizarCuentaCliente">
     <xs:sequence>
       <xs:element minOccurs="0" name="cuentaCliente" type="tns:cuentaCliente" />
@@ -66,6 +94,34 @@
   <xs:complexType name="actualizarCuentaClienteResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarClientesMasCuentas">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="filtro" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarClientesMasCuentasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:personaCuenta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hello">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="helloResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarCuentaEmpleado">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarCuentaEmpleadoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cuentaEmpleado" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarCuentaEmpleado">
@@ -113,14 +169,6 @@
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="persona">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="apellidoMaterno" type="xs:string" />
-      <xs:element minOccurs="0" name="apellidoPaterno" type="xs:string" />
-      <xs:element minOccurs="0" name="DNI" type="xs:string" />
-      <xs:element minOccurs="0" name="nombre" type="xs:string" />
-    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarCuentaEmpleado">
     <xs:sequence>

@@ -12,19 +12,18 @@
       <h1>Registro de Empleados</h1>
     </div>
     <div class="container row">
-      <div class="container row">
-        <div class="col-md-6">
-          <div class="input-group mb-3">
-            <asp:TextBox ID="TxtBuscar" runat="server" CssClass="form-control" placeholder="Buscar"></asp:TextBox>
-            <asp:LinkButton ID="BtnBuscar" runat="server" Text="<i class='fas fa-search'> </i>"
-              CssClass="btn btn-secondary" OnClick="BtnBuscar_Click" />
-          </div>
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <asp:TextBox ID="TxtBuscar" runat="server" CssClass="form-control" placeholder="Buscar"></asp:TextBox>
+          <asp:LinkButton ID="BtnBuscar" runat="server" Text="<i class='fas fa-search'> </i>"
+            CssClass="btn btn-secondary" OnClick="BtnBuscar_Click" />
         </div>
       </div>
+
     </div>
     <div class="container row">
       <!-- Panel de filtros -->
-      <label for="TxtTipoRol" class="col-sm-2 col-form-label">Filtrar por Rol</label>
+      <label class="col-sm-2 col-form-label">Filtrar por Rol</label>
       <!-- Seleccionar el tipo de producto -->
       <div class="col-sm-3">
         <asp:DropDownList AutoPostBack="true" ID="DropDownListRoles" runat="server" CssClass="form-select"

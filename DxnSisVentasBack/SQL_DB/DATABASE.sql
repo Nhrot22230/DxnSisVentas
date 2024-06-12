@@ -52,7 +52,7 @@ CREATE TABLE Cliente (
 CREATE TABLE Cuenta (
   id_cuenta INT AUTO_INCREMENT PRIMARY KEY,
   usuario VARCHAR(30) NOT NULL,
-  contrasena VARCHAR(30) NOT NULL,
+  contrasena VARCHAR(60) NOT NULL,
   activo TINYINT DEFAULT 1,
   UNIQUE INDEX usuario_UNIQUE (usuario ASC) VISIBLE
 );
