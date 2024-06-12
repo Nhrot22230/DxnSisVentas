@@ -52,18 +52,18 @@ CALL insertar_cliente(@out_value, '66778899', 'Teresa', 'Gutierrez', 'Hernandez'
 CALL insertar_cliente(@out_value, '77665544', 'Ricardo', 'Herrera', 'Chavez', 130, 20, NULL, NULL, 'Av. Grau 741', 4);
 CALL insertar_cliente(@out_value, '55443322', 'Isabel', 'Vargas', 'Diaz', 110, 30, '12309845677', 'Almacen RST', 'Calle San Martin 555', 7);
 
-CALL insertar_cuenta_cliente(@id_cuenta, "juan.casas", "72947932", 1);
-CALL insertar_cuenta_cliente(@id_cuenta, "maria.perez", "12345678", 2);
-CALL insertar_cuenta_cliente(@id_cuenta, "luis.rodriguez", "87654321", 3);
-CALL insertar_cuenta_cliente(@id_cuenta, "ana.martinez", "11223344", 4);
-CALL insertar_cuenta_cliente(@id_cuenta, "carlos.diaz", "55667788", 5);
-CALL insertar_cuenta_cliente(@id_cuenta, "elena.sanchez", "99887766", 6);
-CALL insertar_cuenta_cliente(@id_cuenta, "jorge.mendoza", "44556677", 7);
-CALL insertar_cuenta_cliente(@id_cuenta, "patricia.flores", "33445566", 8);
-CALL insertar_cuenta_cliente(@id_cuenta, "miguel.gomez", "22114433", 9);
-CALL insertar_cuenta_cliente(@id_cuenta, "teresa.gutierrez", "66778899", 10);
-CALL insertar_cuenta_cliente(@id_cuenta, "ricardo.herrera", "77665544", 11);
-CALL insertar_cuenta_cliente(@id_cuenta, "isabel.vargas", "55443322", 12);
+CALL insertar_cuenta_cliente(@id_cuenta, "juan.casas", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 1);
+CALL insertar_cuenta_cliente(@id_cuenta, "maria.perez", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 2);
+CALL insertar_cuenta_cliente(@id_cuenta, "luis.rodriguez", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 3);
+CALL insertar_cuenta_cliente(@id_cuenta, "ana.martinez", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 4);
+CALL insertar_cuenta_cliente(@id_cuenta, "carlos.diaz", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 5);
+CALL insertar_cuenta_cliente(@id_cuenta, "elena.sanchez", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 6);
+CALL insertar_cuenta_cliente(@id_cuenta, "jorge.mendoza", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 7);
+CALL insertar_cuenta_cliente(@id_cuenta, "patricia.flores", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 8);
+CALL insertar_cuenta_cliente(@id_cuenta, "miguel.gomez", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 9);
+CALL insertar_cuenta_cliente(@id_cuenta, "teresa.gutierrez", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 10);
+CALL insertar_cuenta_cliente(@id_cuenta, "ricardo.herrera", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 11);
+CALL insertar_cuenta_cliente(@id_cuenta, "isabel.vargas", "$2a$12$PwHZZMrJxRQufDZmyZaK4eOoArAC2NdWokoEb2lEmbO77gxobBXa2", 12);
 
 -- ==============================================
 -- INSERTS DE ORDENCOMPRA, LINEAORDEN Y COMPROBANTE
