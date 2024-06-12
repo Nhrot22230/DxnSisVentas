@@ -20,6 +20,8 @@ namespace DxnSisventas.Views
     {
       Page.Title = "Ordenes de Compra";
       documentosAPIClient = new DocumentosAPIClient();
+            Session["idOrdenVenta"] = null;
+            Session["ordenCompra"] = null;
       CargarTabla("");
     }
 
@@ -119,7 +121,7 @@ namespace DxnSisventas.Views
 
     protected void BtnAgregar_Click(object sender, EventArgs e)
     {
-            Response.Redirect("/Views/OrdenCompraForm.aspx");
+            Response.Redirect("/Views/OrdenCompraForm.aspx?accion=new");
     }
 
     protected void BtnEditar_Click(object sender, EventArgs e)

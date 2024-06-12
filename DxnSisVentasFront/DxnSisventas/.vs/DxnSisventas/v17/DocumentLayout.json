@@ -1,5 +1,6 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\",
   "Documents": [
     {
@@ -27,10 +28,15 @@
       "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordencompra.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
+=======
+  "WorkspaceRootPath": "C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\",
+  "Documents": [],
+>>>>>>> main
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
+<<<<<<< HEAD
       "DocumentGroups": [
         {
           "DockedWidth": 285,
@@ -122,6 +128,9 @@
           ]
         }
       ]
+=======
+      "DocumentGroups": []
+>>>>>>> main
     }
   ]
 }

@@ -11,15 +11,14 @@ namespace DxnSisventas.Views
   public partial class PersonasEmpleadosForms : System.Web.UI.Page
   {
     private empleado empTemporal;
-    private PersonasAPIClient personasAPIClient;
+    private PersonasAPIClient personasAPIClient = new PersonasAPIClient();
 
     protected void Page_Init(object sender, EventArgs e)
     {
-      Page.Title = "Agregar Empleado";
-      personasAPIClient = new PersonasAPIClient();
       if (Session["empleadoEditar"] != null)
       {
         empTemporal = (empleado)Session["empleadoEditar"];
+        Page.Title = "Editar Empleado: " + empTemporal.idEmpleadoCadena;
         TxtId.Text = empTemporal.idEmpleadoCadena;
         TxtNombre.Text = empTemporal.nombre;
         TxtApellidoPat.Text = empTemporal.apellidoPaterno;
@@ -31,13 +30,9 @@ namespace DxnSisventas.Views
       }
       else
       {
+        Page.Title = "Nuevo Empleado";
         empTemporal = new empleado();
-        TxtId.Text = "";
-        TxtNombre.Text = "";
-        TxtApellidoPat.Text = "";
-        TxtApellidoMat.Text = "";
-        TxtDNI.Text = "";
-        TxtSueldo.Text = "";
+        LimpiarCampos();
         DropDownListRoles.Enabled = true;
       }
     }
@@ -49,13 +44,7 @@ namespace DxnSisventas.Views
 
     protected void BtnRegresar_Click(object sender, EventArgs e)
     {
-      TxtId.Text = "";
-      TxtNombre.Text = "";
-      TxtApellidoPat.Text = "";
-      TxtApellidoMat.Text = "";
-      TxtDNI.Text = "";
-      TxtSueldo.Text = "";
-      DropDownListRoles.Enabled = true;
+      LimpiarCampos();
       Response.Redirect("~/Views/PersonasEmpleados.aspx");
     }
 
@@ -68,15 +57,51 @@ namespace DxnSisventas.Views
       empTemporal.sueldo = Double.Parse(TxtSueldo.Text);
       empTemporal.rol = (rol)Enum.Parse(typeof(rol), DropDownListRoles.SelectedValue);
 
+      int res;
+
       if (empTemporal.idEmpleadoCadena == null)
       {
-        personasAPIClient.insertarEmpleado(empTemporal);
+        res = personasAPIClient.insertarEmpleado(empTemporal);
       }
       else
       {
-        personasAPIClient.actualizarEmpleado(empTemporal);
+        res = personasAPIClient.actualizarEmpleado(empTemporal);
       }
+
+      if (res == 0)
+      {
+        MostrarMensaje("Error al guardar el empleado", false);
+        return;
+      }
+
+      LimpiarCampos();
       Response.Redirect("~/Views/PersonasEmpleados.aspx");
+    }
+
+    private void MostrarMensaje(string mensaje, bool exito)
+    {
+      if (this.Master is Main master)
+      {
+        if (exito)
+        {
+          master.MostrarExito(mensaje);
+        }
+        else
+        {
+          master.MostrarError(mensaje);
+        }
+      }
+    }
+
+    private void LimpiarCampos()
+    {
+      Session["empleadoEditar"] = null;
+      TxtId.Text = "";
+      TxtNombre.Text = "";
+      TxtApellidoPat.Text = "";
+      TxtApellidoMat.Text = "";
+      TxtDNI.Text = "";
+      TxtSueldo.Text = "";
     }
   }
 }

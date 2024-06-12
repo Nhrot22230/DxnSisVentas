@@ -30,18 +30,19 @@ import pe.edu.pucp.dxnsisventas.utils.database.DBManager;
  * @author Candi
  */
 public class OrdenVentaMySQL implements OrdenVentaDAO {
-  private Connection con;
-  private CallableStatement cs;
-  private String sql;
-  private ResultSet rs;
 
-  private LineaOrdenMySQL lineaOrdenMySQL;
+    private Connection con;
+    private CallableStatement cs;
+    private String sql;
+    private ResultSet rs;
 
-  public OrdenVentaMySQL() {
-    lineaOrdenMySQL = new LineaOrdenMySQL();
-  }
+    private LineaOrdenMySQL lineaOrdenMySQL;
 
-  /*
+    public OrdenVentaMySQL() {
+        lineaOrdenMySQL = new LineaOrdenMySQL();
+    }
+
+    /*
   CREATE PROCEDURE listar_ordenes_venta(
     IN p_cadena VARCHAR(30)
   )
@@ -91,6 +92,7 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
         current.setEstado(EstadoOrden.valueOf(rs.getString("estado")));
         current.setFechaCreacion(rs.getDate("fecha_creacion"));
         current.setTotal(rs.getDouble("total"));
+        
         try{
           current.setFechaEntrega(rs.getDate("fecha_entrega"));
         }
@@ -192,11 +194,10 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
         System.err.println(ex.getMessage());
       }
     }
-
+    
     return ordenes;
   }
-
-  /*
+    /*
    * CREATE PROCEDURE insertar_orden_venta(
    * OUT p_id_orden_venta INT,
    * OUT p_id_orden INT,
@@ -217,54 +218,58 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
    * p_porcentaje_descuento);
    * SET p_id_orden_venta = LAST_INSERT_ID();
    * END$$
-   */
-  @Override
-  public int insertar(OrdenVenta ordenVenta) {
-    int resultado = 0;
-    try {
-      con = DBManager.getInstance().getConnection();
-      sql = "{CALL insertar_orden_venta(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
-      cs = con.prepareCall(sql);
-      cs.registerOutParameter("p_id_orden_venta", java.sql.Types.INTEGER);
-      cs.registerOutParameter("p_id_orden", java.sql.Types.INTEGER);
-      cs.setInt("p_id_cliente", ordenVenta.getCliente().getIdNumerico());
-      cs.setInt("p_id_empleado", ordenVenta.getEncargadoVenta().getIdEmpleadoNumerico());
-      cs.setString("p_estado", ordenVenta.getEstado().toString());
-      cs.setTimestamp("p_fecha_creacion", new Timestamp(ordenVenta.getFechaCreacion().getTime()));
-      cs.setString("p_tipo_venta", ordenVenta.getTipoVenta().toString());
-      cs.setString("p_metodo_pago", ordenVenta.getMetodoPago().toString());
-      cs.setDouble("p_porcentaje_descuento", ordenVenta.getPorcentajeDescuento());
-      cs.setDouble("p_total", ordenVenta.getTotal());
-      cs.executeUpdate();
-      ordenVenta.setIdOrdenVentaNumerico(cs.getInt("p_id_orden_venta"));
-      ordenVenta.setIdOrdenVentaCadena("OV" + String.format("%05d", ordenVenta.getIdOrdenVentaNumerico()));
-      ordenVenta.setIdOrden(cs.getInt("p_id_orden"));
-      resultado = ordenVenta.getIdOrdenVentaNumerico();
-    } catch (SQLException ex) {
-      System.out.println(ex.getMessage());
-    } finally {
-      try {
-        if (rs != null) {
-          rs.close();
+     */
+
+    @Override
+    public int insertar(OrdenVenta ordenVenta) {
+        int resultado = 0;
+        try {
+            con = DBManager.getInstance().getConnection();
+            sql = "{CALL insertar_orden_venta(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}"; // El nuevo procedimiento unificado
+            cs = con.prepareCall(sql);
+
+            cs.registerOutParameter("p_id_orden_venta", java.sql.Types.INTEGER);
+            cs.registerOutParameter("p_id_orden", java.sql.Types.INTEGER);
+            cs.setInt("p_id_cliente", ordenVenta.getCliente().getIdNumerico());
+            cs.setInt("p_id_empleado", ordenVenta.getEncargadoVenta().getIdEmpleadoNumerico());
+            cs.setString("p_estado", ordenVenta.getEstado().toString());
+            cs.setTimestamp("p_fecha_creacion", new Timestamp(ordenVenta.getFechaCreacion().getTime()));
+            cs.setString("p_tipo_venta", ordenVenta.getTipoVenta().toString());
+            cs.setString("p_metodo_pago", ordenVenta.getMetodoPago().toString());
+            cs.setDouble("p_porcentaje_descuento", ordenVenta.getPorcentajeDescuento());
+            cs.setDouble("p_total", ordenVenta.getTotal());
+
+            if (ordenVenta.getRepartidor() != null) {
+                cs.setInt("p_id_repartidor", ordenVenta.getRepartidor().getIdEmpleadoNumerico());
+            } else {
+                cs.setNull("p_id_repartidor", java.sql.Types.INTEGER);
+            }
+
+            cs.executeUpdate();
+            ordenVenta.setIdOrdenVentaNumerico(cs.getInt("p_id_orden_venta"));
+            ordenVenta.setIdOrdenVentaCadena("OV" + String.format("%05d", ordenVenta.getIdOrdenVentaNumerico()));
+            ordenVenta.setIdOrden(cs.getInt("p_id_orden"));
+            resultado = ordenVenta.getIdOrdenVentaNumerico();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (cs != null) cs.close();
+                if (con != null) con.close();
+            } catch (SQLException ex) {
+                System.err.println(ex.getMessage());
+            }
         }
-        if (cs != null) {
-          cs.close();
+
+        for (LineaOrden lineaOrden : ordenVenta.getLineasOrden()) {
+            lineaOrdenMySQL.insertar(lineaOrden, ordenVenta.getIdOrden());
         }
-        if (con != null) {
-          con.close();
-        }
-      } catch (SQLException ex) {
-        System.err.println(ex.getMessage());
-      }
+        return resultado;
     }
 
-    for (LineaOrden lineaOrden : ordenVenta.getLineasOrden()) {
-      lineaOrdenMySQL.insertar(lineaOrden, ordenVenta.getIdOrden());
-    }
-    return resultado;
-  }
 
-  /*
+    /*
    * CREATE PROCEDURE actualizar_orden_venta(
    * IN p_id_orden_venta INT,
    * IN p_id_orden INT,
@@ -290,44 +295,53 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
    * total = p_total
    * WHERE id_orden_venta = p_id_orden_venta;
    * END$$
-   */
-  @Override
-  public int modificar(OrdenVenta ordenVenta) {
-    int resultado = 0;
-    try {
-      con = DBManager.getInstance().getConnection();
-      sql = "{CALL actualizar_orden_venta(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
-      cs = con.prepareCall(sql);
-      cs.setInt("p_id_orden_venta", ordenVenta.getIdOrdenVentaNumerico());
-      cs.setInt("p_id_orden", ordenVenta.getIdOrden());
-      cs.setInt("p_id_cliente", ordenVenta.getCliente().getIdNumerico());
-      cs.setInt("p_id_empleado", ordenVenta.getEncargadoVenta().getIdEmpleadoNumerico());
-      cs.setString("p_estado", ordenVenta.getEstado().toString());
-      cs.setTimestamp("p_fecha_entrega", new Timestamp(ordenVenta.getFechaEntrega().getTime()));
-      cs.setString("p_tipo_venta", ordenVenta.getTipoVenta().toString());
-      cs.setString("p_metodo_pago", ordenVenta.getMetodoPago().toString());
-      cs.setDouble("p_porcentaje_descuento", ordenVenta.getPorcentajeDescuento());
-      cs.setDouble("p_total", ordenVenta.getTotal());
-      cs.executeUpdate();
-      resultado = cs.getInt("p_id_orden");
-    } catch (SQLException ex) {
-      System.out.println(ex.getMessage());
-    } finally {
-      try {
-        if (rs != null) {
-          rs.close();
-        }
-        if (cs != null) {
-          cs.close();
-        }
-        if (con != null) {
-          con.close();
-        }
-      } catch (SQLException ex) {
-        System.err.println(ex.getMessage());
-      }
-    }
-    return resultado;
-  }
-}
+     */
+    @Override
+    public int modificar(OrdenVenta ordenVenta) {
+        int resultado = 0;
+        try {
+            con = DBManager.getInstance().getConnection();
+            sql = "{CALL actualizar_orden_venta(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}"; // El nuevo procedimiento simplificado
+            cs = con.prepareCall(sql);
 
+            cs.setInt("p_id_orden_venta", ordenVenta.getIdOrdenVentaNumerico());
+            cs.setInt("p_id_orden", ordenVenta.getIdOrden());
+            cs.setInt("p_id_cliente", ordenVenta.getCliente().getIdNumerico());
+            cs.setInt("p_id_empleado", ordenVenta.getEncargadoVenta().getIdEmpleadoNumerico());
+            cs.setString("p_estado", ordenVenta.getEstado().toString());
+            cs.setTimestamp("p_fecha_entrega", new Timestamp(ordenVenta.getFechaEntrega().getTime()));
+            cs.setString("p_tipo_venta", ordenVenta.getTipoVenta().toString());
+            cs.setString("p_metodo_pago", ordenVenta.getMetodoPago().toString());
+            cs.setDouble("p_porcentaje_descuento", ordenVenta.getPorcentajeDescuento());
+            cs.setDouble("p_total", ordenVenta.getTotal());
+
+            // Usar 0 como valor especial para el parámetro opcional id_repartidor
+            if (ordenVenta.getRepartidor() != null) {
+                cs.setInt("p_id_repartidor", ordenVenta.getRepartidor().getIdEmpleadoNumerico());
+            } else {
+                cs.setInt("p_id_repartidor", 0);
+            }
+
+            cs.executeUpdate();
+            resultado = ordenVenta.getIdOrdenVentaNumerico();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (cs != null) {
+                    cs.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                System.err.println(ex.getMessage());
+            }
+        }
+        return resultado;
+    }
+
+}

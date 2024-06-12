@@ -9,12 +9,15 @@ import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import java.util.ArrayList;
 import pe.edu.pucp.dxnsisventas.documentos.controller.dao.ComprobanteDAO;
+import pe.edu.pucp.dxnsisventas.documentos.controller.dao.LineaOrdenDAO;
 import pe.edu.pucp.dxnsisventas.documentos.controller.dao.OrdenCompraDAO;
 import pe.edu.pucp.dxnsisventas.documentos.controller.dao.OrdenVentaDAO;
 import pe.edu.pucp.dxnsisventas.documentos.controller.mysql.ComprobanteMySQL;
+import pe.edu.pucp.dxnsisventas.documentos.controller.mysql.LineaOrdenMySQL;
 import pe.edu.pucp.dxnsisventas.documentos.controller.mysql.OrdenCompraMySQL;
 import pe.edu.pucp.dxnsisventas.documentos.controller.mysql.OrdenVentaMySQL;
 import pe.edu.pucp.dxnsisventas.documentos.model.Comprobante;
+import pe.edu.pucp.dxnsisventas.documentos.model.LineaOrden;
 import pe.edu.pucp.dxnsisventas.documentos.model.OrdenCompra;
 import pe.edu.pucp.dxnsisventas.documentos.model.OrdenVenta;
 import pe.edu.pucp.dxnsisventas.documentos.model.Orden;
@@ -28,11 +31,12 @@ public class DocumentosAPI {
   OrdenCompraDAO daoOrdenCompra;
   OrdenVentaDAO daoOrdenVenta;
   ComprobanteDAO daoComprobante;
-  
+  LineaOrdenDAO daoOrdenlv;
   public DocumentosAPI(){
     daoOrdenCompra = new OrdenCompraMySQL();
     daoOrdenVenta = new OrdenVentaMySQL();
     daoComprobante = new ComprobanteMySQL();
+    daoOrdenlv = new LineaOrdenMySQL();
   }
   /**
    * This is a sample web service operation
@@ -178,7 +182,32 @@ public class DocumentosAPI {
     return resultado;
   }
   
-  /* Ordenes */
+  @WebMethod(operationName = "eliminarLOV")
+  public int eliminarLOV(@WebParam(name = "id_orden") int orden, @WebParam(name = "id_producto")int producto){
+    int resultado = 0;
+    
+    try{
+      resultado = daoOrdenlv.eliminar(orden,producto );
+    } catch (Exception ex) {
+      System.err.println(ex.getMessage());
+    }
+    
+    return resultado;
+  }
+  
+  @WebMethod(operationName = "insertarLOV")
+  public int insertarLOV(@WebParam(name = "lvOrden")  LineaOrden lvOrden, @WebParam(name = "id_orden")int id_orden){
+    int resultado = 0;
+    
+    try{
+      resultado = daoOrdenlv.insertar(lvOrden,id_orden);
+    } catch (Exception ex) {
+      System.err.println(ex.getMessage());
+    }
+    
+    return resultado;
+  }
+    /* Ordenes */
   @WebMethod(operationName = "listarOrden")
   public ArrayList<Orden> listarOrden(@WebParam(name = "cadena") String txt){
     ArrayList<Orden> lista = null;

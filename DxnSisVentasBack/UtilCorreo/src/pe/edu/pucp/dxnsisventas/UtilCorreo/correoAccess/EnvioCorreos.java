@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
  * @author GianLuka
  */
 public class EnvioCorreos  implements CorreoDAO {
-    
+    //xd
    private static String emailFrom = "dxnstore0054lim@gmail.com";
     private static String passwordFrom = "zuxh osgd akol cgxg";
     private String emailTo;
@@ -54,7 +54,7 @@ public class EnvioCorreos  implements CorreoDAO {
         return 0;
     }
 
-    
+    //
     private void createEmail(String asunto,String contenido, String correo) {
         emailTo = correo;
         subject = asunto;

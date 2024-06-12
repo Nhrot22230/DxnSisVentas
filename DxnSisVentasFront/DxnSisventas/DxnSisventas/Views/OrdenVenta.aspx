@@ -23,24 +23,23 @@
       </div>
     </div>
     <div class="container row">
-      <!-- Panel de filtros -->
       <label class="col-sm-2 col-form-label">Inicio</label>
       <div class="col-sm-3">
-        <asp:TextBox ID="FechaInicio" runat="server" CssClass="form-control" type="date" AutoPostBack="true" OnTextChanged="FechaInicio_TextChanged"></asp:TextBox>
+        <asp:TextBox ID="FechaInicio" runat="server" CssClass="form-control"
+            type="date" AutoPostBack="true" OnTextChanged="FechaInicio_TextChanged"></asp:TextBox>
       </div>
-      <!-- Seleccionar el tipo de producto -->
       <label class="col-sm-2 col-form-label">Fin</label>
       <div class="col-sm-3">
-        <asp:TextBox ID="FechaFin" runat="server" CssClass="form-control" type="date" AutoPostBack="true" OnTextChanged="FechaFin_TextChanged"></asp:TextBox>
+        <asp:TextBox ID="FechaFin" runat="server"
+            CssClass="form-control" type="date" AutoPostBack="true"
+            OnTextChanged="FechaFin_TextChanged"></asp:TextBox>
       </div>
       <div class="p-3">
         <asp:LinkButton ID="BtnAgregar" runat="server" Text="<i class='fas fa-plus pe-2'> </i> Agregar"
           OnClick="BtnAgregar_Click" CssClass="btn btn-success" />
       </div>
     </div>
-    <!-- Gridview para mostrar los registros de la tabla Alumnos -->
     <div class="container row ">
-      <!-- PageSize para modificar cuantos registros se muestran por pagina -->
       <asp:GridView ID="GridVentas" runat="server" AutoGenerateColumns="false"
         AllowPaging="true" PageSize="5" OnPageIndexChanging="GridVentas_PageIndexChanging"
         CssClass="table table-hover table-responsive table-striped">
@@ -58,7 +57,6 @@
             <ItemTemplate>
               <asp:LinkButton ID="BtnEditar" runat="server" Text="<i class='fas fa-edit ps-2'>  </i>"
                 OnClick="BtnEditar_Click" CommandArgument='<%# Eval("idOrdenVentaNumerico") %>' />
-              <asp:LinkButton ID="EliminarORV" runat="server" Text="<i class='fas fa-trash ps-2'>  </i>" />
             </ItemTemplate>
           </asp:TemplateField>
         </Columns>
