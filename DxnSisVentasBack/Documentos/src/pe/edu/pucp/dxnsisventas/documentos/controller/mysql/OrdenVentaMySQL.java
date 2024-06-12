@@ -92,6 +92,7 @@ public class OrdenVentaMySQL implements OrdenVentaDAO {
         current.setEstado(EstadoOrden.valueOf(rs.getString("estado")));
         current.setFechaCreacion(rs.getDate("fecha_creacion"));
         current.setTotal(rs.getDouble("total"));
+        
         try{
           current.setFechaEntrega(rs.getDate("fecha_entrega"));
         }
