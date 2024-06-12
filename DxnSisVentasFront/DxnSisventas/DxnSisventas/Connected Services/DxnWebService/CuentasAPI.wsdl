@@ -5,35 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/WebServiceDXN/CuentasAPI?xsd=1" namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="insertarCuentaCliente">
-    <part name="parameters" element="tns:insertarCuentaCliente" />
+  <message name="hello">
+    <part name="parameters" element="tns:hello" />
   </message>
-  <message name="insertarCuentaClienteResponse">
-    <part name="parameters" element="tns:insertarCuentaClienteResponse" />
-  </message>
-  <message name="eliminarCuentaEmpleado">
-    <part name="parameters" element="tns:eliminarCuentaEmpleado" />
-  </message>
-  <message name="eliminarCuentaEmpleadoResponse">
-    <part name="parameters" element="tns:eliminarCuentaEmpleadoResponse" />
-  </message>
-  <message name="listarEmpleadosMasCuentas">
-    <part name="parameters" element="tns:listarEmpleadosMasCuentas" />
-  </message>
-  <message name="listarEmpleadosMasCuentasResponse">
-    <part name="parameters" element="tns:listarEmpleadosMasCuentasResponse" />
-  </message>
-  <message name="insertarCuentaEmpleado">
-    <part name="parameters" element="tns:insertarCuentaEmpleado" />
-  </message>
-  <message name="insertarCuentaEmpleadoResponse">
-    <part name="parameters" element="tns:insertarCuentaEmpleadoResponse" />
-  </message>
-  <message name="actualizarCuentaEmpleado">
-    <part name="parameters" element="tns:actualizarCuentaEmpleado" />
-  </message>
-  <message name="actualizarCuentaEmpleadoResponse">
-    <part name="parameters" element="tns:actualizarCuentaEmpleadoResponse" />
+  <message name="helloResponse">
+    <part name="parameters" element="tns:helloResponse" />
   </message>
   <message name="actualizarCuentaCliente">
     <part name="parameters" element="tns:actualizarCuentaCliente" />
@@ -41,11 +17,17 @@
   <message name="actualizarCuentaClienteResponse">
     <part name="parameters" element="tns:actualizarCuentaClienteResponse" />
   </message>
-  <message name="iniciarSesionCliente">
-    <part name="parameters" element="tns:iniciarSesionCliente" />
+  <message name="eliminarCuentaCliente">
+    <part name="parameters" element="tns:eliminarCuentaCliente" />
   </message>
-  <message name="iniciarSesionClienteResponse">
-    <part name="parameters" element="tns:iniciarSesionClienteResponse" />
+  <message name="eliminarCuentaClienteResponse">
+    <part name="parameters" element="tns:eliminarCuentaClienteResponse" />
+  </message>
+  <message name="eliminarCuentaEmpleado">
+    <part name="parameters" element="tns:eliminarCuentaEmpleado" />
+  </message>
+  <message name="eliminarCuentaEmpleadoResponse">
+    <part name="parameters" element="tns:eliminarCuentaEmpleadoResponse" />
   </message>
   <message name="listarClientesMasCuentas">
     <part name="parameters" element="tns:listarClientesMasCuentas" />
@@ -53,23 +35,23 @@
   <message name="listarClientesMasCuentasResponse">
     <part name="parameters" element="tns:listarClientesMasCuentasResponse" />
   </message>
-  <message name="eliminarCuentaCliente">
-    <part name="parameters" element="tns:eliminarCuentaCliente" />
+  <message name="insertarCuentaCliente">
+    <part name="parameters" element="tns:insertarCuentaCliente" />
   </message>
-  <message name="eliminarCuentaClienteResponse">
-    <part name="parameters" element="tns:eliminarCuentaClienteResponse" />
+  <message name="insertarCuentaClienteResponse">
+    <part name="parameters" element="tns:insertarCuentaClienteResponse" />
   </message>
-  <message name="listarCuentaCliente">
-    <part name="parameters" element="tns:listarCuentaCliente" />
+  <message name="actualizarCuentaEmpleado">
+    <part name="parameters" element="tns:actualizarCuentaEmpleado" />
   </message>
-  <message name="listarCuentaClienteResponse">
-    <part name="parameters" element="tns:listarCuentaClienteResponse" />
+  <message name="actualizarCuentaEmpleadoResponse">
+    <part name="parameters" element="tns:actualizarCuentaEmpleadoResponse" />
   </message>
-  <message name="iniciarSesionEmpleado">
-    <part name="parameters" element="tns:iniciarSesionEmpleado" />
+  <message name="listarEmpleadosMasCuentas">
+    <part name="parameters" element="tns:listarEmpleadosMasCuentas" />
   </message>
-  <message name="iniciarSesionEmpleadoResponse">
-    <part name="parameters" element="tns:iniciarSesionEmpleadoResponse" />
+  <message name="listarEmpleadosMasCuentasResponse">
+    <part name="parameters" element="tns:listarEmpleadosMasCuentasResponse" />
   </message>
   <message name="listarCuentaEmpleado">
     <part name="parameters" element="tns:listarCuentaEmpleado" />
@@ -77,105 +59,87 @@
   <message name="listarCuentaEmpleadoResponse">
     <part name="parameters" element="tns:listarCuentaEmpleadoResponse" />
   </message>
-  <message name="hello">
-    <part name="parameters" element="tns:hello" />
+  <message name="iniciarSesionEmpleado">
+    <part name="parameters" element="tns:iniciarSesionEmpleado" />
   </message>
-  <message name="helloResponse">
-    <part name="parameters" element="tns:helloResponse" />
+  <message name="iniciarSesionEmpleadoResponse">
+    <part name="parameters" element="tns:iniciarSesionEmpleadoResponse" />
+  </message>
+  <message name="insertarCuentaEmpleado">
+    <part name="parameters" element="tns:insertarCuentaEmpleado" />
+  </message>
+  <message name="insertarCuentaEmpleadoResponse">
+    <part name="parameters" element="tns:insertarCuentaEmpleadoResponse" />
+  </message>
+  <message name="iniciarSesionCliente">
+    <part name="parameters" element="tns:iniciarSesionCliente" />
+  </message>
+  <message name="iniciarSesionClienteResponse">
+    <part name="parameters" element="tns:iniciarSesionClienteResponse" />
+  </message>
+  <message name="listarCuentaCliente">
+    <part name="parameters" element="tns:listarCuentaCliente" />
+  </message>
+  <message name="listarCuentaClienteResponse">
+    <part name="parameters" element="tns:listarCuentaClienteResponse" />
   </message>
   <portType name="CuentasAPI">
-    <operation name="insertarCuentaCliente">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaClienteRequest" message="tns:insertarCuentaCliente" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaClienteResponse" message="tns:insertarCuentaClienteResponse" />
-    </operation>
-    <operation name="eliminarCuentaEmpleado">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaEmpleadoRequest" message="tns:eliminarCuentaEmpleado" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaEmpleadoResponse" message="tns:eliminarCuentaEmpleadoResponse" />
-    </operation>
-    <operation name="listarEmpleadosMasCuentas">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarEmpleadosMasCuentasRequest" message="tns:listarEmpleadosMasCuentas" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarEmpleadosMasCuentasResponse" message="tns:listarEmpleadosMasCuentasResponse" />
-    </operation>
-    <operation name="insertarCuentaEmpleado">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaEmpleadoRequest" message="tns:insertarCuentaEmpleado" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaEmpleadoResponse" message="tns:insertarCuentaEmpleadoResponse" />
-    </operation>
-    <operation name="actualizarCuentaEmpleado">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/actualizarCuentaEmpleadoRequest" message="tns:actualizarCuentaEmpleado" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/actualizarCuentaEmpleadoResponse" message="tns:actualizarCuentaEmpleadoResponse" />
+    <operation name="hello">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/helloRequest" message="tns:hello" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/helloResponse" message="tns:helloResponse" />
     </operation>
     <operation name="actualizarCuentaCliente">
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/actualizarCuentaClienteRequest" message="tns:actualizarCuentaCliente" />
       <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/actualizarCuentaClienteResponse" message="tns:actualizarCuentaClienteResponse" />
     </operation>
-    <operation name="iniciarSesionCliente">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionClienteRequest" message="tns:iniciarSesionCliente" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionClienteResponse" message="tns:iniciarSesionClienteResponse" />
+    <operation name="eliminarCuentaCliente">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaClienteRequest" message="tns:eliminarCuentaCliente" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaClienteResponse" message="tns:eliminarCuentaClienteResponse" />
+    </operation>
+    <operation name="eliminarCuentaEmpleado">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaEmpleadoRequest" message="tns:eliminarCuentaEmpleado" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaEmpleadoResponse" message="tns:eliminarCuentaEmpleadoResponse" />
     </operation>
     <operation name="listarClientesMasCuentas">
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarClientesMasCuentasRequest" message="tns:listarClientesMasCuentas" />
       <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarClientesMasCuentasResponse" message="tns:listarClientesMasCuentasResponse" />
     </operation>
-    <operation name="eliminarCuentaCliente">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaClienteRequest" message="tns:eliminarCuentaCliente" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/eliminarCuentaClienteResponse" message="tns:eliminarCuentaClienteResponse" />
+    <operation name="insertarCuentaCliente">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaClienteRequest" message="tns:insertarCuentaCliente" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaClienteResponse" message="tns:insertarCuentaClienteResponse" />
     </operation>
-    <operation name="listarCuentaCliente">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarCuentaClienteRequest" message="tns:listarCuentaCliente" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarCuentaClienteResponse" message="tns:listarCuentaClienteResponse" />
+    <operation name="actualizarCuentaEmpleado">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/actualizarCuentaEmpleadoRequest" message="tns:actualizarCuentaEmpleado" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/actualizarCuentaEmpleadoResponse" message="tns:actualizarCuentaEmpleadoResponse" />
     </operation>
-    <operation name="iniciarSesionEmpleado">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionEmpleadoRequest" message="tns:iniciarSesionEmpleado" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionEmpleadoResponse" message="tns:iniciarSesionEmpleadoResponse" />
+    <operation name="listarEmpleadosMasCuentas">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarEmpleadosMasCuentasRequest" message="tns:listarEmpleadosMasCuentas" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarEmpleadosMasCuentasResponse" message="tns:listarEmpleadosMasCuentasResponse" />
     </operation>
     <operation name="listarCuentaEmpleado">
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarCuentaEmpleadoRequest" message="tns:listarCuentaEmpleado" />
       <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarCuentaEmpleadoResponse" message="tns:listarCuentaEmpleadoResponse" />
     </operation>
-    <operation name="hello">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/helloRequest" message="tns:hello" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/helloResponse" message="tns:helloResponse" />
+    <operation name="iniciarSesionEmpleado">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionEmpleadoRequest" message="tns:iniciarSesionEmpleado" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionEmpleadoResponse" message="tns:iniciarSesionEmpleadoResponse" />
+    </operation>
+    <operation name="insertarCuentaEmpleado">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaEmpleadoRequest" message="tns:insertarCuentaEmpleado" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/insertarCuentaEmpleadoResponse" message="tns:insertarCuentaEmpleadoResponse" />
+    </operation>
+    <operation name="iniciarSesionCliente">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionClienteRequest" message="tns:iniciarSesionCliente" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/iniciarSesionClienteResponse" message="tns:iniciarSesionClienteResponse" />
+    </operation>
+    <operation name="listarCuentaCliente">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarCuentaClienteRequest" message="tns:listarCuentaCliente" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/CuentasAPI/listarCuentaClienteResponse" message="tns:listarCuentaClienteResponse" />
     </operation>
   </portType>
   <binding name="CuentasAPIPortBinding" type="tns:CuentasAPI">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="insertarCuentaCliente">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="eliminarCuentaEmpleado">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarEmpleadosMasCuentas">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarCuentaEmpleado">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="actualizarCuentaEmpleado">
+    <operation name="hello">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -193,7 +157,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="iniciarSesionCliente">
+    <operation name="eliminarCuentaCliente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarCuentaEmpleado">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -211,7 +184,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarCuentaCliente">
+    <operation name="insertarCuentaCliente">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -220,7 +193,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarCuentaCliente">
+    <operation name="actualizarCuentaEmpleado">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -229,7 +202,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="iniciarSesionEmpleado">
+    <operation name="listarEmpleadosMasCuentas">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -247,7 +220,34 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="hello">
+    <operation name="iniciarSesionEmpleado">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarCuentaEmpleado">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="iniciarSesionCliente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarCuentaCliente">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

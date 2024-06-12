@@ -27,6 +27,17 @@ namespace DxnSisventas.Views
             lineasEliminadas = new List<lineaOrden>();
             lineasAgregadas = new List<lineaOrden>();
         }
+
+    protected void Page_Init(object sender, EventArgs e)
+        {
+      if ( Session["ordenCompra"] == null)
+      {
+        lineasOrden.Clear();
+        lineasAgregadas.Clear();
+        lineasEliminadas.Clear();
+      }
+    }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             apiProducto = new ProductosAPIClient();
