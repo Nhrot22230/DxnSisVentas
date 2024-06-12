@@ -10,137 +10,157 @@ using System.Web.UI.WebControls;
 
 namespace DxnSisventas.Views
 {
-  public partial class Comprobantes : System.Web.UI.Page
-  {
-    private DocumentosAPIClient documentosAPIClient;
-    private BindingList<comprobante> BlComprobantes;
-
-    protected void Page_Init(object sender, EventArgs e)
+    public partial class Comprobantes : System.Web.UI.Page
     {
-      Page.Title = "Comprobantes";
-      documentosAPIClient = new DocumentosAPIClient();
-      CargarTabla("");
-    }
+        private DocumentosAPIClient documentosAPIClient;
+        private BindingList<comprobante> BlComprobantes;
+        private BindingList<comprobante> BlComprobantesFiltrado;
 
-    protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void BtnBuscar_Click(object sender, EventArgs e)
-    {
-      bool flag = CargarTabla(TxtBuscar.Text);
-      if (flag)
-      {
-        MostrarMensaje($"Se encontraron {BlComprobantes.Count} comprobantes", flag);
-      }
-      else
-      {
-        MostrarMensaje("No se encontraron comprobantes", flag);
-      }
-    }
-
-    protected void BtnAgregar_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("/Views/ComprobantesForm.aspx");
-    }
-
-    protected void BtnEditar_Click(object sender, EventArgs e)
-    {
-      int idComprobante = int.Parse(((LinkButton)sender).CommandArgument);
-        Session["IdComprobante"] = idComprobante;
-      comprobante comp = BlComprobantes.FirstOrDefault(c => c.idComprobanteNumerico == idComprobante);
-
-      bool flag = comp.ordenAsociada is ordenVenta;
-
-      if (flag)
-      {
-            Response.Redirect("/Views/ComprobantesForm.aspx?accion=update");
-            MostrarMensaje("La orden asociada es de venta", true);
-      }
-      else
-      {
-        MostrarMensaje("La orden asociada es de compra", false);
-      }
-    }
-
-    protected void BtnEliminar_Click(object sender, EventArgs e)
-    {
-      int idComprobante = int.Parse(((LinkButton)sender).CommandArgument);
-      int res = documentosAPIClient.eliminarComprobante(idComprobante);
-      if (res == 1)
-      {
-        MostrarMensaje("Comprobante eliminado", true);
-      }
-      else
-      {
-        MostrarMensaje("No se pudo eliminar el comprobante", false);
-      }
-      CargarTabla("");
-    }
-
-    protected void GridComprobantes_PageIndexChanging(object sender, GridViewPageEventArgs e)
-    {
-      GridComprobantes.PageIndex = e.NewPageIndex;
-      GridBind();
-    }
-
-    private void GridBind()
-    {
-      GridComprobantes.DataSource = BlComprobantes;
-      GridComprobantes.DataBind();
-    }
-
-    private bool CargarTabla(string search)
-    {
-      comprobante[] lista = documentosAPIClient.listarComprobante(search);
-      if (lista == null)
-      {
-        return false;
-      }
-      BlComprobantes = new BindingList<comprobante>(lista.ToList());
-      GridBind();
-      return true;
-    }
-
-    private void MostrarMensaje(string mensaje, bool exito)
-    {
-      if (this.Master is Main master)
-      {
-        if (exito)
+        protected void Page_Init(object sender, EventArgs e)
         {
-          master.MostrarExito(mensaje);
+            Page.Title = "Comprobantes";
+            documentosAPIClient = new DocumentosAPIClient();
+            CargarTabla("");
+            //AplicarFiltro();
+            //GridBind();
         }
-        else
+
+        protected void Page_Load(object sender, EventArgs e)
         {
-          master.MostrarError(mensaje);
+
         }
-      }
+
+        protected void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            bool flag = CargarTabla(TxtBuscar.Text);
+            if (flag)
+            {
+                MostrarMensaje($"Se encontraron {BlComprobantes.Count} comprobantes", flag);
+            }
+            else
+            {
+                MostrarMensaje("No se encontraron comprobantes", flag);
+            }
+        }
+
+        protected void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Views/ComprobantesForm.aspx");
+        }
+
+        protected void BtnEditar_Click(object sender, EventArgs e)
+        {
+            int idComprobante = int.Parse(((LinkButton)sender).CommandArgument);
+            Session["IdComprobante"] = idComprobante;
+            comprobante comp = BlComprobantes.FirstOrDefault(c => c.idComprobanteNumerico == idComprobante);
+
+            bool flag = comp.ordenAsociada is ordenVenta;
+
+            if (flag)
+            {
+                Response.Redirect("/Views/ComprobantesForm.aspx?accion=update");
+                MostrarMensaje("La orden asociada es de venta", true);
+            }
+            else
+            {
+                MostrarMensaje("La orden asociada es de compra", false);
+            }
+        }
+
+        protected void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            int idComprobante = int.Parse(((LinkButton)sender).CommandArgument);
+            int res = documentosAPIClient.eliminarComprobante(idComprobante);
+            if (res == 1)
+            {
+                MostrarMensaje("Comprobante eliminado", true);
+            }
+            else
+            {
+                MostrarMensaje("No se pudo eliminar el comprobante", false);
+            }
+            CargarTabla("");
+        }
+
+        protected void GridComprobantes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridComprobantes.PageIndex = e.NewPageIndex;
+            GridBind();
+        }
+
+        private void GridBind()
+        {
+            GridComprobantes.DataSource = BlComprobantesFiltrado;
+            GridComprobantes.DataBind();
+        }
+
+        private bool CargarTabla(string search)
+        {
+            comprobante[] lista = documentosAPIClient.listarComprobante(search);
+            if (lista == null) return false;
+
+            BlComprobantes = new BindingList<comprobante>(lista.ToList());
+            AplicarFiltro();
+            GridBind();
+            return true;
+        }
+
+
+        protected void DropDownListTipoComprobante_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AplicarFiltro();
+            GridBind();
+        }
+
+        private void AplicarFiltro()
+        {
+            if (DropDownListTipoComprobante.SelectedValue == "Todos")
+            {
+                BlComprobantesFiltrado = BlComprobantes;
+                return;
+            }
+
+            tipoComprobante tipoSelected = (tipoComprobante)Enum.Parse(typeof(tipoComprobante), DropDownListTipoComprobante.SelectedValue);
+            BlComprobantesFiltrado = new BindingList<comprobante>(BlComprobantes.Where(e => e.tipoComprobante == tipoSelected).ToList());
+        }
+        private void MostrarMensaje(string mensaje, bool exito)
+        {
+            if (this.Master is Main master)
+            {
+                if (exito)
+                {
+                    master.MostrarExito(mensaje);
+                }
+                else
+                {
+                    master.MostrarError(mensaje);
+                }
+            }
+        }
+
+        protected void GridComprobantes_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                // Obtener el objeto de datos actual
+                comprobante comprobante = (comprobante)e.Row.DataItem;
+
+                // Buscar el Label en el TemplateField
+                Label lblOrdenVentaCompra = (Label)e.Row.FindControl("LblOrdenVentaCompra");
+
+                if (comprobante.ordenAsociada is ordenVenta venta)
+                {
+                    lblOrdenVentaCompra.Text = venta.idOrdenVentaCadena;
+                }
+                else if (comprobante.ordenAsociada is ordenCompra compra)
+                {
+                    lblOrdenVentaCompra.Text = compra.idOrdenCompraCadena;
+                }
+                else
+                {
+                    lblOrdenVentaCompra.Text = "N/A";
+                }
+            }
+        }
     }
-
-    protected void GridComprobantes_RowDataBound(object sender, GridViewRowEventArgs e)
-    {
-      if (e.Row.RowType == DataControlRowType.DataRow)
-      {
-        // Obtener el objeto de datos actual
-        comprobante comprobante = (comprobante)e.Row.DataItem;
-
-        // Buscar el Label en el TemplateField
-        Label lblOrdenVentaCompra = (Label)e.Row.FindControl("LblOrdenVentaCompra");
-
-        if (comprobante.ordenAsociada is ordenVenta venta)
-        {
-          lblOrdenVentaCompra.Text = venta.idOrdenVentaCadena;
-        }
-        else if (comprobante.ordenAsociada is ordenCompra compra)
-        {
-          lblOrdenVentaCompra.Text = compra.idOrdenCompraCadena;
-        }
-        else
-        {
-          lblOrdenVentaCompra.Text = "N/A";
-        }
-      }
-    }
-  }
 }

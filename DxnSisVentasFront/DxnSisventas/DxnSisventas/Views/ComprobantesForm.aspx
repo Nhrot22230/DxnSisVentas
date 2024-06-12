@@ -58,7 +58,7 @@
                             <div class="col-sm-2">
                                 <asp:LinkButton ID="BtnBuscar" runat="server"
                                     CssClass="btn btn-primary" Text="<i class='fas fa-solid fa-search pe-2'></i> Buscar" 
-                                    OnClick="BtnBuscar_Click"  ></asp:LinkButton>
+                                    OnClick="BtnBuscar_Click" ></asp:LinkButton>
                             </div>
                             <label for="LbFecha" class="col-sm-2 col-form-label">Fecha Orden</label>
                             <div class="col-sm-4">
@@ -93,7 +93,7 @@
                                 <asp:Label CssClass="form-label" runat="server" Text="Ingresar código de la orden:"></asp:Label>
                             </div>
                             <div class="col-sm-3">
-                                <asp:TextBox CssClass="form-control" ID="txtCodOrdenModal" runat="server" OnTextChanged="txtCodOrdenModal_TextChanged"></asp:TextBox>
+                                <asp:TextBox CssClass="form-control" ID="txtCodOrdenModal" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-sm-3">
                                 <asp:LinkButton ID="BtnBuscarModal" runat="server" CssClass="btn btn-info" Text="<i class='fas fa-solid fa-search pe-2'></i> Buscar" OnClick="BtnBuscarModal_Click" />

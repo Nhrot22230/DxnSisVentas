@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/cesar/Documents/GitHub/DxnSisVentas/DxnSisVentasBack/Documentos/src/pe/edu/pucp/dxnsisventas/documentos/controller/dao/ComprobanteDAO.java</file>
-            <file>file:/C:/Users/cesar/Documents/GitHub/DxnSisVentas/DxnSisVentasBack/Documentos/src/pe/edu/pucp/dxnsisventas/documentos/model/Comprobante.java</file>
-            <file>file:/C:/Users/cesar/Documents/GitHub/DxnSisVentas/DxnSisVentasBack/Documentos/src/pe/edu/pucp/dxnsisventas/documentos/controller/mysql/OrdenCompraMySQL.java</file>
-            <file>file:/C:/Users/cesar/Documents/GitHub/DxnSisVentas/DxnSisVentasBack/Documentos/src/pe/edu/pucp/dxnsisventas/documentos/model/OrdenCompra.java</file>
-            <file>file:/C:/Users/cesar/Documents/GitHub/DxnSisVentas/DxnSisVentasBack/Documentos/src/pe/edu/pucp/dxnsisventas/documentos/controller/mysql/ComprobanteMySQL.java</file>
-            <file>file:/C:/Users/cesar/Documents/GitHub/DxnSisVentas/DxnSisVentasBack/Documentos/src/pe/edu/pucp/dxnsisventas/documentos/model/OrdenVenta.java</file>
-            <file>file:/C:/Users/cesar/Documents/GitHub/DxnSisVentas/DxnSisVentasBack/Documentos/src/pe/edu/pucp/dxnsisventas/documentos/model/Orden.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

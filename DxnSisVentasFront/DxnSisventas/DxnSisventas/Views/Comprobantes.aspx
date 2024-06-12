@@ -22,6 +22,15 @@
         </div>
       </div>
       <div class="container row">
+        <label class="col-sm-2 col-form-label">Filtrar por Tipo de Comprobante:</label>
+        <!-- Seleccionar el tipo de producto -->
+        <div class="col-sm-3">
+          <asp:DropDownList AutoPostBack="true" ID="DropDownListTipoComprobante" runat="server" CssClass="form-select" OnSelectedIndexChanged="DropDownListTipoComprobante_SelectedIndexChanged">
+            <asp:ListItem Text="Todos" Value="Todos"></asp:ListItem>
+            <asp:ListItem Text="Boleta" Value="BoletaSimple"></asp:ListItem>
+            <asp:ListItem Text="Factura" Value="Factura"></asp:ListItem>
+          </asp:DropDownList>
+        </div>
         <div class="text p-3">
           <asp:LinkButton ID="BtnAgregar" runat="server" Text="<i class='fas fa-plus pe-2'> </i> Agregar"
             OnClick="BtnAgregar_Click" CssClass="btn btn-success" />
@@ -45,8 +54,6 @@
             <asp:BoundField DataField="ordenAsociada.total" HeaderText="Total" />
             <asp:TemplateField HeaderText="">
               <ItemTemplate>
-                  <asp:LinkButton ID="LinkButton1" runat="server" Text="<i class='fas fa- ps-2'>  </i>"
-                    OnClick="BtnEditar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />
                 <%-- <asp:LinkButton ID="BtnEditar" runat="server" Text="<i class='fas fa-edit ps-2'>  </i>"
                   OnClick="BtnEditar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />--%>
                 <asp:LinkButton ID="BtnEliminar" runat="server" Text="<i class='fas fa-trash ps-2'>  </i>"
