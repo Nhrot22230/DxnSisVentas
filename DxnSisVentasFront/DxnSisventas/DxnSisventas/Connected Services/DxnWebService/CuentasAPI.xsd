@@ -204,16 +204,6 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="hello">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="name" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="helloResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="eliminarCuentaCliente">
     <xs:sequence>
       <xs:element name="id_cliente" type="xs:int" />
@@ -232,14 +222,6 @@
   <xs:complexType name="insertarCuentaClienteResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarCuentaEmpleado">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarCuentaEmpleadoResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cuentaEmpleado" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="rol">

@@ -27,17 +27,6 @@ namespace DxnSisventas.Views
             lineasEliminadas = new List<lineaOrden>();
             lineasAgregadas = new List<lineaOrden>();
         }
-
-    protected void Page_Init(object sender, EventArgs e)
-        {
-      if ( Session["ordenCompra"] == null)
-      {
-        lineasOrden.Clear();
-        lineasAgregadas.Clear();
-        lineasEliminadas.Clear();
-      }
-    }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             apiProducto = new ProductosAPIClient();
@@ -57,10 +46,10 @@ namespace DxnSisventas.Views
                 if (Session["ordenCompra"] != null)
                     ordenCompra = (ordenCompra)Session["ordenCompra"];
                 else
-                
+
                     ordenCompra = apiOrdenCompra.listarOrdenCompra(idOrdenVenta.ToString()).FirstOrDefault(x => x.idOrdenCompraNumerico == idOrdenVenta);
                 //denCompra.lineasOrden = apiOrdenCompra.listarLineaOrden(ordenCompra.idOrden);
-                
+
                 Session["lineasOrdenVenta"] = ordenCompra.lineasOrden;
                 lineasOrden = ordenCompra.lineasOrden.ToList();
                 mostrarDatos();
@@ -69,7 +58,7 @@ namespace DxnSisventas.Views
             {
                 if (accion != null && accion == "new" && Session["idOrdenVenta"] == null)
                     btnEnviar.Enabled = false;
-                    lineasAgregadas.Clear();
+                lineasAgregadas.Clear();
                 ordenCompra = new ordenCompra();
                 if (!IsPostBack)
                 {
@@ -80,7 +69,7 @@ namespace DxnSisventas.Views
                 }
             }
             if (Session["lineasOrdenVenta"] == null) { }
-  
+
             //ordenCompra.lineasOrden = new BindingList<lineaOrden>();
             else
                 gvLineasOrdenVenta.DataSource = lineasOrden;
@@ -102,7 +91,8 @@ namespace DxnSisventas.Views
                 btnBuscarProducto.Enabled = true;
 
             }
-            else { 
+            else
+            {
                 btnGuardar.Enabled = false;
                 lbAgregarLOV.Enabled = false;
                 txtCantidadUnidades.Enabled = false;
@@ -114,7 +104,7 @@ namespace DxnSisventas.Views
 
         protected void BtnRegresar_Click(object sender, EventArgs e)
         {
-          
+
             Response.Redirect("/Views/OrdenesCompra.aspx");
 
         }
@@ -160,13 +150,12 @@ namespace DxnSisventas.Views
         }
 
 
-        protected void gvOrdenes_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void gvProductos_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                //e.Row.Cells[1].Text = (DataBinder.Eval(e.Row.DataItem, "idOrdenVen")).ToString();
-                e.Row.Cells[1].Text = "";
-                e.Row.Cells[2].Text = ((DateTime)DataBinder.Eval(e.Row.DataItem, "fechaCreacion")).ToString();
+                e.Row.Cells[1].Text = ((double)DataBinder.Eval(e.Row.DataItem, "precioUnitario")).ToString("N2");
+
             }
         }
 
@@ -190,19 +179,19 @@ namespace DxnSisventas.Views
                 MostrarMensaje("No puede añadir sin haber seleccionado un producto...", Session["producto"] == null);
                 return;
             }
-            
-            if (txtCantidadUnidades.Text.Trim().Equals("") || int.Parse(txtCantidadUnidades.Text.ToString())<=0)
+
+            if (txtCantidadUnidades.Text.Trim().Equals("") || int.Parse(txtCantidadUnidades.Text.ToString()) <= 0)
             {
                 MostrarMensaje("Debe ingresar una cantidad de unidades correcta...", txtCantidadUnidades.Text.Trim().Equals("") || int.Parse(txtCantidadUnidades.Text.ToString()) <= 0);
                 return;
             }
-           
+
 
             lineaOrden lov = new lineaOrden();
             lov.producto = (producto)Session["producto"];
             lov.cantidad = Int32.Parse(txtCantidadUnidades.Text);
             lov.subtotal = lov.producto.precioUnitario * lov.cantidad;
-            if(lineasOrden.Find(x=> x.producto.idProductoNumerico == lov.producto.idProductoNumerico) != null)
+            if (lineasOrden.Find(x => x.producto.idProductoNumerico == lov.producto.idProductoNumerico) != null)
             {
 
                 MostrarMensaje("El producto ya esta registrado, elimine para agregar", lineasOrden.Find(x => x.producto.idProductoNumerico == lov.producto.idProductoNumerico) != null);
@@ -218,12 +207,12 @@ namespace DxnSisventas.Views
             if (Request.QueryString["accion"] == "ver")
             {
                 lineasAgregadas.Add(lov);
-                
-                ordenCompra.lineasOrden = lineasOrden.ToArray ();
+
+                ordenCompra.lineasOrden = lineasOrden.ToArray();
                 Session["ordenCompra"] = ordenCompra;
             }
 
-                calcularTotal();
+            calcularTotal();
 
             txtIDProducto.Text = "";
             txtNombreProducto.Text = "";
@@ -234,7 +223,7 @@ namespace DxnSisventas.Views
 
         protected void btnEliminarProducto_Click(object sender, EventArgs e)
         {
-            if(ordenCompra.estado.ToString() == estadoOrden.Entregado.ToString())
+            if (ordenCompra.estado.ToString() == estadoOrden.Entregado.ToString())
             {
                 MostrarMensaje("La orden ya ha sido Entregada...", ordenCompra.estado.ToString() == estadoOrden.Entregado.ToString());
                 return;
@@ -246,20 +235,20 @@ namespace DxnSisventas.Views
 
             int id = int.Parse(args[0]);
             int cantidad = int.Parse(args[1]);
-            lineaOrden linea = lineasOrden.Find(l => l.producto.idProductoNumerico == id && l.cantidad == cantidad);    
+            lineaOrden linea = lineasOrden.Find(l => l.producto.idProductoNumerico == id && l.cantidad == cantidad);
             lineasOrden.Remove(linea);
             if (Request.QueryString["accion"] == "ver")
                 ordenCompra.lineasOrden = lineasOrden.ToArray();
-                Session["ordenCompra"]=ordenCompra;
-                if (lineasAgregadas.Find(l => l.producto.idProductoNumerico == id && l.cantidad == cantidad) != null)
-                {
+            Session["ordenCompra"] = ordenCompra;
+            if (lineasAgregadas.Find(l => l.producto.idProductoNumerico == id && l.cantidad == cantidad) != null)
+            {
                 lineasAgregadas.Remove(linea);
-                 }
-                else
-                {
+            }
+            else
+            {
                 lineasEliminadas.Add(linea);
-                }
-                
+            }
+
             calcularTotal();
             Response.Redirect(Request.Url.AbsoluteUri);
         }
@@ -293,8 +282,8 @@ namespace DxnSisventas.Views
                 ordenCompra.lineasOrden = lineasOrden.ToArray();
                 ordenCompra.fechaCreacionSpecified = true;
                 ordenCompra.estadoSpecified = true;
-                ordenCompra.fechaRecepcionSpecified= true;
-                foreach(lineaOrden x in lineasEliminadas)
+                ordenCompra.fechaRecepcionSpecified = true;
+                foreach (lineaOrden x in lineasEliminadas)
                 {
                     apiOrdenCompra.eliminarLOV(ordenCompra.idOrden, x.producto.idProductoNumerico);
 
@@ -307,9 +296,10 @@ namespace DxnSisventas.Views
                 apiOrdenCompra.actualizarOrdenCompra(ordenCompra);
                 lineasEliminadas.Clear();
                 lineasAgregadas.Clear();
-                
+
             }
-            else { 
+            else
+            {
 
                 apiOrdenCompra.insertarOrdenCompra(orden);
             }
@@ -319,8 +309,8 @@ namespace DxnSisventas.Views
 
         protected void btnRegresar_Click1(object sender, EventArgs e)
         {
-            lineasEliminadas.Clear ();
-            Session["ordenCompra"]=null;
+            lineasEliminadas.Clear();
+            Session["ordenCompra"] = null;
             Session["idOrdenVenta"] = null;
             lineasOrden.Clear();
             lineasAgregadas.Clear();
@@ -339,6 +329,8 @@ namespace DxnSisventas.Views
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
+
+
             string script = "window.onload = function() { showModalFormEnviar() };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
@@ -356,7 +348,7 @@ namespace DxnSisventas.Views
             foreach (lineaOrden x in lineasOrden)
             {
                 contenido += "<tr>";
-                contenido += "<td style='border: 1px solid #000; padding: 8px; text-align: center;'>" + x.producto.idProductoNumerico.ToString()+ "</td>";
+                contenido += "<td style='border: 1px solid #000; padding: 8px; text-align: center;'>" + x.producto.idProductoNumerico.ToString() + "</td>";
                 contenido += "<td style='border: 1px solid #000; padding: 8px;'>" + x.producto.nombre.ToString() + "</td>";
                 contenido += "<td style='border: 1px solid #000; padding: 8px; text-align: center;'>" + x.cantidad.ToString() + "</td>";
                 contenido += "<td style='border: 1px solid #000; padding: 8px; text-align: center;'>" + x.subtotal.ToString("N2") + "</td>";
@@ -424,13 +416,13 @@ namespace DxnSisventas.Views
 
                 apiOrdenCompra.insertarOrdenCompra(orden);
             }
-           
+
 
             //////////////a partir de aca se genera el correo///////////////////////////////////////////
             apiCorreo.enviarCorreoWeb(asunto, contenido, correo);
-            ordenCompra.estadoSpecified= true;
+            ordenCompra.estadoSpecified = true;
             ordenCompra.estado = estadoOrden.Entregado;
-            ordenCompra.fechaRecepcionSpecified= true;
+            ordenCompra.fechaRecepcionSpecified = true;
             ordenCompra.fechaRecepcion = DateTime.Now;
             apiOrdenCompra.actualizarOrdenCompra(ordenCompra);
             lineasOrden.Clear();
