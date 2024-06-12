@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.dxnsisventas.webservice.services;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
@@ -74,6 +75,7 @@ public class CuentasAPI {
     int resultado = 0;
     
     try {
+      cc.setContrasena(BCrypt.withDefaults().hashToString(12, cc.getContrasena().toCharArray()));
       resultado = daoCuentaCli.insertar_Cuenta_Cliente(cc);
     } catch (Exception ex) {
       System.err.println(ex.getMessage());
@@ -87,6 +89,7 @@ public class CuentasAPI {
     int resultado = 0;
     
     try {
+      cc.setContrasena(BCrypt.withDefaults().hashToString(12, cc.getContrasena().toCharArray()));
       resultado = daoCuentaCli.actualizar_Cuenta_Cliente(cc);
     } catch (Exception ex) {
       System.err.println(ex.getMessage());
@@ -143,6 +146,7 @@ public class CuentasAPI {
     int resultado = 0;
     
     try {
+      ce.setContrasena(BCrypt.withDefaults().hashToString(12, ce.getContrasena().toCharArray()));
       resultado = daoCuentaEmp.insertar_Cuenta_Empleado(ce);
     } catch (Exception ex) {
       System.err.println(ex.getMessage());
@@ -156,6 +160,7 @@ public class CuentasAPI {
     int resultado = 0;
     
     try {
+      ce.setContrasena(BCrypt.withDefaults().hashToString(12, ce.getContrasena().toCharArray()));
       resultado = daoCuentaEmp.actualizar_Cuenta_Empleado(ce);
     } catch (Exception ex) {
       System.err.println(ex.getMessage());
