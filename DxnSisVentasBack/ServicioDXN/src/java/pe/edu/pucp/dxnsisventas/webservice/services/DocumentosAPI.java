@@ -17,6 +17,7 @@ import pe.edu.pucp.dxnsisventas.documentos.controller.mysql.LineaOrdenMySQL;
 import pe.edu.pucp.dxnsisventas.documentos.controller.mysql.OrdenCompraMySQL;
 import pe.edu.pucp.dxnsisventas.documentos.controller.mysql.OrdenVentaMySQL;
 import pe.edu.pucp.dxnsisventas.documentos.model.Comprobante;
+import pe.edu.pucp.dxnsisventas.documentos.model.LineaOrden;
 import pe.edu.pucp.dxnsisventas.documentos.model.OrdenCompra;
 import pe.edu.pucp.dxnsisventas.documentos.model.OrdenVenta;
 
@@ -192,4 +193,22 @@ public class DocumentosAPI {
     
     return resultado;
   }
+  
+  @WebMethod(operationName = "insertarLOV")
+  public int insertarLOV(@WebParam(name = "lvOrden")  LineaOrden lvOrden, @WebParam(name = "id_orden")int id_orden){
+    int resultado = 0;
+    
+    try{
+      resultado = daoOrdenlv.insertar(lvOrden,id_orden);
+    } catch (Exception ex) {
+      System.err.println(ex.getMessage());
+    }
+    
+    return resultado;
+  }
 }
+  
+
+
+
+

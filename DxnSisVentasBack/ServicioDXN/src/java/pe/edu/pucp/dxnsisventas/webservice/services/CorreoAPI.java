@@ -35,7 +35,7 @@ public class CorreoAPI {
         } catch (Exception ex){
                 System.err.println(ex.getMessage());
         }
-        
+        //
         return resultado;
     }
 }
