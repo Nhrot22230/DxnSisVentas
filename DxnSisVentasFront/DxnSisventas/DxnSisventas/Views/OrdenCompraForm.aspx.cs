@@ -66,6 +66,7 @@ namespace DxnSisventas.Views
                     Session["lineasOrdenVenta"] = null;
                     Session["producto"] = null;
                     Session["cliente"] = null;
+                    lineasOrden.Clear();
                 }
             }
             if (Session["lineasOrdenVenta"] == null) { }
@@ -247,9 +248,10 @@ namespace DxnSisventas.Views
                 {
                 lineasEliminadas.Add(linea);
                 }
-                
+            gvLineasOrdenVenta.DataSource = lineasOrden;
+            gvLineasOrdenVenta.DataBind();
             calcularTotal();
-            Response.Redirect(Request.Url.AbsoluteUri);
+            //Response.Redirect(Request.Url.AbsoluteUri);
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -368,6 +370,27 @@ namespace DxnSisventas.Views
             string asunto = "Orden de compra Nro: " + ordenCompra.idOrdenCompraCadena;
             string contenido = CrearContenido();
             string correo = txtCorreo.Text.ToString();
+
+
+            int resultado;
+
+
+            resultado=apiCorreo.enviarCorreoWeb(asunto, contenido, correo);
+
+
+            if (resultado == 0)
+            {
+                MostrarMensaje("Ingrese un correo valido", resultado == 0);
+                return;
+            }
+            else { 
+                MostrarMensaje("Correo Enviado",false);            
+            
+            }
+
+
+
+
             /////////////////////////tiene que terner la misma funcion que el boton de guardar////////////////////
             ///
             ordenCompra orden = new ordenCompra
@@ -417,7 +440,6 @@ namespace DxnSisventas.Views
            
 
             //////////////a partir de aca se genera el correo///////////////////////////////////////////
-            apiCorreo.enviarCorreoWeb(asunto, contenido, correo);
             ordenCompra.estadoSpecified= true;
             ordenCompra.estado = estadoOrden.Entregado;
             ordenCompra.fechaRecepcionSpecified= true;

@@ -162,3 +162,26 @@ i {
   flex: 1;
   padding: 15px;
 }
+
+
+
+
+
+/*cd*/
+
+
+.bg-primary-custom {
+    background-color: #003366 !important;
+    border-color: #003366 !important;
+    color: #fff !important;
+}
+
+    .bg-primary-custom:hover {
+        background-color: #002244 !important;
+        border-color: #002244 !important;
+        color: #fff !important;
+    }
+
+    .bg-primary-custom .fa-plus {
+        margin-right: 8px;
+    }
