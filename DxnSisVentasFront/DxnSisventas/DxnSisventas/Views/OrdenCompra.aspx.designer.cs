@@ -33,13 +33,22 @@ namespace DxnSisventas.Views
         protected global::System.Web.UI.WebControls.LinkButton BtnBuscar;
 
         /// <summary>
-        /// Control Estado.
+        /// Control FechaInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Estado;
+        protected global::System.Web.UI.WebControls.TextBox FechaInicio;
+
+        /// <summary>
+        /// Control FechaFin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FechaFin;
 
         /// <summary>
         /// Control TxtMontoMin.
@@ -60,22 +69,13 @@ namespace DxnSisventas.Views
         protected global::System.Web.UI.WebControls.TextBox TxtMontoMax;
 
         /// <summary>
-        /// Control FechaInicio.
+        /// Control Estado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FechaInicio;
-
-        /// <summary>
-        /// Control FechaFin.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FechaFin;
+        protected global::System.Web.UI.WebControls.DropDownList Estado;
 
         /// <summary>
         /// Control OrdenarPorFecha.
@@ -96,15 +96,6 @@ namespace DxnSisventas.Views
         protected global::System.Web.UI.WebControls.DropDownList OrdenarPorMonto;
 
         /// <summary>
-        /// Control BtnLimpiar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton BtnLimpiar;
-
-        /// <summary>
         /// Control BtnAgregar.
         /// </summary>
         /// <remarks>
@@ -112,6 +103,15 @@ namespace DxnSisventas.Views
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton BtnAgregar;
+
+        /// <summary>
+        /// Control BtnLimpiar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton BtnLimpiar;
 
         /// <summary>
         /// Control GridCompras.

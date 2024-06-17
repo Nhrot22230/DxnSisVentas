@@ -74,12 +74,12 @@ namespace DxnSisventas.Views
       if (fechaIni != "")
       {
         DateTime dateIni = Convert.ToDateTime(fechaIni);
-        BlordenesFiltradas = new BindingList<ordenCompra>(BlordenesFiltradas.Where(x => x.fechaCreacion >= dateIni).ToList());
+        BlordenesFiltradas = new BindingList<ordenCompra>(BlordenesFiltradas.Where(x => x.fechaCreacion.Date >= dateIni).ToList());
       }
       if (fechaFin != "")
       {
         DateTime dateFin = Convert.ToDateTime(fechaFin);
-        BlordenesFiltradas = new BindingList<ordenCompra>(BlordenesFiltradas.Where(x => x.fechaCreacion <= dateFin).ToList());
+        BlordenesFiltradas = new BindingList<ordenCompra>(BlordenesFiltradas.Where(x => x.fechaCreacion.Date <= dateFin).ToList());
       }
       if(Estado.SelectedValue != "Todos")
       {
@@ -381,3 +381,73 @@ namespace DxnSisventas.Views
         }
     }
 }
+
+
+/*(I'm only human)
+(I'm only, I'm only)
+(I'm only human, human)
+
+Maybe I'm foolish, maybe I'm blind
+Thinking I can see through this and see what's behind
+Got no way to prove it, so maybe I'm lying
+
+But I'm only human after all
+I'm only human after all
+Don't put your blame on me
+Don't put your blame on me
+
+Take a look in the mirror and what do you see?
+Do you see it clearer or are you deceived
+In what you believe?
+
+'Cause I'm only human after all
+You're only human after all
+Don't put the blame on me
+Don't put your blame on me
+
+(Oh-oh) some people got the real problems
+(Oh-oh) some people out of luck
+(Oh-oh) some people think I can solve them
+(Oh-oh) Lord heavens above
+
+I'm only human after all
+I'm only human after all
+Don't put the blame on me
+Don't put the blame on me
+
+Don't ask my opinion, don't ask me to lie
+Then beg for forgiveness for making you cry
+Making you cry
+
+'Cause I'm only human after all
+I'm only human after all
+Don't put your blame on me
+Don't put the blame on me
+
+(Oh-oh) oh, some people got the real problems
+(Oh-oh) some people out of luck
+(Oh-oh) some people think I can solve them
+(Oh-oh) Lord heavens above
+
+I'm only human after all
+I'm only human after all
+Don't put the blame on me
+Don't put the blame on me
+
+I'm only human, I make mistakes
+I'm only human, that's all it takes
+To put the blame on me
+Don't put the blame on me
+
+(Ooh) 'cause I'm no prophet or Messiah
+(Ooh) you should go looking somewhere higher
+
+I'm only human after all
+I'm only human after all
+Don't put the blame on me
+Don't put the blame on me
+
+I'm only human, I do what I can
+I'm just a man, I do what I can
+Don't put the blame on me
+Don't put your blame on me*/
