@@ -80,8 +80,31 @@ namespace DxnSisventas.Views
                 }
             }
         }
+        protected bool verificarFechas()
+        {
+            string fechaIni = FechaInicio.Text;
+            string fechaFin = FechaFin.Text;
+
+            if (fechaIni != "" && fechaFin != "")
+            {
+                DateTime dateIni = Convert.ToDateTime(fechaIni);
+                DateTime dateFin = Convert.ToDateTime(fechaFin);
+                if (dateIni > dateFin)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         protected void FechaInicio_TextChanged(object sender, EventArgs e)
         {
+            if (!verificarFechas())
+            {
+                MostrarMensaje("Ingrese un rango de fechas correcto", verificarFechas());
+                return;
+            }
+            GridVentas.PageIndex = 0;
             AplicarFiltro();
             GridBind();
             MostrarMensaje("Se aplico el filtro", true);
@@ -89,6 +112,12 @@ namespace DxnSisventas.Views
 
         protected void FechaFin_TextChanged(object sender, EventArgs e)
         {
+            if (!verificarFechas())
+            {
+                MostrarMensaje("Ingrese un rango de fechas correcto", verificarFechas());
+                return;
+            }
+            GridVentas.PageIndex = 0;
             AplicarFiltro();
             GridBind();
             MostrarMensaje("Se aplico el filtro", true);
@@ -124,6 +153,36 @@ namespace DxnSisventas.Views
             {
                 MostrarMensaje("No se encontraron ordenes de venta", flag);
             }
+        }
+
+        protected void OrdenarPorFecha_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Estado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TxtMontoMin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TxtMontoMax_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void OrdenarPorMonto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

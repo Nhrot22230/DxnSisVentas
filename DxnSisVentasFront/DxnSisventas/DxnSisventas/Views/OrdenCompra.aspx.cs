@@ -165,10 +165,6 @@ namespace DxnSisventas.Views
                     }
                 }
             }
-
-
-
-
         }
 
         private void GridBind()
