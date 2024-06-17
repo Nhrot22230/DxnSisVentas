@@ -62,6 +62,10 @@ namespace DxnSisventas.Views
       string fechaFin = FechaFin.Text;
       string min = TxtMontoMin.Text;
       string max = TxtMontoMax.Text;
+    if(BlordenesFiltradas == null || Blordenes == null)
+            {
+                return;
+            }
 
             if (TxtBuscar.Text.ToString()!= "")
       {
@@ -93,10 +97,81 @@ namespace DxnSisventas.Views
                 double montomax = double.Parse(max);
                 BlordenesFiltradas = new BindingList<ordenCompra>(BlordenesFiltradas.Where(x => x.total <= montomax).ToList());
             }
+       ordenarFechaMonto();
+            
+        }
+
+    private void ordenarFechaMonto()
+    {
+            // Verificar si se ha seleccionado algún tipo de ordenamiento por fecha o por monto
+            bool ordenarPorFecha = OrdenarPorFecha.SelectedValue != "todos";
+            bool ordenarPorMonto = OrdenarPorMonto.SelectedValue != "todos";
+
+            
+                // Aplicar ordenamiento
+                if (ordenarPorFecha && ordenarPorMonto)
+                {
+                    // Ordenar por fecha y monto simultáneamente
+                    if (OrdenarPorFecha.SelectedValue == "asc" && OrdenarPorMonto.SelectedValue == "asc")
+                    {
+                        BlordenesFiltradas = new BindingList<ordenCompra>(BlordenesFiltradas.OrderBy(x => x.fechaCreacion.Date)
+                                                                                                .ThenBy(x => x.total)
+                                                                                                .ToList());
+                    }
+                    else if (OrdenarPorFecha.SelectedValue == "asc" && OrdenarPorMonto.SelectedValue == "desc")
+                    {
+                        BlordenesFiltradas = new BindingList<ordenCompra>(BlordenesFiltradas.OrderBy(x => x.fechaCreacion.Date)
+                                                                                                .ThenByDescending(x => x.total)
+                                                                                                .ToList());
+                    }
+                    else if (OrdenarPorFecha.SelectedValue == "desc" && OrdenarPorMonto.SelectedValue == "asc")
+                    {
+                        BlordenesFiltradas = new BindingList<ordenCompra>(BlordenesFiltradas.OrderByDescending(x => x.fechaCreacion.Date)
+                                                                                                .ThenBy(x => x.total)
+                                                                                                .ToList());
+                    }
+                    else if (OrdenarPorFecha.SelectedValue == "desc" && OrdenarPorMonto.SelectedValue == "desc")
+                    {
+                        BlordenesFiltradas = new BindingList<ordenCompra>(BlordenesFiltradas.OrderByDescending(x => x.fechaCreacion.Date)
+                                                                                                .ThenByDescending(x => x.total)
+                                                                                                .ToList());
+                    }
+                }
+           
+            else
+            {
+                 if (ordenarPorFecha)
+                {
+                    // Ordenar solo por fecha
+                    if (OrdenarPorFecha.SelectedValue == "asc")
+                    {
+                        BlordenesFiltradas = new BindingList<ordenCompra>(BlordenesFiltradas.OrderBy(x => x.fechaCreacion.Date).ToList());
+                    }
+                    else if (OrdenarPorFecha.SelectedValue == "desc")
+                    {
+                        BlordenesFiltradas = new BindingList<ordenCompra>(BlordenesFiltradas.OrderByDescending(x => x.fechaCreacion.Date).ToList());
+                    }
+                }
+                else if (ordenarPorMonto)
+                {
+                    // Ordenar solo por monto
+                    if (OrdenarPorMonto.SelectedValue == "asc")
+                    {
+                        BlordenesFiltradas = new BindingList<ordenCompra>(BlordenesFiltradas.OrderBy(x => x.total).ToList());
+                    }
+                    else if (OrdenarPorMonto.SelectedValue == "desc")
+                    {
+                        BlordenesFiltradas = new BindingList<ordenCompra>(BlordenesFiltradas.OrderByDescending(x => x.total).ToList());
+                    }
+                }
+            }
+
+
+
 
         }
 
-    private void GridBind()
+        private void GridBind()
     {
       GridCompras.DataSource = BlordenesFiltradas;
       GridCompras.DataBind();
@@ -221,6 +296,8 @@ namespace DxnSisventas.Views
             Estado.SelectedIndex = 0;
             TxtMontoMax.Text = string.Empty;
             TxtMontoMin.Text = string.Empty;
+            OrdenarPorFecha.SelectedIndex = 0;
+            OrdenarPorMonto.SelectedIndex = 0;
             // Selecciona "Todos"
             GridCompras.PageIndex = 0;
             GridCompras.DataSource = Blordenes;
@@ -285,6 +362,22 @@ namespace DxnSisventas.Views
             AplicarFiltro();
             GridBind();
             MostrarMensaje("Se aplico el filtro", true);
+        }
+
+        protected void OrdenarPorFecha_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AplicarFiltro();
+            GridCompras.PageIndex = 0;
+            GridBind();
+            MostrarMensaje("Ordenes ordenadas por fecha", true);
+        }
+
+        protected void OrdenarPorMonto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AplicarFiltro();
+            GridCompras.PageIndex = 0;
+            GridBind();
+            MostrarMensaje("Ordenes ordenada por monto", true);
         }
     }
 }

@@ -56,30 +56,54 @@
             <!-- Panel de filtros -->
             <div class="row mb-3 align-items-center">
                 <!-- Filtro Fecha Inicio -->
-                <div class="col-auto">
+                <div class="search-item">
                     <label class="col-form-label" for="FechaInicio">Desde</label>
-                </div>
+               
                 <div class="col-auto ms-3">
                     <asp:TextBox ID="FechaInicio" runat="server" CssClass="form-control" Style="width: 150px;" type="date" AutoPostBack="true" OnTextChanged="FechaInicio_TextChanged"></asp:TextBox>
                 </div>
+                    </div>
 
                 <!-- Filtro Fecha Fin -->
-                <div class="col-auto ms-3">
+                <div class="search-item">
                     <label class="col-form-label" for="FechaFin">Hasta</label>
-                </div>
-                <div class="col-auto">
-                    <asp:TextBox ID="FechaFin" runat="server" CssClass="form-control" Style="width: 150px;" type="date" AutoPostBack="true" OnTextChanged="FechaFin_TextChanged"></asp:TextBox>
+
+                    <div class="col-auto">
+                        <asp:TextBox ID="FechaFin" runat="server" CssClass="form-control" Style="width: 150px;" type="date" AutoPostBack="true" OnTextChanged="FechaFin_TextChanged"></asp:TextBox>
+                    </div>
                 </div>
 
-                <!-- Filtro Estado -->
-               
-                
+                <!-- Filtro fecha -->
+
+                <div class="search-item">
+                    <label class="col-form-label">Ordenar por Fecha</label>
+                    <div class="dropdown">
+                        <asp:DropDownList ID="OrdenarPorFecha" runat="server" CssClass="form-select" AutoPostBack="true" OnSelectedIndexChanged="OrdenarPorFecha_SelectedIndexChanged">
+                            <asp:ListItem Text="Ninguno" Value="todos"></asp:ListItem>
+                            <asp:ListItem Text="Mas antiguos primero" Value="asc"></asp:ListItem>
+                            <asp:ListItem Text="Mas recientes primero" Value="desc"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                <!-- Filtro Monto -->
+                <div class="search-item">
+                    <label class="col-form-label">Ordenar por Monto</label>
+                    <div class="dropdown">
+                        <asp:DropDownList ID="OrdenarPorMonto" runat="server" CssClass="form-select" AutoPostBack="true" OnSelectedIndexChanged="OrdenarPorMonto_SelectedIndexChanged">
+                            <asp:ListItem Text="Ninguno" Value="todos"></asp:ListItem>
+                            <asp:ListItem Text="Menor a Mayor" Value="asc"></asp:ListItem>
+                            <asp:ListItem Text="Mayor a Menor" Value="desc"></asp:ListItem>
+
+                        </asp:DropDownList>
+                    </div>
+                </div>
+
 
                 <!-- Botón Limpiar Filtros -->
                 <div class="col-auto ms-3">
                     <asp:LinkButton ID="BtnLimpiar" runat="server" OnClick="BtnLimpiar_Click" CssClass="btn btn-link text-decoration-none small" Style="color: #000;">
                 <i class="fas fa-times-circle"></i> Limpiar Filtros
-            </asp:LinkButton>
+                    </asp:LinkButton>
                 </div>
             </div>
 

@@ -78,6 +78,24 @@ namespace DxnSisventas.Views
         protected global::System.Web.UI.WebControls.TextBox FechaFin;
 
         /// <summary>
+        /// Control OrdenarPorFecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList OrdenarPorFecha;
+
+        /// <summary>
+        /// Control OrdenarPorMonto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList OrdenarPorMonto;
+
+        /// <summary>
         /// Control BtnLimpiar.
         /// </summary>
         /// <remarks>
