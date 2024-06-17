@@ -307,7 +307,16 @@ namespace DxnSisventas.Views
         {
             string min = TxtMontoMin.Text;
             string max = TxtMontoMax.Text;
-
+            if (min != "")
+            {
+                if (double.Parse(min) < 0)
+                    return false;
+            }
+            if (max != "")
+            {
+                if (double.Parse(max) < 0)
+                    return false;
+            }
             if (min != "" && max != "")
             {
                 double montomin = double.Parse(min);

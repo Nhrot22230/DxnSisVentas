@@ -19,15 +19,15 @@
         <div class="search-container">
             <div class="search-row">
                 <!-- Búsqueda por Número de Orden -->
-                <div class="search-item">
-                    <label class="col-form-label">Búsqueda por Número de Orden</label>
+                <div class="search-item col-sm-3">
+                    <label class="col-form-label">Buscar Nro. Orden</label>
                     <div class="input-group">
                         <asp:TextBox ID="TxtBuscar" runat="server" type="number" AutoPostBack="true" CssClass="form-control no-arrows text-left" placeholder="Nro. de Orden" OnTextChanged="TxtBuscar_TextChanged"></asp:TextBox>
                         <asp:LinkButton ID="BtnBuscar" runat="server" Text="<i class='fas fa-search'></i>" CssClass="btn btn-secondary" OnClick="BtnBuscar_Click" />
                     </div>
                 </div>
                 <!-- Filtro por Fecha -->
-                <div class="search-item">
+                <div class="search-item col-sm-3">
                     <label class="col-form-label">Filtro por Fecha</label>
                     <div class="input-group">
                         <asp:TextBox ID="FechaInicio" runat="server" CssClass="form-control" type="date" AutoPostBack="true" OnTextChanged="FechaInicio_TextChanged"></asp:TextBox>
@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <!-- Filtro por Montos -->
-                <div class="search-item">
+                <div class="search-item col-sm-3">
                     <label class="col-form-label">Filtro por Montos</label>
                     <div class="input-group">
                         <asp:TextBox runat="server" type="number" class="form-control rounded-start no-arrows" ID="TxtMontoMin" AutoPostBack="true" placeholder="Min" MaxLength="10" OnTextChanged="TxtMontoMin_TextChanged"></asp:TextBox>
@@ -47,7 +47,7 @@
             </div>
             <div class="search-row">
                 <!-- Estado -->
-                <div class="search-item">
+                <div class="search-item col-sm-3">
                     <label class="col-form-label">Estado</label>
                     <asp:DropDownList ID="Estado" runat="server" CssClass="form-select" AutoPostBack="true" OnSelectedIndexChanged="Estado_SelectedIndexChanged">
                         <asp:ListItem Text="Todos" Value="Todos"></asp:ListItem>
@@ -56,7 +56,7 @@
                     </asp:DropDownList>
                 </div>
                 <!-- Ordenar por Fecha -->
-                <div class="search-item">
+                <div class="search-item col-sm-3">
                     <label class="col-form-label">Ordenar por Fecha</label>
                     <asp:DropDownList ID="OrdenarPorFecha" runat="server" CssClass="form-select" AutoPostBack="true" OnSelectedIndexChanged="OrdenarPorFecha_SelectedIndexChanged">
                         <asp:ListItem Text="Ninguno" Value="todos"></asp:ListItem>
@@ -65,7 +65,7 @@
                     </asp:DropDownList>
                 </div>
                 <!-- Ordenar por Monto -->
-                <div class="search-item">
+                <div class="search-item col-sm-3">
                     <label class="col-form-label">Ordenar por Monto</label>
                     <asp:DropDownList ID="OrdenarPorMonto" runat="server" CssClass="form-select" AutoPostBack="true" OnSelectedIndexChanged="OrdenarPorMonto_SelectedIndexChanged">
                         <asp:ListItem Text="Ninguno" Value="todos"></asp:ListItem>
