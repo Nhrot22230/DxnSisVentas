@@ -8,13 +8,13 @@
 
 .search-row {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    justify-content: stretch;
+    gap: 120px;
 }
 
 .search-item {
     flex: 1;
-    max-width: calc(33% - 20px); /* Ajusta el ancho de cada campo */
+    max-width: calc(29% - -160px); /* Ajusta el ancho de cada campo */
 }
 
 .input-group,

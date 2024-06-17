@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\quiqu\\OneDrive\\Escritorio\\P3\\TA-Prog3\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\quiqu\\onedrive\\escritorio\\p3\\ta-prog3\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\ordencompra.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordencompra.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\quiqu\\OneDrive\\Escritorio\\P3\\TA-Prog3\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\customstyles\\ordencompra.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\customstyles\\ordencompra.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\quiqu\\OneDrive\\Escritorio\\P3\\TA-Prog3\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\ordencompra.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordencompra.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\quiqu\\onedrive\\escritorio\\p3\\ta-prog3\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\ordencompra.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordencompra.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\quiqu\\OneDrive\\Escritorio\\P3\\TA-Prog3\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\ordenventa.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "OrdenCompra.aspx.cs",
               "DocumentMoniker": "C:\\Users\\quiqu\\OneDrive\\Escritorio\\P3\\TA-Prog3\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompra.aspx.cs",
               "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenCompra.aspx.cs",
@@ -99,7 +99,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "OrdenCompra.aspx",
               "DocumentMoniker": "C:\\Users\\quiqu\\OneDrive\\Escritorio\\P3\\TA-Prog3\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompra.aspx",
               "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenCompra.aspx",
@@ -107,19 +107,21 @@
               "RelativeToolTip": "DxnSisventas\\Views\\OrdenCompra.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-13T01:35:19.807Z"
+              "WhenOpened": "2024-06-13T01:35:19.807Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "OrdenCompra.css",
               "DocumentMoniker": "C:\\Users\\quiqu\\OneDrive\\Escritorio\\P3\\TA-Prog3\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\CustomStyles\\OrdenCompra.css",
               "RelativeDocumentMoniker": "DxnSisventas\\CustomStyles\\OrdenCompra.css",
               "ToolTip": "C:\\Users\\quiqu\\OneDrive\\Escritorio\\P3\\TA-Prog3\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\CustomStyles\\OrdenCompra.css",
               "RelativeToolTip": "DxnSisventas\\CustomStyles\\OrdenCompra.css",
-              "ViewState": "AQIAAFEAAAAAAAAAAADwv3UAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-06-13T02:18:25.644Z"
+              "WhenOpened": "2024-06-13T02:18:25.644Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -131,7 +133,8 @@
               "RelativeToolTip": "DxnSisventas\\Main.Master",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-12T14:44:13.545Z"
+              "WhenOpened": "2024-06-12T14:44:13.545Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
