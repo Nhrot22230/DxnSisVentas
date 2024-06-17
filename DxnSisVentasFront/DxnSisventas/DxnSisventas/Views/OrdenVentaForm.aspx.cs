@@ -55,13 +55,11 @@ namespace DxnSisventas.Views
                     Session["clienteSeleccionado"] = null;
                     Session["productoSeleccionado"] = null;
                 }
-               
             }
             llenarGridLineas();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            
 
         }
 
@@ -331,15 +329,18 @@ namespace DxnSisventas.Views
             }
             
             Session["lineasDeOrden"] = lineasOrden;
-            double totalSinDescuento = lineasOrden.Sum(lo => lo.subtotal);
-
-            double descuento = totalSinDescuento * (Double.Parse(TxtDescuento.Text) / 100);
-            txtTotal.Text = (totalSinDescuento - descuento).ToString("N2");
-
+            calcularLineasConDescuento();
             llenarGridLineas();
-            // Limpiar campos del formulario
             LimpiarCamposProducto();
         }
+
+        void calcularLineasConDescuento()
+        {
+            double totalSinDescuento = lineasOrden.Sum(lo => lo.subtotal);
+            double descuento = totalSinDescuento * (Double.Parse(TxtDescuento.Text) / 100);
+            txtTotal.Text = (totalSinDescuento - descuento).ToString("N2");
+        }
+
 
         // Método para calcular subtotal
         private double CalcularSubtotal(int cantidad, double precioUnitario)
@@ -382,92 +383,145 @@ namespace DxnSisventas.Views
             }
         }
 
+        bool verificarFechaEntrega()
+        {
+            DateTime fechaEntrega = DateTime.Parse(TxtFechaEntrega.Text);
+            DateTime fechaCreacion = DateTime.Parse(TxtFechaCreacion.Text);
+            if (fechaEntrega < fechaCreacion)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        bool validarFechaDeEntrega()
+        {
+            if (!string.IsNullOrWhiteSpace(TxtFechaEntrega.Text))
+            {
+                if (!verificarFechaEntrega())
+                {
+                    MostrarMensaje("La fecha de entrega no puede ser menor a la fecha de creación", false);
+                    return false;
+                }
+                else
+                {
+                    ordenVenta.fechaEntrega = DateTime.Parse(TxtFechaEntrega.Text);
+                }
+
+            }
+            return true;
+        }
+        bool validarDescuentos()
+        {
+            if (double.TryParse(TxtDescuento.Text, out double descuento) && descuento >= 0 && descuento < 100)
+            {
+                ordenVenta.porcentajeDescuento = descuento;
+                return true;
+            }
+            else
+            {
+                MostrarMensaje("Ingrese un descuento válido", false);
+                return false;
+            }
+        }
+        bool validarCliente()
+        {
+            if (Session["clienteSeleccionado"] is cliente clienteSeleccionado)
+            {
+                ordenVenta.cliente = clienteSeleccionado;
+                return true;
+            }
+            else
+            {
+                MostrarMensaje("Seleccione un cliente.", false);
+                return false;
+            }
+        }
+        bool validarRepartidor()
+        {
+            if (ddlTipoVenta.SelectedValue.Equals("Delivery"))
+            {
+                if (Session["empleadoSeleccionado"] is empleado empleadoRepartidorSeleccionado)
+                {
+                    ordenVenta.repartidor = empleadoRepartidorSeleccionado;
+                    return true;
+                }
+                else
+                {
+                    MostrarMensaje("Seleccione un repartidor válido.", false);
+                    return false;
+                }
+            }
+            return true;
+        }
+        bool validarEncargadoVentas()
+        {
+            if (Session["empleado"] is empleado empleadoEncargado)
+            {
+                ordenVenta.encargadoVenta = empleadoEncargado;
+                return true;
+            }
+            else
+            {
+                MostrarMensaje("El empleado encargado de la venta no es válido.", false);
+                return false;
+            }
+        }
+        bool validarLineasOrden()
+        {
+            if (Session["lineasDeOrden"] is BindingList<lineaOrden> lineasDeOrden && lineasDeOrden.Any())
+            {
+                ordenVenta.lineasOrden = lineasDeOrden.ToArray();
+                return true;
+            }
+            else
+            {
+                MostrarMensaje("Agregue al menos una línea a la orden.", false);
+                return false;
+            }
+        }
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             ordenVenta.estadoSpecified = true;
             ordenVenta.estado = (estadoOrden)Enum.Parse(typeof(estadoOrden), 
                 ddlEstado.SelectedValue.ToString());
+            
             ordenVenta.metodoPagoSpecified = true;
             ordenVenta.metodoPago = (metodoPago)Enum.Parse(typeof(metodoPago), 
                 ddlMetodoDePago.SelectedValue.ToString());
+            
             ordenVenta.tipoVentaSpecified = true;
             ordenVenta.tipoVenta = (tipoVenta)Enum.Parse(typeof(tipoVenta),
                 ddlTipoVenta.SelectedValue.ToString());
+            
             ordenVenta.fechaCreacionSpecified = true;
             ordenVenta.fechaCreacion = DateTime.Parse(TxtFechaCreacion.Text);
+
+
             ordenVenta.fechaEntregaSpecified = true;
-            if (!string.IsNullOrWhiteSpace(TxtFechaEntrega.Text))
-            {
-                ordenVenta.fechaEntrega = DateTime.Parse(TxtFechaEntrega.Text);
-            }
-            if(double.TryParse(TxtDescuento.Text, out double descuento) && descuento >= 0 && descuento < 100)
-            {
-                ordenVenta.porcentajeDescuento = descuento;
-            }
-            else
-            {
-                MostrarMensaje("Ingrese un descuento válido", false);
-                return;
-            }
+            if (!validarFechaDeEntrega()) return;
+            if(!validarDescuentos()) return;
+            if (!validarCliente()) return;
+            if (!validarRepartidor()) return;
+            if (!validarEncargadoVentas()) return;
+            if (!validarLineasOrden()) return;
 
-            // Validar el cliente
-            if (Session["clienteSeleccionado"] is cliente clienteSeleccionado)
-            {
-                ordenVenta.cliente = clienteSeleccionado;
-            }
-            else
-            {
-                MostrarMensaje("Seleccione un cliente válido.", false);
-                return;
-            }
-
-            // Validar el repartidor
-            if (Session["empleadoSeleccionado"] is empleado empleadoRepartidorSeleccionado)
-            {
-                ordenVenta.repartidor = empleadoRepartidorSeleccionado;
-            }
-            else if(!ddlTipoVenta.SelectedValue.Equals("Delivery"))
-            {
-                MostrarMensaje("Seleccione un repartidor válido.", false);
-                return;
-            }
-
-            // Validar el encargado de venta
-            if (Session["empleado"] is empleado empleadoEncargado)
-            {
-                ordenVenta.encargadoVenta = empleadoEncargado;
-            }
-            else
-            {
-                MostrarMensaje("El empleado encargado de la venta no es válido.", false);
-                return;
-            }
-
-            // Validar las líneas de la orden
-            if (Session["lineasDeOrden"] is BindingList<lineaOrden> lineasDeOrden && lineasDeOrden.Any())
-            {
-                ordenVenta.lineasOrden = lineasDeOrden.ToArray();
-            }
-            else
-            {
-                MostrarMensaje("Agregue al menos una línea a la orden.", false);
-                return;
-            }
             ordenVenta.total = Double.Parse(txtTotal.Text);
+
             int res = 0;
             string mensaje = "";
             if(accion.Equals("new"))
             {
                 res = apiDocumentos.insertarOrdenVenta(ordenVenta);
-                mensaje = res > 0 ? "Orden de venta registrada correctamente" : "Error al registrar la orden de venta";
+                if(res < 0) mensaje = "Error al registrar la orden de venta";
             }
             else if(accion.Equals("editar"))
             {
                 res = apiDocumentos.actualizarOrdenVenta(ordenVenta);
-                mensaje = res > 0 ? "Orden de venta actualizada correctamente" : "Error al actualizar la orden de venta";
-
+                if(res < 0) mensaje = "Error al actualizar la orden de venta";
+       
             }
-            if (res == 0)
+            if (res < 0)
             {
                 MostrarMensaje(mensaje, false);
                 return;
@@ -494,6 +548,11 @@ namespace DxnSisventas.Views
                 TxtNombreCompletoRepartidor.Text = "";
 
             }
+        }
+
+        protected void TxtDescuento_TextChanged(object sender, EventArgs e)
+        {
+            calcularLineasConDescuento();
         }
     }
 }

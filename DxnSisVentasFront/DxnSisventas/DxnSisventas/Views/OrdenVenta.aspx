@@ -14,9 +14,10 @@
         </div>
         <div class="row mb-3">
             <div class="col-md-7">
+                <!-- Panel de búsqueda -->
                 <div class="input-group">
                     <asp:TextBox ID="TxtBuscar" runat="server" AutoPostBack="true" 
-                        CssClass="form-control" placeholder="Buscar" OnTextChanged="TxtBuscar_TextChanged"></asp:TextBox>
+                        CssClass="form-control" placeholder="Buscar por ID" OnTextChanged="TxtBuscar_TextChanged"></asp:TextBox>
                     <asp:LinkButton ID="BtnBuscar" runat="server" Text="<i class='fas fa-search'> </i>"
                         CssClass="btn btn-secondary" OnClick="BtnBuscar_Click" />
                 </div>
@@ -52,6 +53,7 @@
                     <asp:ListItem Text="Todos" Value="Todos"></asp:ListItem>
                     <asp:ListItem Text="Entregado" Value="Entregado"></asp:ListItem>
                     <asp:ListItem Text="Pendiente" Value="Pendiente"></asp:ListItem>
+                    <asp:ListItem Text="Cancelado" Value="Cancelado"></asp:ListItem>
                 </asp:DropDownList>
             </div>
         </div>
@@ -79,30 +81,38 @@
             </div>
         </div>
 
-        <div class="row mb-3">
-            <div class="search-item col-sm-2">
-                <asp:LinkButton ID="BtnAgregar" runat="server" Text="<i class='fas fa-plus pe-2'> </i> Agregar"
-                    OnClick="BtnAgregar_Click" CssClass="btn btn-primary btn-sm" />
+        <div class="search-row mb-3">
+            <!-- Botón Nuevo -->
+            <div class="search-item">
+                <asp:LinkButton ID="BtnAgregar" runat="server" OnClick="BtnAgregar_Click" CssClass="btn btn-primary btn-sm">
+                    <i class="fas fa-plus pe-2"></i> Nuevo
+                </asp:LinkButton>
+            </div>
+            <!-- Botón Limpiar Filtros -->
+            <div class="search-item text-end">
+                <asp:LinkButton ID="BtnLimpiar" runat="server" OnClick="BtnLimpiar_Click" CssClass="btn btn-link text-decoration-none small" Style="color: #000;">
+                    <i class="fas fa-times-circle"></i> Limpiar Filtros
+                </asp:LinkButton>
             </div>
         </div>
         <div class="container row ">
             <asp:GridView ID="GridVentas" runat="server" AutoGenerateColumns="false"
                 AllowPaging="true" PageSize="5" OnPageIndexChanging="GridVentas_PageIndexChanging"
-                CssClass="table table-hover table-responsive table-striped">
+                CssClass="gridview-custom" OnRowDataBound="GridVentas_RowDataBound">
                 <Columns>
-                    <asp:BoundField DataField="idOrdenVentaCadena" HeaderText="Id" />
-                    <asp:TemplateField HeaderText="Fecha">
+                    <asp:BoundField HeaderText="Id" />
+                    <asp:BoundField HeaderText="Fecha creación" />
+                    <asp:BoundField HeaderText="Cliente" />
+                    <asp:BoundField HeaderText="EncargadoVenta" />
+                    <asp:BoundField HeaderText="Repartidor" />
+                    <asp:BoundField HeaderText="Fecha de entrega" />
+                    <asp:BoundField HeaderText="Monto" />
+                    <asp:BoundField HeaderText="Estado" />
+                    <asp:BoundField HeaderText="Descuento" />
+                    <asp:TemplateField HeaderText="Opciones">
                         <ItemTemplate>
-                            <%# Eval("fechaEntrega") == null ? "Sin Fecha" : String.Format("{0:dd/MM/yyyy}", Eval("fechaEntrega")) %>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:BoundField DataField="cliente.nombre" HeaderText="Cliente" />
-                    <asp:BoundField DataField="encargadoVenta.nombre" HeaderText="EncargadoVenta" />
-                    <asp:BoundField DataField="repartidor.nombre" HeaderText="Repartidor" />
-                    <asp:TemplateField HeaderText="">
-                        <ItemTemplate>
-                            <asp:LinkButton ID="BtnEditar" runat="server" Text="<i class='fas fa-edit ps-2'>  </i>"
-                                OnClick="BtnEditar_Click" CommandArgument='<%# Eval("idOrdenVentaNumerico") %>' />
+                            <asp:LinkButton ID="BtnEditar" runat="server" Text="<i class='fas fa-eye ps-2'>  </i>"
+                                OnClick="BtnEditar_Click" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
