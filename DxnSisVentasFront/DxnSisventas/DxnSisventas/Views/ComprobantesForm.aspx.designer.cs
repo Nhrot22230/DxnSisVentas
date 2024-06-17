@@ -78,6 +78,24 @@ namespace DxnSisventas.Views
         protected global::System.Web.UI.WebControls.LinkButton BtnBuscar;
 
         /// <summary>
+        /// Control DropDownListTipoOrden.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListTipoOrden;
+
+        /// <summary>
+        /// Control LbFechaOrden.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LbFechaOrden;
+
+        /// <summary>
         /// Control TxtFechaOrden.
         /// </summary>
         /// <remarks>
@@ -121,6 +139,15 @@ namespace DxnSisventas.Views
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton BtnBuscarModal;
+
+        /// <summary>
+        /// Control DropDownListTipoOrdenModal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListTipoOrdenModal;
 
         /// <summary>
         /// Control gvOrdenes.

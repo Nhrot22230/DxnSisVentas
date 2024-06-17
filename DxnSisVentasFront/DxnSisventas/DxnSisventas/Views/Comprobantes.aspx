@@ -22,9 +22,10 @@
         </div>
       </div>
       <div class="container row">
-        <label class="col-sm-2 col-form-label">Filtrar por Tipo de Comprobante:</label>
-        <!-- Seleccionar el tipo de producto -->
-        <div class="col-sm-3">
+        
+        <!-- Seleccionar el tipo de comprobante -->
+        <div class="col-sm-4">
+            <label class="col-form-label">Filtrar por Tipo de Comprobante:</label>
           <asp:DropDownList AutoPostBack="true" ID="DropDownListTipoComprobante" runat="server" CssClass="form-select" OnSelectedIndexChanged="DropDownListTipoComprobante_SelectedIndexChanged">
             <asp:ListItem Text="Todos" Value="Todos"></asp:ListItem>
             <asp:ListItem Text="Boleta" Value="BoletaSimple"></asp:ListItem>
@@ -45,8 +46,8 @@
             <asp:BoundField DataField="idComprobanteCadena" HeaderText="ID Comprobante" />
             <asp:BoundField DataField="fechaEmision" HeaderText="Fecha Emisión" />
             <asp:BoundField DataField="tipoComprobante" HeaderText="Tipo de comprobante" />
-            <asp:BoundField DataField="ordenAsociada.idOrden" HeaderText="idOrdenAsociada" />
-            <asp:TemplateField HeaderText="idOrdenVenta/Compra" >
+            <%--asp:BoundField DataField="ordenAsociada.idOrden" HeaderText="ID Orden Asociada"/> --%>
+            <asp:TemplateField HeaderText="ID Orden Asociada" >
               <ItemTemplate>
                 <asp:Label ID="LblOrdenVentaCompra" runat="server" />
               </ItemTemplate>

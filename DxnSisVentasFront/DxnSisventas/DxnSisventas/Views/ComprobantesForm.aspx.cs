@@ -19,7 +19,9 @@ namespace DxnSisventas.Views
         private BindingList<ordenCompra> listaOrdenesCompra = null;
         private BindingList<ordenVenta> listaOrdenesVenta = null;
         private orden ord;
-        private comprobante comprobante;
+        private comprobante comprobante=null;
+
+        bool tipoOrdenCompra;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,25 +32,68 @@ namespace DxnSisventas.Views
         protected void Page_Init()
         {
             apiDocumentos = new DocumentosAPIClient();
-            if (apiDocumentos.listarOrden(txtCodOrdenModal.Text) != null)
-            {
-                listaOrdenes = new BindingList<orden>(apiDocumentos.listarOrden(txtCodOrdenModal.Text).ToList());
-                GridBindOrdenes();
-            }
+            tipoOrdenCompra = true;
+            CargarTabla("");
         }
         protected void CargarDatos()
         {
             if (comprobante != null)
             {
                 TxtId.Text = comprobante.idComprobanteCadena;
-                TxtFechaComprobante.Text = comprobante.fechaEmision.ToString("dd-MM-yyyy");
-                DropDownListTipoComprobante.SelectedValue = comprobante.tipoComprobante.ToString();
+                TxtFechaComprobante.Text = comprobante.fechaEmision.ToString("dd/MM/yyyy");
+                //DropDownListTipoComprobante.SelectedValue = comprobante.tipoComprobante.ToString();
                 if (comprobante.ordenAsociada != null)
                 {
                     TxtIdOrden.Text = comprobante.ordenAsociada.idOrden.ToString();
-                    TxtFechaOrden.Text = comprobante.ordenAsociada.fechaCreacion.ToString("dd-MM-yyyy");
+                    TxtFechaOrden.Text = comprobante.ordenAsociada.fechaCreacion.ToString("dd/MM/yyyy");
                 }
             }
+        }
+
+        protected void DropDownListTipoOrden_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DropDownListTipoOrden.SelectedValue.Equals("Compra"))
+            {
+                tipoOrdenCompra = true;
+            }
+            else
+            {
+                tipoOrdenCompra = false;
+            }
+            CargarTabla(txtCodOrdenModal.Text);
+            CargarModalOrdenes();
+            ReestableceInfoOrdenSeleccionada();
+        }
+
+        protected void DropDownListTipoOrdenModal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DropDownListTipoOrdenModal.SelectedValue.Equals("Compra"))
+            {
+                tipoOrdenCompra = true;
+            }
+            else
+            {
+                tipoOrdenCompra= false; 
+            }
+            CargarTabla(txtCodOrdenModal.Text);
+            CargarModalOrdenes();
+            ReestableceInfoOrdenSeleccionada();
+        }
+
+        private void ReestableceInfoOrdenSeleccionada()
+        {
+            if(tipoOrdenCompra) {
+                DropDownListTipoOrden.SelectedValue = "Compra";
+                DropDownListTipoOrdenModal.SelectedValue = "Compra";
+            }
+            else
+            {
+                DropDownListTipoOrden.SelectedValue = "Venta";
+                DropDownListTipoOrdenModal.SelectedValue = "Venta";
+            }
+            TxtIdOrden.Text = "";
+            TxtFechaOrden.Text = "";
+            Session["OrdenSeleccionada"] = null;
         }
 
         protected void BtnRegresar_Click(object sender, EventArgs e)
@@ -71,15 +116,14 @@ namespace DxnSisventas.Views
         }
         protected void BtnBuscar_Click(object sender, EventArgs e)
         {
-            string script = "window.onload = function() {showModalFormOrdenes()};";
-            ClientScript.RegisterStartupScript(GetType(), "", script, true);
+            CargarModalOrdenes();
         }
 
         protected void BtnSeleccionarOrdenModal_Click(object sender, EventArgs e)
         {
             int idOrden = Int32.Parse(((LinkButton)sender).CommandArgument);
-            listaOrdenes = new BindingList<orden>(apiDocumentos.listarOrden(txtCodOrdenModal.Text).ToList());
-            orden ordenSeleccionada = listaOrdenes.SingleOrDefault(x => x.idOrden == idOrden);
+            orden[] lista = apiDocumentos.listarOrden(txtCodOrdenModal.Text);
+            orden ordenSeleccionada = lista.SingleOrDefault(x => x.idOrden == idOrden);
             Session["OrdenSeleccionada"] = ordenSeleccionada;
             if (ordenSeleccionada is ordenVenta)
             {
@@ -89,7 +133,6 @@ namespace DxnSisventas.Views
             {
                 TxtIdOrden.Text = ((ordenCompra)ordenSeleccionada).idOrdenCompraCadena;
             }
-
             TxtFechaOrden.Text = ordenSeleccionada.fechaCreacion.ToString("dd/MM/yyyy");
             TxtTotal.Text = ordenSeleccionada.total.ToString("N2");
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
@@ -106,14 +149,21 @@ namespace DxnSisventas.Views
             {
                 MostrarMensaje("No se encontraron ordenes", flag);
             }
+            CargarModalOrdenes();
+        }
+
+        private void CargarModalOrdenes()
+        {
             ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormOrdenes", "showModalFormOrdenes();", true);
         }
+
+
 
         protected void gvOrdenes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvOrdenes.PageIndex = e.NewPageIndex;
             GridBindOrdenes();
-            ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormOrdenes", "showModalFormOrdenes();", true);
+            CargarModalOrdenes();
         }
         private void GridBindOrdenes()
         {
@@ -123,15 +173,20 @@ namespace DxnSisventas.Views
 
         protected void txtCodOrdenModal_TextChanged(object sender, EventArgs e)
         {
-            if (apiDocumentos.listarOrden(txtCodOrdenModal.Text) != null)
-            {
-                listaOrdenes = new BindingList<orden>(apiDocumentos.listarOrden(txtCodOrdenModal.Text).ToList());
-                GridBindOrdenes();
-            }
+            CargarTabla(txtCodOrdenModal.Text);
         }
         private bool CargarTabla(string search)
         {
-            orden[] lista = apiDocumentos.listarOrden(search);
+            orden[] lista = null;
+            if (tipoOrdenCompra)
+            {
+                lista = apiDocumentos.listarOrdenCompra(search);
+            }
+            else
+            {
+                lista = apiDocumentos.listarOrdenVenta(search);
+            }
+            
             if (lista == null)
             {
                 return false;
@@ -157,7 +212,8 @@ namespace DxnSisventas.Views
                     e.Row.Cells[1].Text = DataBinder.Eval(ordenVenta, "idOrdenVentaCadena").ToString();
                 }
 
-                e.Row.Cells[2].Text = ((DateTime)DataBinder.Eval(e.Row.DataItem, "fechaCreacion")).ToString();
+                e.Row.Cells[2].Text = ((DateTime)DataBinder.Eval(e.Row.DataItem, "fechaCreacion")).ToString("dd/MM/yyyy");
+                e.Row.Cells[3].Text = ((DateTime)DataBinder.Eval(e.Row.DataItem, "fechaCreacion")).ToString("HH:mm:ss");
             }
         }
 
