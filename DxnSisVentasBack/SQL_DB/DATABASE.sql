@@ -103,7 +103,7 @@ CREATE TABLE Orden_Venta (
   id_cliente INT NOT NULL,
   id_empleado INT NOT NULL,
   id_repartidor INT NULL DEFAULT NULL,
-  fecha_entrega DATETIME NOT NULL,
+  fecha_entrega DATETIME NULL DEFAULT NULL,
   tipo_venta ENUM('Presencial', 'Delivery') NOT NULL,
   metodo_pago ENUM('Efectivo', 'Tarjeta') NOT NULL,
   porcentaje_descuento DECIMAL(4,2) NOT NULL,

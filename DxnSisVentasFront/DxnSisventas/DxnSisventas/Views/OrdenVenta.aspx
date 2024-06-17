@@ -111,8 +111,8 @@
                     <asp:BoundField HeaderText="Descuento" />
                     <asp:TemplateField HeaderText="Opciones">
                         <ItemTemplate>
-                            <asp:LinkButton ID="BtnEditar" runat="server" Text="<i class='fas fa-eye ps-2'>  </i>"
-                                OnClick="BtnEditar_Click" />
+                            <asp:LinkButton ID="BtnVisualizar" runat="server" Text="<i class='fas fa-eye ps-2'>  </i>"
+                                OnClick="BtnVisualizar_Click" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

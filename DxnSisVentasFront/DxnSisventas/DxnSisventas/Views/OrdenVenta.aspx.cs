@@ -228,11 +228,11 @@ namespace DxnSisventas.Views
             Response.Redirect("OrdenVentaForm.aspx?accion=new");
         }
 
-        protected void BtnEditar_Click(object sender, EventArgs e)
+        protected void BtnVisualizar_Click(object sender, EventArgs e)
         {
             int idOrdenVenta = Int32.Parse(((LinkButton)sender).CommandArgument);
             Session["ordenSeleccionada"] = Blordenes.Where(x => x.idOrdenVentaNumerico == idOrdenVenta).FirstOrDefault();
-            Response.Redirect("OrdenVentaForm.aspx?accion=editar");
+            Response.Redirect("OrdenVentaForm.aspx?accion=visualizar");
         }
 
         protected void BtnBuscar_Click(object sender, EventArgs e)
@@ -347,17 +347,24 @@ namespace DxnSisventas.Views
                 e.Row.Cells[0].Text = orden.idOrdenVentaCadena;
                 e.Row.Cells[1].Text = orden.fechaCreacion.ToString("dd/MM/yyyy");
                 e.Row.Cells[2].Text = orden.cliente.nombre + " " + orden.cliente.apellidoPaterno;
-                e.Row.Cells[3].Text = orden.encargadoVenta.nombre + " " + orden.cliente.apellidoMaterno;
+                e.Row.Cells[3].Text = orden.encargadoVenta.nombre + " " + orden.encargadoVenta.apellidoPaterno;
                 if(orden.repartidor != null)
                 {
                     e.Row.Cells[4].Text = orden.repartidor.nombre + " " +orden.repartidor.apellidoPaterno;
                 }
-                e.Row.Cells[5].Text = orden.fechaEntrega.ToString("dd/MM/yyyy");
+                if(orden.fechaEntrega.ToString("dd/MM/yyyy") == "01/01/0001") { 
+                    e.Row.Cells[5].Text = "No asignado";
+                }
+                else
+                {
+                    e.Row.Cells[5].Text = orden.fechaEntrega.ToString("dd/MM/yyyy");
+                }   
                 e.Row.Cells[6].Text = "S/ " + orden.total.ToString("N2");
                 e.Row.Cells[7].Text = orden.estado.ToString();
                 e.Row.Cells[8].Text = orden.porcentajeDescuento.ToString()+"%";
-                LinkButton btnEditar = (LinkButton)e.Row.FindControl("BtnEditar");
-                btnEditar.CommandArgument = orden.idOrdenVentaNumerico.ToString();
+               
+                LinkButton btnVisualizar = (LinkButton)e.Row.FindControl("BtnVisualizar");
+                btnVisualizar.CommandArgument = orden.idOrdenVentaNumerico.ToString();
             }
         }
 

@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <script src="../CustomScripts/OrdenVenta.js"></script>
+    <script src="../CustomScripts/OrdenVenta.js?v4"></script>
 
     <div class="container">
         <div class="card">
@@ -59,9 +59,9 @@
                                     <asp:DropDownList ID="ddlTipoVenta" runat="server" CssClass="form-select"
                                         SelectionMode="Single" OnSelectedIndexChanged="ddlTipoVenta_SelectedIndexChanged"
                                         AutoPostBack="true">
-                                        <asp:ListItem Text="Presencial" Selected="True" Value="Presencial">
+                                        <asp:ListItem Text="Presencial" Value="Presencial">
                                         </asp:ListItem>
-                                        <asp:ListItem Text="Delivery" Value="Delivery"></asp:ListItem>
+                                        <asp:ListItem Text="Delivery" Value="Delivery" Selected="True"></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
                             </div>
@@ -92,13 +92,13 @@
                                     <asp:TextBox ID="TxtDescuento" runat="server"
                                         type="number"
                                         step="0.01"
-                                        CssClass="form-control" OnTextChanged="TxtDescuento_TextChanged">
+                                        CssClass="form-control" oninput="autoUpdate()"
+                                        value="0.00"
+                                        onkeydown="return avoidEnterKey(event);">
                                     </asp:TextBox>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
 
                 </div>
@@ -202,13 +202,14 @@
                             </div>
                             <div class="col-sm-3">
                                 <asp:Button ID="btnAgregarProducto" runat="server" Text="Agregar producto"
-                                    CssClass="btn btn-info" OnClick="btnAgregarProducto_Click" />
+                                    CssClass="btn btn-info" OnClick="btnAgregarProducto_Click" 
+                                    OnClientClick="autoUpdate()" />
                             </div>
                         </div>
                         <div class="row">
                             <asp:GridView ID="gvLineasOrdenVenta" AllowPaging="True" PageSize="5" runat="server" 
                                 AutoGenerateColumns="False"
-                                CssClass="table table-striped table-bordered">
+                                CssClass="table table-striped table-bordered" OnRowDataBound="gvLineasOrdenVenta_RowDataBound">
                                 <Columns>
                                     <asp:BoundField DataField="producto.idProductoCadena" HeaderText="ID Producto" />
                                     <asp:BoundField DataField="producto.nombre" HeaderText="Producto" />

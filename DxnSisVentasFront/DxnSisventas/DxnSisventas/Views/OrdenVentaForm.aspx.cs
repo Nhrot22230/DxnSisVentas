@@ -37,7 +37,7 @@ namespace DxnSisventas.Views
             accion = Request.QueryString["accion"];
             TxtFechaCreacion.Enabled = false;
 
-            if (accion.Equals("editar"))
+            if (accion.Equals("visualizar"))
             {
                
                 ordenVenta = (ordenVenta)Session["ordenSeleccionada"];
@@ -74,10 +74,18 @@ namespace DxnSisventas.Views
             ddlEstado.SelectedValue = ordenVenta.estado.ToString();
             ddlMetodoDePago.SelectedValue = ordenVenta.metodoPago.ToString();
             ddlTipoVenta.SelectedValue = ordenVenta.tipoVenta.ToString();
-         
- 
+
+
             TxtFechaCreacion.Text = ordenVenta.fechaCreacion.ToString("yyyy-MM-dd");
-            TxtFechaEntrega.Text = ordenVenta.fechaEntrega.ToString("yyyy-MM-dd");
+            if (ordenVenta.fechaEntrega.ToString("dd/MM/yyyy") == "01/01/0001")
+            {
+                TxtFechaEntrega.Text = "";
+            }
+            else
+            {
+                TxtFechaEntrega.Text = ordenVenta.fechaEntrega.ToString("yyyy-MM-dd");
+            }
+                
             TxtDescuento.Text = ordenVenta.porcentajeDescuento.ToString();
             
             // información del cliente
@@ -120,8 +128,6 @@ namespace DxnSisventas.Views
             gvLineasOrdenVenta.DataSource = lineasOrden;
             gvLineasOrdenVenta.DataBind();
         }
-
-
         private void llenarGridEmpleados(String busqueda)
         {
             empleado[] empleadosAux = apiPersonas.listarEmpleados(busqueda);
@@ -140,7 +146,6 @@ namespace DxnSisventas.Views
             gvEmpleados.DataSource = empleados;
             gvEmpleados.DataBind();
         }
-
 
         private void llenarGridProductos(String busqueda)
         {
@@ -177,8 +182,6 @@ namespace DxnSisventas.Views
             string script = $"window.onload = function() {{ {function}('{modalId}'); }};";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
         }
-
-
 
         protected void BtnEliminar_Click(object sender, EventArgs e)
         {
@@ -219,9 +222,6 @@ namespace DxnSisventas.Views
                 empleado.apellidoPaterno + " " + empleado.apellidoMaterno;
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }
-
-       
-
         protected void btnSeleccionarModalCliente_Click(object sender, EventArgs e)
         {
             int idCliente = Int32.Parse(((LinkButton)sender).CommandArgument);
@@ -233,13 +233,11 @@ namespace DxnSisventas.Views
                 cliente.apellidoPaterno + " " + cliente.apellidoMaterno;
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }
-
         protected void lbBuscarClienteModal_Click(object sender, EventArgs e)
         {
             string busqueda = TxtPatronBusquedaCliente.Text;
             llenarGridClientes(busqueda);
         }
-
         protected void lbBuscarProductos_Click(object sender, EventArgs e)
         {
             string busqueda = TxtPatronBusquedaProducto.Text;
@@ -413,6 +411,10 @@ namespace DxnSisventas.Views
         }
         bool validarDescuentos()
         {
+            if(TxtDescuento.Text == "")
+            {
+                TxtDescuento.Text = "0";
+            }
             if (double.TryParse(TxtDescuento.Text, out double descuento) && descuento >= 0 && descuento < 100)
             {
                 ordenVenta.porcentajeDescuento = descuento;
@@ -515,7 +517,7 @@ namespace DxnSisventas.Views
                 res = apiDocumentos.insertarOrdenVenta(ordenVenta);
                 if(res < 0) mensaje = "Error al registrar la orden de venta";
             }
-            else if(accion.Equals("editar"))
+            else if(accion.Equals("visualizar"))
             {
                 res = apiDocumentos.actualizarOrdenVenta(ordenVenta);
                 if(res < 0) mensaje = "Error al actualizar la orden de venta";
@@ -553,6 +555,30 @@ namespace DxnSisventas.Views
         protected void TxtDescuento_TextChanged(object sender, EventArgs e)
         {
             calcularLineasConDescuento();
+        }
+
+
+        //<asp:GridView ID = "gvLineasOrdenVenta" AllowPaging="True" PageSize="5" runat="server" 
+        //                        AutoGenerateColumns="False"
+        //                        CssClass="table table-striped table-bordered" OnRowDataBound="gvLineasOrdenVenta_RowDataBound">
+        //                        <Columns>
+        //                            <asp:BoundField DataField = "producto.idProductoCadena" HeaderText="ID Producto" />
+        //                            <asp:BoundField DataField = "producto.nombre" HeaderText="Producto" />
+        //                            <asp:BoundField DataField = "cantidad" HeaderText="Cantidad" />
+        //                            <asp:BoundField DataField = "producto.precioUnitario" HeaderText="Precio" />
+        //                            <asp:BoundField DataField = "subtotal" HeaderText="Subtotal" />
+        //                            <asp:TemplateField HeaderText = "Acciones" >
+        //                                < ItemTemplate >
+        //                                    < asp:Button ID = "BtnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger"
+        //                                        OnClick="BtnEliminar_Click" CommandArgument='<%# Eval("producto.idProductoNumerico") %>' />
+        //                                </ItemTemplate>
+        //                            </asp:TemplateField>
+        //                        </Columns>
+        //                    </asp:GridView>
+
+        protected void gvLineasOrdenVenta_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
         }
     }
 }
