@@ -288,7 +288,7 @@ namespace DxnSisventas.Views
         }
 
         protected void BtnLimpiar_Click(object sender, EventArgs e)
-        {
+        {   //
             // Lógica para limpiar todos los filtros
             TxtBuscar.Text = string.Empty;
             FechaInicio.Text = string.Empty;
