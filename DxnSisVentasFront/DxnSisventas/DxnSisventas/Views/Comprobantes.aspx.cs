@@ -128,9 +128,15 @@ namespace DxnSisventas.Views
 
             if(!(DropDownListTipoOrdenAsociada.SelectedValue == "Todos"))
             {
-                tipoComprobante tipoSelected = (tipoComprobante)Enum.Parse(typeof(tipoComprobante), DropDownListTipoComprobante.SelectedValue);
+                if (DropDownListTipoOrdenAsociada.SelectedValue.Equals("Compra"))
+                {
+                    BlComprobantesFiltrado = new BindingList<comprobante>(BlComprobantesFiltrado.Where(e => e.ordenAsociada is ordenCompra).ToList());
+                }
+                else
+                {
+                    BlComprobantesFiltrado = new BindingList<comprobante>(BlComprobantesFiltrado.Where(e => e.ordenAsociada is ordenVenta).ToList());
+                }
             }
-            
         }
         private void MostrarMensaje(string mensaje, bool exito)
         {
@@ -174,7 +180,8 @@ namespace DxnSisventas.Views
 
         protected void DropDownListTipoOrdenAsociada_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            AplicarFiltro();
+            GridBind();
         }
 
         protected void DropDownListOrdenamientoComprobante_SelectedIndexChanged(object sender,  EventArgs e)
