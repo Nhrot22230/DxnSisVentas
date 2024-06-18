@@ -43,13 +43,19 @@ namespace DxnSisventas.Views
             if (accion != null && accion == "ver" && Session["idOrdenVenta"] != null)
             {
                 int idOrdenVenta = (int)Session["idOrdenVenta"];
+
+                cardInfo.Visible = true;
                 if (Session["ordenCompra"] != null)
                     ordenCompra = (ordenCompra)Session["ordenCompra"];
                 else
 
                     ordenCompra = apiOrdenCompra.listarOrdenCompra(idOrdenVenta.ToString()).FirstOrDefault(x => x.idOrdenCompraNumerico == idOrdenVenta);
                 //denCompra.lineasOrden = apiOrdenCompra.listarLineaOrden(ordenCompra.idOrden);
-
+                if (ordenCompra.estado.ToString() == "Entregado")
+                {
+                    gvLineasOrdenVenta.Columns[5].Visible = false;
+                    ocultarProducto();
+                }
                 Session["lineasOrdenVenta"] = ordenCompra.lineasOrden;
                 lineasOrden = ordenCompra.lineasOrden.ToList();
                 mostrarDatos();
@@ -58,6 +64,7 @@ namespace DxnSisventas.Views
             {
                 if (accion != null && accion == "new" && Session["idOrdenVenta"] == null)
                     btnEnviar.Enabled = false;
+                cardInfo.Visible = false;
                 lineasAgregadas.Clear();
                 ordenCompra = new ordenCompra();
                 if (!IsPostBack)
@@ -66,6 +73,9 @@ namespace DxnSisventas.Views
                     Session["lineasOrdenVenta"] = null;
                     Session["producto"] = null;
                     Session["cliente"] = null;
+                    lineasOrden.Clear();
+                    lineasEliminadas.Clear();
+                    lineasAgregadas.Clear();
                 }
             }
             if (Session["lineasOrdenVenta"] == null) { }
@@ -78,11 +88,29 @@ namespace DxnSisventas.Views
             gvLineasOrdenVenta.DataSource = lineasOrden;
             gvLineasOrdenVenta.DataBind();
         }
+
+        protected void ocultarProducto()
+        {
+            lblIDProducto.Visible = false;
+            txtIDProducto.Visible = false;
+            btnBuscarProducto.Visible = false;
+            txtNombreProducto.Visible = false;
+            lblNombreProducto.Visible = false;
+            lblPrecioUnitProducto.Visible = false;
+            txtPrecioUnitProducto.Visible = false;
+            lblCantidadUnidades.Visible = false;
+            txtCantidadUnidades.Visible = false;
+            lbAgregarLOV.Visible = false;
+        }
         public void mostrarDatos()
         {
             txtEstado.Text = ordenCompra.estado.ToString();
-            txtID.Text = ordenCompra.idOrdenCompraNumerico.ToString();
-            txtFecha.Text = ordenCompra.fechaCreacion.ToShortDateString();
+            txtID.Text = ordenCompra.idOrdenCompraCadena.ToString();
+            txtFecha.Text = ordenCompra.fechaCreacion.ToString();
+            if (ordenCompra.fechaRecepcion != null && ordenCompra.fechaRecepcion > new DateTime(2000, 1, 1))
+                txtFechaEnvio.Text = ordenCompra.fechaRecepcion.ToString();
+            else
+                txtFechaEnvio.Text = "-";
             if (ordenCompra.estado.ToString() == estadoOrden.Pendiente.ToString())
             {
                 btnGuardar.Enabled = true;
@@ -143,7 +171,7 @@ namespace DxnSisventas.Views
             int idProducto = Int32.Parse(((LinkButton)sender).CommandArgument);
             producto productoSeleccionado = listaProductos.SingleOrDefault(x => x.idProductoNumerico == idProducto);
             Session["producto"] = productoSeleccionado;
-            txtNombreProducto.Text = productoSeleccionado.nombre;
+            txtNombreProducto.Text = productoSeleccionado.nombre + " " + productoSeleccionado.capacidad.ToString() + " " + productoSeleccionado.unidadDeMedida;
             txtPrecioUnitProducto.Text = productoSeleccionado.precioUnitario.ToString("N2");
             txtIDProducto.Text = productoSeleccionado.idProductoCadena.ToString();
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
@@ -154,7 +182,7 @@ namespace DxnSisventas.Views
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Cells[1].Text = ((double)DataBinder.Eval(e.Row.DataItem, "precioUnitario")).ToString("N2");
+                e.Row.Cells[2].Text = ((double)DataBinder.Eval(e.Row.DataItem, "precioUnitario")).ToString("N2");
 
             }
         }
@@ -191,14 +219,55 @@ namespace DxnSisventas.Views
             lov.producto = (producto)Session["producto"];
             lov.cantidad = Int32.Parse(txtCantidadUnidades.Text);
             lov.subtotal = lov.producto.precioUnitario * lov.cantidad;
-            if (lineasOrden.Find(x => x.producto.idProductoNumerico == lov.producto.idProductoNumerico) != null)
-            {
+            ///linea r orden para la linea agregada
+            ///
+            lineaOrden lovAgregado = new lineaOrden();
+            lovAgregado.producto = (producto)Session["producto"];
+            lovAgregado.cantidad = Int32.Parse(txtCantidadUnidades.Text);
+            lovAgregado.subtotal = lovAgregado.producto.precioUnitario * lovAgregado.cantidad;
+            //
+            lineaOrden existingLineaOrden = lineasOrden.Find(x => x.producto.idProductoNumerico == lov.producto.idProductoNumerico);
 
-                MostrarMensaje("El producto ya esta registrado, elimine para agregar", lineasOrden.Find(x => x.producto.idProductoNumerico == lov.producto.idProductoNumerico) != null);
-                return;
+            if (existingLineaOrden != null)
+            { ////// si la orden ya esta
+                int cantidadPrevia = lineasOrden.Find(x => x.producto.idProductoNumerico == lov.producto.idProductoNumerico).cantidad;
+                existingLineaOrden.cantidad += lov.cantidad;
+                existingLineaOrden.subtotal += lov.cantidad * lov.producto.precioUnitario;
+                if (Request.QueryString["accion"] == "ver")
+                {
+
+
+                    lineaOrden existingLineaOrdenAgregada = lineasAgregadas.Find(x => x.producto.idProductoNumerico == lov.producto.idProductoNumerico);
+                    if (existingLineaOrdenAgregada != null)
+                    {   // esta en lineas agregadas
+                        existingLineaOrdenAgregada.cantidad += lov.cantidad;
+                        existingLineaOrdenAgregada.subtotal += lov.producto.precioUnitario * lov.cantidad;
+                    }
+                    else
+                    {
+                        // no esta en lineas agregadas por lo tanto se procede a agregar a lineas eliminadas para actualizar en base de datos
+                        lineasEliminadas.Add(lov);
+                        lovAgregado.cantidad += cantidadPrevia;
+                        lovAgregado.subtotal += cantidadPrevia * lovAgregado.producto.precioUnitario;
+                        lineasAgregadas.Add(lovAgregado);
+                    }
+
+                }
+
             }
-            lineasOrden.Add(lov);
+            else
+            {
+                // si la orden no esta 
+                lineasOrden.Add(lov);
+                if (Request.QueryString["accion"] == "ver")
+                {
+                    lineasAgregadas.Add(lovAgregado);
 
+                    ordenCompra.lineasOrden = lineasOrden.ToArray();
+                    Session["ordenCompra"] = ordenCompra;
+                }
+
+            }
             Session["lineasOrdenVenta"] = lineasOrden;
 
             gvLineasOrdenVenta.DataSource = lineasOrden;
@@ -206,7 +275,7 @@ namespace DxnSisventas.Views
 
             if (Request.QueryString["accion"] == "ver")
             {
-                lineasAgregadas.Add(lov);
+                //lineasAgregadas.Add(lov);
 
                 ordenCompra.lineasOrden = lineasOrden.ToArray();
                 Session["ordenCompra"] = ordenCompra;
@@ -240,17 +309,19 @@ namespace DxnSisventas.Views
             if (Request.QueryString["accion"] == "ver")
                 ordenCompra.lineasOrden = lineasOrden.ToArray();
             Session["ordenCompra"] = ordenCompra;
-            if (lineasAgregadas.Find(l => l.producto.idProductoNumerico == id && l.cantidad == cantidad) != null)
+            lineaOrden lineaAgregada = lineasAgregadas.Find(l => l.producto.idProductoNumerico == id);
+            if (lineaAgregada != null)
             {
-                lineasAgregadas.Remove(linea);
+                lineasAgregadas.Remove(lineaAgregada);
             }
             else
             {
                 lineasEliminadas.Add(linea);
             }
-
+            gvLineasOrdenVenta.DataSource = lineasOrden;
+            gvLineasOrdenVenta.DataBind();
             calcularTotal();
-            Response.Redirect(Request.Url.AbsoluteUri);
+            //Response.Redirect(Request.Url.AbsoluteUri);
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -329,7 +400,11 @@ namespace DxnSisventas.Views
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-
+            if (lineasOrden == null || lineasOrden.Count() <= 0)
+            {
+                MostrarMensaje("Debe agregar un producto...", lineasOrden == null || lineasOrden.Count() <= 0);
+                return;
+            }
 
             string script = "window.onload = function() { showModalFormEnviar() };";
             ClientScript.RegisterStartupScript(GetType(), "", script, true);
@@ -370,6 +445,28 @@ namespace DxnSisventas.Views
             string asunto = "Orden de compra Nro: " + ordenCompra.idOrdenCompraCadena;
             string contenido = CrearContenido();
             string correo = txtCorreo.Text.ToString();
+
+
+            int resultado;
+
+
+            resultado = apiCorreo.enviarCorreoWeb(asunto, contenido, correo);
+
+
+            if (resultado == 0)
+            {
+                MostrarMensaje("Ingrese un correo valido", resultado == 0);
+                return;
+            }
+            else
+            {
+                MostrarMensaje("Correo Enviado", false);
+
+            }
+
+
+
+
             /////////////////////////tiene que terner la misma funcion que el boton de guardar////////////////////
             ///
             ordenCompra orden = new ordenCompra
@@ -419,7 +516,6 @@ namespace DxnSisventas.Views
 
 
             //////////////a partir de aca se genera el correo///////////////////////////////////////////
-            apiCorreo.enviarCorreoWeb(asunto, contenido, correo);
             ordenCompra.estadoSpecified = true;
             ordenCompra.estado = estadoOrden.Entregado;
             ordenCompra.fechaRecepcionSpecified = true;
@@ -445,6 +541,110 @@ namespace DxnSisventas.Views
                 }
             }
         }
+
+        protected void gvLineasOrdenVenta_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            gvLineasOrdenVenta.PageIndex = e.NewSelectedIndex;
+
+            gvLineasOrdenVenta.DataSource = lineasOrden;
+            gvLineasOrdenVenta.DataBind();
+        }
+
+        protected void gvLineasOrdenVenta_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvLineasOrdenVenta.PageIndex = e.NewPageIndex;
+
+            gvLineasOrdenVenta.DataSource = lineasOrden;
+            gvLineasOrdenVenta.DataBind();
+        }
+
+        protected void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+            string asunto = "Orden de compra Nro: " + ordenCompra.idOrdenCompraCadena;
+            string contenido = CrearContenido();
+            string correo = txtCorreo.Text.ToString();
+
+
+            int resultado;
+
+            resultado = apiCorreo.enviarCorreoWeb(asunto, contenido, correo);
+
+
+            if (resultado == 0)
+            {
+                MostrarMensaje("Ingrese un correo valido", resultado == 0);
+                return;
+            }
+            else
+            {
+                MostrarMensaje("Correo Enviado", false);
+
+            }
+
+
+
+
+            /////////////////////////tiene que terner la misma funcion que el boton de guardar////////////////////
+            ///
+            ordenCompra orden = new ordenCompra
+            {
+                total = double.Parse(txtTotal.Text),
+                fechaCreacionSpecified = true,
+                estadoSpecified = true,
+                fechaCreacion = DateTime.Now,
+                estado = estadoOrden.Pendiente,
+            };
+            orden.lineasOrden = new ArraySegment<lineaOrden>().ToArray();
+            for (int i = 0; i < lineasOrden.Count; i++)
+            {
+                orden.lineasOrden.Append(lineasOrden[i]);
+            }
+            orden.lineasOrden = lineasOrden.ToArray();
+
+            //Validacion de que exista por lo menos 1 linea de orden de venta
+            if (lineasOrden == null || lineasOrden.Count() <= 0 || orden.lineasOrden.Count() == 0)
+            {
+                MostrarMensaje("Debe agregar un producto...", lineasOrden == null || lineasOrden.Count() <= 0 || orden.lineasOrden.Count() == 0);
+                return;
+            }
+            if (Request.QueryString["accion"] == "ver")
+            {
+                ordenCompra.lineasOrden = lineasOrden.ToArray();
+                ordenCompra.fechaCreacionSpecified = true;
+                ordenCompra.estadoSpecified = true;
+                ordenCompra.fechaRecepcionSpecified = true;
+                foreach (lineaOrden x in lineasEliminadas)
+                {
+                    apiOrdenCompra.eliminarLOV(ordenCompra.idOrden, x.producto.idProductoNumerico);
+
+                }
+                foreach (lineaOrden x in lineasAgregadas)
+                {
+                    apiOrdenCompra.insertarLOV(x, ordenCompra.idOrden);
+
+                }
+                apiOrdenCompra.actualizarOrdenCompra(ordenCompra);
+            }
+            else
+            {
+
+                apiOrdenCompra.insertarOrdenCompra(orden);
+            }
+
+
+            //////////////a partir de aca se genera el correo///////////////////////////////////////////
+            ordenCompra.estadoSpecified = true;
+            ordenCompra.estado = estadoOrden.Entregado;
+            ordenCompra.fechaRecepcionSpecified = true;
+            ordenCompra.fechaRecepcion = DateTime.Now;
+            apiOrdenCompra.actualizarOrdenCompra(ordenCompra);
+            lineasOrden.Clear();
+            lineasEliminadas.Clear();
+            lineasAgregadas.Clear();
+            Response.Redirect("/Views/OrdenCompra.aspx");
+        }
+
+
     }
 
 

@@ -278,6 +278,8 @@
     <Content Include="CustomStyles\Home.css" />
     <Content Include="CustomStyles\Login.css" />
     <Content Include="CustomStyles\Master.css" />
+    <Content Include="CustomStyles\OrdenCompra.css" />
+    <Content Include="CustomStyles\OrdenVenta.css" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />

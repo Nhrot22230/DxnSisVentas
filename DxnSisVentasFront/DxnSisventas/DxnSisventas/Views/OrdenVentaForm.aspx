@@ -2,10 +2,11 @@
     CodeBehind="OrdenVentaForm.aspx.cs" Inherits="DxnSisventas.Views.OrdenVentaForm" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="../CustomStyles/OrdenVenta.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <script src="../CustomScripts/OrdenVenta.js"></script>
+    <script src="../CustomScripts/OrdenVenta.js?v4"></script>
 
     <div class="container">
         <div class="card">
@@ -58,9 +59,9 @@
                                     <asp:DropDownList ID="ddlTipoVenta" runat="server" CssClass="form-select"
                                         SelectionMode="Single" OnSelectedIndexChanged="ddlTipoVenta_SelectedIndexChanged"
                                         AutoPostBack="true">
-                                        <asp:ListItem Text="Presencial" Selected="True" Value="Presencial">
+                                        <asp:ListItem Text="Presencial" Value="Presencial">
                                         </asp:ListItem>
-                                        <asp:ListItem Text="Delivery" Value="Delivery"></asp:ListItem>
+                                        <asp:ListItem Text="Delivery" Value="Delivery" Selected="True"></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
                             </div>
@@ -91,13 +92,13 @@
                                     <asp:TextBox ID="TxtDescuento" runat="server"
                                         type="number"
                                         step="0.01"
-                                        CssClass="form-control">
+                                        CssClass="form-control" oninput="autoUpdate()"
+                                        value="0.00"
+                                        onkeydown="return avoidEnterKey(event);">
                                     </asp:TextBox>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
 
                 </div>
@@ -121,7 +122,7 @@
                                     CssClass="form-control" required="true"></asp:TextBox>
                             </div>
                             <div class="col-sm-2">
-                                <asp:LinkButton ID="lbBuscarCliente" runat="server" CssClass="btn btn-warning"
+                                <asp:LinkButton ID="lbBuscarCliente" runat="server" CssClass="btn btn-primary btn-sm"
                                     OnClick="lbBuscarCliente_Click">Buscar
                                 </asp:LinkButton>
 
@@ -151,7 +152,7 @@
                                         CssClass="form-control" required="true"></asp:TextBox>
                                 </div>
                                 <div class="col-sm-2">
-                                    <asp:LinkButton ID="lbBuscarRepartidor" runat="server" CssClass="btn btn-warning"
+                                    <asp:LinkButton ID="lbBuscarRepartidor" runat="server" CssClass="btn btn-primary btn-sm"
                                         OnClick="lbBuscarRepartidor_Click">
                                         Buscar</asp:LinkButton>
                                 </div>
@@ -177,7 +178,7 @@
                             <div class="col-sm-3">
                                 <asp:Button ID="btnBuscarProducto" runat="server" Text="Buscar producto"
                                     OnClick="btnBuscarProducto_Click"
-                                    CssClass="btn btn-warning" />
+                                    CssClass="btn btn-primary btn-sm" />
                             </div>
 
                         </div>
@@ -201,13 +202,14 @@
                             </div>
                             <div class="col-sm-3">
                                 <asp:Button ID="btnAgregarProducto" runat="server" Text="Agregar producto"
-                                    CssClass="btn btn-success" OnClick="btnAgregarProducto_Click" />
+                                    CssClass="btn btn-info" OnClick="btnAgregarProducto_Click" 
+                                    OnClientClick="autoUpdate()" />
                             </div>
                         </div>
                         <div class="row">
                             <asp:GridView ID="gvLineasOrdenVenta" AllowPaging="True" PageSize="5" runat="server" 
                                 AutoGenerateColumns="False"
-                                CssClass="table table-striped table-bordered">
+                                CssClass="table table-striped table-bordered" OnRowDataBound="gvLineasOrdenVenta_RowDataBound">
                                 <Columns>
                                     <asp:BoundField DataField="producto.idProductoCadena" HeaderText="ID Producto" />
                                     <asp:BoundField DataField="producto.nombre" HeaderText="Producto" />
@@ -234,7 +236,7 @@
 
                 <div class="card-footer">
                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click"
-                        CssClass="float-end btn btn-primary" />
+                        CssClass="float-end btn btn-success mb-2" />
                     <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"
                         CssClass="float-start btn btn-danger" />
                 </div>
