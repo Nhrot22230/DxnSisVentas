@@ -79,12 +79,14 @@
 }
 
 .gridview-custom {
-    border: 1px solid #dcdcdc;
     background-color: #f9f9f9;
     width: 100%;
     text-align: left;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
+    border-radius: 12px; /* Borde redondeado */
+    overflow: hidden; /* Para que el contenido se ajuste al borde redondeado */
+    border: none; /* Bordes transparentes */
 }
 
     .gridview-custom th {
@@ -95,16 +97,21 @@
     }
 
     .gridview-custom td {
-        border: 1px solid #dcdcdc;
+        border: none; /* Bordes transparentes para celdas */
         padding: 8px;
+        color: #000000 !important;
     }
 
     .gridview-custom tr:nth-child(even) {
-        background-color: #f2f2f2;
+        background-color: #e6e6e6; /* Fondo más gris para filas pares */
+    }
+
+    .gridview-custom tr:nth-child(odd) {
+        background-color: #f2f2f2; /* Fondo gris claro para filas impares */
     }
 
     .gridview-custom tr:hover {
-        background-color: #d1e0e0;
+        background-color: #c0c0c0; /* Fondo gris más oscuro al pasar el ratón */
     }
 
     .gridview-custom .link-button {
@@ -115,3 +122,6 @@
         .gridview-custom .link-button:hover {
             text-decoration: underline;
         }
+
+
+        /*estilos para el card*/
