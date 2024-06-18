@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentas\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\cesar\\documents\\github\\dxnsisventas\\dxnsisventas\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\comprobantes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\comprobantes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentas\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\comprobantes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\comprobantes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\cesar\\documents\\github\\dxnsisventas\\dxnsisventas\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\comprobantes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\comprobantes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentas\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\comprobantesform.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 285,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -56,7 +56,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Comprobantes.aspx",
               "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentas\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Comprobantes.aspx",
               "RelativeDocumentMoniker": "DxnSisventas\\Views\\Comprobantes.aspx",
@@ -65,7 +65,8 @@
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2024-06-17T04:24:34.239Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -77,13 +78,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Comprobantes.aspx.cs",
               "DocumentMoniker": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentas\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Comprobantes.aspx.cs",
               "RelativeDocumentMoniker": "DxnSisventas\\Views\\Comprobantes.aspx.cs",
               "ToolTip": "C:\\Users\\cesar\\Documents\\GitHub\\DxnSisVentas\\DxnSisVentas\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Comprobantes.aspx.cs",
               "RelativeToolTip": "DxnSisventas\\Views\\Comprobantes.aspx.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAswLcAAAAXAAAA",
+              "ViewState": "AQIAAHkAAAAAAAAAAAAUwBcAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-17T20:18:26.231Z",
               "EditorCaption": ""
