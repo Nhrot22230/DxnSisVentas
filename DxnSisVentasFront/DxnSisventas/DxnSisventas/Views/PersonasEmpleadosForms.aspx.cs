@@ -15,6 +15,7 @@ namespace DxnSisventas.Views
 
     protected void Page_Init(object sender, EventArgs e)
     {
+      TxtId.Enabled = false;
       if (Session["empleadoEditar"] != null)
       {
         empTemporal = (empleado)Session["empleadoEditar"];
@@ -56,19 +57,20 @@ namespace DxnSisventas.Views
       empTemporal.DNI = TxtDNI.Text;
       empTemporal.sueldo = Double.Parse(TxtSueldo.Text);
       empTemporal.rol = (rol)Enum.Parse(typeof(rol), DropDownListRoles.SelectedValue);
-
-      int res;
+      empTemporal.rolSpecified = true;
+      
+      int idEmpInsertado;
 
       if (empTemporal.idEmpleadoCadena == null)
       {
-        res = personasAPIClient.insertarEmpleado(empTemporal);
+        idEmpInsertado = personasAPIClient.insertarEmpleado(empTemporal);
       }
       else
       {
-        res = personasAPIClient.actualizarEmpleado(empTemporal);
+        idEmpInsertado = personasAPIClient.actualizarEmpleado(empTemporal);
       }
 
-      if (res == 0)
+      if (idEmpInsertado == 0)
       {
         MostrarMensaje("Error al guardar el empleado", false);
         return;

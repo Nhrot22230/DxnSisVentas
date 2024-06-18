@@ -8,7 +8,7 @@
   <!-- show path like (Home icon) > ParentPage > CurrentPage -->
   <!-- show path like (Home icon) > Inicio -->
   <div class="page-path">
-    <p><i class="fa fa-home"></i> > Inicio</p>
+    <p><i class="fa fa-home"></i>> Inicio</p>
     <hr>
   </div>
 
@@ -19,9 +19,7 @@
     </div>
 
     <div class="card card-custom">
-      <div class="card-header card-header-custom">
-        Datos del Empleado
-      </div>
+      <div class="card-header card-header-custom">Datos del Empleado</div>
       <div class="card-body card-body-custom">
         <h5 class="card-title text-primary"><%: emp.nombre %> <%: emp.apellidoPaterno %> <%: emp.apellidoMaterno %></h5>
         <div class="card-text">

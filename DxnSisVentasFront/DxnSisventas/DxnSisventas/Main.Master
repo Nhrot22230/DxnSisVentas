@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="DxnSisventas.Main" %>
+﻿﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="DxnSisventas.Main" %>
 
 <!DOCTYPE html>
 
@@ -13,19 +13,16 @@
     }
   </script>
   <title id="PageTitle" runat="server"></title>
-
   <asp:ContentPlaceHolder ID="head" runat="server">
   </asp:ContentPlaceHolder>
-
   <link rel="stylesheet" href="/Content/all.min.css" />
   <link rel="stylesheet" href="/Content/fontawesome.min.css">
   <link rel="stylesheet" href="/Content/bootstrap.min.css" />
   <link rel="stylesheet" href="/CustomStyles/Master.css" />
-
 </head>
-<body>
+<body data-bs-theme='<%= IsDarkModeEnabled() ? "dark" : "light" %>'>
   <form id="masterForm" runat="server">
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary bg-gradient">
+    <nav class="navbar navbar-expand-lg navbar-light bg-gradient" style="background-color: #082444;">
       <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center justify-content-center" href="#" style="gap: 10px;">
           <img src="/Assets/BBB.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
@@ -53,14 +50,17 @@
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="#">Perfil</a></li>
                 <li>
-                  <asp:LinkButton
-                    CssClass="dropdown-item" Text="Cerrar Sesión"
-                    ID="LbCerrarSesion" runat="server"
+                  <asp:LinkButton CssClass="dropdown-item" Text="Cerrar Sesión" ID="LbCerrarSesion" runat="server"
                     OnClick="LbCerrarSesion_Click"></asp:LinkButton>
                 </li>
               </ul>
             </li>
           </ul>
+          <!-- Mover el interruptor de Modo Oscuro fuera de la lista de navegación -->
+          <label class="toggle-switch">
+            <asp:CheckBox ID="DarkModeCheckBox" runat="server" AutoPostBack="true" OnCheckedChanged="DarkModeCheckBox_CheckedChanged" />
+            <span class="slider"></span>
+          </label>
         </div>
       </div>
     </nav>

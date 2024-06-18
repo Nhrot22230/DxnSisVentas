@@ -23,13 +23,14 @@ namespace DxnSisventas.Views
     // Page events
     protected void Page_Init(object sender, EventArgs e)
     {
+      TxtId.Enabled = false;
       Page.Title = "Productos";
       CargarTabla("");
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
-      TxtId.Enabled = false;
+
     }
 
     // GridView events

@@ -15,6 +15,11 @@ namespace DxnSisventas
 
     protected void Page_Init(object sender, EventArgs e)
     {
+      if (Session["empleado"] == null || Session["datosCuenta"] == null)
+      {
+        Response.Redirect("~/Login.aspx");
+      }
+
       emp = (empleado)Session["empleado"];
       datosCuenta = (cuentaEmpleado)Session["datosCuenta"];
       Page.Title = "Bienvenido, " + emp.nombre + " " + emp.apellidoPaterno + "!";

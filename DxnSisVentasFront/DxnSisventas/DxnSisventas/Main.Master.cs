@@ -9,6 +9,22 @@ namespace DxnSisventas
 {
   public partial class Main : System.Web.UI.MasterPage
   {
+
+    protected void Page_Init(object sender, EventArgs e)
+    {
+      if (Session["empleado"] == null)
+      {
+        Response.Redirect("~/Login.aspx");
+      }
+
+      if (Session["DarkMode"] == null)
+      {
+        Session["DarkMode"] = false;
+      }
+
+      DarkModeCheckBox.Checked = (bool)Session["DarkMode"];
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
       ClearError();
@@ -56,6 +72,11 @@ namespace DxnSisventas
       ScriptManager.RegisterStartupScript(this, GetType(), "showPanel", "showErrorPanel();", true);
     }
 
+    public bool IsDarkModeEnabled()
+    {
+      return (bool)Session["DarkMode"];
+    }
+
     protected void LbUsuariosEmpleados_Click(object sender, EventArgs e)
     {
       Response.Redirect("~/Views/PersonasEmpleados.aspx");
@@ -89,6 +110,11 @@ namespace DxnSisventas
     protected void LbCuentasClientes_Click(object sender, EventArgs e)
     {
       Response.Redirect("~/Views/CuentasClientes.aspx");
+    }
+
+    protected void DarkModeCheckBox_CheckedChanged(object sender, EventArgs e)
+    {
+      Session["DarkMode"] = DarkModeCheckBox.Checked;
     }
   }
 }

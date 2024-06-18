@@ -21,8 +21,6 @@ namespace DxnSisventas.Views
       CargarTabla("");
       AplicarFiltro();
       GridBind();
-
-
     }
 
     protected void Page_Load(object sender, EventArgs e)

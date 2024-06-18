@@ -31,7 +31,10 @@
         .card-header-info, .card-header-detail {
         background-color: #3b4c57 !important;
         color: white !important;
-    }
+        }
+        .card .card-body{
+            background-color: #bababa  !important;
+        }
     </style>
 </asp:Content>
 

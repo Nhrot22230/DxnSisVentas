@@ -5,14 +5,8 @@
 }
 
 .card-header-custom {
-  background-color: #007bff;
-  color: white;
   border-radius: 15px 15px 0 0;
   font-weight: bold;
-}
-
-.card-body-custom {
-  background-color: #f8f9fa;
 }
 
 .icon {
