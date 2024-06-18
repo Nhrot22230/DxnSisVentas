@@ -171,7 +171,7 @@ namespace DxnSisventas.Views
             int idProducto = Int32.Parse(((LinkButton)sender).CommandArgument);
             producto productoSeleccionado = listaProductos.SingleOrDefault(x => x.idProductoNumerico == idProducto);
             Session["producto"] = productoSeleccionado;
-            txtNombreProducto.Text = productoSeleccionado.nombre;
+            txtNombreProducto.Text = productoSeleccionado.nombre + " " + productoSeleccionado.capacidad.ToString() + " " + productoSeleccionado.unidadDeMedida;
             txtPrecioUnitProducto.Text = productoSeleccionado.precioUnitario.ToString("N2");
             txtIDProducto.Text = productoSeleccionado.idProductoCadena.ToString();
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
@@ -235,7 +235,7 @@ namespace DxnSisventas.Views
                 existingLineaOrden.subtotal += lov.cantidad * lov.producto.precioUnitario;
                 if (Request.QueryString["accion"] == "ver")
                 {
-                    
+
 
                     lineaOrden existingLineaOrdenAgregada = lineasAgregadas.Find(x => x.producto.idProductoNumerico == lov.producto.idProductoNumerico);
                     if (existingLineaOrdenAgregada != null)
@@ -567,7 +567,6 @@ namespace DxnSisventas.Views
 
             int resultado;
 
-
             resultado = apiCorreo.enviarCorreoWeb(asunto, contenido, correo);
 
 
@@ -644,6 +643,8 @@ namespace DxnSisventas.Views
             lineasAgregadas.Clear();
             Response.Redirect("/Views/OrdenCompra.aspx");
         }
+
+
     }
 
 

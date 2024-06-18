@@ -98,7 +98,7 @@
                         <div class="mb-3 row">
                             <asp:Label ID="lblCantidadUnidades" runat="server" Text="Cantidad:" CssClass="col-sm-2 col-form-label" />
                             <div class="col-sm-4">
-                                <asp:TextBox ID="txtCantidadUnidades" type="number" runat="server" CssClass="form-control" />
+                                <asp:TextBox ID="txtCantidadUnidades" type="number" runat="server" onkeydown="if (event.keyCode == 13) return false;"  CssClass="form-control" />
                             </div>
                             <div class="col-sm-4">
                                 <asp:LinkButton ID="lbAgregarLOV" CssClass="btn btn-success" runat="server" Text="Agregar" OnClick="lbAgregarLOV_Click" />
@@ -211,42 +211,61 @@
 
     <!-- Modal para agregar destinatario -->
     <div class="modal fade" id="form-modal-enviar" tabindex="-1">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Agregar destinatario</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <asp:UpdatePanel runat="server">
-                        <ContentTemplate>
-                            <div class="container row pb-3 pt-3">
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <asp:Label CssClass="form-label" runat="server" Text="Ingresar destinatario:"></asp:Label>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <asp:TextBox CssClass="form-control" ID="txtCorreo" runat="server" OnTextChanged="txtCorreo_TextChanged"></asp:TextBox>
-                                        <asp:RegularExpressionValidator 
-                                            ID="regexCorreo" 
-                                            runat="server" 
-                                            ControlToValidate="txtCorreo"
-                                            ErrorMessage="Por favor, ingrese un correo electrónico válido."
-                                            ValidationExpression="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
-                                            Display="Dynamic" 
-                                            ForeColor="Red" 
-                                            SetFocusOnError="true">
-                                        </asp:RegularExpressionValidator>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <asp:LinkButton ID="EnviarModal" runat="server" CssClass="btn btn-info" Text="<i class='fa-solid fa-paper-plane pe-2'></i> Enviar" OnClick="lbEnviaroModal_Click" />
-                                    </div>
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar destinatario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <asp:UpdatePanel runat="server">
+                    <ContentTemplate>
+                        <div class="container row pb-3 pt-3">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <asp:Label CssClass="form-label" runat="server" Text="Ingresar destinatario:"></asp:Label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <asp:TextBox CssClass="form-control" ID="txtCorreo" runat="server" onkeydown="if (event.keyCode == 13) return false;" OnTextChanged="txtCorreo_TextChanged"></asp:TextBox>
+                                    <asp:RequiredFieldValidator 
+                                        ID="reqCorreo" 
+                                        runat="server" 
+                                        ControlToValidate="txtCorreo"
+                                        ErrorMessage="El campo de correo electrónico es obligatorio."
+                                        Display="Dynamic" 
+                                        ForeColor="Red" 
+                                        SetFocusOnError="true"
+                                        ValidationGroup="CorreoGroup">
+                                    </asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator 
+                                        ID="regexCorreo" 
+                                        runat="server" 
+                                        ControlToValidate="txtCorreo"
+                                        ErrorMessage="Por favor, ingrese un correo electrónico válido."
+                                        ValidationExpression="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+                                        Display="Dynamic" 
+                                        ForeColor="Red" 
+                                        SetFocusOnError="true"
+                                        ValidationGroup="CorreoGroup">
+                                    </asp:RegularExpressionValidator>
+                                </div>
+                                <div class="col-sm-2">
+                                    <asp:LinkButton 
+                                        ID="EnviarModal" 
+                                        runat="server" 
+                                        CssClass="btn btn-info" 
+                                        Text="<i class='fas fa-paper-plane' style='color:white'></i> <span style='color:white'>Enviar</span>" 
+                                        OnClick="lbEnviaroModal_Click" 
+                                        ValidationGroup="CorreoGroup">
+                                    </asp:LinkButton>
                                 </div>
                             </div>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
         </div>
     </div>
+</div>
+
 </asp:Content>
