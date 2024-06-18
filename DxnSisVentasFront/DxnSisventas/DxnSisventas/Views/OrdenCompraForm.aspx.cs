@@ -424,7 +424,7 @@ namespace DxnSisventas.Views
             {
                 contenido += "<tr>";
                 contenido += "<td style='border: 1px solid #000; padding: 8px; text-align: center;'>" + x.producto.idProductoNumerico.ToString() + "</td>";
-                contenido += "<td style='border: 1px solid #000; padding: 8px;'>" + x.producto.nombre.ToString() + "</td>";
+                contenido += "<td style='border: 1px solid #000; padding: 8px;'>" + x.producto.nombre + " " + x.producto.capacidad.ToString() + " " + x.producto.unidadDeMedida + "</td>";
                 contenido += "<td style='border: 1px solid #000; padding: 8px; text-align: center;'>" + x.cantidad.ToString() + "</td>";
                 contenido += "<td style='border: 1px solid #000; padding: 8px; text-align: center;'>" + x.subtotal.ToString("N2") + "</td>";
                 contenido += "</tr>";
