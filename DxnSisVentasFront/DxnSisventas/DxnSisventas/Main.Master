@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="DxnSisventas.Main" %>
+﻿﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="DxnSisventas.Main" %>
 
 <!DOCTYPE html>
 
@@ -8,9 +8,33 @@
   <script type="text/javascript" src="/Scripts/bootstrap.bundle.min.js"></script>
   <script type="text/javascript" src="/Scripts/jquery-3.7.1.min.js"></script>
   <script>
-    function showErrorPanel() {
-      $(".notification-panel").fadeIn().delay(2250).fadeOut();
-    }
+      function showErrorPanel() {
+          $(".notification-panel").fadeIn().delay(2250).fadeOut();
+      }
+
+      function toggleDarkMode() {
+          document.body.classList.toggle('dark-mode');
+      }
+      $(document).ready(function () {
+          // Verificar el estado de modo oscuro almacenado en localStorage
+          var darkModeEnabled = localStorage.getItem('darkModeEnabled') === 'true';
+
+          // Función para activar/desactivar el modo oscuro
+          function toggleDarkMode() {
+              document.body.classList.toggle('dark-mode', darkModeEnabled);
+          }
+
+          // Aplicar el estado inicial (Modo Oscuro activado o desactivado)
+          toggleDarkMode();
+
+          // Manejar el cambio del interruptor
+          $('#darkModeSwitch').change(function () {
+              darkModeEnabled = $(this).is(':checked');
+              toggleDarkMode();
+              // Almacenar el estado actual en localStorage
+              localStorage.setItem('darkModeEnabled', darkModeEnabled);
+          });
+      });
   </script>
   <title id="PageTitle" runat="server"></title>
 
@@ -22,6 +46,29 @@
   <link rel="stylesheet" href="/Content/bootstrap.min.css" />
   <link rel="stylesheet" href="/CustomStyles/Master.css" />
 
+  <style>
+    .dark-mode {
+      background-color: #333;
+      color: #ccc;
+    }
+    .dark-mode .navbar {
+      background-color: #555 !important;
+    }
+    .dark-mode .sidebar-menu {
+      background-color: #444;
+    }
+    .dark-mode .sidebar-menu a {
+      color: #ccc;
+    }
+    .dark-mode .main-content {
+      background-color: #333;
+      color: #ccc;
+    }
+    .dark-mode .notification-panel {
+      background-color: #444;
+      color: #ccc;
+    }
+  </style>
 </head>
 <body>
   <form id="masterForm" runat="server">
@@ -36,32 +83,35 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color: white;">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color: white;">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color: white;">Contact</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false" style="color: white;">Usuario
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                <li>
-                  <asp:LinkButton
-                    CssClass="dropdown-item" Text="Cerrar Sesión"
-                    ID="LbCerrarSesion" runat="server"
-                    OnClick="LbCerrarSesion_Click"></asp:LinkButton>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="#" style="color: white;">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" style="color: white;">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" style="color: white;">Contact</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false" style="color: white;">Usuario
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="#">Perfil</a></li>
+        <li>
+          <asp:LinkButton CssClass="dropdown-item" Text="Cerrar Sesión" ID="LbCerrarSesion" runat="server"
+            OnClick="LbCerrarSesion_Click"></asp:LinkButton>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <!-- Mover el interruptor de Modo Oscuro fuera de la lista de navegación -->
+  <div class="form-check form-switch ms-3">
+    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+    <label class="form-check-label text-white" for="darkModeSwitch">Modo Oscuro</label>
+  </div>
+</div>
       </div>
     </nav>
     <asp:Panel ID="ErrorPanel" runat="server" CssClass="notification-panel error-panel">
