@@ -850,6 +850,9 @@ exists or setup the property manually. For example like this:
         <ant antfile="${project.Productos}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
+        <ant antfile="${project.Reportes}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
         <ant antfile="${project.UtilCorreo}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
@@ -868,6 +871,9 @@ exists or setup the property manually. For example like this:
             <property name="deploy.on.save" value="false"/>
         </ant>
         <ant antfile="${project.Productos}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.Reportes}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
         <ant antfile="${project.UtilCorreo}/build.xml" inheritall="false" target="jar">
@@ -1032,6 +1038,8 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${reference.UtilCorreo.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.bcrypt-0.10.2.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.bytes-1.6.1.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${reference.Reportes.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.jasperreports-6.21.3.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <mkdir dir="${build.web.dir}/META-INF"/>
         <manifest file="${build.web.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
@@ -1048,6 +1056,8 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${reference.UtilCorreo.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.bcrypt-0.10.2.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.bytes-1.6.1.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${reference.Reportes.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${file.reference.jasperreports-6.21.3.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
     </target>
     <target depends="init" if="dist.ear.dir" name="-clean-webinf-lib">
         <delete dir="${build.web.dir}/WEB-INF/lib"/>
@@ -1466,6 +1476,7 @@ exists or setup the property manually. For example like this:
         <ant antfile="${project.Documentos}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.Personas}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.Productos}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.Reportes}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.UtilCorreo}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.Utils}/build.xml" inheritall="false" target="clean"/>
     </target>
