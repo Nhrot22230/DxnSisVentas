@@ -1,0 +1,117 @@
+﻿﻿ /* Estilo para el contenedor de búsqueda */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.search-row {
+    display: flex;
+    justify-content: stretch;
+    gap: 120px;
+}
+
+.search-item {
+    flex: 1;
+    max-width: calc(29% - -160px); /* Ajusta el ancho de cada campo */
+}
+
+.input-group,
+.form-select,
+.form-control {
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: #003366 !important;
+    border-color: #003366 !important;
+    color: #fff !important;
+    font-size: 0.875em !important; /* Tamaño de la fuente reducido */
+    padding: 6px 12px !important; /* Ajuste del padding */
+    border-radius: 4px !important;
+}
+
+    .btn-primary:hover {
+        background-color: #002244 !important;
+        border-color: #002244 !important;
+        color: #fff !important;
+    }
+
+    .btn-primary .fa-plus {
+        margin-right: 6px !important;
+    }
+
+.no-arrows::-webkit-inner-spin-button,
+.no-arrows::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+}
+
+.no-arrows {
+    -moz-appearance: textfield !important;
+}
+
+.form-control[type="date"] {
+    padding-right: 10px;
+}
+
+.col-form-label {
+    margin-bottom: 0;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.col-auto {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.rounded-start {
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.rounded-end {
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.gridview-custom {
+    border: 1px solid #dcdcdc;
+    background-color: #f9f9f9;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.gridview-custom th {
+    background-color: #3b4c57;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.gridview-custom td {
+    border: 1px solid #dcdcdc;
+    padding: 8px;
+}
+
+.gridview-custom tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.gridview-custom tr:hover {
+    background-color: #d1e0e0;
+}
+
+.gridview-custom .link-button {
+    color: #003366;
+    text-decoration: none;
+}
+
+.gridview-custom .link-button:hover {
+    text-decoration: underline;
+}

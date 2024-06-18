@@ -114,14 +114,23 @@ namespace DxnSisventas.Views
 
         private void AplicarFiltro()
         {
-            if (DropDownListTipoComprobante.SelectedValue == "Todos")
+            if (DropDownListTipoComprobante.SelectedValue == "Todos" && DropDownListTipoOrdenAsociada.SelectedValue == "Todos")
             {
                 BlComprobantesFiltrado = BlComprobantes;
                 return;
             }
 
-            tipoComprobante tipoSelected = (tipoComprobante)Enum.Parse(typeof(tipoComprobante), DropDownListTipoComprobante.SelectedValue);
-            BlComprobantesFiltrado = new BindingList<comprobante>(BlComprobantes.Where(e => e.tipoComprobante == tipoSelected).ToList());
+            if(!(DropDownListTipoComprobante.SelectedValue == "Todos"))
+            {
+                tipoComprobante tipoSelected = (tipoComprobante)Enum.Parse(typeof(tipoComprobante), DropDownListTipoComprobante.SelectedValue);
+                BlComprobantesFiltrado = new BindingList<comprobante>(BlComprobantes.Where(e => e.tipoComprobante == tipoSelected).ToList());
+            }
+
+            if(!(DropDownListTipoOrdenAsociada.SelectedValue == "Todos"))
+            {
+                tipoComprobante tipoSelected = (tipoComprobante)Enum.Parse(typeof(tipoComprobante), DropDownListTipoComprobante.SelectedValue);
+            }
+            
         }
         private void MostrarMensaje(string mensaje, bool exito)
         {
@@ -161,6 +170,33 @@ namespace DxnSisventas.Views
                     lblOrdenVentaCompra.Text = "N/A";
                 }
             }
+        }
+
+        protected void DropDownListTipoOrdenAsociada_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void DropDownListOrdenamientoComprobante_SelectedIndexChanged(object sender,  EventArgs e)
+        {
+            AplicarFiltro();
+            if (DropDownListOrdenamientoComprobante.SelectedValue.Equals("IDAsc"))
+            {
+                BlComprobantesFiltrado = new BindingList<comprobante>(BlComprobantesFiltrado.OrderBy(x => x.idComprobanteNumerico).ToList());
+            }
+            else if (DropDownListOrdenamientoComprobante.SelectedValue.Equals("IDDesc"))
+            {
+                BlComprobantesFiltrado = new BindingList<comprobante>(BlComprobantesFiltrado.OrderByDescending(x => x.idComprobanteNumerico).ToList());
+            }
+            else if(DropDownListOrdenamientoComprobante.SelectedValue.Equals("TotalAsc"))
+            {
+                BlComprobantesFiltrado = new BindingList<comprobante>(BlComprobantesFiltrado.OrderBy(x => x.ordenAsociada.total).ToList());
+            }
+            else
+            {
+                BlComprobantesFiltrado = new BindingList<comprobante>(BlComprobantesFiltrado.OrderByDescending(x => x.ordenAsociada.total).ToList());
+            }
+            GridBind();
         }
     }
 }

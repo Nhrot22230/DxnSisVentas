@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="ComprobantesForm.aspx.cs" Inherits="DxnSisventas.Views.ComprobantesForm" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="../CustomStyles/Comprobante.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
@@ -52,7 +53,7 @@
                                 <div class="input-group">
                                     <asp:TextBox ID="TxtIdOrden" CssClass="form-control" runat="server" Enabled="false"></asp:TextBox>
                                     <asp:LinkButton ID="BtnBuscar" runat="server"
-                                        CssClass="btn btn-primary" Text="<i class='fas fa-solid fa-search pe-2'></i> Buscar" 
+                                        CssClass="btn btn-secondary" Text="<i class='fas fa-solid fa-search pe-2'></i> Buscar" 
                                         OnClick="BtnBuscar_Click" >
                                     </asp:LinkButton>
                                 </div>
@@ -100,7 +101,7 @@
                             <asp:Label CssClass="form-label" runat="server" Text="Ingresar código de la orden:"></asp:Label>
                             <div class="input-group mb-3">
                                     <asp:TextBox CssClass="form-control" ID="txtCodOrdenModal" runat="server"></asp:TextBox>
-                                    <asp:LinkButton ID="BtnBuscarModal" runat="server" CssClass="btn btn-info" Text="<i class='fas fa-solid fa-search pe-2'></i> Buscar" OnClick="BtnBuscarModal_Click" />
+                                    <asp:LinkButton ID="BtnBuscarModal" runat="server" CssClass="btn btn-secondary" Text="<i class='fas fa-solid fa-search pe-2'></i> Buscar" OnClick="BtnBuscarModal_Click" />
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -112,7 +113,7 @@
                         </div>
                     </div>
                     <div class="container row">
-                        <asp:GridView ID="gvOrdenes" runat="server" AllowPaging="true" PageSize="5" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped" OnPageIndexChanging="gvOrdenes_PageIndexChanging" OnRowDataBound="gvOrdenes_RowDataBound">
+                        <asp:GridView ID="gvOrdenes" runat="server" AllowPaging="true" PageSize="5" AutoGenerateColumns="false" CssClass="gridview-custom" OnPageIndexChanging="gvOrdenes_PageIndexChanging" OnRowDataBound="gvOrdenes_RowDataBound">
                             <Columns>
                                 <asp:BoundField HeaderText="" DataField="idOrden" Visible="false" />
                                 <%-- Estamos enlazando de otra manera a traves del evento OnRowDataBound --%>

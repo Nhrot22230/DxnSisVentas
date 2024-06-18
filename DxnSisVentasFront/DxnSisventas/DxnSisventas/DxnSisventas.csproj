@@ -274,6 +274,7 @@
     <Content Include="CustomScripts\PersonasClientesForms.js" />
     <Content Include="CustomScripts\PersonasEmpleadosForms.js" />
     <Content Include="CustomScripts\Productos.js" />
+    <Content Include="CustomStyles\Comprobante.css" />
     <Content Include="CustomStyles\Home.css" />
     <Content Include="CustomStyles\Login.css" />
     <Content Include="CustomStyles\Master.css" />

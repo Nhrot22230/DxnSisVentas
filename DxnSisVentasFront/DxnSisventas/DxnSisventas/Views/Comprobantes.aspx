@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Comprobantes.aspx.cs" Inherits="DxnSisventas.Views.Comprobantes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="../CustomStyles/Comprobante.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   <div class="page-path">
@@ -25,23 +26,40 @@
         
         <!-- Seleccionar el tipo de comprobante -->
         <div class="col-sm-4">
-            <label class="col-form-label">Filtrar por Tipo de Comprobante:</label>
+            <asp:Label class="col-form-label" runat="server" Text="<i class='fas fa-solid fa-filter'> </i> Filtrar por Tipo de Comprobante:"></asp:Label>
           <asp:DropDownList AutoPostBack="true" ID="DropDownListTipoComprobante" runat="server" CssClass="form-select" OnSelectedIndexChanged="DropDownListTipoComprobante_SelectedIndexChanged">
             <asp:ListItem Text="Todos" Value="Todos"></asp:ListItem>
             <asp:ListItem Text="Boleta" Value="BoletaSimple"></asp:ListItem>
             <asp:ListItem Text="Factura" Value="Factura"></asp:ListItem>
           </asp:DropDownList>
         </div>
+          <div class="col-sm-5">
+            <asp:Label class="col-form-label" runat="server" Text="<i class='fas fa-solid fa-filter'> </i> Filtrar por Tipo de Orden Asociada:"></asp:Label>
+             <asp:DropDownList AutoPostBack="true" ID="DropDownListTipoOrdenAsociada" runat="server" CssClass="form-select" OnSelectedIndexChanged="DropDownListTipoOrdenAsociada_SelectedIndexChanged">
+            <asp:ListItem Text="-" Value="Todos"></asp:ListItem>
+            <asp:ListItem Text="Compra" Value="Compra"></asp:ListItem>
+            <asp:ListItem Text="Venta" Value="Venta"></asp:ListItem>
+          </asp:DropDownList>
+        </div>
+          <div class="col-sm-3">
+             <asp:Label class="col-form-label" runat="server" Text="<i class='fas fa-solid fa-sort'> </i> Ordenar por:"></asp:Label>
+          <asp:DropDownList AutoPostBack="true" ID="DropDownListOrdenamientoComprobante" runat="server" CssClass="form-select" OnSelectedIndexChanged="DropDownListOrdenamientoComprobante_SelectedIndexChanged">
+             <asp:ListItem Text="ID Ascendente" Value="IDAsc"></asp:ListItem>
+              <asp:ListItem Text="ID Descendente" Value="IDDesc"></asp:ListItem>
+            <asp:ListItem Text="Totales más altos" Value="TotalDesc"></asp:ListItem>
+            <asp:ListItem Text="Totales más bajos" Value="TotalAsc"></asp:ListItem>
+          </asp:DropDownList>
+        </div>
         <div class="text p-3">
           <asp:LinkButton ID="BtnAgregar" runat="server" Text="<i class='fas fa-plus pe-2'> </i> Agregar"
-            OnClick="BtnAgregar_Click" CssClass="btn btn-success" />
+            OnClick="BtnAgregar_Click" CssClass="btn btn-primary btn-sm" />
         </div>
       </div>
       <div class="container row ">
         <asp:GridView ID="GridComprobantes" runat="server" AutoGenerateColumns="false"
           AllowPaging="true" PageSize="7" OnPageIndexChanging="GridComprobantes_PageIndexChanging"
           OnRowDataBound="GridComprobantes_RowDataBound"
-          CssClass="table table-hover table-responsive table-striped">
+            CssClass="gridview-custom">
           <Columns>
             <asp:BoundField DataField="idComprobanteCadena" HeaderText="ID Comprobante" />
             <asp:BoundField DataField="fechaEmision" HeaderText="Fecha Emisión" />
@@ -57,7 +75,7 @@
               <ItemTemplate>
                 <%-- <asp:LinkButton ID="BtnEditar" runat="server" Text="<i class='fas fa-edit ps-2'>  </i>"
                   OnClick="BtnEditar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />--%>
-                <asp:LinkButton ID="BtnEliminar" runat="server" Text="<i class='fas fa-trash ps-2'>  </i>"
+                <asp:LinkButton ID="BtnEliminar" runat="server" Text="<i class='fas fa-solid fa-trash'></i>"
                   OnClick="BtnEliminar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>'
                   OnClientClick="return confirm('¿Esta seguro de eliminar este registro?');" />
               </ItemTemplate>
