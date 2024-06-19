@@ -14,7 +14,7 @@ namespace DxnSisventas.Views
         private ProductosAPIClient apiProducto;
         private DocumentosAPIClient apiOrdenCompra;
         private CorreoAPIClient apiCorreo;
-
+        private ReportesAPIClient apiReportes;
         // listas
         private BindingList<producto> listaProductos = null;
         private ordenCompra ordenCompra;
@@ -28,7 +28,7 @@ namespace DxnSisventas.Views
             lineasAgregadas = new List<lineaOrden>();
         }
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {   apiReportes = new ReportesAPIClient();
             apiProducto = new ProductosAPIClient();
             apiOrdenCompra = new DocumentosAPIClient();
             apiCorreo = new CorreoAPIClient();
@@ -73,6 +73,7 @@ namespace DxnSisventas.Views
                     Session["lineasOrdenVenta"] = null;
                     Session["producto"] = null;
                     Session["cliente"] = null;
+                    Session["correo"] = null;
                     lineasOrden.Clear();
                     lineasEliminadas.Clear();
                     lineasAgregadas.Clear();
@@ -87,6 +88,7 @@ namespace DxnSisventas.Views
             calcularTotal();
             gvLineasOrdenVenta.DataSource = lineasOrden;
             gvLineasOrdenVenta.DataBind();
+            Session["correo"] = null;
         }
 
         protected void ocultarProducto()
@@ -434,11 +436,56 @@ namespace DxnSisventas.Views
             contenido += "</table>";
             contenido += "<p style='text-align: right; font-weight: bold; margin-top: 20px;'>Total: " + total.ToString("N2") + "</p>";
             contenido += "<p>Quedamos a disposición para cualquier consulta.</p>";
-            contenido += "<p>Atentamente,<br>DXN Ventas</p>";
+            contenido += "<p>Atentamente,<br>BBB Ventas</p>";
             contenido += "</body></html>";
 
             return contenido;
         }
+        private byte[] GetPdfFromWebService(int id)
+        {
+            byte[] pdfFile = null;
+            try
+            {
+                pdfFile = apiReportes.generarReporteOrdenCompra(id);
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+            }
+
+            return pdfFile;
+        }
+        protected string armarpdf()
+        {
+            byte[] pdfBytes = GetPdfFromWebService(ordenCompra.idOrdenCompraNumerico);
+            if (pdfBytes != null)
+            {
+                // Definir la ruta del archivo temporal
+                string tempFolderPath = Server.MapPath("~/Temp");
+
+                // Crear la carpeta Temp si no existe
+                if (!System.IO.Directory.Exists(tempFolderPath))
+                {
+                    System.IO.Directory.CreateDirectory(tempFolderPath);
+                }
+                string nombrearch = "Comprobante_"+ ordenCompra.idOrdenCompraCadena+".pdf";
+                // Definir la ruta completa del archivo PDF
+                string tempFilePath = System.IO.Path.Combine(tempFolderPath, nombrearch);
+
+                // Guardar el PDF en la ruta temporal
+                System.IO.File.WriteAllBytes(tempFilePath, pdfBytes);
+
+                // Mostrar el PDF en un iframe (opcional)
+                string base64Pdf = Convert.ToBase64String(pdfBytes);
+                //pdfFrame.Attributes["src"] = "data:application/pdf;base64," + base64Pdf;
+                //pdfFrame.Style["display"] = "block";
+
+                // Llamar a la función de envío de correo con el archivo adjunto
+                return tempFilePath;
+            }
+            return null;
+        }
+
         protected void lbEnviaroModal_Click(object sender, EventArgs e)
         {
 
@@ -448,9 +495,9 @@ namespace DxnSisventas.Views
 
 
             int resultado;
+            string path = armarpdf();
 
-
-            resultado = apiCorreo.enviarCorreoWeb(asunto, contenido, correo);
+            resultado = apiCorreo.enviarCorreoWeb(asunto, contenido, correo,path);
 
 
             if (resultado == 0)
@@ -565,21 +612,12 @@ namespace DxnSisventas.Views
             string correo = txtCorreo.Text.ToString();
 
 
-            int resultado;
+          
+            string path = armarpdf();
 
-            resultado = apiCorreo.enviarCorreoWeb(asunto, contenido, correo);
+            
 
 
-            if (resultado == 0)
-            {
-                MostrarMensaje("Ingrese un correo valido", resultado == 0);
-                return;
-            }
-            else
-            {
-                MostrarMensaje("Correo Enviado", false);
-
-            }
 
 
 
@@ -638,6 +676,8 @@ namespace DxnSisventas.Views
             ordenCompra.fechaRecepcionSpecified = true;
             ordenCompra.fechaRecepcion = DateTime.Now;
             apiOrdenCompra.actualizarOrdenCompra(ordenCompra);
+            apiCorreo.enviarCorreoWeb(asunto, contenido, correo, path);
+            Session["correo"] = "true";
             lineasOrden.Clear();
             lineasEliminadas.Clear();
             lineasAgregadas.Clear();

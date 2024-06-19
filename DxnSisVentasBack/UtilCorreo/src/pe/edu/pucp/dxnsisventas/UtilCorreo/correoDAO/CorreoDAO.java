@@ -11,5 +11,5 @@ package pe.edu.pucp.dxnsisventas.UtilCorreo.correoDAO;
 public interface CorreoDAO {
     
     
-    int enviarCorreo(String asunto, String contenido, String correo);
+    int enviarCorreo(String asunto, String contenido, String correo,String rutaArchivo);
 }

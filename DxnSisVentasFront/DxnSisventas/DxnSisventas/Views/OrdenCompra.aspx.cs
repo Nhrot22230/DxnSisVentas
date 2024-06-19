@@ -1,5 +1,5 @@
 ﻿using DxnSisventas.DxnWebService;
-
+using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +23,13 @@ namespace DxnSisventas.Views
             Session["idOrdenVenta"] = null;
             Session["ordenCompra"] = null;
             Session["lineasOrdenVenta"] = null;
+            if (Session["correo"] != null) { 
+            if (Session["correo"].ToString() == "true")
+            {
+                MostrarMensaje("Correo Enviado", true);
+                Session["correo"] = null;
+            }
+            }
             CargarTabla("");
         }
 
