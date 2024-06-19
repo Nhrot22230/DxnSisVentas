@@ -42,15 +42,15 @@ public class ReportesAPI {
     return file;
   }
   
-  @WebMethod(operationName = "generarReporteComprobante")
-  public byte[] generarReporteComprobante(@WebParam(name = "id") int id) {
+  @WebMethod(operationName = "imprimirComprobante")
+  public byte[] imprimirComprobante(@WebParam(name = "id") int id) {
     byte [] file = null;
     
     String template_path = ReportesAPI.class.getResource("/pe/edu/pucp/dxnsisventas/webservice/templates/ReporteComprobante.jrxml").getPath();
     template_path = template_path.replace("%20", " ");
     
     try {
-      file = ReporteManager.generarReporteComprobante(template_path,id);
+      file = ReporteManager.imprimirComprobante(template_path,id);
     } catch (Exception ex){
       System.err.println(ex.getMessage());
     }
@@ -66,7 +66,7 @@ public class ReportesAPI {
     template_path = template_path.replace("%20", " ");
     
     try {
-      file = ReporteManager.generarReporteComprobante(template_path,id);
+      file = ReporteManager.generarReporteOrdenCompra(template_path,id);
     } catch (Exception ex){
       System.err.println(ex.getMessage());
     }
