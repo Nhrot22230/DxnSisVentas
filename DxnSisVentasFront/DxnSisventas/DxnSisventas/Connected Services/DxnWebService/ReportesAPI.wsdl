@@ -5,17 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/WebServiceDXN/ReportesAPI?xsd=1" namespace="http://services.webservice.dxnsisventas.pucp.edu.pe/" />
     </xsd:schema>
   </types>
+  <message name="generarReporteAlmacen">
+    <part name="parameters" element="tns:generarReporteAlmacen" />
+  </message>
+  <message name="generarReporteAlmacenResponse">
+    <part name="parameters" element="tns:generarReporteAlmacenResponse" />
+  </message>
   <message name="imprimirComprobante">
     <part name="parameters" element="tns:imprimirComprobante" />
   </message>
   <message name="imprimirComprobanteResponse">
     <part name="parameters" element="tns:imprimirComprobanteResponse" />
-  </message>
-  <message name="hello">
-    <part name="parameters" element="tns:hello" />
-  </message>
-  <message name="helloResponse">
-    <part name="parameters" element="tns:helloResponse" />
   </message>
   <message name="generarReporteOrdenCompra">
     <part name="parameters" element="tns:generarReporteOrdenCompra" />
@@ -23,43 +23,33 @@
   <message name="generarReporteOrdenCompraResponse">
     <part name="parameters" element="tns:generarReporteOrdenCompraResponse" />
   </message>
-  <message name="generarReporteAlmacen">
-    <part name="parameters" element="tns:generarReporteAlmacen" />
+  <message name="hello">
+    <part name="parameters" element="tns:hello" />
   </message>
-  <message name="generarReporteAlmacenResponse">
-    <part name="parameters" element="tns:generarReporteAlmacenResponse" />
-  </message>
-  <message name="generarReporteComprobante">
-    <part name="parameters" element="tns:generarReporteComprobante" />
-  </message>
-  <message name="generarReporteComprobanteResponse">
-    <part name="parameters" element="tns:generarReporteComprobanteResponse" />
+  <message name="helloResponse">
+    <part name="parameters" element="tns:helloResponse" />
   </message>
   <portType name="ReportesAPI">
+    <operation name="generarReporteAlmacen">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ReportesAPI/generarReporteAlmacenRequest" message="tns:generarReporteAlmacen" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ReportesAPI/generarReporteAlmacenResponse" message="tns:generarReporteAlmacenResponse" />
+    </operation>
     <operation name="imprimirComprobante">
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ReportesAPI/imprimirComprobanteRequest" message="tns:imprimirComprobante" />
       <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ReportesAPI/imprimirComprobanteResponse" message="tns:imprimirComprobanteResponse" />
-    </operation>
-    <operation name="hello">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ReportesAPI/helloRequest" message="tns:hello" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ReportesAPI/helloResponse" message="tns:helloResponse" />
     </operation>
     <operation name="generarReporteOrdenCompra">
       <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ReportesAPI/generarReporteOrdenCompraRequest" message="tns:generarReporteOrdenCompra" />
       <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ReportesAPI/generarReporteOrdenCompraResponse" message="tns:generarReporteOrdenCompraResponse" />
     </operation>
-    <operation name="generarReporteAlmacen">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ReportesAPI/generarReporteAlmacenRequest" message="tns:generarReporteAlmacen" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ReportesAPI/generarReporteAlmacenResponse" message="tns:generarReporteAlmacenResponse" />
-    </operation>
-    <operation name="generarReporteComprobante">
-      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ReportesAPI/generarReporteComprobanteRequest" message="tns:generarReporteComprobante" />
-      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ReportesAPI/generarReporteComprobanteResponse" message="tns:generarReporteComprobanteResponse" />
+    <operation name="hello">
+      <input wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ReportesAPI/helloRequest" message="tns:hello" />
+      <output wsam:Action="http://services.webservice.dxnsisventas.pucp.edu.pe/ReportesAPI/helloResponse" message="tns:helloResponse" />
     </operation>
   </portType>
   <binding name="ReportesAPIPortBinding" type="tns:ReportesAPI">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="imprimirComprobante">
+    <operation name="generarReporteAlmacen">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -68,7 +58,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="hello">
+    <operation name="imprimirComprobante">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -86,16 +76,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="generarReporteAlmacen">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="generarReporteComprobante">
+    <operation name="hello">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
