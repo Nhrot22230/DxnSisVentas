@@ -26,11 +26,11 @@ public class CorreoAPI {
     }
     @WebMethod(operationName = "enviarCorreoWeb")
     public int enviarCorreoWeb(@WebParam(name = "asunto") String asunto,
-            @WebParam(name = "contenido") String contenido,@WebParam(name = "correo") String correo) {
+            @WebParam(name = "contenido") String contenido,@WebParam(name = "correo") String correo, @WebParam(name = "ruta") String ruta) {
         int resultado=0;
         
          try {
-                daoCorreo.enviarCorreo(asunto,contenido,correo);
+                daoCorreo.enviarCorreo(asunto,contenido,correo,ruta);
                    resultado = 1;
         } catch (Exception ex){
                 System.err.println(ex.getMessage());
