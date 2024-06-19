@@ -34,23 +34,8 @@ public class ReporteManager {
     
     return file;
   }
-  public static byte[] generarReporteComprobante(String template_path,int idParametro) throws JRException{
-    byte[] file;
-    
-    // Compilación del archivo jrxml de Jasper Reports
-    JasperReport report;
-    report = JasperCompileManager.compileReport(template_path);
-    // Obtener conexión a la base de datos
-    Connection conn = DBManager.getInstance().getConnection();
-    HashMap<String, Object> parameters = new HashMap<>();
-    parameters.put("ID_comprobante", idParametro);
-    JasperPrint print = JasperFillManager.fillReport(report, parameters, conn);
-    file = JasperExportManager.exportReportToPdf(print);
-    
-    return file;
-  }
   
-  public static byte[] generarReporteOrdenCompra(String template_path,int idParametro) throws JRException{
+  public static byte[] imprimirComprobante(String template_path, int idComprobanteNumerico) throws JRException{
     byte[] file;
     
     // Compilación del archivo jrxml de Jasper Reports
@@ -59,7 +44,7 @@ public class ReporteManager {
     // Obtener conexión a la base de datos
     Connection conn = DBManager.getInstance().getConnection();
     HashMap<String, Object> parameters = new HashMap<>();
-    parameters.put("ID_comprobante", idParametro);
+    parameters.put("ID_comprobante", idComprobanteNumerico);
     JasperPrint print = JasperFillManager.fillReport(report, parameters, conn);
     file = JasperExportManager.exportReportToPdf(print);
     

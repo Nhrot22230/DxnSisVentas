@@ -43,30 +43,14 @@ public class ReportesAPI {
   }
   
   @WebMethod(operationName = "imprimirComprobante")
-  public byte[] imprimirComprobante(@WebParam(name = "id") int id) {
+  public byte[] imprimirComprobante(int idComprobanteNumerico) {
     byte [] file = null;
     
-    String template_path = ReportesAPI.class.getResource("/pe/edu/pucp/dxnsisventas/webservice/templates/ReporteComprobante.jrxml").getPath();
+    String template_path = ReportesAPI.class.getResource("/pe/edu/pucp/dxnsisventas/webservice/templates/Comprobante.jrxml").getPath();
     template_path = template_path.replace("%20", " ");
     
     try {
-      file = ReporteManager.imprimirComprobante(template_path,id);
-    } catch (Exception ex){
-      System.err.println(ex.getMessage());
-    }
-    
-    return file;
-  }
-  
-  @WebMethod(operationName = "generarReporteOrdenCompra")
-  public byte[] generarReporteOrdenCompra(@WebParam(name = "id") int id) {
-    byte [] file = null;
-    
-    String template_path = ReportesAPI.class.getResource("/pe/edu/pucp/dxnsisventas/webservice/templates/OrdenCompraReport.jrxml").getPath();
-    template_path = template_path.replace("%20", " ");
-    
-    try {
-      file = ReporteManager.generarReporteOrdenCompra(template_path,id);
+      file = ReporteManager.imprimirComprobante(template_path, idComprobanteNumerico);
     } catch (Exception ex){
       System.err.println(ex.getMessage());
     }

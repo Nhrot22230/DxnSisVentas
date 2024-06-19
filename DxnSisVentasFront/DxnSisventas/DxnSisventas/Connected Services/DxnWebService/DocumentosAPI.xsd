@@ -76,16 +76,6 @@
       <xs:element minOccurs="0" name="unidadDeMedida" type="tns:unidadMedida" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarOrden">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="cadena" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarOrdenResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:orden" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="insertarOrdenVenta">
     <xs:sequence>
       <xs:element minOccurs="0" name="ordenVenta" type="tns:ordenVenta" />
@@ -159,6 +149,16 @@
   <xs:complexType name="listarOrdenVentaResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:ordenVenta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarOrden">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cadena" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarOrdenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:orden" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarComprobante">

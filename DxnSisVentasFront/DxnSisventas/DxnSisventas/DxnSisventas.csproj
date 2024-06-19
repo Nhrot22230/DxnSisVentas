@@ -237,10 +237,7 @@
     <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.generarReporteAlmacenResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.generarReporteComprobanteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.generarReporteOrdenCompraResponse.datasource">
+    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.imprimirComprobanteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\DxnWebService\Reference.svcmap">
@@ -284,6 +281,7 @@
     <Content Include="CustomScripts\PersonasClientesForms.js" />
     <Content Include="CustomScripts\PersonasEmpleadosForms.js" />
     <Content Include="CustomScripts\Productos.js" />
+    <Content Include="CustomStyles\Comprobante.css" />
     <Content Include="CustomStyles\Home.css" />
     <Content Include="CustomStyles\Login.css" />
     <Content Include="CustomStyles\Master.css" />
@@ -330,6 +328,7 @@
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="Views\Comprobantes.aspx" />
+    <Content Include="Views\ComprobantesForm.aspx" />
     <Content Include="Views\CuentasClientes.aspx" />
     <Content Include="Views\CuentasEmpleados.aspx" />
     <Content Include="Views\OrdenCompra.aspx" />
@@ -393,6 +392,13 @@
     </Compile>
     <Compile Include="Views\Comprobantes.aspx.designer.cs">
       <DependentUpon>Comprobantes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComprobantesForm.aspx.cs">
+      <DependentUpon>ComprobantesForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ComprobantesForm.aspx.designer.cs">
+      <DependentUpon>ComprobantesForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\CuentasClientes.aspx.cs">
       <DependentUpon>CuentasClientes.aspx</DependentUpon>
