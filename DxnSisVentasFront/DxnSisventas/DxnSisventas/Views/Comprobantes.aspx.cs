@@ -67,6 +67,19 @@ namespace DxnSisventas.Views
             }
         }
 
+        protected void BtnImprimir_Click(object sender, EventArgs e)
+        {
+            int idComprobante = int.Parse(((LinkButton)sender).CommandArgument);
+            /*Byte[] FileBuffer = reportesApi.imprimirComprobante(idComprobante);
+            if (FileBuffer!=null)
+            {
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("content-lenght", FileBuffer.Length.ToString());
+                Response.BinaryWrite(FileBuffer);
+            }*/
+
+        }
+
         protected void BtnEliminar_Click(object sender, EventArgs e)
         {
             int idComprobante = int.Parse(((LinkButton)sender).CommandArgument);

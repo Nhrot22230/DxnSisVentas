@@ -75,7 +75,9 @@
               <ItemTemplate>
                 <%-- <asp:LinkButton ID="BtnEditar" runat="server" Text="<i class='fas fa-edit ps-2'>  </i>"
                   OnClick="BtnEditar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />--%>
-                <asp:LinkButton ID="BtnEliminar" runat="server" Text="<i class='fas fa-solid fa-trash'></i>"
+                <asp:LinkButton ID="BtnImprimir" runat="server" Text="<i class='fas fa-solid fa-print ps-2'>  </i>"
+                    OnClick="BtnImprimir_Click" OnClientClick="openInNewTab();" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />
+                <asp:LinkButton ID="BtnEliminar" runat="server" Text="<i class='fas fa-solid fa-trash ps-2'></i>"
                   OnClick="BtnEliminar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>'
                   OnClientClick="return confirm('¿Esta seguro de eliminar este registro?');" />
               </ItemTemplate>
