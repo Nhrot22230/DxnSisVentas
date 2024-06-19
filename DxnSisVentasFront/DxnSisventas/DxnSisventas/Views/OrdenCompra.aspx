@@ -96,7 +96,7 @@
         <div class="container row">
             <asp:GridView ID="GridCompras" runat="server" AutoGenerateColumns="false" 
                 AllowPaging="true" PageSize="5" OnPageIndexChanging="GridCompras_PageIndexChanging" 
-                CssClass="gridview-custom" OnSelectedIndexChanged="GridCompras_SelectedIndexChanged">
+                CssClass="table table-hover table-responsive table-striped" OnSelectedIndexChanged="GridCompras_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="idOrdenCompraCadena" HeaderText="Id" />
                     <asp:BoundField DataField="fechaCreacion" HeaderText="Fecha" DataFormatString="{0:dd/MM/yyyy}" />

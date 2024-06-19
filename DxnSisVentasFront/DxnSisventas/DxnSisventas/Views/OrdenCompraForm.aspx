@@ -19,21 +19,11 @@
         .btn-close {
             background-color: #002244 !important;
         }
-        .form-label, .card-title, .col-form-label {
-            color: #3b4c57 !important;
-        }
         .btn-link {
             color: #002244 !important;
         }
         .table {
             background-color: white !important;
-        }
-        .card-header-info, .card-header-detail {
-        background-color: #3b4c57 !important;
-        color: white !important;
-        }
-        .card .card-body{
-            background-color: #bababa  !important;
         }
     </style>
 </asp:Content>
@@ -46,7 +36,7 @@
             </div>
             <div class="card-body">
                 <div id="cardInfo" runat="server" class="card border mb-4">
-                    <div class="card-header bg-light card-header-info">
+                    <div class="card-header card-header-info">
                         <h5 class="card-title mb-0">Información del Orden</h5>
                     </div>
                     <div class="card-body">
@@ -73,7 +63,7 @@
                     </div>
                 </div>
                 <div class="card border mb-4">
-                    <div class="card-header bg-light">
+                    <div class="card-header">
                         <h5 class="card-title mb-0">Detalle de la Orden de Compra</h5>
                     </div>
                     <div class="card-body">

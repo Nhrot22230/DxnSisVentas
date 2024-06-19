@@ -79,7 +79,6 @@
 }
 
 .gridview-custom {
-    background-color: #f9f9f9;
     width: 100%;
     text-align: left;
     border-collapse: collapse;
@@ -89,30 +88,6 @@
     border: none; /* Bordes transparentes */
 }
 
-    .gridview-custom th {
-        background-color: #3b4c57;
-        color: white;
-        padding: 10px;
-        text-align: left;
-    }
-
-    .gridview-custom td {
-        border: none; /* Bordes transparentes para celdas */
-        padding: 8px;
-        color: #000000 !important;
-    }
-
-    .gridview-custom tr:nth-child(even) {
-        background-color: #e6e6e6; /* Fondo más gris para filas pares */
-    }
-
-    .gridview-custom tr:nth-child(odd) {
-        background-color: #f2f2f2; /* Fondo gris claro para filas impares */
-    }
-
-    .gridview-custom tr:hover {
-        background-color: #c0c0c0; /* Fondo gris más oscuro al pasar el ratón */
-    }
 
     .gridview-custom .link-button {
         color: #003366;
