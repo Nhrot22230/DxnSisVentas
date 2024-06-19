@@ -41,12 +41,25 @@ namespace DxnSisventas.Views
             {
                
                 ordenVenta = (ordenVenta)Session["ordenSeleccionada"];
+
+                // campos desabilitados
+                
+                btnBuscarProducto.Enabled = false;
+                btnAgregarProducto.Enabled = false;
+
+
                 mostrarDatos();
             }
             else if(accion.Equals("new"))
             {
                 ordenVenta = new ordenVenta();
                 TxtFechaCreacion.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
+                // campos desabilitados
+                ddlEstado.Items.Remove(ddlEstado.Items.FindByValue("Cancelado"));
+    
+                
+
                 TxtDescuento.Text = "0";
                 if (!IsPostBack)
                 {
@@ -253,6 +266,7 @@ namespace DxnSisventas.Views
             TxtIdProducto.Text = producto.idProductoCadena;
             TxtNombreProducto.Text = producto.nombre;
             TxtPrecio.Text = producto.precioUnitario.ToString("N2");
+            TxtStock.Text = producto.stock.ToString();
             ScriptManager.RegisterStartupScript(this, GetType(), "", "__doPostBack('','');", true);
         }
 
@@ -364,6 +378,7 @@ namespace DxnSisventas.Views
             TxtNombreProducto.Text = string.Empty;
             TxtPrecio.Text = string.Empty;
             TxtCantidad.Text = string.Empty;
+            TxtStock.Text = string.Empty;
         }
 
         private void MostrarMensaje(string mensaje, bool exito)
@@ -415,7 +430,7 @@ namespace DxnSisventas.Views
             {
                 TxtDescuento.Text = "0";
             }
-            if (double.TryParse(TxtDescuento.Text, out double descuento) && descuento >= 0 && descuento < 100)
+            if (double.TryParse(TxtDescuento.Text, out double descuento) && descuento >= 0 && descuento <= 100)
             {
                 ordenVenta.porcentajeDescuento = descuento;
                 return true;
@@ -514,16 +529,27 @@ namespace DxnSisventas.Views
             string mensaje = "";
             if(accion.Equals("new"))
             {
-                res = apiDocumentos.insertarOrdenVenta(ordenVenta);
-                if(res < 0) mensaje = "Error al registrar la orden de venta";
+                res = apiDocumentos.insertarOrdenVenta(ordenVenta);        
+                if(res <= 0) mensaje = "Error al registrar la orden de venta";
+                if(res > 0)
+                {
+                    // debemos actualizar el stock de los productos
+                    foreach (lineaOrden linea in lineasOrden)
+                    {
+                        producto producto = linea.producto;
+                        producto.stock -= linea.cantidad;
+                        apiProductos.actualizarProducto(producto);
+                    }
+                }
+
             }
             else if(accion.Equals("visualizar"))
             {
                 res = apiDocumentos.actualizarOrdenVenta(ordenVenta);
-                if(res < 0) mensaje = "Error al actualizar la orden de venta";
+                if(res <= 0) mensaje = "Error al actualizar la orden de venta";
        
             }
-            if (res < 0)
+            if (res <= 0)
             {
                 MostrarMensaje(mensaje, false);
                 return;
@@ -558,27 +584,30 @@ namespace DxnSisventas.Views
         }
 
 
-        //<asp:GridView ID = "gvLineasOrdenVenta" AllowPaging="True" PageSize="5" runat="server" 
-        //                        AutoGenerateColumns="False"
-        //                        CssClass="table table-striped table-bordered" OnRowDataBound="gvLineasOrdenVenta_RowDataBound">
-        //                        <Columns>
-        //                            <asp:BoundField DataField = "producto.idProductoCadena" HeaderText="ID Producto" />
-        //                            <asp:BoundField DataField = "producto.nombre" HeaderText="Producto" />
-        //                            <asp:BoundField DataField = "cantidad" HeaderText="Cantidad" />
-        //                            <asp:BoundField DataField = "producto.precioUnitario" HeaderText="Precio" />
-        //                            <asp:BoundField DataField = "subtotal" HeaderText="Subtotal" />
-        //                            <asp:TemplateField HeaderText = "Acciones" >
-        //                                < ItemTemplate >
-        //                                    < asp:Button ID = "BtnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger"
-        //                                        OnClick="BtnEliminar_Click" CommandArgument='<%# Eval("producto.idProductoNumerico") %>' />
-        //                                </ItemTemplate>
-        //                            </asp:TemplateField>
-        //                        </Columns>
-        //                    </asp:GridView>
-
         protected void gvLineasOrdenVenta_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-
+            if(e.Row.RowType == DataControlRowType.DataRow)
+            {
+                lineaOrden linea = (lineaOrden)e.Row.DataItem;
+                e.Row.Cells[0].Text = linea.producto.idProductoCadena;
+                e.Row.Cells[1].Text = linea.producto.nombre;
+                e.Row.Cells[2].Text = linea.cantidad.ToString();
+                e.Row.Cells[3].Text = linea.producto.precioUnitario.ToString("N2");
+                e.Row.Cells[4].Text = linea.subtotal.ToString("N2");
+                Button btnEliminar = (Button)e.Row.FindControl("BtnEliminar");
+                // quiero ocultar todo acciones
+                if(accion.Equals("visualizar"))
+                {
+                    btnEliminar.Enabled = false;
+                    btnEliminar.Visible = false;
+                    gvLineasOrdenVenta.Columns[5].Visible = false;
+                    
+                }
+                else
+                {
+                    btnEliminar.CommandArgument = linea.producto.idProductoNumerico.ToString();
+                }
+            }
         }
     }
 }
