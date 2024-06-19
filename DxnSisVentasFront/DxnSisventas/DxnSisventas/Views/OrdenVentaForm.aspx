@@ -6,7 +6,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <script src="../CustomScripts/OrdenVenta.js?v4"></script>
+
+   
+    <script src="../CustomScripts/OrdenVenta.js?v5"></script>
 
     <div class="container">
         <div class="card">
@@ -24,13 +26,13 @@
                             <div class="row mb-3">
 
                                 <label for="TxtId" class="col-sm-2 col-form-label">ID Orden Venta:</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <asp:TextBox ID="TxtIdOrdenVenta" runat="server" Enabled="false"
                                         CssClass="form-control">
                                     </asp:TextBox>
                                 </div>
                                 <label for="ddlEstado" class="col-sm-2 col-form-label">Estado:</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <asp:DropDownList ID="ddlEstado" runat="server" CssClass="form-select"
                                         SelectionMode="Single">
                                         <asp:ListItem Text="Pendiente" Enabled="true" Selected="True"
@@ -44,7 +46,7 @@
                             </div>
                             <div class="row mb-3">
                                 <label for="ddlMetodoDePago" class="col-sm-2 col-form-label">Metodo Pago:</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <asp:DropDownList ID="ddlMetodoDePago" runat="server" CssClass="form-select"
                                         SelectionMode="Single">
                                         <asp:ListItem Text="Efectivo" Enabled="true" Selected="True"
@@ -55,7 +57,7 @@
 
                                 <label for="ddlTipoVenta" class="col-sm-2 col-form-label">Tipo de Venta:</label>
 
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <asp:DropDownList ID="ddlTipoVenta" runat="server" CssClass="form-select"
                                         SelectionMode="Single" OnSelectedIndexChanged="ddlTipoVenta_SelectedIndexChanged"
                                         AutoPostBack="true">
@@ -72,7 +74,7 @@
                                     Fecha de
                                         creacion</label>
 
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <asp:TextBox ID="TxtFechaCreacion" runat="server" CssClass="form-control"
                                         type="date"></asp:TextBox>
                                 </div>
@@ -80,7 +82,7 @@
                                     Fecha de
                                         entrega</label>
 
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <asp:TextBox ID="TxtFechaEntrega" runat="server" CssClass="form-control"
                                         type="date"></asp:TextBox>
                                 </div>
@@ -88,14 +90,16 @@
 
                             <div class="row mb-3">
                                 <label for="TxtDescuento" class="col-sm-2 col-form-label">Descuento:</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <asp:TextBox ID="TxtDescuento" runat="server"
                                         type="number"
                                         step="0.01"
-                                        CssClass="form-control" oninput="autoUpdate()"
+                                        CssClass="form-control"
                                         value="0.00"
+                                        oninput="autoUpdate(this)"
                                         onkeydown="return avoidEnterKey(event);">
                                     </asp:TextBox>
+
                                 </div>
                             </div>
                         </div>
@@ -184,12 +188,17 @@
                         </div>
                         <div class="row mb-3">
                             <label for="TxtNombreProducto" class="col-sm-2 col-form-label">Nombre producto:</label>
-                            <div class="col-sm-4">
+                            <div class="col-sm-2">
                                 <asp:TextBox ID="TxtNombreProducto" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                             </div>
                             <label for="TxtPrecio" class="col-sm-1 col-form-label">Precio:</label>
-                            <div class="col-sm-2">
+                            <div class="col-sm-1">
                                 <asp:TextBox ID="TxtPrecio" runat="server" CssClass="form-control" Enabled="false" type="number"
+                                    step="1"></asp:TextBox>
+                            </div>
+                            <label for="TxtStock" class="col-sm-1 col-form-label">Stock:</label>
+                            <div class="col-sm-1">
+                                <asp:TextBox ID="TxtStock" runat="server" CssClass="form-control" Enabled="false" type="number"
                                     step="1"></asp:TextBox>
                             </div>
                         </div>
@@ -197,13 +206,18 @@
                         <div class="row mb-3">
                             <label for="TxtCantidad" class="col-sm-2 col-form-label">Cantidad:</label>
                             <div class="col-sm-2">
-                                <asp:TextBox ID="TxtCantidad" runat="server" CssClass="form-control" type="number"
+                                <asp:TextBox ID="TxtCantidad"
+                                    runat="server" 
+                                    CssClass="form-control" 
+                                    type="number"
+                                    oninput="verificarStock(this)"
+                                    onkeydown="return avoidEnterKey(event);">
                                     step="1"></asp:TextBox>
                             </div>
                             <div class="col-sm-3">
                                 <asp:Button ID="btnAgregarProducto" runat="server" Text="Agregar producto"
                                     CssClass="btn btn-info" OnClick="btnAgregarProducto_Click" 
-                                    OnClientClick="autoUpdate()" />
+                                   />
                             </div>
                         </div>
                         <div class="row">
@@ -211,15 +225,15 @@
                                 AutoGenerateColumns="False"
                                 CssClass="table table-striped table-bordered" OnRowDataBound="gvLineasOrdenVenta_RowDataBound">
                                 <Columns>
-                                    <asp:BoundField DataField="producto.idProductoCadena" HeaderText="ID Producto" />
-                                    <asp:BoundField DataField="producto.nombre" HeaderText="Producto" />
-                                    <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
-                                    <asp:BoundField DataField="producto.precioUnitario" HeaderText="Precio" />
-                                    <asp:BoundField DataField="subtotal" HeaderText="Subtotal" />
+                                    <asp:BoundField  HeaderText="ID Producto" />
+                                    <asp:BoundField HeaderText="Producto" />
+                                    <asp:BoundField HeaderText="Cantidad" />
+                                    <asp:BoundField HeaderText="Precio" />
+                                    <asp:BoundField HeaderText="Subtotal" />
                                     <asp:TemplateField HeaderText="Acciones">
                                         <ItemTemplate>
                                             <asp:Button ID="BtnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger"
-                                                OnClick="BtnEliminar_Click" CommandArgument='<%# Eval("producto.idProductoNumerico") %>' />
+                                                OnClick="BtnEliminar_Click" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
@@ -283,9 +297,9 @@
                                             </asp:TemplateField>
                                             <asp:TemplateField>
                                                 <ItemTemplate>
-                                                    <asp:LinkButton class="btn btn-success"
+                                                    <asp:LinkButton class="btn btn-outline-primary"
                                                         runat="server"
-                                                        Text="<i class='fa-solid fa-check ps-2'></i> Seleccionar"
+                                                        Text="Seleccionar"
                                                         ID="btnSeleccionarModalEmpleado"
                                                         OnClick="btnSeleccionarModalEmpleado_Click"
                                                         CommandArgument='<%# Eval("idEmpleadoNumerico") %>' />
@@ -338,9 +352,9 @@
                                             </asp:TemplateField>
                                             <asp:TemplateField>
                                                 <ItemTemplate>
-                                                    <asp:LinkButton class="btn btn-success"
+                                                    <asp:LinkButton class="btn btn-outline-primary"
                                                         runat="server"
-                                                        Text="<i class='fa-solid fa-check ps-2'></i> Seleccionar"
+                                                        Text="Seleccionar"
                                                         ID="btnSeleccionarModalCliente"
                                                         OnClick="btnSeleccionarModalCliente_Click"
                                                         CommandArgument='<%# Eval("idNumerico") %>' />
@@ -390,11 +404,12 @@
                                             <asp:BoundField DataField="idProductoCadena" HeaderText="ID Producto" />
                                             <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                                             <asp:BoundField DataField="precioUnitario" HeaderText="Precio Unitario" />
+                                            <asp:BoundField DataField="stock" HeaderText="Stock" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
-                                                    <asp:LinkButton class="btn btn-success"
+                                                    <asp:LinkButton class="btn btn-outline-primary"
                                                         runat="server"
-                                                        Text="<i class='fa-solid fa-check ps-2'></i> Seleccionar"
+                                                        Text="Seleccionar"
                                                         ID="btnSeleccionarModalProducto"
                                                         OnClick="btnSeleccionarModalProducto_Click"
                                                         CommandArgument='<%# Eval("idProductoNumerico") %>' />

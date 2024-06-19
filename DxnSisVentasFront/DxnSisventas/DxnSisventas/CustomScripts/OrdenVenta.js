@@ -9,16 +9,12 @@ function validarFormulario() {
     return true;
 }
 
-//<asp:BoundField DataField="producto.idProductoCadena" HeaderText="ID Producto" />
-//        <asp:BoundField DataField="producto.nombre" HeaderText="Producto" />
-//        <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
-//        <asp:BoundField DataField="producto.precioUnitario" HeaderText="Precio" />
-//        <asp:BoundField DataField="subtotal" HeaderText="Subtotal" />
-//        <asp:TemplateField HeaderText="Acciones">
-//            <ItemTemplate>
 
-
-function autoUpdate() {
+function autoUpdate(input) {
+    const min = 0;
+    const max = 100;
+    if (input.value < min) input.value = min;
+    if (input.value > max) input.value = max;
     porcentajeDescuento = document.getElementById('ContentPlaceHolder1_TxtDescuento').value;
     var total = 0;
     var gv = document.getElementById('ContentPlaceHolder1_gvLineasOrdenVenta');
@@ -39,4 +35,25 @@ function avoidEnterKey(event) {
         return false; // Evita que se propague el evento
     }
     return document.getElementById('ContentPlaceHolder1_TxtDescuento').value;
+}
+
+function validateRange(input) {
+    const min = 0;
+    const max = 100;
+    if (input.value < min) input.value = min;
+    if (input.value > max) input.value = max;
+}
+
+oninput = "verificarStock(this)"
+
+function verificarStock(input) {
+    let stockProducto = parseInt(document.getElementById('ContentPlaceHolder1_TxtStock').value, 10);
+    let cantidad = parseInt(input.value, 10);
+
+
+    if (cantidad > stockProducto) {
+        input.value = stockProducto;
+    } else if(cantidad < 0) {
+        input.value = 0;
+    }
 }
