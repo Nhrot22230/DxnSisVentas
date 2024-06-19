@@ -4,6 +4,8 @@
   <xs:element name="generarReporteAlmacenResponse" type="tns:generarReporteAlmacenResponse" />
   <xs:element name="hello" type="tns:hello" />
   <xs:element name="helloResponse" type="tns:helloResponse" />
+  <xs:element name="imprimirComprobante" type="tns:imprimirComprobante" />
+  <xs:element name="imprimirComprobanteResponse" type="tns:imprimirComprobanteResponse" />
   <xs:complexType name="hello">
     <xs:sequence>
       <xs:element minOccurs="0" name="name" type="xs:string" />
@@ -18,6 +20,16 @@
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="generarReporteAlmacenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="imprimirComprobante">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="imprimirComprobanteResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
     </xs:sequence>

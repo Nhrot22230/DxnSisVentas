@@ -13,6 +13,7 @@ namespace DxnSisventas.Views
     public partial class Comprobantes : System.Web.UI.Page
     {
         private DocumentosAPIClient documentosAPIClient;
+        private ReportesAPIClient reportesAPIClient;
         private BindingList<comprobante> BlComprobantes;
         private BindingList<comprobante> BlComprobantesFiltrado;
 
@@ -20,6 +21,7 @@ namespace DxnSisventas.Views
         {
             Page.Title = "Comprobantes";
             documentosAPIClient = new DocumentosAPIClient();
+            reportesAPIClient = new ReportesAPIClient(); 
             CargarTabla("");
             //AplicarFiltro();
             //GridBind();
@@ -70,14 +72,13 @@ namespace DxnSisventas.Views
         protected void BtnImprimir_Click(object sender, EventArgs e)
         {
             int idComprobante = int.Parse(((LinkButton)sender).CommandArgument);
-            /*Byte[] FileBuffer = reportesApi.imprimirComprobante(idComprobante);
+            Byte[] FileBuffer = reportesAPIClient.imprimirComprobante(idComprobante);
             if (FileBuffer!=null)
             {
                 Response.ContentType = "application/pdf";
                 Response.AddHeader("content-lenght", FileBuffer.Length.ToString());
                 Response.BinaryWrite(FileBuffer);
-            }*/
-
+            }
         }
 
         protected void BtnEliminar_Click(object sender, EventArgs e)

@@ -41,4 +41,20 @@ public class ReportesAPI {
     
     return file;
   }
+  
+  @WebMethod(operationName = "imprimirComprobante")
+  public byte[] imprimirComprobante(int idComprobanteNumerico) {
+    byte [] file = null;
+    
+    String template_path = ReportesAPI.class.getResource("/pe/edu/pucp/dxnsisventas/webservice/templates/Comprobante.jrxml").getPath();
+    template_path = template_path.replace("%20", " ");
+    
+    try {
+      file = ReporteManager.imprimirComprobante(template_path, idComprobanteNumerico);
+    } catch (Exception ex){
+      System.err.println(ex.getMessage());
+    }
+    
+    return file;
+  }
 }

@@ -34,4 +34,20 @@ public class ReporteManager {
     
     return file;
   }
+  
+  public static byte[] imprimirComprobante(String template_path, int idComprobanteNumerico) throws JRException{
+    byte[] file;
+    
+    // Compilación del archivo jrxml de Jasper Reports
+    JasperReport report;
+    report = JasperCompileManager.compileReport(template_path);
+    // Obtener conexión a la base de datos
+    Connection conn = DBManager.getInstance().getConnection();
+    HashMap<String, Object> parameters = new HashMap<>();
+    parameters.put("ID_comprobante", idComprobanteNumerico);
+    JasperPrint print = JasperFillManager.fillReport(report, parameters, conn);
+    file = JasperExportManager.exportReportToPdf(print);
+    
+    return file;
+  }
 }
