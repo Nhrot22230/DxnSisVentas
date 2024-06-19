@@ -28,14 +28,6 @@
       <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="generarReporteAlmacen">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="generarReporteAlmacenResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="hello">
     <xs:sequence>
       <xs:element minOccurs="0" name="name" type="xs:string" />
@@ -44,6 +36,14 @@
   <xs:complexType name="helloResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="generarReporteAlmacen">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="generarReporteAlmacenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

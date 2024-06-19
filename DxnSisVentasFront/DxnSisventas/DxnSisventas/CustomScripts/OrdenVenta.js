@@ -3,9 +3,7 @@
     modalForm.toggle();
 }
 
-
 function validarFormulario() {
-
     return true;
 }
 
