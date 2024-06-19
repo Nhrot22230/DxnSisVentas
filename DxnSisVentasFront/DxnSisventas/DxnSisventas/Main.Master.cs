@@ -27,6 +27,10 @@ namespace DxnSisventas
 
     protected void Page_Load(object sender, EventArgs e)
     {
+      if (Session["empleado"] == null)
+      {
+        Response.Redirect("~/Login.aspx");
+      }
       ClearError();
     }
 

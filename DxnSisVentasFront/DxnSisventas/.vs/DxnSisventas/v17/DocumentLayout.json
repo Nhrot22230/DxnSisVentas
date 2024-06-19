@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\candi\\onedrive\\documentos\\netbeansprojects\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\ordencompraform.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordencompraform.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\candi\\onedrive\\documentos\\netbeansprojects\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\productos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\productos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\candi\\onedrive\\documentos\\netbeansprojects\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\ordencompra.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordencompra.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\productos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\productos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\candi\\onedrive\\documentos\\netbeansprojects\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\customstyles\\ordencompra.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\customstyles\\ordencompra.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\main.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\main.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\main.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\main.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 285,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,42 +42,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OrdenCompraForm.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompraForm.aspx.cs",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenCompraForm.aspx.cs",
-              "ToolTip": "C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompraForm.aspx.cs",
-              "RelativeToolTip": "DxnSisventas\\Views\\OrdenCompraForm.aspx.cs",
-              "ViewState": "AQIAAEwBAAAAAAAAAAAqwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T08:15:10.876Z",
-              "EditorCaption": ""
+              "DocumentIndex": 1,
+              "Title": "Productos.aspx",
+              "DocumentMoniker": "C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Productos.aspx",
+              "RelativeDocumentMoniker": "DxnSisventas\\Views\\Productos.aspx",
+              "ToolTip": "C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Productos.aspx",
+              "RelativeToolTip": "DxnSisventas\\Views\\Productos.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-06-19T08:54:34.822Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OrdenCompra.aspx",
-              "DocumentMoniker": "C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompra.aspx",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenCompra.aspx",
-              "ToolTip": "C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompra.aspx",
-              "RelativeToolTip": "DxnSisventas\\Views\\OrdenCompra.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-19T08:06:02.19Z",
+              "DocumentIndex": 0,
+              "Title": "Productos.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Productos.aspx.cs",
+              "RelativeDocumentMoniker": "DxnSisventas\\Views\\Productos.aspx.cs",
+              "ToolTip": "C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Productos.aspx.cs",
+              "RelativeToolTip": "DxnSisventas\\Views\\Productos.aspx.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIMAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T08:54:10.589Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "OrdenCompra.css",
-              "DocumentMoniker": "C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\CustomStyles\\OrdenCompra.css",
-              "RelativeDocumentMoniker": "DxnSisventas\\CustomStyles\\OrdenCompra.css",
-              "ToolTip": "C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\CustomStyles\\OrdenCompra.css",
-              "RelativeToolTip": "DxnSisventas\\CustomStyles\\OrdenCompra.css",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAAwFkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-06-19T08:06:11.87Z",
-              "EditorCaption": ""
+              "Title": "Main.Master.cs",
+              "DocumentMoniker": "C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Main.Master.cs",
+              "RelativeDocumentMoniker": "DxnSisventas\\Main.Master.cs",
+              "ToolTip": "C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Main.Master.cs",
+              "RelativeToolTip": "DxnSisventas\\Main.Master.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAwwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T08:53:25.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Main.Master",
+              "DocumentMoniker": "C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Main.Master",
+              "RelativeDocumentMoniker": "DxnSisventas\\Main.Master",
+              "ToolTip": "C:\\Users\\Candi\\OneDrive\\Documentos\\NetBeansProjects\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Main.Master",
+              "RelativeToolTip": "DxnSisventas\\Main.Master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-06-19T08:53:11.581Z"
             }
           ]
         }
