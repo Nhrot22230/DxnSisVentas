@@ -19,6 +19,12 @@
   <link rel="stylesheet" href="/Content/fontawesome.min.css">
   <link rel="stylesheet" href="/Content/bootstrap.min.css" />
   <link rel="stylesheet" href="/CustomStyles/Master.css" />
+
+  <style>
+    * {
+      min-width: fit-content;
+    }
+  </style>
 </head>
 <body data-bs-theme='<%= IsDarkModeEnabled() ? "dark" : "light" %>'>
   <form id="masterForm" runat="server">
@@ -55,12 +61,13 @@
                 </li>
               </ul>
             </li>
+            <li class="nav-item">
+              <label class="toggle-switch">
+                <asp:CheckBox ID="DarkModeCheckBox" runat="server" AutoPostBack="true" OnCheckedChanged="DarkModeCheckBox_CheckedChanged" />
+                <span class="slider"></span>
+              </label>
+            </li>
           </ul>
-          <!-- Mover el interruptor de Modo Oscuro fuera de la lista de navegación -->
-          <label class="toggle-switch">
-            <asp:CheckBox ID="DarkModeCheckBox" runat="server" AutoPostBack="true" OnCheckedChanged="DarkModeCheckBox_CheckedChanged" />
-            <span class="slider"></span>
-          </label>
         </div>
       </div>
     </nav>
@@ -68,8 +75,8 @@
       <i class="fas fa-exclamation-circle"></i>
       <asp:Label ID="ErrorLabel" runat="server" Text="" CssClass="error-message"></asp:Label>
     </asp:Panel>
-    <div class="main-view">
-      <section class="side-container">
+    <div class="main-view" style="overflow: scroll;">
+      <section class="side-container" style="min-width: 250px;">
         <ul class="sidebar-menu">
           <li class="header">MENU DE NAVEGACION</li>
           <li>
@@ -140,7 +147,7 @@
               </li>
               <li>
                 <asp:LinkButton ID="LbComprobante" runat="server" OnClick="LbComprobante_Click">
-                  <i class="fa fa-files-o"></i> <span>Comprobantes</span>
+                  <i class="fas fa-file"></i> <span>Comprobantes</span>
                 </asp:LinkButton>
               </li>
             </ul>
@@ -150,7 +157,9 @@
               <i class="fas fa-chart-line"></i><span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-info-circle"></i>Reporte de Venta</a></li>
+              <li>
+                <asp:LinkButton ID="LbReporte" runat="server" OnClick="LbReporte_Click"><i class="fa fa-info-circle"></i>Reporte de Venta</asp:LinkButton>
+              </li>
               <li><a href="#"><i class="fa fa-info-circle"></i>Reporte de Clientes</a></li>
             </ul>
           </li>
@@ -162,6 +171,66 @@
         </asp:ContentPlaceHolder>
       </div>
     </div>
+
+
+    <footer class="footer">
+      <nav class="navbar navbar-expand-sm navbar-light bg-gradient fixed-bottom" style="background-color: #082444;">
+        <ul class="navbar-nav d-flex justify-content-around w-100">
+          <li class="nav-item">
+            <asp:LinkButton class="nav-link" runat="server" OnClick="LbInicio_Click"><i class="fa fa-home"></i></asp:LinkButton>
+          </li>
+          <li class="nav-item">
+            <asp:LinkButton class="nav-link" runat="server" OnClick="LbProductos_Click"><i class="fa fa-shopping-basket"></i></asp:LinkButton>
+          </li>
+          <li class="nav-item dropup">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-users"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li class="dropdown-header">Personas</li>
+              <li class="nav-item">
+                <asp:LinkButton class="nav-link" runat="server" OnClick="LbUsuariosClientes_Click"><i class="fa fa-user"></i> Clientes</asp:LinkButton>
+              </li>
+              <li class="nav-item">
+                <asp:LinkButton class="nav-link" runat="server" OnClick="LbUsuariosEmpleados_Click"><i class="fa fa-briefcase"></i> Empleados</asp:LinkButton>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropup">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-envelope"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li class="dropdown-header">Cuentas</li>
+              <li class="nav-item">
+                <asp:LinkButton class="nav-link" runat="server" OnClick="LbCuentasClientes_Click"><i class="fa fa-user"></i> Clientes</asp:LinkButton>
+              </li>
+              <li class="nav-item">
+                <asp:LinkButton class="nav-link" runat="server" OnClick="LbCuentasEmpleado_Click"><i class="fa fa-briefcase"></i> Empleados</asp:LinkButton>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropup">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-folder-open"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li class="dropdown-header"> Documentos</li>
+              <li class="nav-item">
+                <asp:LinkButton class="nav-link" runat="server" OnClick="LbOrdenCompra_Click"><i class="fa fa-industry"></i> Orden Compra</asp:LinkButton>
+              </li>
+              <li class="nav-item">
+                <asp:LinkButton class="nav-link" runat="server" OnClick="LbOrdenVenta_Click"><i class="fa fa-shopping-cart"></i> Orden Venta</asp:LinkButton>
+              </li>
+              <li class="nav-item">
+                <asp:LinkButton class="nav-link" runat="server" OnClick="LbComprobante_Click"><i class="fas fa-file"></i> Comprobantes</asp:LinkButton>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+
   </form>
   <script type="text/javascript" src="/CustomScripts/Master.js"></script>
 </body>

@@ -69,6 +69,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Templates\Almacen.jrxml" />
     <None Include="Connected Services\DxnWebService\CorreoAPI.wsdl" />
     <None Include="Connected Services\DxnWebService\CorreoAPI.xsd">
       <SubType>Designer</SubType>
@@ -233,6 +234,9 @@
     <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.orden1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.generarReporteAlmacenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\DxnWebService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -297,6 +301,10 @@
     <None Include="Connected Services\DxnWebService\ProductosAPI.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\DxnWebService\ReportesAPI.wsdl" />
+    <None Include="Connected Services\DxnWebService\ReportesAPI.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\fontawesome\all.js" />
     <Content Include="Scripts\fontawesome\all.min.js" />
@@ -329,6 +337,7 @@
     <Content Include="Views\PersonasEmpleados.aspx" />
     <Content Include="Views\PersonasEmpleadosForms.aspx" />
     <Content Include="Views\Productos.aspx" />
+    <Content Include="Views\Test.aspx" />
     <Content Include="Web.config" />
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
@@ -464,6 +473,13 @@
     </Compile>
     <Compile Include="Views\Productos.aspx.designer.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
