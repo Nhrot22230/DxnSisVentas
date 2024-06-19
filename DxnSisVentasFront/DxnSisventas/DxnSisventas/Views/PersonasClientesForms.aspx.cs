@@ -33,21 +33,20 @@ namespace DxnSisventas.Views
     }
 
     protected void Page_Init(object sender, EventArgs e)
-    { 
+    {
       if (Session["clienteEditar"] != null)
       {
-        cliente clienteEditar = (cliente)Session["clienteEditar"];
-        Page.Title = "Editando cliente: " + clienteEditar.idCadena; 
-        TxtId.Text = clienteEditar.idCadena;
+        cliente clienteEditar = (cliente) Session["clienteEditar"];
+        Page.Title = "Editar Cliente: " + clienteEditar.nombre + " " + clienteEditar.idCadena;
         TxtNombre.Text = clienteEditar.nombre;
         TxtApellidoPat.Text = clienteEditar.apellidoPaterno;
         TxtApellidoMat.Text = clienteEditar.apellidoMaterno;
         TxtDireccion.Text = clienteEditar.direccion;
         TxtDNI.Text = clienteEditar.DNI;
+        TxtId.Text = clienteEditar.idCadena;
         TxtRUC.Text = clienteEditar.RUC;
         TxtRazonSocial.Text = clienteEditar.razonSocial;
         TxtPuntos.Text = clienteEditar.puntos.ToString();
-
         if (clienteEditar.patrocinador != null)
         {
           TxtIdPatrocinador.Text = clienteEditar.patrocinador.idCadena;
@@ -56,12 +55,14 @@ namespace DxnSisventas.Views
       }
       else
       {
-        Page.Title = "Nuevo cliente";
-        LimpiarCampos();
+        Page.Title = "Nuevo Cliente";
       }
 
-      CargarTabla("");
-      GridBind();
+      if (!IsPostBack)
+      {
+        CargarTabla("");
+        GridBind();
+      }
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -77,7 +78,7 @@ namespace DxnSisventas.Views
     protected void BtnGuardar_Click(object sender, EventArgs e)
     {
 
-      cliente clienteEditar = Session["clienteEditar"] != null ? (cliente)Session["clienteEditar"] : new cliente();
+      cliente clienteEditar = Session["clienteEditar"] != null ? (cliente) Session["clienteEditar"] : new cliente();
       clienteEditar.nombre = TxtNombre.Text;
       clienteEditar.apellidoPaterno = TxtApellidoPat.Text;
       clienteEditar.apellidoMaterno = TxtApellidoMat.Text;
@@ -89,7 +90,7 @@ namespace DxnSisventas.Views
 
       if (TxtIdPatrocinador.Text != "")
       {
-        clienteEditar.patrocinador = (cliente)Session["patrocinadorSeleccionado"];
+        clienteEditar.patrocinador = (cliente) Session["patrocinadorSeleccionado"];
       }
 
       int result;
@@ -122,6 +123,7 @@ namespace DxnSisventas.Views
 
     protected void GridClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
+      CargarTabla(TxtBuscarCliente.Text);
       GridClientes.PageIndex = e.NewPageIndex;
       GridBind();
       ScriptManager.RegisterStartupScript(this, GetType(), "showModalForm", "showModalForm();", true);
@@ -144,10 +146,21 @@ namespace DxnSisventas.Views
 
     protected void GridClientes_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-      cliente patrocinador = patrocinadores[Convert.ToInt32(e.CommandArgument)];
-      Session["patrocinadorSeleccionado"] = patrocinador;
-      TxtIdPatrocinador.Text = patrocinador.idCadena;
-      TxtNombrePatrocinador.Text = patrocinador.nombre + " " + patrocinador.apellidoPaterno + " " + patrocinador.apellidoMaterno;
+      if (e.CommandName == "Select")
+      {
+        int index = Convert.ToInt32(e.CommandArgument);
+        GridViewRow row = GridClientes.Rows[index];
+        string idPatrocinador = row.Cells[0].Text;
+
+        CargarTabla("");
+        cliente patrocinador = patrocinadores.FirstOrDefault(p => p.idCadena == idPatrocinador);
+
+        if (patrocinador == null) return;
+
+        Session["patrocinadorSeleccionado"] = patrocinador;
+        TxtIdPatrocinador.Text = patrocinador.idCadena;
+        TxtNombrePatrocinador.Text = patrocinador.nombre + " " + patrocinador.apellidoPaterno + " " + patrocinador.apellidoMaterno;
+      }
     }
     private void MostrarMensaje(string mensaje, bool exito)
     {

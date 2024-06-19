@@ -98,7 +98,7 @@
         <div class="container row ">
             <asp:GridView ID="GridVentas" runat="server" AutoGenerateColumns="false"
                 AllowPaging="true" PageSize="5" OnPageIndexChanging="GridVentas_PageIndexChanging"
-                CssClass="gridview-custom" OnRowDataBound="GridVentas_RowDataBound">
+                CssClass="table table-hover table-responsive table-striped" OnRowDataBound="GridVentas_RowDataBound">
                 <Columns>
                     <asp:BoundField HeaderText="Id" />
                     <asp:BoundField HeaderText="Fecha creación" />
