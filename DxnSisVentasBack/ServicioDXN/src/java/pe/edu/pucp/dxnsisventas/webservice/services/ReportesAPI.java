@@ -27,8 +27,11 @@ public class ReportesAPI {
   }
   
   @WebMethod(operationName = "generarReporteAlmacen")
-  public byte[] generarReporteAlmacen(@WebParam(name = "template_path") String template_path) {
+  public byte[] generarReporteAlmacen() {
     byte [] file = null;
+    
+    String template_path = ReportesAPI.class.getResource("/pe/edu/pucp/dxnsisventas/webservice/templates/Simple_Blue.jrxml").getPath();
+    template_path = template_path.replace("%20", " ");
     
     try {
       file = ReporteManager.generarReporteAlmacen(template_path);

@@ -116,5 +116,10 @@ namespace DxnSisventas
     {
       Session["DarkMode"] = DarkModeCheckBox.Checked;
     }
+
+    protected void LbReporte_Click(object sender, EventArgs e)
+    {
+      Response.Redirect("~/Views/Test.aspx");
+    }
   }
 }

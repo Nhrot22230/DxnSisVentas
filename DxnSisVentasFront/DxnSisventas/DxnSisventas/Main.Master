@@ -157,7 +157,9 @@
               <i class="fas fa-chart-line"></i><span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-info-circle"></i>Reporte de Venta</a></li>
+              <li>
+                <asp:LinkButton ID="LbReporte" runat="server" OnClick="LbReporte_Click"><i class="fa fa-info-circle"></i>Reporte de Venta</asp:LinkButton>
+              </li>
               <li><a href="#"><i class="fa fa-info-circle"></i>Reporte de Clientes</a></li>
             </ul>
           </li>

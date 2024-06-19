@@ -13,6 +13,8 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import pe.edu.pucp.dxnsisventas.utils.database.DBManager;
 
+import java.sql.Connection;
+
 /**
  *
  * @author Candi
@@ -25,7 +27,7 @@ public class ReporteManager {
     JasperReport report;
     report = JasperCompileManager.compileReport(template_path);
     // Obtener conexión a la base de datos
-    var conn = DBManager.getInstance().getConnection();
+    Connection conn = DBManager.getInstance().getConnection();
     HashMap<String, Object> parameters = new HashMap<>();
     JasperPrint print = JasperFillManager.fillReport(report, parameters, conn);
     file = JasperExportManager.exportReportToPdf(print);
