@@ -559,9 +559,24 @@ CREATE PROCEDURE insertar_orden_venta(
   IN p_total DECIMAL(10, 2)
 )
 BEGIN
+  DECLARE v_puntos_cliente INT;
+  DECLARE v_id_patrocinador INT;
+  DECLARE v_puntos_patrocinador INT;
+  
+  SELECT puntos INTO v_puntos_cliente FROM Cliente WHERE id_cliente = p_id_cliente;
+  UPDATE Cliente SET puntos = v_puntos_cliente + FLOOR(p_total*0.2) WHERE id_cliente = p_id_cliente;
+
+
+  SELECT id_patrocinador INTO v_id_patrocinador FROM Cliente WHERE id_cliente = p_id_cliente;
+  IF v_id_patrocinador IS NOT NULL THEN
+    SELECT puntos INTO v_puntos_patrocinador FROM Cliente WHERE id_cliente = v_id_patrocinador;
+
+    UPDATE Cliente SET puntos = FLOOR(p_total*0.05) + v_puntos_patrocinador WHERE id_cliente = v_id_patrocinador;
+  END IF;
+  
   -- Insertar en la tabla Orden
   CALL insertar_orden(p_id_orden, p_estado, p_fecha_creacion, p_total);
-  
+
   -- Insertar en la tabla Orden_Venta, manejando el id_repartidor opcional
   IF p_id_repartidor IS NOT NULL THEN
     INSERT INTO Orden_Venta(id_orden, id_cliente, id_empleado, id_repartidor, tipo_venta, metodo_pago, porcentaje_descuento)
