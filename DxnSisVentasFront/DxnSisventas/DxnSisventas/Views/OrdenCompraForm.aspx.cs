@@ -448,7 +448,7 @@ namespace DxnSisventas.Views
             {
                 pdfFile = apiReportes.generarReporteOrdenCompra(id);
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 // Manejo de errores
             }

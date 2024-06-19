@@ -14,6 +14,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import pe.edu.pucp.dxnsisventas.utils.database.DBManager;
 
 import java.sql.Connection;
+import java.util.Map;
 
 /**
  *
@@ -50,4 +51,7 @@ public class ReporteManager {
     
     return file;
   }
+  
+  
+  
 }

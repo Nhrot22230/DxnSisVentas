@@ -158,9 +158,11 @@
             </a>
             <ul class="treeview-menu">
               <li>
-                <asp:LinkButton ID="LbReporte" runat="server" OnClick="LbReporte_Click"><i class="fa fa-info-circle"></i>Reporte de Venta</asp:LinkButton>
+                <asp:LinkButton ID="LbReporte" runat="server" OnClick="LbReporte_Click"><i class="fa fa-info-circle"></i>Reporte de inventario</asp:LinkButton>
               </li>
-              <li><a href="#"><i class="fa fa-info-circle"></i>Reporte de Clientes</a></li>
+                <li>
+                  <asp:LinkButton ID="LbReporteVenta" runat="server" OnClick="LbReporteVenta_Click"><i class="fa fa-info-circle"></i>Reporte de Venta</asp:LinkButton>
+                </li>
             </ul>
           </li>
           <li><a href="#"><i class="fas fa-cogs"></i>Configuracion de Perfil</a></li>

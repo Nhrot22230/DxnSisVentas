@@ -3,40 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\jhair\\desktop\\lp2\\proyectos\\proyectos jhairt\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\comprobantes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\comprobantes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|c:\\users\\jhair\\desktop\\lp2\\proyectos\\proyectos jhairt\\dxnsisventas\\dxnsisventasfront\\dxnsisventas\\dxnsisventas\\views\\ordencompraform.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordencompraform.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\comprobantes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\comprobantes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\test.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\test.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\customscripts\\documentos.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\customscripts\\documentos.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\test.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\test.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\main.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\main.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\reporteordenventa.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\reporteordenventa.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\comprobantesform.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\comprobantesform.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\reporteordenventa.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\reporteordenventa.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\comprobantesform.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\comprobantesform.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\main.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\main.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\ordencompra.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordencompra.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\customstyles\\ordencompra.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\customstyles\\ordencompra.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\views\\ordenventa.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\views\\ordenventa.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\dxnsisventas\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{EFA0D71F-8DE1-4B00-AA25-053C6D312A76}|DxnSisventas\\DxnSisventas.csproj|solutionrelative:dxnsisventas\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,48 +42,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 285,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ComprobantesForm.aspx",
-              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\ComprobantesForm.aspx",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\ComprobantesForm.aspx",
-              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\ComprobantesForm.aspx",
-              "RelativeToolTip": "DxnSisventas\\Views\\ComprobantesForm.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-17T04:25:08.546Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ComprobantesForm.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\ComprobantesForm.aspx.cs",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\ComprobantesForm.aspx.cs",
-              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\ComprobantesForm.aspx.cs",
-              "RelativeToolTip": "DxnSisventas\\Views\\ComprobantesForm.aspx.cs",
-              "ViewState": "AQIAAMEAAAAAAAAAAAAmwBMAAABBAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T06:17:48.397Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Comprobantes.aspx",
-              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Comprobantes.aspx",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\Comprobantes.aspx",
-              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Comprobantes.aspx",
-              "RelativeToolTip": "DxnSisventas\\Views\\Comprobantes.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-17T04:24:34.239Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
@@ -102,76 +58,100 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Documentos.js",
-              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\CustomScripts\\Documentos.js",
-              "RelativeDocumentMoniker": "DxnSisventas\\CustomScripts\\Documentos.js",
-              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\CustomScripts\\Documentos.js",
-              "RelativeToolTip": "DxnSisventas\\CustomScripts\\Documentos.js",
-              "ViewState": "AQIAACQAAAAAAAAAAAAiwHUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-06-19T03:54:48.384Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Comprobantes.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Comprobantes.aspx.cs",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\Comprobantes.aspx.cs",
-              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Comprobantes.aspx.cs",
-              "RelativeToolTip": "DxnSisventas\\Views\\Comprobantes.aspx.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEoAAAAMAAAA",
+              "DocumentIndex": 0,
+              "Title": "OrdenCompraForm.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompraForm.aspx.cs",
+              "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenCompraForm.aspx.cs",
+              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompraForm.aspx.cs",
+              "RelativeToolTip": "DxnSisventas\\Views\\OrdenCompraForm.aspx.cs",
+              "ViewState": "AQIAAK0BAAAAAAAAAAAwwLMBAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T20:18:26.231Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Main.Master",
-              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Main.Master",
-              "RelativeDocumentMoniker": "DxnSisventas\\Main.Master",
-              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Main.Master",
-              "RelativeToolTip": "DxnSisventas\\Main.Master",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-19T04:15:28.318Z",
+              "WhenOpened": "2024-06-19T08:39:43.265Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OrdenCompra.aspx",
-              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompra.aspx",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenCompra.aspx",
-              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenCompra.aspx",
-              "RelativeToolTip": "DxnSisventas\\Views\\OrdenCompra.aspx",
+              "DocumentIndex": 3,
+              "Title": "ReporteOrdenVenta.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\ReporteOrdenVenta.aspx.cs",
+              "RelativeDocumentMoniker": "DxnSisventas\\Views\\ReporteOrdenVenta.aspx.cs",
+              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\ReporteOrdenVenta.aspx.cs",
+              "RelativeToolTip": "DxnSisventas\\Views\\ReporteOrdenVenta.aspx.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAIwB8AAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T08:37:26.769Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReporteOrdenVenta.aspx",
+              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\ReporteOrdenVenta.aspx",
+              "RelativeDocumentMoniker": "DxnSisventas\\Views\\ReporteOrdenVenta.aspx",
+              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\ReporteOrdenVenta.aspx",
+              "RelativeToolTip": "DxnSisventas\\Views\\ReporteOrdenVenta.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-18T22:57:16.643Z"
+              "WhenOpened": "2024-06-19T08:28:41.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Test.aspx",
+              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Test.aspx",
+              "RelativeDocumentMoniker": "DxnSisventas\\Views\\Test.aspx",
+              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Test.aspx",
+              "RelativeToolTip": "DxnSisventas\\Views\\Test.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-06-19T08:27:36.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Test.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Test.aspx.cs",
+              "RelativeDocumentMoniker": "DxnSisventas\\Views\\Test.aspx.cs",
+              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\Test.aspx.cs",
+              "RelativeToolTip": "DxnSisventas\\Views\\Test.aspx.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAxwCEAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T08:24:05.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Main.Master.cs",
+              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Main.Master.cs",
+              "RelativeDocumentMoniker": "DxnSisventas\\Main.Master.cs",
+              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Main.Master.cs",
+              "RelativeToolTip": "DxnSisventas\\Main.Master.cs",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAgwH4AAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T08:23:52.874Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "OrdenCompra.css",
-              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\CustomStyles\\OrdenCompra.css",
-              "RelativeDocumentMoniker": "DxnSisventas\\CustomStyles\\OrdenCompra.css",
-              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\CustomStyles\\OrdenCompra.css",
-              "RelativeToolTip": "DxnSisventas\\CustomStyles\\OrdenCompra.css",
-              "ViewState": "AQIAAGcAAAAAAAAAAADwv3sAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-06-19T03:12:58.273Z"
+              "Title": "Home.aspx",
+              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Home.aspx",
+              "RelativeDocumentMoniker": "DxnSisventas\\Home.aspx",
+              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Home.aspx",
+              "RelativeToolTip": "DxnSisventas\\Home.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-06-19T08:23:08.535Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "OrdenVenta.aspx",
-              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenVenta.aspx",
-              "RelativeDocumentMoniker": "DxnSisventas\\Views\\OrdenVenta.aspx",
-              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Views\\OrdenVenta.aspx",
-              "RelativeToolTip": "DxnSisventas\\Views\\OrdenVenta.aspx",
+              "DocumentIndex": 6,
+              "Title": "Login.aspx",
+              "DocumentMoniker": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Login.aspx",
+              "RelativeDocumentMoniker": "DxnSisventas\\Login.aspx",
+              "ToolTip": "C:\\Users\\jhair\\Desktop\\LP2\\PROYECTOS\\PROYECTOS JHAIRT\\DxnSisVentas\\DxnSisVentasFront\\DxnSisventas\\DxnSisventas\\Login.aspx",
+              "RelativeToolTip": "DxnSisventas\\Login.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-18T22:57:17.86Z"
+              "WhenOpened": "2024-06-19T08:22:43.603Z"
             }
           ]
         }

@@ -15,19 +15,14 @@ namespace DxnSisventas.Views
     
     protected void Page_Load(object sender, EventArgs e)
     {
-
-    }
-    protected void btnShowPDF_Click(object sender, EventArgs e)
-    {
-
-      byte[] pdfBytes = GetPdfFromWebService();
-      if (pdfBytes != null)
-      {
-        string base64Pdf = Convert.ToBase64String(pdfBytes);
-        pdfFrame.Attributes["src"] = "data:application/pdf;base64," + base64Pdf;
-        pdfFrame.Style["display"] = "block";
-      }
-    }
+            byte[] pdfBytes = GetPdfFromWebService();
+            if (pdfBytes != null)
+            {
+                string base64Pdf = Convert.ToBase64String(pdfBytes);
+                pdfFrame.Attributes["src"] = "data:application/pdf;base64," + base64Pdf;
+                pdfFrame.Style["display"] = "block";
+            }
+        }
 
     private byte[] GetPdfFromWebService()
     {
@@ -36,7 +31,7 @@ namespace DxnSisventas.Views
       {
         pdfFile = reportesAPI.generarReporteAlmacen();
       }
-      catch (Exception ex)
+      catch (System.Exception ex)
       {
         lblMessage.CssClass = "error-message";
         if (ex.Message != null)

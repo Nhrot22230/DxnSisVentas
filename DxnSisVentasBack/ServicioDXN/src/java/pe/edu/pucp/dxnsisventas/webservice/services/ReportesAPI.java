@@ -7,7 +7,16 @@ package pe.edu.pucp.dxnsisventas.webservice.services;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
 import pe.edu.pucp.dxnsisventas.reportes.manager.ReporteManager;
+import pe.edu.pucp.dxnsisventas.utils.database.DBManager;
 
 /**
  *
@@ -73,4 +82,23 @@ public class ReportesAPI {
     
     return file;
   }
+  
+    @WebMethod(operationName = "reporteOrdenVentaPDF")
+    public byte[] reporteOrdenVenta() throws Exception {
+        
+        byte [] file = null;
+    
+        String template_path = ReportesAPI.class.getResource("/pe/edu/pucp/dxnsisventas/webservice/templates/OrdenesVentas.jrxml").getPath();
+        template_path = template_path.replace("%20", " ");
+
+        try {
+          file = ReporteManager.generarReporteAlmacen(template_path);
+        } catch (Exception ex){
+          System.err.println(ex.getMessage());
+        }
+        return file;
+   
+    }
+    
+  
 }

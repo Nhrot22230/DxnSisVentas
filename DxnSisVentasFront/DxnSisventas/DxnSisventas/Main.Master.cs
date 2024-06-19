@@ -121,5 +121,10 @@ namespace DxnSisventas
     {
       Response.Redirect("~/Views/Test.aspx");
     }
+
+    protected void LbReporteVenta_Click(object sender, EventArgs e)
+    {
+       Response.Redirect("~/Views/ReporteOrdenVenta.aspx");
+    }
   }
 }

@@ -243,6 +243,9 @@
     <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.generarReporteOrdenCompraResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\DxnWebService\DxnSisventas.DxnWebService.reporteOrdenVentaPDFResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\DxnWebService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -343,6 +346,7 @@
     <Content Include="Views\PersonasEmpleados.aspx" />
     <Content Include="Views\PersonasEmpleadosForms.aspx" />
     <Content Include="Views\Productos.aspx" />
+    <Content Include="Views\ReporteOrdenVenta.aspx" />
     <Content Include="Views\Test.aspx" />
     <Content Include="Web.config" />
     <Content Include="webfonts\fa-brands-400.svg" />
@@ -479,6 +483,13 @@
     </Compile>
     <Compile Include="Views\Productos.aspx.designer.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReporteOrdenVenta.aspx.cs">
+      <DependentUpon>ReporteOrdenVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ReporteOrdenVenta.aspx.designer.cs">
+      <DependentUpon>ReporteOrdenVenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>

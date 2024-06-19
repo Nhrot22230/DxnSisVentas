@@ -53,16 +53,6 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarProductos">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="cadena" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarProductosResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="hello">
     <xs:sequence>
       <xs:element minOccurs="0" name="name" type="xs:string" />
@@ -71,6 +61,16 @@
   <xs:complexType name="helloResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cadena" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="tipoProducto">
