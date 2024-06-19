@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -34,18 +35,47 @@ namespace DxnSisventas.Views
             apiDocumentos = new DocumentosAPIClient();
             tipoOrdenCompra = true;
             CargarTabla("");
+
+            String accion = Request.QueryString["accion"];
+            if (accion != null && accion == "ver" && Session["idComprobanteSeleccionado"] != null)
+            {
+                CargarDatos();
+                ModoVisualizar();
+            }
+        }
+
+        protected void ModoVisualizar()
+        {
+            TxtFechaComprobante.Enabled = false;
+            DropDownListTipoComprobante.Enabled = false;
+            DropDownListTipoOrden.Enabled = false;
         }
         protected void CargarDatos()
         {
+            int idComprobanteSeleccionado = (int)Session["idComprobanteSeleccionado"];
+            comprobante = apiDocumentos.listarComprobante("").SingleOrDefault(x => x.idComprobanteNumerico == idComprobanteSeleccionado);
             if (comprobante != null)
             {
                 TxtId.Text = comprobante.idComprobanteCadena;
                 TxtFechaComprobante.Text = comprobante.fechaEmision.ToString("dd/MM/yyyy");
-                //DropDownListTipoComprobante.SelectedValue = comprobante.tipoComprobante.ToString();
+                DropDownListTipoComprobante.SelectedValue = comprobante.tipoComprobante.ToString();
                 if (comprobante.ordenAsociada != null)
                 {
-                    TxtIdOrden.Text = comprobante.ordenAsociada.idOrden.ToString();
+                    
                     TxtFechaOrden.Text = comprobante.ordenAsociada.fechaCreacion.ToString("dd/MM/yyyy");
+                    DropDownListTipoOrden.AutoPostBack = false;
+                    if (comprobante.ordenAsociada is ordenCompra)
+                    {
+                        TxtIdOrden.Text = ((ordenCompra)comprobante.ordenAsociada).idOrdenCompraCadena;
+                        DropDownListTipoOrden.SelectedValue = "Compra";
+                    }
+                    else
+                    {
+                        TxtIdOrden.Text = ((ordenVenta)comprobante.ordenAsociada).idOrdenVentaCadena;
+                        DropDownListTipoOrden.SelectedValue = "Venta";
+                    }
+                    DropDownListTipoOrden.AutoPostBack = true;
+                    TxtTotal.Text = comprobante.ordenAsociada.total.ToString("N2");
                 }
             }
         }

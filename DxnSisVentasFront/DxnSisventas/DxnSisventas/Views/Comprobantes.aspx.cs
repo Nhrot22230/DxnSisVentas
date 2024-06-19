@@ -16,12 +16,14 @@ namespace DxnSisventas.Views
         private ReportesAPIClient reportesAPIClient;
         private BindingList<comprobante> BlComprobantes;
         private BindingList<comprobante> BlComprobantesFiltrado;
+        private CorreoAPIClient apiCorreo;
 
         protected void Page_Init(object sender, EventArgs e)
         {
             Page.Title = "Comprobantes";
             documentosAPIClient = new DocumentosAPIClient();
-            reportesAPIClient = new ReportesAPIClient(); 
+            reportesAPIClient = new ReportesAPIClient();
+            apiCorreo = new CorreoAPIClient();
             CargarTabla("");
             //AplicarFiltro();
             //GridBind();
@@ -53,7 +55,7 @@ namespace DxnSisventas.Views
         protected void BtnEditar_Click(object sender, EventArgs e)
         {
             int idComprobante = int.Parse(((LinkButton)sender).CommandArgument);
-            Session["IdComprobante"] = idComprobante;
+            Session["idComprobanteSeleccionado"] = idComprobante;
             comprobante comp = BlComprobantes.FirstOrDefault(c => c.idComprobanteNumerico == idComprobante);
 
             bool flag = comp.ordenAsociada is ordenVenta;
@@ -69,19 +71,145 @@ namespace DxnSisventas.Views
             }
         }
 
-        protected void BtnImprimir_Click(object sender, EventArgs e)
+        protected void BtnVisualizar_Click(object sender, EventArgs e)
         {
             int idComprobante = int.Parse(((LinkButton)sender).CommandArgument);
-            Byte[] FileBuffer = reportesAPIClient.imprimirComprobante(idComprobante);
-            if (FileBuffer!=null)
+            Session["idComprobanteSeleccionado"] = idComprobante;
+            comprobante comp = BlComprobantes.FirstOrDefault(c => c.idComprobanteNumerico == idComprobante);
+
+            if(comp!=null)
             {
-                Response.ContentType = "application/pdf";
-                Response.AddHeader("content-lenght", FileBuffer.Length.ToString());
-                Response.BinaryWrite(FileBuffer);
+                Response.Redirect("ComprobantesForm.aspx?accion=ver");
+            }
+            else{
+                MostrarMensaje("No se encontro el comprobante", false);
             }
         }
 
-        protected void BtnEliminar_Click(object sender, EventArgs e)
+        protected void BtnImprimir_Click(object sender, EventArgs e)
+        {
+
+            int idComprobante = int.Parse(((LinkButton)sender).CommandArgument);
+            byte[] pdfBytes = GetPdfFromWebService(idComprobante);
+            /*if (pdfBytes != null)
+            {
+                string base64Pdf = Convert.ToBase64String(pdfBytes);
+                pdfFrame.Attributes["src"] = "data:application/pdf;base64," + base64Pdf;
+                pdfFrame.Style["display"] = "block";
+            }
+            Byte[] FileBuffer = reportesAPIClient.imprimirComprobante(idComprobante);*/
+            if (pdfBytes != null)
+            {
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("content-lenght", pdfBytes.Length.ToString());
+                Response.BinaryWrite(pdfBytes);
+            }
+        }
+
+        private byte[] GetPdfFromWebService(int idComprobanteNumerico)
+        {
+            byte[] pdfFile = null;
+            try
+            {
+                pdfFile = reportesAPIClient.imprimirComprobante(idComprobanteNumerico);
+            }
+            catch (Exception ex)
+            {
+                MostrarMensaje("Error al generar el reporte", false);
+                return null;
+            }
+
+            return pdfFile;
+        }
+
+        protected void BtnEnviar_Click(object sender, EventArgs e)
+        {
+            int idComprobante = int.Parse(((LinkButton)sender).CommandArgument);
+            Session["idComprobanteSeleccionado"] = idComprobante;
+            string script = "window.onload = function() { showModalFormEnviar() };";
+            ClientScript.RegisterStartupScript(GetType(), "", script, true);
+        }
+
+        protected string armarpdf()
+        {
+            int idComprobante = (int)Session["idComprobanteSeleccionado"];
+            byte[] pdfBytes = GetPdfFromWebService(idComprobante);
+            if (pdfBytes != null)
+            {
+                // Definir la ruta del archivo temporal
+                string tempFolderPath = Server.MapPath("~/Temp");
+
+                // Crear la carpeta Temp si no existe
+                if (!System.IO.Directory.Exists(tempFolderPath))
+                {
+                    System.IO.Directory.CreateDirectory(tempFolderPath);
+                }
+                string nombrearch = "Comprobante_" + idComprobante + ".pdf";
+                // Definir la ruta completa del archivo PDF
+                string tempFilePath = System.IO.Path.Combine(tempFolderPath, nombrearch);
+
+                // Guardar el PDF en la ruta temporal
+                System.IO.File.WriteAllBytes(tempFilePath, pdfBytes);
+
+                // Mostrar el PDF en un iframe (opcional)
+                string base64Pdf = Convert.ToBase64String(pdfBytes);
+                //pdfFrame.Attributes["src"] = "data:application/pdf;base64," + base64Pdf;
+                //pdfFrame.Style["display"] = "block";
+
+                // Llamar a la función de envío de correo con el archivo adjunto
+                return tempFilePath;
+            }
+            return null;
+        }
+
+        protected string CrearContenido()
+        {
+            int idComprobante = (int)Session["idComprobanteSeleccionado"];
+            comprobante comp = BlComprobantes.FirstOrDefault(c => c.idComprobanteNumerico == idComprobante);
+            string contenido = "<html><body style='font-family: Arial, sans-serif;'>";
+            contenido += "<h2 style='text-align: center;'>Saludos Estimado(a),</h2>";
+            contenido += "<p>Adjunto encontrará el comprobante Nro: " + comp.idComprobanteCadena.ToString() + ".</p>";
+
+
+            contenido += "</table>";
+            contenido += "<p style='text-align: right; font-weight: bold; margin-top: 20px;'>Total: " + comp.ordenAsociada.total.ToString("N2") + "</p>";
+            contenido += "<p>Quedamos a disposición para cualquier consulta.</p>";
+            contenido += "<p>Atentamente,<br>BBB Ventas</p>";
+            contenido += "</body></html>";
+
+            return contenido;
+        }
+        protected void lbEnviaroModal_Click(object sender, EventArgs e)
+    {
+            int idComprobante = int.Parse(((LinkButton)sender).CommandArgument);
+            Session["idComprobanteSeleccionado"] = idComprobante;
+            comprobante comp = BlComprobantes.FirstOrDefault(c => c.idComprobanteNumerico == idComprobante);
+            string asunto = "Comprobante Nro: " + comp.idComprobanteCadena;
+           string contenido = CrearContenido();
+            string correo = txtCorreo.Text.ToString();
+
+
+            int resultado;
+            string path = armarpdf();
+
+            resultado = apiCorreo.enviarCorreoWeb(asunto, contenido, correo, path);
+
+
+            if (resultado == 0)
+            {
+                MostrarMensaje("Ingrese un correo valido", resultado == 0);
+                return;
+            }
+            else
+            {
+                MostrarMensaje("Correo Enviado", false);
+
+            }
+        }
+
+
+
+    protected void BtnEliminar_Click(object sender, EventArgs e)
         {
             int idComprobante = int.Parse(((LinkButton)sender).CommandArgument);
             int res = documentosAPIClient.eliminarComprobante(idComprobante);
@@ -189,6 +317,7 @@ namespace DxnSisventas.Views
                 {
                     lblOrdenVentaCompra.Text = "N/A";
                 }
+                e.Row.Cells[1].Text = ((DateTime)DataBinder.Eval(e.Row.DataItem, "fechaEmision")).ToString("dd/MM/yyyy");
             }
         }
 

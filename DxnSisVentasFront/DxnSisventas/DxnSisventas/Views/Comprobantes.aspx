@@ -2,11 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../CustomStyles/Comprobante.css" rel="stylesheet" />
-    <script type="text/javascript">
-        function openInNewTab() {
-         window.document.forms[0].target = '_blank'; 
-         setTimeout(function () { window.document.forms[0].target = ''; }, 1);
-     }
+    <script type="text/javascript" src="../CustomScripts/Documentos.js">
+       
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -68,7 +65,7 @@
             CssClass="gridview-custom">
           <Columns>
             <asp:BoundField DataField="idComprobanteCadena" HeaderText="ID Comprobante" />
-            <asp:BoundField DataField="fechaEmision" HeaderText="Fecha Emisión" />
+            <asp:BoundField HeaderText="Fecha Emisión" />
             <asp:BoundField DataField="tipoComprobante" HeaderText="Tipo de comprobante" />
             <%--asp:BoundField DataField="ordenAsociada.idOrden" HeaderText="ID Orden Asociada"/> --%>
             <asp:TemplateField HeaderText="ID Orden Asociada" >
@@ -83,7 +80,11 @@
                   OnClick="BtnEditar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />--%>
                 <asp:LinkButton ID="BtnImprimir" runat="server" Text="<i class='fas fa-solid fa-print ps-2'>  </i>"
                     OnClick="BtnImprimir_Click" OnClientClick="openInNewTab();" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />
-                <asp:LinkButton ID="BtnEliminar" runat="server" Text="<i class='fas fa-solid fa-trash ps-2'></i>"
+                <%-- %>asp:LinkButton ID="BtnEnviar" runat="server" Text="<i class='fas fa-solid fa-paper-plane ps-2'>  </i>"
+                    OnClick="BtnEnviar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />--%>
+                    <asp:LinkButton ID="BtnVisualizar" runat="server" Text="<i class='fas fa-solid fa-eye ps-2'>  </i>"
+     OnClick="BtnVisualizar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />
+                  <asp:LinkButton ID="BtnEliminar" runat="server" Text="<i class='fas fa-solid fa-trash ps-2'></i>"
                   OnClick="BtnEliminar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>'
                   OnClientClick="return confirm('¿Esta seguro de eliminar este registro?');" />
               </ItemTemplate>
@@ -94,4 +95,64 @@
       </div>
     </div>
   </div>
+
+    <asp:ScriptManager runat="server"></asp:ScriptManager>
+        <!-- Modal para agregar destinatario -->
+    <div class="modal fade" id="form-modal-enviar" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar destinatario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <asp:UpdatePanel runat="server">
+                    <ContentTemplate>
+                        <div class="container row pb-3 pt-3">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <asp:Label CssClass="form-label" runat="server" Text="Ingresar destinatario:"></asp:Label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <asp:TextBox CssClass="form-control" ID="txtCorreo" runat="server" onkeydown="if (event.keyCode == 13) return false;"></asp:TextBox>
+                                    <asp:RequiredFieldValidator 
+                                        ID="reqCorreo" 
+                                        runat="server" 
+                                        ControlToValidate="txtCorreo"
+                                        ErrorMessage="El campo de correo electrónico es obligatorio."
+                                        Display="Dynamic" 
+                                        ForeColor="Red" 
+                                        SetFocusOnError="true"
+                                        ValidationGroup="CorreoGroup">
+                                    </asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator 
+                                        ID="regexCorreo" 
+                                        runat="server" 
+                                        ControlToValidate="txtCorreo"
+                                        ErrorMessage="Por favor, ingrese un correo electrónico válido."
+                                        ValidationExpression="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+                                        Display="Dynamic" 
+                                        ForeColor="Red" 
+                                        SetFocusOnError="true"
+                                        ValidationGroup="CorreoGroup">
+                                    </asp:RegularExpressionValidator>
+                                </div>
+                                <div class="col-sm-2">
+                                    <asp:LinkButton 
+                                        ID="EnviarModal" 
+                                        runat="server" 
+                                        CssClass="btn btn-primary" 
+                                        Text="<i class='fas fa-paper-plane' style='color:white'></i> <span style='color:white'>Enviar</span>" 
+                                        OnClick="lbEnviaroModal_Click" 
+                                        ValidationGroup="CorreoGroup">
+                                    </asp:LinkButton>
+                                </div>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+        </div>
+    </div>
+</div>
 </asp:Content>
