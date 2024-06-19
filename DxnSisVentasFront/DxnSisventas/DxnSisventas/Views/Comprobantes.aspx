@@ -80,10 +80,10 @@
                   OnClick="BtnEditar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />--%>
                 <asp:LinkButton ID="BtnImprimir" runat="server" Text="<i class='fas fa-solid fa-print ps-2'>  </i>"
                     OnClick="BtnImprimir_Click" OnClientClick="openInNewTab();" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />
-                <%-- %>asp:LinkButton ID="BtnEnviar" runat="server" Text="<i class='fas fa-solid fa-paper-plane ps-2'>  </i>"
-                    OnClick="BtnEnviar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />--%>
-                    <asp:LinkButton ID="BtnVisualizar" runat="server" Text="<i class='fas fa-solid fa-eye ps-2'>  </i>"
-     OnClick="BtnVisualizar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />
+                <asp:LinkButton ID="BtnEnviar" runat="server" Text="<i class='fas fa-solid fa-paper-plane ps-2'>  </i>"
+                    OnClick="BtnEnviar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />
+                    <%--<asp:LinkButton ID="BtnVisualizar" runat="server" Text="<i class='fas fa-solid fa-eye ps-2'>  </i>"
+     OnClick="BtnVisualizar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>' />--%>
                   <asp:LinkButton ID="BtnEliminar" runat="server" Text="<i class='fas fa-solid fa-trash ps-2'></i>"
                   OnClick="BtnEliminar_Click" CommandArgument='<%# Eval("idComprobanteNumerico") %>'
                   OnClientClick="return confirm('¿Esta seguro de eliminar este registro?');" />

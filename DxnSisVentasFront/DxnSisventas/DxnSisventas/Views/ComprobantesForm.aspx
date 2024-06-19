@@ -22,7 +22,7 @@
                             </div>
 
                             <label for="TxtFecha" class="col-sm-2 col-form-label">Fecha</label>
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <asp:TextBox ID="TxtFechaComprobante" runat="server" type="date" Enabled="true" CssClass="form-control" onblur="validateFechaComprobante()"></asp:TextBox>
                                 <div id="fechaComprobanteErrorMessage" style="display: none; color: red;"></div>
                             </div>
@@ -36,7 +36,7 @@
                                 </asp:DropDownList>
                             </div>
                             <label for="TxtTotal" class="col-sm-2 col-form-label">Total</label>
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <asp:TextBox ID="TxtTotal" runat="server" Enabled="false" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>

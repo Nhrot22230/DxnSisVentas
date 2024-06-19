@@ -181,8 +181,7 @@ namespace DxnSisventas.Views
         }
         protected void lbEnviaroModal_Click(object sender, EventArgs e)
     {
-            int idComprobante = int.Parse(((LinkButton)sender).CommandArgument);
-            Session["idComprobanteSeleccionado"] = idComprobante;
+            int idComprobante = (int)Session["idComprobanteSeleccionado"];
             comprobante comp = BlComprobantes.FirstOrDefault(c => c.idComprobanteNumerico == idComprobante);
             string asunto = "Comprobante Nro: " + comp.idComprobanteCadena;
            string contenido = CrearContenido();
@@ -205,6 +204,7 @@ namespace DxnSisventas.Views
                 MostrarMensaje("Correo Enviado", false);
 
             }
+            Response.Redirect("/Views/Comprobantes.aspx");
         }
 
 

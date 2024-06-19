@@ -46,7 +46,7 @@ namespace DxnSisventas.Views
 
         protected void ModoVisualizar()
         {
-            TxtFechaComprobante.Enabled = false;
+            //TxtFechaComprobante.Enabled = false;
             DropDownListTipoComprobante.Enabled = false;
             DropDownListTipoOrden.Enabled = false;
         }
