@@ -663,11 +663,7 @@ namespace DxnSisventas.Views
                 }
                 apiOrdenCompra.actualizarOrdenCompra(ordenCompra);
             }
-            else
-            {
-
-                apiOrdenCompra.insertarOrdenCompra(orden);
-            }
+            
 
 
             //////////////a partir de aca se genera el correo///////////////////////////////////////////
