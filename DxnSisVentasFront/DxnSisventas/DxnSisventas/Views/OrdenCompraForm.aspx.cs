@@ -63,7 +63,7 @@ namespace DxnSisventas.Views
             else
             {
                 if (accion != null && accion == "new" && Session["idOrdenVenta"] == null)
-                    btnEnviar.Enabled = false;
+                btnEnviar.Enabled = false;
                 cardInfo.Visible = false;
                 lineasAgregadas.Clear();
                 ordenCompra = new ordenCompra();
@@ -126,7 +126,7 @@ namespace DxnSisventas.Views
                 btnGuardar.Enabled = false;
                 lbAgregarLOV.Enabled = false;
                 txtCantidadUnidades.Enabled = false;
-                btnEnviar.Enabled = false;
+                
                 btnBuscarProducto.Enabled = false;
 
             }
@@ -645,7 +645,7 @@ namespace DxnSisventas.Views
                 MostrarMensaje("Debe agregar un producto...", lineasOrden == null || lineasOrden.Count() <= 0 || orden.lineasOrden.Count() == 0);
                 return;
             }
-            if (Request.QueryString["accion"] == "ver")
+            if (Request.QueryString["accion"] == "ver" && txtEstado.Text=="Pendiente")
             {
                 ordenCompra.lineasOrden = lineasOrden.ToArray();
                 ordenCompra.fechaCreacionSpecified = true;
@@ -675,7 +675,8 @@ namespace DxnSisventas.Views
             ordenCompra.estado = estadoOrden.Entregado;
             ordenCompra.fechaRecepcionSpecified = true;
             ordenCompra.fechaRecepcion = DateTime.Now;
-            apiOrdenCompra.actualizarOrdenCompra(ordenCompra);
+            if(txtEstado.Text != "Entregado")
+                apiOrdenCompra.actualizarOrdenCompra(ordenCompra);
             apiCorreo.enviarCorreoWeb(asunto, contenido, correo, path);
             Session["correo"] = "true";
             lineasOrden.Clear();
@@ -684,7 +685,14 @@ namespace DxnSisventas.Views
             Response.Redirect("/Views/OrdenCompra.aspx");
         }
 
+     
+        protected void gvLineasOrdenVenta_PageIndexChanging1(object sender, GridViewPageEventArgs e)
+        {
+            gvLineasOrdenVenta.PageIndex = e.NewPageIndex;
 
+            gvLineasOrdenVenta.DataSource = lineasOrden;
+            gvLineasOrdenVenta.DataBind();
+        }
     }
 
 

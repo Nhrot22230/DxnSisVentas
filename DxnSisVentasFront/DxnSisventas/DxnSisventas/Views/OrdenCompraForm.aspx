@@ -98,7 +98,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <asp:GridView ID="gvLineasOrdenVenta" runat="server" AllowPaging="true" PageSize="5" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped">
+                            <asp:GridView ID="gvLineasOrdenVenta" runat="server" AllowPaging="true" PageSize="5" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped" OnPageIndexChanging="gvLineasOrdenVenta_PageIndexChanging1">
                                 <Columns>
                                     <asp:TemplateField HeaderText="Nombre Producto">
                                         <ItemTemplate>
