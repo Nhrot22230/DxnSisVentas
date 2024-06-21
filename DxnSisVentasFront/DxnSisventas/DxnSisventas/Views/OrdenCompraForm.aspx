@@ -78,7 +78,7 @@
                         </div>
                         <div class="mb-3 row">
                             <asp:Label ID="lblNombreProducto" runat="server" Text="Nombre:" CssClass="col-sm-2 col-form-label" />
-                            <div class="col-sm-5">
+                            <div class="col-sm-4">
                                 <asp:TextBox ID="txtNombreProducto" runat="server" Enabled="false" CssClass="form-control" />
                             </div>
                         </div>
